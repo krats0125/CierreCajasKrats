@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F08E1664-E9D3-48AA-9CC9-396851D3362D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CierreDeCajas</RootNamespace>
+    <AssemblyName>CierreDeCajas</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.3.7.0\lib\net462\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Logica\CierreCajaRepository.cs" />
+    <Compile Include="Logica\ConceptoAdelantoRepository.cs" />
+    <Compile Include="Logica\CONEXION.cs" />
+    <Compile Include="Logica\DomicilioRepository.cs" />
+    <Compile Include="Logica\InstanciasRepository.cs" />
+    <Compile Include="Logica\MenudaRepository.cs" />
+    <Compile Include="Logica\MovimientosRepository.cs" />
+    <Compile Include="Logica\PrestamosRepository.cs" />
+    <Compile Include="Logica\TrabajadoresRepository.cs" />
+    <Compile Include="Logica\Utilitarios\SentenciaSqlOLEDB.cs" />
+    <Compile Include="Logica\Utilitarios\SentenciaSqlServer.cs" />
+    <Compile Include="Modelo\ConceptoAdelanto.cs" />
+    <Compile Include="Presentacion\Administrativo\FrmCrearNuevoConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmCrearNuevoConcepto.Designer.cs">
+      <DependentUpon>FrmCrearNuevoConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmDetalleReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmDetalleReporte.Designer.cs">
+      <DependentUpon>FrmDetalleReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmMovimientosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmMovimientosAdmin.Designer.cs">
+      <DependentUpon>FrmMovimientosAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNuevoAdelanto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNuevoAdelanto.Designer.cs">
+      <DependentUpon>FrmNuevoAdelanto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\CierreCaja.cs" />
+    <Compile Include="Modelo\Domicilio.cs" />
+    <Compile Include="Modelo\MedioDePago.cs" />
+    <Compile Include="Modelo\Menuda.cs" />
+    <Compile Include="Modelo\Movimiento.cs" />
+    <Compile Include="Modelo\Prestamo.cs" />
+    <Compile Include="Modelo\Trabajador.cs" />
+    <Compile Include="Presentacion\Administrativo\FrmAdelantos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmAdelantos.Designer.cs">
+      <DependentUpon>FrmAdelantos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmAdministrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmAdministrativo.Designer.cs">
+      <DependentUpon>FrmAdministrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmTrabajador.Designer.cs">
+      <DependentUpon>FrmTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmCierreCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmCierreCaja.Designer.cs">
+      <DependentUpon>FrmCierreCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDescargaArchivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDescargaArchivos.Designer.cs">
+      <DependentUpon>FrmDescargaArchivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmMenuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmMenuda.Designer.cs">
+      <DependentUpon>FrmMenuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmPrestamos.Designer.cs">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\FrmDomicilios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Sistema\FrmDomicilios.Designer.cs">
+      <DependentUpon>FrmDomicilios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmMovimientos.Designer.cs">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmCrearNuevoConcepto.resx">
+      <DependentUpon>FrmCrearNuevoConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmDetalleReporte.resx">
+      <DependentUpon>FrmDetalleReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmMovimientosAdmin.resx">
+      <DependentUpon>FrmMovimientosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmNuevoAdelanto.resx">
+      <DependentUpon>FrmNuevoAdelanto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Sistema\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmAdelantos.resx">
+      <DependentUpon>FrmAdelantos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmAdministrativo.resx">
+      <DependentUpon>FrmAdministrativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmTrabajador.resx">
+      <DependentUpon>FrmTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmCierreCaja.resx">
+      <DependentUpon>FrmCierreCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDescargaArchivos.resx">
+      <DependentUpon>FrmDescargaArchivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmMenuda.resx">
+      <DependentUpon>FrmMenuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmPrestamos.resx">
+      <DependentUpon>FrmPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Sistema\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Sistema\FrmDomicilios.resx">
+      <DependentUpon>FrmDomicilios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmMovimientos.resx">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

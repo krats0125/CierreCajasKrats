@@ -1,0 +1,234 @@
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.CierreCaja.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\Guna.UI2.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\Guna.UI2.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CopyComplete
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.CierreCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.CierreCaja.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+C:\Users\maria\Downloads\SISTEMA CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.CierreCaja.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+C:\Users\user\Downloads\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CopyComplete
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+C:\Users\maria\Downloads\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CopyComplete
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+X:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmReportes.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmDetalleReporte.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmMovimientosAdmin.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmCrearNuevoConcepto.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmNuevoAdelanto.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Operativo.FrmVentas.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe.config
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.exe
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\CierreDeCajas.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.dll
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Guna.UI2.dll
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.pdb
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\ExcelDataReader.xml
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmCrearNuevoConcepto.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmDetalleReporte.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmMovimientosAdmin.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmNuevoAdelanto.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmReportes.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Operativo.FrmVentas.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.FrmLogin.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmTrabajador.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmCierreCaja.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmDescargaArchivos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmMenuda.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.FrmPrestamos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Principal.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmDomicilios.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Presentacion.Sistema.FrmMovimientos.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.Properties.Resources.resources
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.GenerateResource.cache
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDeCajas.csproj.CoreCompileInputs.cache
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\obj\Debug\CierreDe.C1983806.Up2Date
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maria\Downloads\CIERRE CAJA\CIERRE CAJA\SISTEMA CIERRE CAJA\CierreDeCajas\bin\Debug\Newtonsoft.Json.xml

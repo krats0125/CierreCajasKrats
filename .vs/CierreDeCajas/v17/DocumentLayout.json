@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\logica\\instanciasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:logica\\instanciasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\logica\\cierrecajarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:logica\\cierrecajarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|c:\\users\\maria\\downloads\\cierre caja\\cierre caja\\sistema cierre caja\\cierredecajas\\presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InstanciasRepository.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Logica\\InstanciasRepository.cs",
+              "RelativeDocumentMoniker": "Logica\\InstanciasRepository.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Logica\\InstanciasRepository.cs",
+              "RelativeToolTip": "Logica\\InstanciasRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:48:40.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmMenuda.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmMenuda.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMenuda.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmMenuda.cs",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmMenuda.cs",
+              "ViewState": "AQIAAI4BAAAAAAAAAAAwwBgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:38:36.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmVentas.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmVentas.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmVentas.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmVentas.cs",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmVentas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:38:17.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CierreCajaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Logica\\CierreCajaRepository.cs",
+              "RelativeDocumentMoniker": "Logica\\CierreCajaRepository.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Logica\\CierreCajaRepository.cs",
+              "RelativeToolTip": "Logica\\CierreCajaRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAG0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:06:42.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmCierreCaja.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmCierreCaja.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmCierreCaja.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:49:49.564Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmCierreCaja.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMEAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:49:52.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmVentas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmVentas.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmVentas.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmVentas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmVentas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:38:13.981Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FrmMovimientos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmMovimientos.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMovimientos.cs",
+              "ToolTip": "C:\\Users\\maria\\Downloads\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\CierreDeCajas\\Presentacion\\Operativo\\FrmMovimientos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmMovimientos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:45:08.376Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
