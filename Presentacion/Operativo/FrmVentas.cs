@@ -29,29 +29,27 @@ namespace CierreDeCajas.Presentacion.Operativo
 
             if (decimal.TryParse(txtVentas.Text, out decimal totalVentas))
             {
+                if (totalVentas == 0)
+                {
+                    return;
+                }
                 TotalVentas = totalVentas;
 
-                // Actualizar la base de datos
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre, TotalVentas);
-                if (!actualizacionExitosa)
-                {
-                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
-                }
-                else
-                {
-                    // Refrescar la instancia de FrmCierreCaja
+                
                     FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                     if (frm != null)
                     {
                         frm.CargarCierreVentas();
+                        bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre, TotalVentas);
+                        if (!actualizacionExitosa)
+                        {
+                            MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                        }
                     }
-                }
+                
             }
         }
 
-        private void FrmVentas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            new CierreCajaRepository().ActualizarCierre(ppal.idCierre, TotalVentas);
-        }
+      
     }
 }

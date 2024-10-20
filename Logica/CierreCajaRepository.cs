@@ -26,8 +26,11 @@ namespace CierreDeCajas.Logica
             {
                 ultimoefectivoentregado = Frm.valorentregado;
             }
+            if (valorventas == 0)
+            {
+                return true;
+            }
 
-            
             bool respuesta = false;
             try
             {
@@ -54,12 +57,40 @@ namespace CierreDeCajas.Logica
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error: {ex.Message}");
                 return respuesta;
             }
 
             return respuesta;
         }
-   
+
+        public decimal ObtenerUltimoValorVentas(int IdCierre)
+        {
+            decimal valorVentas = 0;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = "SELECT ValorVentas FROM CierreCaja WHERE IdCierre = @IdCierre";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCierre", IdCierre);
+                        object resultado = cmd.ExecuteScalar();
+                        if (resultado != null && resultado != DBNull.Value)
+                        {
+                            valorVentas = Convert.ToDecimal(resultado);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener el valor de ventas: " + ex.Message);
+            }
+            return valorVentas;
+        }
+
 
         public CierreCaja listar(int IdCierre, out string mensaje)
         {

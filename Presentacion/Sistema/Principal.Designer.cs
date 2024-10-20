@@ -80,19 +80,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelMaestro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.PanelMaestro.Location = new System.Drawing.Point(-2, 129);
-            this.PanelMaestro.Margin = new System.Windows.Forms.Padding(2);
+            this.PanelMaestro.Location = new System.Drawing.Point(-3, 159);
+            this.PanelMaestro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelMaestro.Name = "PanelMaestro";
-            this.PanelMaestro.Size = new System.Drawing.Size(1050, 564);
+            this.PanelMaestro.Size = new System.Drawing.Size(1400, 694);
             this.PanelMaestro.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(96, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -114,9 +114,10 @@
             this.BarraS.Controls.Add(this.lb_FechaActual);
             this.BarraS.Controls.Add(this.lb_Caja);
             this.BarraS.Controls.Add(this.lb_Cajero);
-            this.BarraS.Location = new System.Drawing.Point(-2, 0);
+            this.BarraS.Location = new System.Drawing.Point(-3, 0);
+            this.BarraS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BarraS.Name = "BarraS";
-            this.BarraS.Size = new System.Drawing.Size(1049, 84);
+            this.BarraS.Size = new System.Drawing.Size(1399, 103);
             this.BarraS.TabIndex = 5;
             this.BarraS.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraS_Paint);
             // 
@@ -127,10 +128,10 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
             this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
-            this.PanelControles.Location = new System.Drawing.Point(236, 2);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
+            this.PanelControles.Location = new System.Drawing.Point(330, 2);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(806, 26);
+            this.PanelControles.Size = new System.Drawing.Size(1060, 32);
             this.PanelControles.TabIndex = 0;
             // 
             // guna2ControlBox3
@@ -141,10 +142,10 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(733, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(962, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(29, 30);
             this.guna2ControlBox3.TabIndex = 2;
             // 
             // guna2ControlBox2
@@ -155,10 +156,10 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(758, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(996, 0);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(29, 30);
             this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -168,10 +169,10 @@
             this.guna2ControlBox1.BorderRadius = 10;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(782, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1028, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(29, 30);
             this.guna2ControlBox1.TabIndex = 0;
             // 
             // label6
@@ -179,10 +180,9 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(945, 43);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(1260, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(2, 37);
+            this.label6.Size = new System.Drawing.Size(3, 46);
             this.label6.TabIndex = 13;
             // 
             // lbIdCierre
@@ -192,10 +192,9 @@
             this.lbIdCierre.BackColor = System.Drawing.Color.Transparent;
             this.lbIdCierre.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdCierre.ForeColor = System.Drawing.Color.White;
-            this.lbIdCierre.Location = new System.Drawing.Point(1016, 61);
-            this.lbIdCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbIdCierre.Location = new System.Drawing.Point(1355, 75);
             this.lbIdCierre.Name = "lbIdCierre";
-            this.lbIdCierre.Size = new System.Drawing.Size(15, 16);
+            this.lbIdCierre.Size = new System.Drawing.Size(18, 19);
             this.lbIdCierre.TabIndex = 12;
             this.lbIdCierre.Text = "1";
             // 
@@ -205,10 +204,9 @@
             this.lbCierre.AutoSize = true;
             this.lbCierre.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCierre.ForeColor = System.Drawing.Color.Gold;
-            this.lbCierre.Location = new System.Drawing.Point(957, 60);
-            this.lbCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCierre.Location = new System.Drawing.Point(1276, 74);
             this.lbCierre.Name = "lbCierre";
-            this.lbCierre.Size = new System.Drawing.Size(57, 18);
+            this.lbCierre.Size = new System.Drawing.Size(71, 21);
             this.lbCierre.TabIndex = 11;
             this.lbCierre.Text = "Cierre:";
             // 
@@ -217,10 +215,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(74, 37);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(99, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(622, 38);
+            this.label5.Size = new System.Drawing.Size(760, 46);
             this.label5.TabIndex = 10;
             this.label5.Text = "SUPERMERCADO LA BODEGA DE NACHO";
             // 
@@ -229,10 +226,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
-            this.label1.Location = new System.Drawing.Point(77, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(103, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 22);
+            this.label1.Size = new System.Drawing.Size(206, 27);
             this.label1.TabIndex = 1;
             this.label1.Text = "CIERRE DE CAJA";
             // 
@@ -242,10 +238,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(694, 61);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(925, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 18);
+            this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Cajero:";
             // 
@@ -255,10 +250,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(957, 39);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(1276, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 18);
+            this.label3.Size = new System.Drawing.Size(55, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Caja:";
             // 
@@ -269,10 +263,9 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(700, 29);
-            this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_FechaActual.Location = new System.Drawing.Point(933, 36);
             this.lb_FechaActual.Name = "lb_FechaActual";
-            this.lb_FechaActual.Size = new System.Drawing.Size(211, 25);
+            this.lb_FechaActual.Size = new System.Drawing.Size(281, 31);
             this.lb_FechaActual.TabIndex = 7;
             this.lb_FechaActual.Text = "Fecha:";
             this.lb_FechaActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -284,10 +277,9 @@
             this.lb_Caja.BackColor = System.Drawing.Color.Transparent;
             this.lb_Caja.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Caja.ForeColor = System.Drawing.Color.White;
-            this.lb_Caja.Location = new System.Drawing.Point(1007, 39);
-            this.lb_Caja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Caja.Location = new System.Drawing.Point(1343, 48);
             this.lb_Caja.Name = "lb_Caja";
-            this.lb_Caja.Size = new System.Drawing.Size(25, 16);
+            this.lb_Caja.Size = new System.Drawing.Size(30, 19);
             this.lb_Caja.TabIndex = 8;
             this.lb_Caja.Text = "C1";
             // 
@@ -296,10 +288,9 @@
             this.lb_Cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_Cajero.Location = new System.Drawing.Point(754, 62);
-            this.lb_Cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Cajero.Location = new System.Drawing.Point(1005, 76);
             this.lb_Cajero.Name = "lb_Cajero";
-            this.lb_Cajero.Size = new System.Drawing.Size(177, 18);
+            this.lb_Cajero.Size = new System.Drawing.Size(236, 22);
             this.lb_Cajero.TabIndex = 9;
             this.lb_Cajero.Text = "Cajero Prueba";
             // 
@@ -313,9 +304,10 @@
             this.PanelbotonesSuperior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelbotonesSuperior.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelbotonesSuperior.Controls.Add(this.panel1);
-            this.PanelbotonesSuperior.Location = new System.Drawing.Point(47, 6);
+            this.PanelbotonesSuperior.Location = new System.Drawing.Point(63, 7);
+            this.PanelbotonesSuperior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelbotonesSuperior.Name = "PanelbotonesSuperior";
-            this.PanelbotonesSuperior.Size = new System.Drawing.Size(945, 34);
+            this.PanelbotonesSuperior.Size = new System.Drawing.Size(1260, 42);
             this.PanelbotonesSuperior.TabIndex = 28;
             // 
             // panel1
@@ -328,10 +320,10 @@
             this.panel1.Controls.Add(this.btnResumen);
             this.panel1.Controls.Add(this.btnMenuda);
             this.panel1.Controls.Add(this.btnMovimientos);
-            this.panel1.Location = new System.Drawing.Point(207, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(276, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 34);
+            this.panel1.Size = new System.Drawing.Size(708, 42);
             this.panel1.TabIndex = 9;
             // 
             // btnVentas
@@ -344,9 +336,10 @@
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnVentas.Location = new System.Drawing.Point(396, 5);
+            this.btnVentas.Location = new System.Drawing.Point(542, 6);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(88, 24);
+            this.btnVentas.Size = new System.Drawing.Size(117, 30);
             this.btnVentas.TabIndex = 9;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = false;
@@ -362,9 +355,10 @@
             this.btnAdelantos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnAdelantos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdelantos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnAdelantos.Location = new System.Drawing.Point(313, 5);
+            this.btnAdelantos.Location = new System.Drawing.Point(417, 6);
+            this.btnAdelantos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdelantos.Name = "btnAdelantos";
-            this.btnAdelantos.Size = new System.Drawing.Size(88, 24);
+            this.btnAdelantos.Size = new System.Drawing.Size(117, 30);
             this.btnAdelantos.TabIndex = 8;
             this.btnAdelantos.Text = "Adelantos";
             this.btnAdelantos.UseVisualStyleBackColor = false;
@@ -380,9 +374,10 @@
             this.btnResumen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnResumen.Location = new System.Drawing.Point(37, 5);
+            this.btnResumen.Location = new System.Drawing.Point(49, 6);
+            this.btnResumen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResumen.Name = "btnResumen";
-            this.btnResumen.Size = new System.Drawing.Size(88, 24);
+            this.btnResumen.Size = new System.Drawing.Size(117, 30);
             this.btnResumen.TabIndex = 3;
             this.btnResumen.Text = "Resumen";
             this.btnResumen.UseVisualStyleBackColor = false;
@@ -398,9 +393,10 @@
             this.btnMenuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMenuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMenuda.Location = new System.Drawing.Point(129, 5);
+            this.btnMenuda.Location = new System.Drawing.Point(172, 6);
+            this.btnMenuda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuda.Name = "btnMenuda";
-            this.btnMenuda.Size = new System.Drawing.Size(88, 24);
+            this.btnMenuda.Size = new System.Drawing.Size(117, 30);
             this.btnMenuda.TabIndex = 5;
             this.btnMenuda.Text = "Menuda";
             this.btnMenuda.UseVisualStyleBackColor = false;
@@ -416,9 +412,10 @@
             this.btnMovimientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMovimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMovimientos.Location = new System.Drawing.Point(221, 5);
+            this.btnMovimientos.Location = new System.Drawing.Point(295, 6);
+            this.btnMovimientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMovimientos.Name = "btnMovimientos";
-            this.btnMovimientos.Size = new System.Drawing.Size(88, 24);
+            this.btnMovimientos.Size = new System.Drawing.Size(117, 30);
             this.btnMovimientos.TabIndex = 4;
             this.btnMovimientos.Text = "Movimientos";
             this.btnMovimientos.UseVisualStyleBackColor = false;
@@ -430,10 +427,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.panel2.Controls.Add(this.PanelbotonesSuperior);
-            this.panel2.Location = new System.Drawing.Point(-2, 84);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(-3, 103);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1049, 47);
+            this.panel2.Size = new System.Drawing.Size(1399, 58);
             this.panel2.TabIndex = 4;
             // 
             // Elip2
@@ -497,15 +494,15 @@
             // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1050, 693);
+            this.ClientSize = new System.Drawing.Size(1400, 853);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PanelMaestro);
             this.Controls.Add(this.BarraS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Principal";
             this.ShowIcon = false;
             this.Text = "CIERRE DE CAJA";

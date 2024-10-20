@@ -39,7 +39,7 @@
             // 
             // txtVentas
             // 
-            this.txtVentas.Location = new System.Drawing.Point(99, 122);
+            this.txtVentas.Location = new System.Drawing.Point(87, 108);
             this.txtVentas.Margin = new System.Windows.Forms.Padding(4);
             this.txtVentas.Multiline = true;
             this.txtVentas.Name = "txtVentas";
@@ -52,7 +52,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
-            this.label6.Location = new System.Drawing.Point(30, 60);
+            this.label6.Location = new System.Drawing.Point(13, 49);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(360, 46);
@@ -124,10 +124,10 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtVentas);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVentas";
             this.Text = "FrmVentas";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmVentas_FormClosing);
             this.PanelControles.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -44,7 +44,7 @@ namespace CierreDeCajas.Presentacion
             CargarCierreVentas();
             ActualizarCiereCaja();
             CitarPanelesMovimientos();
-           
+            CargarValorVentas();
 
         }
 
@@ -176,9 +176,18 @@ namespace CierreDeCajas.Presentacion
                 lb_TotalLiquidado.Text = oCierreCaja.TotalLiquidado.ToString("C0");
                 lb_TotalMovimientosCaja.Text = oCierreCaja.TotalMovimientosCaja.ToString("C0");
                 lb_TotalTransferencia.Text = oCierreCaja.TotalTransferencia.ToString("C0");
-                lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
+                if (oCierreCaja.ValorVentas != 0)
+                {
+                    lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
+                }
+
                 lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
             }
+        }
+        private void CargarValorVentas()
+        {
+            valorventas = new CierreCajaRepository().ObtenerUltimoValorVentas(ppal.idCierre);
+            lb_ValorVentas.Text = valorventas.ToString();
         }
 
         public void ActualizarCiereCaja()

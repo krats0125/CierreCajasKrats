@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.rbAmbos = new System.Windows.Forms.RadioButton();
+            this.rbTrabajador = new System.Windows.Forms.RadioButton();
+            this.rbMensajero = new System.Windows.Forms.RadioButton();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.rbTrabajador = new System.Windows.Forms.RadioButton();
-            this.rbMensajero = new System.Windows.Forms.RadioButton();
-            this.rbAmbos = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.PanelControles.SuspendLayout();
             this.SuspendLayout();
@@ -57,136 +57,35 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.txtConcepto);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(5, 32);
+            this.panel4.Location = new System.Drawing.Point(7, 39);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(429, 243);
+            this.panel4.Size = new System.Drawing.Size(572, 299);
             this.panel4.TabIndex = 24;
             // 
-            // txtDescripcion
+            // rbAmbos
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(127, 80);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(287, 56);
-            this.txtDescripcion.TabIndex = 28;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(26, 84);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 21);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Descripcion:";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.AutoEllipsis = true;
-            this.btnGuardar.BackColor = System.Drawing.Color.Gold;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(141, 191);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(138, 41);
-            this.btnGuardar.TabIndex = 20;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 49);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Nuevo concepto:";
-            // 
-            // txtConcepto
-            // 
-            this.txtConcepto.Location = new System.Drawing.Point(127, 30);
-            this.txtConcepto.Multiline = true;
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(287, 34);
-            this.txtConcepto.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(26, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Permiso:";
-            // 
-            // PanelControles
-            // 
-            this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelControles.BackColor = System.Drawing.Color.Transparent;
-            this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
-            this.PanelControles.Controls.Add(this.guna2ControlBox1);
-            this.PanelControles.Location = new System.Drawing.Point(5, 1);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
-            this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(429, 26);
-            this.PanelControles.TabIndex = 25;
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.BorderRadius = 10;
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(356, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(381, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.BorderRadius = 10;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(405, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox1.TabIndex = 0;
+            this.rbAmbos.AutoSize = true;
+            this.rbAmbos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAmbos.ForeColor = System.Drawing.Color.White;
+            this.rbAmbos.Location = new System.Drawing.Point(457, 183);
+            this.rbAmbos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbAmbos.Name = "rbAmbos";
+            this.rbAmbos.Size = new System.Drawing.Size(95, 29);
+            this.rbAmbos.TabIndex = 31;
+            this.rbAmbos.TabStop = true;
+            this.rbAmbos.Text = "Ambos";
+            this.rbAmbos.UseVisualStyleBackColor = true;
             // 
             // rbTrabajador
             // 
             this.rbTrabajador.AutoSize = true;
             this.rbTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTrabajador.ForeColor = System.Drawing.Color.White;
-            this.rbTrabajador.Location = new System.Drawing.Point(234, 149);
+            this.rbTrabajador.Location = new System.Drawing.Point(312, 183);
+            this.rbTrabajador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbTrabajador.Name = "rbTrabajador";
-            this.rbTrabajador.Size = new System.Drawing.Size(103, 24);
+            this.rbTrabajador.Size = new System.Drawing.Size(128, 29);
             this.rbTrabajador.TabIndex = 29;
             this.rbTrabajador.TabStop = true;
             this.rbTrabajador.Text = "Trabajador";
@@ -197,36 +96,149 @@
             this.rbMensajero.AutoSize = true;
             this.rbMensajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMensajero.ForeColor = System.Drawing.Color.White;
-            this.rbMensajero.Location = new System.Drawing.Point(127, 149);
+            this.rbMensajero.Location = new System.Drawing.Point(169, 183);
+            this.rbMensajero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbMensajero.Name = "rbMensajero";
-            this.rbMensajero.Size = new System.Drawing.Size(101, 24);
+            this.rbMensajero.Size = new System.Drawing.Size(125, 29);
             this.rbMensajero.TabIndex = 30;
             this.rbMensajero.TabStop = true;
             this.rbMensajero.Text = "Mensajero";
             this.rbMensajero.UseVisualStyleBackColor = true;
             // 
-            // rbAmbos
+            // txtDescripcion
             // 
-            this.rbAmbos.AutoSize = true;
-            this.rbAmbos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAmbos.ForeColor = System.Drawing.Color.White;
-            this.rbAmbos.Location = new System.Drawing.Point(343, 149);
-            this.rbAmbos.Name = "rbAmbos";
-            this.rbAmbos.Size = new System.Drawing.Size(77, 24);
-            this.rbAmbos.TabIndex = 31;
-            this.rbAmbos.TabStop = true;
-            this.rbAmbos.Text = "Ambos";
-            this.rbAmbos.UseVisualStyleBackColor = true;
+            this.txtDescripcion.Location = new System.Drawing.Point(169, 98);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(381, 68);
+            this.txtDescripcion.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(35, 103);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 27);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Descripcion:";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.AutoEllipsis = true;
+            this.btnGuardar.BackColor = System.Drawing.Color.Gold;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.Location = new System.Drawing.Point(188, 235);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(184, 50);
+            this.btnGuardar.TabIndex = 20;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(32, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 60);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Nuevo concepto:";
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(169, 37);
+            this.txtConcepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtConcepto.Multiline = true;
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(381, 41);
+            this.txtConcepto.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(35, 185);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 27);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Permiso:";
+            // 
+            // PanelControles
+            // 
+            this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelControles.BackColor = System.Drawing.Color.Transparent;
+            this.PanelControles.Controls.Add(this.guna2ControlBox3);
+            this.PanelControles.Controls.Add(this.guna2ControlBox2);
+            this.PanelControles.Controls.Add(this.guna2ControlBox1);
+            this.PanelControles.Location = new System.Drawing.Point(7, 1);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelControles.Name = "PanelControles";
+            this.PanelControles.Size = new System.Drawing.Size(572, 32);
+            this.PanelControles.TabIndex = 25;
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox3.BorderRadius = 10;
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(475, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox3.TabIndex = 2;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.BorderRadius = 10;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(508, 0);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox2.TabIndex = 1;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.BorderRadius = 10;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(540, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox1.TabIndex = 0;
             // 
             // FrmCrearNuevoConcepto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(435, 276);
+            this.ClientSize = new System.Drawing.Size(580, 340);
             this.ControlBox = false;
             this.Controls.Add(this.PanelControles);
             this.Controls.Add(this.panel4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCrearNuevoConcepto";
             this.Text = "FrmCrearNuevoConcepto";
             this.panel4.ResumeLayout(false);

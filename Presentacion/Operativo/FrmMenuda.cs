@@ -333,11 +333,11 @@ namespace CierreDeCajas.Presentacion
                 {
                     MostrarDenominaciones(oMenuda);
                     calcularTotalEntregado();
-                    MessageBox.Show("Denominaciones cargadas correctamente.");
+  
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron denominaciones. Se inicializarán con cero.");
+
                     InicializarTextBoxesConCero();
                 }
             }

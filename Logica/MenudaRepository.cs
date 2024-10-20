@@ -59,57 +59,7 @@ namespace CierreDeCajas.Logica
         
         }
 
-        //public bool Actualizar(Menuda oMenuda)
-        //{
-        //    bool respuesta = false;
 
-
-        //    try
-        //    {
-        //        using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
-        //        {
-        //            conexion.Open();
-
-        //            using (SqlCommand cmd = new SqlCommand("usp_CargarDenominaciones", conexion))
-        //            {
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                cmd.Parameters.AddWithValue("@IdCierre", oMenuda.IdCierre);
-
-        //                using (SqlDataReader reader = cmd.ExecuteReader())
-        //                {
-        //                    if (reader.Read())
-        //                    {
-        //                        oMenuda.Billete_100 = Convert.ToInt32(reader["Billete_100"]);
-        //                        oMenuda.Billete_50 = Convert.ToInt32(reader["Billete_50"]);
-        //                        oMenuda.Billete_20 = Convert.ToInt32(reader["Billete_20"]);
-        //                        oMenuda.Billete_10 = Convert.ToInt32(reader["Billete_10"]);
-        //                        oMenuda.Billete_5 = Convert.ToInt32(reader["Billete_5"]);
-        //                        oMenuda.Billete_2 = Convert.ToInt32(reader["Billete_2"]);
-        //                        oMenuda.Billete_1 = Convert.ToInt32(reader["Billete_1"]);
-        //                        oMenuda.Moneda_1000 = Convert.ToInt32(reader["Moneda_1000"]);
-        //                        oMenuda.Moneda_500 = Convert.ToInt32(reader["Moneda_500"]);
-        //                        oMenuda.Moneda_200 = Convert.ToInt32(reader["Moneda_200"]);
-        //                        oMenuda.Moneda_100 = Convert.ToInt32(reader["Moneda_100"]);
-        //                        oMenuda.Moneda_50 = Convert.ToInt32(reader["Moneda_50"]);
-        //                        return respuesta;
-        //                    }
-
-        //                }
-
-        //            }
-
-        //        }
-
-        //        return respuesta;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al actualizar: " + ex.Message);
-        //        return respuesta;
-        //    }
-
-
-        //}
         public bool CargarDenominaciones(Menuda oMenuda)
         {
             try
