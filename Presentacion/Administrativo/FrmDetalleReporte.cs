@@ -19,7 +19,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
         Principal ppal;
         private int IdCierre;
         private string IdUsuario;
-        private decimal valorventas = 0;
         public FrmDetalleReporte(int IdCierre, string idUsuario)
         {
             InitializeComponent();
@@ -150,10 +149,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
             lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
         }
 
-        public void ActualizarCiereCaja(decimal valorventas)
+        public void ActualizarCiereCaja()
         {
 
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(IdCierre,valorventas);
+            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(IdCierre);
             if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -300,7 +299,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             CargarSumatorias();
             CargarCierreVentas();
-            ActualizarCiereCaja(valorventas);
+            ActualizarCiereCaja();
             CitarPanelesMovimientos();
 
         }

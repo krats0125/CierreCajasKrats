@@ -14,22 +14,55 @@ namespace CierreDeCajas.Logica
 {
     public class CierreCajaRepository
     {
-        
+        decimal valorventas = 0;
         CONEXION cn = new CONEXION();
-        public bool ActualizarCierre(int IdCierre,decimal valorventas)
+
+        //public bool ActualizarVentas(string IdUsuario)
+        //{
+        //    CierreCaja oCierreCaja = new CierreCaja();
+        //    bool respuesta = false;
+        //    try
+        //    {
+        //        using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
+        //        {
+        //            conexion.Open();
+        //            string sql = "select sum(total) from Facturas1 where IdUsuario=@IdUsuario AND CAST(FechaCreacion AS DATE) = CAST(GETDATE() AS DATE)";
+        //            using (SqlCommand cmd = new SqlCommand(sql, conexion))
+        //            {
+        //                cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+        //                using (SqlDataReader dr = cmd.ExecuteReader())
+        //                {
+        //                    while (dr.Read())
+        //                    {
+        //                        oCierreCaja.ValorVentas = Convert.ToDecimal(dr["ValorVentas"].ToString());
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return respuesta;
+        //    }
+        //    return respuesta;
+        //}
+
+        public bool ActualizarCierre(int IdCierre)
         {
-          
-            decimal ultimoefectivoentregado = 0;
+
+            decimal entregaUltimoEfectivo = 0;
+            
             FrmMenuda Frm = new InstanciasRepository().InstanciaFrmMenuda();
-          
-            if(Frm != null)
+            
+            if(Frm !=null)
             {
-                ultimoefectivoentregado = Frm.valorentregado;
+                entregaUltimoEfectivo=Frm.valorentregado;
             }
-            if (valorventas == 0)
-            {
-                return true;
-            }
+            //FrmVentas FrmV = new InstanciasRepository().InstanciaFrmVentas();
+            //if (FrmV !=null)
+            //{
+            //   valorventas=FrmV.TotalVentas;
+            //}
 
             bool respuesta = false;
             try
@@ -42,10 +75,8 @@ namespace CierreDeCajas.Logica
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@IdCierre", IdCierre);
-                        cmd.Parameters.AddWithValue("@EntregaUltimoEfectivo", ultimoefectivoentregado);
+                        cmd.Parameters.AddWithValue("@EntregaUltimoEfectivo", entregaUltimoEfectivo);
                         cmd.Parameters.AddWithValue("@ValorVentas", valorventas);
-
-                
 
                         cmd.ExecuteNonQuery();
                         respuesta = true;
@@ -64,32 +95,7 @@ namespace CierreDeCajas.Logica
             return respuesta;
         }
 
-        public decimal ObtenerUltimoValorVentas(int IdCierre)
-        {
-            decimal valorVentas = 0;
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
-                {
-                    conexion.Open();
-                    string sql = "SELECT ValorVentas FROM CierreCaja WHERE IdCierre = @IdCierre";
-                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
-                    {
-                        cmd.Parameters.AddWithValue("@IdCierre", IdCierre);
-                        object resultado = cmd.ExecuteScalar();
-                        if (resultado != null && resultado != DBNull.Value)
-                        {
-                            valorVentas = Convert.ToDecimal(resultado);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al obtener el valor de ventas: " + ex.Message);
-            }
-            return valorVentas;
-        }
+       
 
 
         public CierreCaja listar(int IdCierre, out string mensaje)
@@ -122,6 +128,7 @@ namespace CierreDeCajas.Logica
                                 oCierreCaja.TotalDatafono = Convert.ToDecimal(dr["TotalDatafono"].ToString());
                                 oCierreCaja.TotalTransferencia = Convert.ToDecimal(dr["TotalTransferencia"].ToString());
                                 oCierreCaja.TotalLiquidado = Convert.ToDecimal(dr["TotalLiquidado"].ToString());
+
                             }
                         }
 

@@ -22,7 +22,7 @@ namespace CierreDeCajas.Presentacion
         Principal ppal = null;
         public decimal valorentregado=0;
         Menuda oMenuda = new Menuda();
-        private decimal valorventas = 0;
+ 
 
 
         public FrmMenuda(Principal ppal)
@@ -321,8 +321,6 @@ namespace CierreDeCajas.Presentacion
      
         private void FrmMenuda_Load(object sender, EventArgs e)
         {
-
-
             try
             {
                 Menuda oMenuda = new Menuda();
@@ -340,6 +338,7 @@ namespace CierreDeCajas.Presentacion
 
                     InicializarTextBoxesConCero();
                 }
+
             }
             catch (Exception ex)
             {
@@ -470,23 +469,26 @@ namespace CierreDeCajas.Presentacion
                 oMenuda.Moneda_100 = TryConvertToInt(txM100.Text);
                 oMenuda.Moneda_50 = TryConvertToInt(txM50.Text);
 
+                string valorx = lbValorTotalEntregado.Text.Replace("$", "").Replace(".","");
+                valorentregado = Convert.ToDecimal(valorx);
+
                 // Guardar en la base de datos
                 bool seInserto = new MenudaRepository().insertar(oMenuda);
                 
-
-
-                // Verificar si la actualización del cierre de caja es exitosa
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre,valorventas);
-                if (!actualizacionExitosa)
+                if(seInserto)
                 {
-                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                    if (frm != null)
+                    {
+                   
+                        bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                        if (!actualizacionExitosa)
+                        {
+                            MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                        }
+                        frm.CargarCierreVentas();
+                    }
                 }
-
-                // Cargar los datos en el formulario de cierre de ventas
-                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
-                frm.CargarCierreVentas();
-
-
 
             }
             catch (Exception ex)

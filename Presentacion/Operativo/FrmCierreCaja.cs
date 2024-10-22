@@ -20,8 +20,7 @@ namespace CierreDeCajas.Presentacion
     {
         Principal ppal;
         CONEXION cn=new CONEXION();
-        private decimal valorventas = 0;
-
+ 
 
         public FrmCierreCaja(Principal ppal)
         {
@@ -44,7 +43,7 @@ namespace CierreDeCajas.Presentacion
             CargarCierreVentas();
             ActualizarCiereCaja();
             CitarPanelesMovimientos();
-            CargarValorVentas();
+            //CargarValorVentas();
 
         }
 
@@ -164,7 +163,7 @@ namespace CierreDeCajas.Presentacion
             string mensaje;
             CierreCajaRepository repository = new CierreCajaRepository();
             FrmMenuda frmMenuda = new InstanciasRepository().InstanciaFrmMenuda();
-       
+            FrmVentas frmVentas = new InstanciasRepository().InstanciaFrmVentas();
 
             CierreCaja oCierreCaja =repository.listar(ppal.idCierre,out mensaje);
 
@@ -180,23 +179,24 @@ namespace CierreDeCajas.Presentacion
                 {
                     lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
                 }
-
                 lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
+
             }
         }
-        private void CargarValorVentas()
-        {
-            valorventas = new CierreCajaRepository().ObtenerUltimoValorVentas(ppal.idCierre);
-            lb_ValorVentas.Text = valorventas.ToString();
-        }
+
+
 
         public void ActualizarCiereCaja()
         {
-            
-            bool actualizacionExitosa =  new CierreCajaRepository().ActualizarCierre(ppal.idCierre,valorventas);
-            if(!actualizacionExitosa)
+
+            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+            if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");
+            }
+            else
+            {
+                CargarCierreVentas();
             }
 
         }

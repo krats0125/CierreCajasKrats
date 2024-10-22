@@ -42,6 +42,9 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.cgpEliminarAdelanto = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pbEliminarAdelanto = new System.Windows.Forms.PictureBox();
+            this.lbEliminarAdelanto = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.CGPConcepto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConcepto)).BeginInit();
@@ -49,18 +52,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAdelantos)).BeginInit();
             this.PanelControles.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.cgpEliminarAdelanto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEliminarAdelanto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.cgpEliminarAdelanto);
             this.panel1.Controls.Add(this.CGPConcepto);
             this.panel1.Controls.Add(this.CGPAdelantos);
             this.panel1.Controls.Add(this.PanelControles);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(457, 194);
+            this.panel1.Size = new System.Drawing.Size(457, 303);
             this.panel1.TabIndex = 0;
             // 
             // CGPConcepto
@@ -218,11 +224,51 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "ADELANTOS";
             // 
+            // cgpEliminarAdelanto
+            // 
+            this.cgpEliminarAdelanto.BorderRadius = 15;
+            this.cgpEliminarAdelanto.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.cgpEliminarAdelanto.Controls.Add(this.pbEliminarAdelanto);
+            this.cgpEliminarAdelanto.Controls.Add(this.lbEliminarAdelanto);
+            this.cgpEliminarAdelanto.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.cgpEliminarAdelanto.Location = new System.Drawing.Point(125, 190);
+            this.cgpEliminarAdelanto.Margin = new System.Windows.Forms.Padding(2);
+            this.cgpEliminarAdelanto.Name = "cgpEliminarAdelanto";
+            this.cgpEliminarAdelanto.Size = new System.Drawing.Size(209, 105);
+            this.cgpEliminarAdelanto.TabIndex = 28;
+            this.cgpEliminarAdelanto.Click += new System.EventHandler(this.cgpEliminarAdelanto_Click);
+            // 
+            // pbEliminarAdelanto
+            // 
+            this.pbEliminarAdelanto.BackColor = System.Drawing.Color.Transparent;
+            this.pbEliminarAdelanto.Image = ((System.Drawing.Image)(resources.GetObject("pbEliminarAdelanto.Image")));
+            this.pbEliminarAdelanto.Location = new System.Drawing.Point(77, 37);
+            this.pbEliminarAdelanto.Margin = new System.Windows.Forms.Padding(2);
+            this.pbEliminarAdelanto.Name = "pbEliminarAdelanto";
+            this.pbEliminarAdelanto.Size = new System.Drawing.Size(45, 48);
+            this.pbEliminarAdelanto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEliminarAdelanto.TabIndex = 20;
+            this.pbEliminarAdelanto.TabStop = false;
+            this.pbEliminarAdelanto.Click += new System.EventHandler(this.pbEliminarAdelanto_Click);
+            // 
+            // lbEliminarAdelanto
+            // 
+            this.lbEliminarAdelanto.AutoSize = true;
+            this.lbEliminarAdelanto.BackColor = System.Drawing.Color.Transparent;
+            this.lbEliminarAdelanto.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEliminarAdelanto.Location = new System.Drawing.Point(11, 8);
+            this.lbEliminarAdelanto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbEliminarAdelanto.Name = "lbEliminarAdelanto";
+            this.lbEliminarAdelanto.Size = new System.Drawing.Size(190, 28);
+            this.lbEliminarAdelanto.TabIndex = 5;
+            this.lbEliminarAdelanto.Text = "Eliminar adelanto";
+            this.lbEliminarAdelanto.Click += new System.EventHandler(this.lbEliminarAdelanto_Click);
+            // 
             // FrmAdelantos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 192);
+            this.ClientSize = new System.Drawing.Size(454, 300);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -238,6 +284,9 @@
             this.PanelControles.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.cgpEliminarAdelanto.ResumeLayout(false);
+            this.cgpEliminarAdelanto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEliminarAdelanto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +306,8 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel CGPAdelantos;
         private System.Windows.Forms.PictureBox pbAdelantos;
         private System.Windows.Forms.Label lbAdelantos;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel cgpEliminarAdelanto;
+        private System.Windows.Forms.PictureBox pbEliminarAdelanto;
+        private System.Windows.Forms.Label lbEliminarAdelanto;
     }
 }

@@ -56,5 +56,23 @@ namespace CierreDeCajas.Presentacion.Administrativo
             FrmCrearNuevoConcepto concepto = new FrmCrearNuevoConcepto();
             concepto.Show();
         }
+
+        private void cgpEliminarAdelanto_Click(object sender, EventArgs e)
+        {
+            FrmEliminarAdelanto eliminar = new FrmEliminarAdelanto();
+            eliminar.Show();
+        }
+
+        private void lbEliminarAdelanto_Click(object sender, EventArgs e)
+        {
+            FrmEliminarAdelanto eliminar = new FrmEliminarAdelanto();
+            eliminar.Show();
+        }
+
+        private void pbEliminarAdelanto_Click(object sender, EventArgs e)
+        {
+            FrmEliminarAdelanto eliminar = new FrmEliminarAdelanto();
+            eliminar.Show();
+        }
     }
 }

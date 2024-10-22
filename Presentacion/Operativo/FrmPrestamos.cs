@@ -21,7 +21,7 @@ namespace CierreDeCajas.Presentacion
 
         Principal ppal;
         FrmMovimientos mov;
-        private decimal valorventas = 0;
+        private decimal valorEntregado = 0;
 
         public FrmPrestamos(Principal ppal)
         {
@@ -135,7 +135,7 @@ namespace CierreDeCajas.Presentacion
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();
                 frm.CitarPanelesMovimientos();
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre,valorventas);
+                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
                 if (!actualizacionExitosa)
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");

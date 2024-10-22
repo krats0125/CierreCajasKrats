@@ -17,7 +17,7 @@ namespace CierreDeCajas.Presentacion.Operativo
 
         Principal ppal = null;
         public decimal TotalVentas = 0;
-       
+
         public FrmVentas(Principal ppal)
         {
             InitializeComponent();
@@ -29,27 +29,21 @@ namespace CierreDeCajas.Presentacion.Operativo
 
             if (decimal.TryParse(txtVentas.Text, out decimal totalVentas))
             {
-                if (totalVentas == 0)
-                {
-                    return;
-                }
                 TotalVentas = totalVentas;
 
-                
-                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
-                    if (frm != null)
+                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                if (frm != null)
+                {
+                    bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                    if (!actualizacionExitosa)
                     {
-                        frm.CargarCierreVentas();
-                        bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre, TotalVentas);
-                        if (!actualizacionExitosa)
-                        {
-                            MessageBox.Show("Hubo un error actualizando el cierre de caja");
-                        }
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
                     }
-                
+                    frm.CargarCierreVentas();
+                }
             }
         }
 
-      
+
     }
 }

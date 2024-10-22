@@ -9,8 +9,8 @@ namespace CierreDeCajas.Modelo
      public class Menuda
     {
         public string IdUsuario { get; set; }
-        public int IdCaja { get; set; }
         public int IdCierre { get; set; }
+        public decimal valorentregado { get; set; }
         public int Billete_100 { get; set; }
         public int Billete_50 { get; set; }
         public int Billete_20 { get; set; }

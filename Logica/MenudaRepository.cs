@@ -45,7 +45,7 @@ namespace CierreDeCajas.Logica
                         cmd.Parameters.AddWithValue("@Moneda_50", oMenuda.Moneda_50);
 
                         cmd.ExecuteNonQuery();
-                        return respuesta;
+                        respuesta = true;
                     }
                 }
 
@@ -55,8 +55,8 @@ namespace CierreDeCajas.Logica
                 MessageBox.Show("Error al insertar: " + ex.Message);
                 return respuesta;
             }
-          
-        
+            return respuesta;
+
         }
 
 

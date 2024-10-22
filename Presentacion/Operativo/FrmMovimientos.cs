@@ -23,7 +23,6 @@ namespace CierreDeCajas.Presentacion.Sistema
     {
         Principal ppal = null;
         CONEXION Conexion = new CONEXION();
-        private decimal valorventas = 0;
         public FrmMovimientos(Principal ppal)
         {
             this.ppal = ppal;
@@ -40,7 +39,7 @@ namespace CierreDeCajas.Presentacion.Sistema
             ListarMediosPago();
             ListaMovimientos();
            
-            cbConceptos.Select();
+          
             
         }
 
@@ -55,6 +54,7 @@ namespace CierreDeCajas.Presentacion.Sistema
 
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.ConexionCierreCaja());
             dgvMovimientos.DataSource = lista;
+            dgvMovimientos.Refresh();
             dgvMovimientos.Columns[0].Visible = false;
 
 
@@ -166,24 +166,26 @@ namespace CierreDeCajas.Presentacion.Sistema
             {
                 MessageBox.Show("Se ha insertado el movimiento correctamente.");
                 limpiarcampos();
+                ListaMovimientos();
+                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                frm.CargarSumatorias();
+                frm.CitarPanelesMovimientos();
+                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                frm.CargarCierreVentas();
             }
             else
             {
                 MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
             }
 
-            FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+           
 
 
-            ListaMovimientos();
-            frm.CargarSumatorias();
-            frm.CitarPanelesMovimientos();
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre,valorventas);
-            if (!actualizacionExitosa)
-            {
-                MessageBox.Show("Hubo un error actualizando el cierre de caja");
-            }
-            frm.CargarCierreVentas();
+           
         }
 
         private void btnEdita_Click(object sender, EventArgs e)
@@ -216,7 +218,7 @@ namespace CierreDeCajas.Presentacion.Sistema
             frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
             frm.CitarPanelesMovimientos();
 
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre,valorventas);//Actualiza el panel del cierre de caja
+            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
             if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -246,7 +248,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                     frm.CargarSumatorias();
                     frm.CitarPanelesMovimientos();
 
-                    bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre, valorventas);//Actualiza el panel del cierre de caja
+                    bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
                     if (!actualizacionExitosa)
                     {
                         MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -262,29 +264,6 @@ namespace CierreDeCajas.Presentacion.Sistema
             }
 
         }
-
-
-
-
-        //    CONSULTA PARA QUE APARTIR DEL CAJERO ME LISTE TODOS LOS VALORES POR EL MEDIO DE PAGO
-
-
-        //SELECT
-        //    u.Nombre AS Cajero,
-        //        mp.Descripcion AS MedioDePago,
-        //    SUM(mc.Valor) AS ValorTotal
-        //FROM
-        //    MovimientoCaja mc
-        //    INNER JOIN Usuario u ON mc.IdCajero = u.IdUsuario
-        //    INNER JOIN MediosDePago mp ON mc.IdMedioPago = mp.IdMedioPago
-        //WHERE
-        //    u.IdUsuario = 'LOLA'
-        //GROUP BY
-        //    u.Nombre, mp.Descripcion
-        //ORDER BY
-        //    mp.Descripcion
-
-
 
 
     }

@@ -118,6 +118,12 @@ namespace CierreDeCajas.Logica
 
            
         }
+
+        public bool Eliminar()
+        {
+            bool respuesta = false;
+            return respuesta;
+        }
         
     }
 }
