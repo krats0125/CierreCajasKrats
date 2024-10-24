@@ -331,12 +331,13 @@ namespace CierreDeCajas.Presentacion
                 {
                     MostrarDenominaciones(oMenuda);
                     calcularTotalEntregado();
-  
+                    InicializarEnCaja();
                 }
                 else
                 {
 
-                    InicializarTextBoxesConCero();
+                    InicializarDineroEntregado();
+                    InicializarEnCaja();
                 }
 
             }
@@ -360,11 +361,40 @@ namespace CierreDeCajas.Presentacion
             txM200.Text = oMenuda.Moneda_200.ToString();
             txM100.Text = oMenuda.Moneda_100.ToString();
             txM50.Text = oMenuda.Moneda_50.ToString();
-        
 
-
+            int total = 0;
+            total += TryConvertToInt(txB100.Text) * 100000;
+            total += TryConvertToInt(txB50.Text) * 50000;
+            total += TryConvertToInt(txB20.Text) * 20000;
+            total += TryConvertToInt(txB10.Text) * 10000;
+            total += TryConvertToInt(txB5.Text) * 5000;
+            total += TryConvertToInt(txB2.Text) * 2000;
+            total += TryConvertToInt(txB1.Text) * 1000;
+            total += TryConvertToInt(txM1000.Text) * 1000;
+            total += TryConvertToInt(txM500.Text) * 500;
+            total += TryConvertToInt(txM200.Text) * 200;
+            total += TryConvertToInt(txM100.Text) * 100;
+            total += TryConvertToInt(txM50.Text) * 50;
+            mostrarTotales();
         }
-        private void InicializarTextBoxesConCero()
+        private void mostrarTotales()
+        {
+            txtTotal100000.Text = (TryConvertToInt(txB100.Text) * 100000).ToString("C0");
+            txtTotal50000.Text = (TryConvertToInt(txB50.Text) * 50000).ToString("C0");
+            txtTotal20000.Text = (TryConvertToInt(txB20.Text) * 20000).ToString("C0");
+            txtTotal10000.Text = (TryConvertToInt(txB10.Text) * 10000).ToString("C0");
+            txtTotal5000.Text = (TryConvertToInt(txB5.Text) * 5000).ToString("C0");
+            txtTotal2000.Text = (TryConvertToInt(txB2.Text) * 2000).ToString("C0");
+            txtTotalB1000.Text = (TryConvertToInt(txB1.Text) * 1000).ToString("C0");
+            txtTotal1000.Text = (TryConvertToInt(txM1000.Text) * 1000).ToString("C0");
+            txtTotal500.Text = (TryConvertToInt(txM500.Text) * 500).ToString("C0");
+            txtTotal200.Text = (TryConvertToInt(txM200.Text) * 200).ToString("C0");
+            txtTotal100.Text = (TryConvertToInt(txM100.Text) * 100).ToString("C0");
+            txtTotal50.Text = (TryConvertToInt(txM50.Text) * 50).ToString("C0");
+
+            calcularTotalEntregado();
+        }
+        private void InicializarDineroEntregado()
         {
             txB100.Text = "0";
             txB50.Text = "0";
@@ -379,73 +409,139 @@ namespace CierreDeCajas.Presentacion
             txM100.Text = "0";
             txM50.Text = "0";
 
+            txtTotal100000.Text= "0";
+            txtTotal50000.Text ="0";
+            txtTotal20000.Text ="0";
+            txtTotal10000.Text ="0";
+            txtTotal5000.Text = "0";
+            txtTotal2000.Text = "0";
+            txtTotalB1000.Text ="0";
+            txtTotal1000.Text = "0";
+            txtTotal500.Text =  "0";
+            txtTotal200.Text =  "0";
+            txtTotal100.Text =  "0";
+            txtTotal50.Text = "0";
+
             calcularTotalEntregado();
         }
+        
+        private void InicializarEnCaja()
+        {
+            txt100000.Text = "0";
+            txt50000.Text = "0";
+            txt20000.Text = "0";
+            txt10000.Text = "0";
+            txt5000.Text = "0";
+            txt2000.Text = "0";
+            txtB1000.Text = "0";
+            txt1000.Text = "0";
+            txt500.Text = "0";
+            txt200.Text = "0";
+            txt100.Text = "0";
+            txt50.Text = "0";
 
+            txtTotalB100.Text = "0";
+            txtTotalB50.Text = "0";
+            txtTotalB20.Text = "0";
+            txtTotalB10.Text = "0";
+            txtTotalB5.Text = "0";
+            txtTotalB2.Text = "0";
+            txtTotalB1.Text = "0";
+            txtTotalM1.Text = "0";
+            txtTotalM500.Text = "0";
+            txtTotalM200.Text = "0";
+            txtTotalM100.Text = "0";
+            txtTotalM50.Text = "0";
+        }
 
 
         public void calcularTotalEntregado()
         {
             int total = 0;
-            total += TryConvertToInt(txB100.Text) * 100000;
-            total += TryConvertToInt(txB50.Text) * 50000;
-            total += TryConvertToInt(txB20.Text) * 20000;
-            total += TryConvertToInt(txB10.Text) * 10000;
-            total += TryConvertToInt(txB5.Text) * 5000;
-            total += TryConvertToInt(txB2.Text) * 2000;
-            total += TryConvertToInt(txB1.Text) * 1000;
-            total += TryConvertToInt(txM1000.Text) * 1000;
-            total += TryConvertToInt(txM500.Text) * 500;
-            total += TryConvertToInt(txM200.Text) * 200;
-            total += TryConvertToInt(txM100.Text) * 100;
-            total += TryConvertToInt(txM50.Text) * 50;
-            valorentregado = total;
+            int totalB100 = TryConvertToInt(txB100.Text) * 100000;
+            int totalB50 = TryConvertToInt(txB50.Text) * 50000;
+            int totalB20 = TryConvertToInt(txB20.Text) * 20000;
+            int totalB10 = TryConvertToInt(txB10.Text) * 10000;
+            int totalB5 = TryConvertToInt(txB5.Text) * 5000;
+            int totalB2 = TryConvertToInt(txB2.Text) * 2000;
+            int totalB1 = TryConvertToInt(txB1.Text) * 1000;
+            int totalM1000 = TryConvertToInt(txM1000.Text) * 1000;
+            int totalM500 = TryConvertToInt(txM500.Text) * 500;
+            int totalM200 = TryConvertToInt(txM200.Text) * 200;
+            int totalM100 = TryConvertToInt(txM100.Text) * 100;
+            int totalM50 = TryConvertToInt(txM50.Text) * 50;
+
+            total += totalB100 + totalB50 + totalB20 + totalB10 + totalB5 + totalB2 + totalB1 +
+             totalM1000 + totalM500 + totalM200 + totalM100 + totalM50;
 
             lbValorTotalEntregado.Text = total.ToString("C0");
-            //int total = 0;
+            txtTotal100000.Text = totalB100.ToString("C0");
+            txtTotal50000.Text = totalB50.ToString("C0");
+            txtTotal20000.Text = totalB20.ToString("C0");
+            txtTotal10000.Text = totalB10.ToString("C0");
+            txtTotal5000.Text = totalB5.ToString("C0");
+            txtTotal2000.Text = totalB2.ToString("C0");
+            txtTotalB1000.Text = totalB1.ToString("C0");
+            txtTotal1000.Text = totalM1000.ToString("C0");
+            txtTotal500.Text = totalM500.ToString("C0");
+            txtTotal200.Text = totalM200.ToString("C0");
+            txtTotal100.Text = totalM100.ToString("C0");
+            txtTotal50.Text = totalM50.ToString("C0");
 
-
-            //int valor;
-            //if (int.TryParse(txtTotal100000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal50000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal20000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal10000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal5000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal2000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalB1000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal1000.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal500.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal200.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal100.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotal50.Text, out valor)) total += valor;
-            //valorentregado = total;
-
-
-            //lbValorTotalEntregado.Text = $"${total}";
-
+            valorentregado = total;
 
         }
-        
+
 
         private void calcularTotalCaja()
         {
             int total = 0;
             int valor;
 
-            if(int.TryParse(txtTotalB100.Text,out valor)) total += valor;
-            if(int.TryParse(txtTotalB50.Text,out valor)) total += valor;
-            if(int.TryParse(txtTotalB20.Text,out valor)) total+= valor;
-            if (int.TryParse(txtTotalB10.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalB5.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalB2.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalB1.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalM1.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalM500.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalM200.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalM100.Text, out valor)) total += valor;
-            if (int.TryParse(txtTotalM50.Text, out valor)) total += valor;
+            int totalB100 = TryConvertToInt(txt100000.Text) * 100000;
+            int totalB50 = TryConvertToInt(txt50000.Text) * 50000;
+            int totalB20 = TryConvertToInt(txt20000.Text) * 20000;
+            int totalB10 = TryConvertToInt(txt10000.Text) * 10000;
+            int totalB5 = TryConvertToInt(txt5000.Text) * 5000;
+            int totalB2 = TryConvertToInt(txt2000.Text) * 2000;
+            int totalB1 = TryConvertToInt(txtB1000.Text) * 1000;
+            int totalM1000 = TryConvertToInt(txt1000.Text) * 1000;
+            int totalM500 = TryConvertToInt(txt500.Text) * 500;
+            int totalM200 = TryConvertToInt(txt200.Text) * 200;
+            int totalM100 = TryConvertToInt(txt100.Text) * 100;
+            int totalM50 = TryConvertToInt(txt50.Text) * 50;
 
-            lbValorTotalCaja.Text = $"${total}";
+            total += totalB100 + totalB50 + totalB20 + totalB10 + totalB5 + totalB2 + totalB1 +
+            totalM1000 + totalM500 + totalM200 + totalM100 + totalM50;
+
+            lbValorTotalCaja.Text =total.ToString("C0");
+            txtTotalB100.Text = totalB100.ToString("C0");
+            txtTotalB50.Text = totalB50.ToString("C0");
+            txtTotalB20.Text = totalB20.ToString("C0");
+            txtTotalB10.Text = totalB10.ToString("C0");
+            txtTotalB5.Text = totalB5.ToString("C0");
+            txtTotalB2.Text = totalB2.ToString("C0");
+            txtTotalB1.Text = totalB1.ToString("C0");
+            txtTotalM1.Text = totalM1000.ToString("C0");
+            txtTotalM500.Text= totalM500.ToString("C0");
+            txtTotalM200.Text= totalM200.ToString("C0");
+            txtTotalM100.Text= totalM100.ToString("C0");
+            txtTotalM50.Text= totalM50.ToString("C0");
+
+            //if (int.TryParse(txtTotalB100.Text,out valor)) total += valor;
+            //if(int.TryParse(txtTotalB50.Text,out valor)) total += valor;
+            //if(int.TryParse(txtTotalB20.Text,out valor)) total+= valor;
+            //if (int.TryParse(txtTotalB10.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalB5.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalB2.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalB1.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalM1.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalM500.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalM200.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalM100.Text, out valor)) total += valor;
+            //if (int.TryParse(txtTotalM50.Text, out valor)) total += valor;
+
+            //lbValorTotalCaja.Text = $"${total}";
         }
 
         private void lbValorTotalEntregado_TextChanged(object sender, EventArgs e)
@@ -532,6 +628,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB100, txtTotal100000, 100000);
 
                 e.SuppressKeyPress = true;
+                txB50.Focus();
             }
         }
 
@@ -542,6 +639,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB50, txtTotal50000, 50000);
 
                 e.SuppressKeyPress = true;
+                txB20.Focus();
             }
            
         }
@@ -553,6 +651,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB20, txtTotal20000, 20000);
 
                 e.SuppressKeyPress = true;
+                txB10.Focus();
             }
 
         }
@@ -564,6 +663,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB10, txtTotal10000, 10000);
 
                 e.SuppressKeyPress = true;
+                txB5.Focus();
             }
         }
 
@@ -574,6 +674,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB5, txtTotal5000, 5000);
 
                 e.SuppressKeyPress = true;
+                txB2.Focus();
             }
             
         }
@@ -585,6 +686,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB2, txtTotal2000, 2000);
 
                 e.SuppressKeyPress = true;
+                txB1.Focus();
             }
 
         }
@@ -596,6 +698,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txB1, txtTotalB1000, 1000);
 
                 e.SuppressKeyPress = true;
+                txM1000.Focus();
             }
         }
 
@@ -606,6 +709,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM1000, txtTotal1000, 1000);
 
                 e.SuppressKeyPress = true;
+                txM500.Focus();
             }
         }
 
@@ -616,6 +720,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM500, txtTotal500, 500);
 
                 e.SuppressKeyPress = true;
+                txM200.Focus();
             }
         }
 
@@ -626,6 +731,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM200, txtTotal200, 200);
 
                 e.SuppressKeyPress = true;
+                txM100.Focus();
             }
         }
 
@@ -636,6 +742,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM100, txtTotal100, 100);
 
                 e.SuppressKeyPress = true;
+                txM50.Focus();
             }
         }
 
@@ -660,6 +767,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt100000, txtTotalB100, 100000);
 
                 e.SuppressKeyPress = true;
+                txt50000.Focus();
             }
         }
 
@@ -670,6 +778,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt50000, txtTotalB50, 50000);
 
                 e.SuppressKeyPress = true;
+                txt20000.Focus();
             }
         }
 
@@ -680,6 +789,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt20000, txtTotalB20, 20000);
 
                 e.SuppressKeyPress = true;
+                txt10000.Focus();
             }
 
         }
@@ -691,6 +801,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt10000, txtTotalB10, 10000);
 
                 e.SuppressKeyPress = true;
+                txt5000.Focus();
             }
 
         }
@@ -702,6 +813,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt5000, txtTotalB5, 5000);
 
                 e.SuppressKeyPress = true;
+                txt2000.Focus();
             }
         }
 
@@ -712,6 +824,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt2000, txtTotalB2, 2000);
 
                 e.SuppressKeyPress = true;
+                txtB1000.Focus();
             }
         }
         private void txtB1000_KeyDown(object sender, KeyEventArgs e)
@@ -721,6 +834,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txtB1000, txtTotalB1, 1000);
 
                 e.SuppressKeyPress = true;
+                txt1000.Focus();
             }
 
         }
@@ -732,6 +846,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt1000, txtTotalM1, 1000);
 
                 e.SuppressKeyPress = true;
+                txt500.Focus();
             }
         }
 
@@ -742,6 +857,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt500, txtTotalM500, 500);
 
                 e.SuppressKeyPress = true;
+                txt200.Focus();
             }
         }
 
@@ -752,6 +868,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt200, txtTotalM200, 200);
 
                 e.SuppressKeyPress = true;
+                txt100.Focus();
             }
         }
 
@@ -762,6 +879,7 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt100, txtTotalM100, 100);
 
                 e.SuppressKeyPress = true;
+                txt50.Focus();
             }
         }
 

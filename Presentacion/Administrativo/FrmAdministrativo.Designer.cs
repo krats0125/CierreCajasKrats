@@ -57,6 +57,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.TimerHora = new System.Windows.Forms.Timer(this.components);
+            this.AccionMoverFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1.SuspendLayout();
             this.BarraS.SuspendLayout();
             this.PanelControles.SuspendLayout();
@@ -83,7 +84,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-5, -6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 369);
+            this.panel1.Size = new System.Drawing.Size(722, 410);
             this.panel1.TabIndex = 1;
             // 
             // BarraS
@@ -100,7 +101,7 @@
             this.BarraS.Controls.Add(this.lb_cajero);
             this.BarraS.Location = new System.Drawing.Point(3, 3);
             this.BarraS.Name = "BarraS";
-            this.BarraS.Size = new System.Drawing.Size(717, 84);
+            this.BarraS.Size = new System.Drawing.Size(719, 84);
             this.BarraS.TabIndex = 29;
             // 
             // PanelControles
@@ -110,10 +111,11 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
             this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
-            this.PanelControles.Location = new System.Drawing.Point(209, 7);
+            this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelControles.Location = new System.Drawing.Point(219, 0);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(508, 26);
+            this.PanelControles.Size = new System.Drawing.Size(500, 26);
             this.PanelControles.TabIndex = 0;
             // 
             // guna2ControlBox3
@@ -122,9 +124,10 @@
             this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.BorderRadius = 10;
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(435, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(427, 0);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
@@ -136,9 +139,10 @@
             this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.BorderRadius = 10;
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(460, 0);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(452, 0);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
@@ -149,9 +153,10 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.BorderRadius = 10;
+            this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(484, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(476, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
@@ -198,7 +203,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(498, 61);
+            this.label3.Location = new System.Drawing.Point(500, 61);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 18);
@@ -212,7 +217,7 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(491, 33);
+            this.lb_FechaActual.Location = new System.Drawing.Point(493, 33);
             this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FechaActual.Name = "lb_FechaActual";
             this.lb_FechaActual.Size = new System.Drawing.Size(224, 25);
@@ -225,7 +230,7 @@
             this.lb_cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_cajero.Location = new System.Drawing.Point(569, 62);
+            this.lb_cajero.Location = new System.Drawing.Point(571, 62);
             this.lb_cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_cajero.Name = "lb_cajero";
             this.lb_cajero.Size = new System.Drawing.Size(155, 18);
@@ -238,8 +243,9 @@
             this.CGPTrabajadores.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.CGPTrabajadores.Controls.Add(this.lbTrabajador);
             this.CGPTrabajadores.Controls.Add(this.pbTrabajador);
+            this.CGPTrabajadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPTrabajadores.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPTrabajadores.Location = new System.Drawing.Point(159, 151);
+            this.CGPTrabajadores.Location = new System.Drawing.Point(159, 163);
             this.CGPTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.CGPTrabajadores.Name = "CGPTrabajadores";
             this.CGPTrabajadores.Size = new System.Drawing.Size(209, 102);
@@ -278,8 +284,9 @@
             this.CGPMovimientos.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.CGPMovimientos.Controls.Add(this.pbMovimientos);
             this.CGPMovimientos.Controls.Add(this.lbMovimientos);
+            this.CGPMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPMovimientos.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPMovimientos.Location = new System.Drawing.Point(368, 151);
+            this.CGPMovimientos.Location = new System.Drawing.Point(368, 163);
             this.CGPMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.CGPMovimientos.Name = "CGPMovimientos";
             this.CGPMovimientos.Size = new System.Drawing.Size(209, 105);
@@ -318,8 +325,9 @@
             this.cgpAdelantos.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.cgpAdelantos.Controls.Add(this.pbAdelantos);
             this.cgpAdelantos.Controls.Add(this.lbAdelantos);
+            this.cgpAdelantos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgpAdelantos.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.cgpAdelantos.Location = new System.Drawing.Point(365, 257);
+            this.cgpAdelantos.Location = new System.Drawing.Point(365, 269);
             this.cgpAdelantos.Margin = new System.Windows.Forms.Padding(2);
             this.cgpAdelantos.Name = "cgpAdelantos";
             this.cgpAdelantos.Size = new System.Drawing.Size(209, 105);
@@ -358,8 +366,9 @@
             this.CGPReportes.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.CGPReportes.Controls.Add(this.pbReportes);
             this.CGPReportes.Controls.Add(this.lbReportes);
+            this.CGPReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPReportes.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPReportes.Location = new System.Drawing.Point(159, 256);
+            this.CGPReportes.Location = new System.Drawing.Point(159, 268);
             this.CGPReportes.Margin = new System.Windows.Forms.Padding(2);
             this.CGPReportes.Name = "CGPReportes";
             this.CGPReportes.Size = new System.Drawing.Size(209, 105);
@@ -418,14 +427,21 @@
             // 
             this.TimerHora.Tick += new System.EventHandler(this.TimerHora_Tick);
             // 
+            // AccionMoverFormulario
+            // 
+            this.AccionMoverFormulario.DockIndicatorTransparencyValue = 0.6D;
+            this.AccionMoverFormulario.TargetControl = this.PanelControles;
+            this.AccionMoverFormulario.UseTransparentDrag = true;
+            // 
             // FrmAdministrativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 363);
+            this.ClientSize = new System.Drawing.Size(716, 403);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAdministrativo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministrativo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAdministrativo_FormClosing);
             this.Load += new System.EventHandler(this.FrmAdministrativo_Load);
@@ -481,5 +497,6 @@
         private System.Windows.Forms.Label lb_FechaActual;
         private System.Windows.Forms.Label lb_cajero;
         private System.Windows.Forms.Timer TimerHora;
+        private Guna.UI2.WinForms.Guna2DragControl AccionMoverFormulario;
     }
 }

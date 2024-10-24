@@ -1,6 +1,6 @@
 ﻿using CierreDeCajas.Modelo;
 using CierreDeCajas.Presentacion;
-using CierreDeCajas.Presentacion.Operativo;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,38 +14,40 @@ namespace CierreDeCajas.Logica
 {
     public class CierreCajaRepository
     {
-        decimal valorventas = 0;
+        CierreCaja oCierreCaja = new CierreCaja();
         CONEXION cn = new CONEXION();
+        //(pendiente)se modifico el valor de las ventas
+        decimal valorVentas = 9371470;
 
-        //public bool ActualizarVentas(string IdUsuario)
-        //{
-        //    CierreCaja oCierreCaja = new CierreCaja();
-        //    bool respuesta = false;
-        //    try
-        //    {
-        //        using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
-        //        {
-        //            conexion.Open();
-        //            string sql = "select sum(total) from Facturas1 where IdUsuario=@IdUsuario AND CAST(FechaCreacion AS DATE) = CAST(GETDATE() AS DATE)";
-        //            using (SqlCommand cmd = new SqlCommand(sql, conexion))
-        //            {
-        //                cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-        //                using (SqlDataReader dr = cmd.ExecuteReader())
-        //                {
-        //                    while (dr.Read())
-        //                    {
-        //                        oCierreCaja.ValorVentas = Convert.ToDecimal(dr["ValorVentas"].ToString());
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return respuesta;
-        //    }
-        //    return respuesta;
-        //}
+        public decimal ActualizarVentas(string IdUsuario)
+        {
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
+                {
+                    conexion.Open();
+                    string sql = "select sum(total) from Facturas1 where IdUsuario=@IdUsuario AND CAST(FechaCreacion AS DATE) = CAST(GETDATE() AS DATE)";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                valorVentas = Convert.ToDecimal(dr["sum(total)"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return oCierreCaja.ValorVentas;
+            }
+            return oCierreCaja.ValorVentas;
+        }
+
 
         public bool ActualizarCierre(int IdCierre)
         {
@@ -58,11 +60,6 @@ namespace CierreDeCajas.Logica
             {
                 entregaUltimoEfectivo=Frm.valorentregado;
             }
-            //FrmVentas FrmV = new InstanciasRepository().InstanciaFrmVentas();
-            //if (FrmV !=null)
-            //{
-            //   valorventas=FrmV.TotalVentas;
-            //}
 
             bool respuesta = false;
             try
@@ -76,7 +73,7 @@ namespace CierreDeCajas.Logica
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@IdCierre", IdCierre);
                         cmd.Parameters.AddWithValue("@EntregaUltimoEfectivo", entregaUltimoEfectivo);
-                        cmd.Parameters.AddWithValue("@ValorVentas", valorventas);
+                        cmd.Parameters.AddWithValue("@ValorVentas", valorVentas);
 
                         cmd.ExecuteNonQuery();
                         respuesta = true;

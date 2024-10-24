@@ -277,10 +277,10 @@ Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTE
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.csproj.AssemblyReference.cache
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmCrearNuevoConcepto.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmDetalleReporte.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmEliminarAdelanto.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmMovimientosAdmin.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmNuevoAdelanto.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmReportes.resources
-Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Operativo.FrmVentas.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.FrmLogin.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdelantos.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmAdministrativo.resources
@@ -298,4 +298,3 @@ Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTE
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDe.C1983806.Up2Date
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.exe
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.pdb
-Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmEliminarAdelanto.resources

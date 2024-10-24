@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbIdMovimiento = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1.SuspendLayout();
             this.PanelControles.SuspendLayout();
             this.SuspendLayout();
@@ -70,39 +72,39 @@
             this.panel1.Controls.Add(this.lbIdMovimiento);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 300);
+            this.panel1.Size = new System.Drawing.Size(689, 290);
             this.panel1.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(161, 196);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtDescripcion.Location = new System.Drawing.Point(135, 172);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(265, 93);
+            this.txtDescripcion.Size = new System.Drawing.Size(200, 82);
             this.txtDescripcion.TabIndex = 36;
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(581, 110);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtValor.Location = new System.Drawing.Point(450, 118);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(265, 22);
+            this.txtValor.Size = new System.Drawing.Size(200, 26);
             this.txtValor.TabIndex = 35;
             // 
             // PanelControles
             // 
             this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelControles.BackColor = System.Drawing.Color.Transparent;
+            this.PanelControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
             this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
-            this.PanelControles.Location = new System.Drawing.Point(168, 0);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelControles.Location = new System.Drawing.Point(2, 0);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(699, 32);
+            this.PanelControles.Size = new System.Drawing.Size(685, 26);
             this.PanelControles.TabIndex = 34;
             // 
             // guna2ControlBox3
@@ -111,12 +113,13 @@
             this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.BorderRadius = 10;
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(601, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(612, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
             // 
             // guna2ControlBox2
@@ -125,12 +128,13 @@
             this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.BorderRadius = 10;
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(635, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(637, 0);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -138,25 +142,26 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.BorderRadius = 10;
+            this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(667, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(661, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(29, 30);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox1.TabIndex = 0;
             // 
             // btnGuarda
             // 
             this.btnGuarda.AutoEllipsis = true;
             this.btnGuarda.BackColor = System.Drawing.Color.Gold;
+            this.btnGuarda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuarda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuarda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuarda.ForeColor = System.Drawing.Color.Black;
-            this.btnGuarda.Location = new System.Drawing.Point(612, 223);
-            this.btnGuarda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuarda.Location = new System.Drawing.Point(473, 210);
             this.btnGuarda.Name = "btnGuarda";
-            this.btnGuarda.Size = new System.Drawing.Size(129, 54);
+            this.btnGuarda.Size = new System.Drawing.Size(97, 44);
             this.btnGuarda.TabIndex = 33;
             this.btnGuarda.Text = "Guardar";
             this.btnGuarda.UseVisualStyleBackColor = false;
@@ -164,133 +169,137 @@
             // 
             // cbTipodecobro
             // 
+            this.cbTipodecobro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTipodecobro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbTipodecobro.FormattingEnabled = true;
-            this.cbTipodecobro.Location = new System.Drawing.Point(581, 52);
-            this.cbTipodecobro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipodecobro.Location = new System.Drawing.Point(450, 71);
             this.cbTipodecobro.Name = "cbTipodecobro";
-            this.cbTipodecobro.Size = new System.Drawing.Size(265, 24);
+            this.cbTipodecobro.Size = new System.Drawing.Size(200, 28);
             this.cbTipodecobro.TabIndex = 32;
             this.cbTipodecobro.Visible = false;
             // 
             // cbMediodepago
             // 
+            this.cbMediodepago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbMediodepago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbMediodepago.FormattingEnabled = true;
-            this.cbMediodepago.Location = new System.Drawing.Point(161, 128);
-            this.cbMediodepago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbMediodepago.Location = new System.Drawing.Point(135, 120);
             this.cbMediodepago.Name = "cbMediodepago";
-            this.cbMediodepago.Size = new System.Drawing.Size(265, 24);
+            this.cbMediodepago.Size = new System.Drawing.Size(200, 28);
             this.cbMediodepago.TabIndex = 31;
             // 
             // cbConceptos
             // 
+            this.cbConceptos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbConceptos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbConceptos.FormattingEnabled = true;
-            this.cbConceptos.Location = new System.Drawing.Point(160, 60);
-            this.cbConceptos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbConceptos.Location = new System.Drawing.Point(134, 57);
             this.cbConceptos.Name = "cbConceptos";
-            this.cbConceptos.Size = new System.Drawing.Size(265, 24);
+            this.cbConceptos.Size = new System.Drawing.Size(200, 28);
             this.cbConceptos.TabIndex = 30;
             this.cbConceptos.SelectedIndexChanged += new System.EventHandler(this.cbConceptos_SelectedIndexChanged);
             // 
             // cbCajero
             // 
+            this.cbCajero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbCajero.FormattingEnabled = true;
-            this.cbCajero.Location = new System.Drawing.Point(581, 165);
-            this.cbCajero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCajero.Location = new System.Drawing.Point(450, 163);
             this.cbCajero.Name = "cbCajero";
-            this.cbCajero.Size = new System.Drawing.Size(265, 24);
+            this.cbCajero.Size = new System.Drawing.Size(200, 28);
             this.cbCajero.TabIndex = 29;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(460, 164);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(368, 162);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 32);
+            this.label5.Size = new System.Drawing.Size(71, 25);
             this.label5.TabIndex = 28;
             this.label5.Text = "Cajero:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1, 196);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(15, 167);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 32);
+            this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 27;
             this.label2.Text = "Descripción:";
             // 
             // lbTipoCobro
             // 
-            this.lbTipoCobro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTipoCobro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTipoCobro.ForeColor = System.Drawing.Color.White;
-            this.lbTipoCobro.Location = new System.Drawing.Point(451, 26);
-            this.lbTipoCobro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTipoCobro.Location = new System.Drawing.Point(368, 51);
             this.lbTipoCobro.Name = "lbTipoCobro";
-            this.lbTipoCobro.Size = new System.Drawing.Size(108, 62);
+            this.lbTipoCobro.Size = new System.Drawing.Size(81, 50);
             this.lbTipoCobro.TabIndex = 25;
             this.lbTipoCobro.Text = "Tipo de cobro:";
             this.lbTipoCobro.Visible = false;
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(36, 103);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(25, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 74);
+            this.label4.Size = new System.Drawing.Size(95, 60);
             this.label4.TabIndex = 23;
             this.label4.Text = "Medio de pago:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(472, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(368, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 32);
+            this.label3.Size = new System.Drawing.Size(60, 25);
             this.label3.TabIndex = 21;
             this.label3.Text = "Valor:";
             // 
             // lbIdMovimiento
             // 
             this.lbIdMovimiento.AutoSize = true;
-            this.lbIdMovimiento.Location = new System.Drawing.Point(71, 16);
-            this.lbIdMovimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbIdMovimiento.Location = new System.Drawing.Point(12, 30);
             this.lbIdMovimiento.Name = "lbIdMovimiento";
-            this.lbIdMovimiento.Size = new System.Drawing.Size(44, 16);
+            this.lbIdMovimiento.Size = new System.Drawing.Size(35, 13);
             this.lbIdMovimiento.TabIndex = 19;
             this.lbIdMovimiento.Text = "label6";
+            this.lbIdMovimiento.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 53);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(25, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 32);
+            this.label1.Size = new System.Drawing.Size(97, 25);
             this.label1.TabIndex = 18;
             this.label1.Text = "Concepto:";
             // 
+            // AccionMovimiento
+            // 
+            this.AccionMovimiento.DockIndicatorTransparencyValue = 0.6D;
+            this.AccionMovimiento.TargetControl = this.PanelControles;
+            this.AccionMovimiento.UseTransparentDrag = true;
+            // 
             // FrmMovimientosAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 297);
+            this.ClientSize = new System.Drawing.Size(687, 290);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmMovimientosAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMovimientosAdmin";
             this.Load += new System.EventHandler(this.FrmMovimientosAdmin_Load);
             this.panel1.ResumeLayout(false);
@@ -321,5 +330,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private Guna.UI2.WinForms.Guna2DragControl AccionMovimiento;
     }
 }

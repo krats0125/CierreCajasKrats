@@ -81,7 +81,7 @@ namespace CierreDeCajas.Logica
                         cmd.Parameters.AddWithValue("@IdMedioPago", oMovimiento.IdMedioPago);
 
                         cmd.ExecuteNonQuery();
-                        return respuesta;
+                        respuesta=true;
                     }
                 }
 
@@ -90,7 +90,7 @@ namespace CierreDeCajas.Logica
             {
                 return respuesta;
             }
-
+         return respuesta ;
         
         }
 

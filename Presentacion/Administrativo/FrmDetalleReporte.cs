@@ -36,8 +36,8 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 Panel panel = new Panel
                 {
                     Width = pnlflListaMedioPago.Width - 20, // Ajustar el tamaño del panel
-                    Height = 25, // Altura del panel
-                    Margin = new Padding(1) // Margen entre los paneles
+                    Height = 30, // Altura del panel
+                    Margin = new Padding(2) // Margen entre los paneles
                 };
 
                 // Crear el primer label para la descripción
@@ -45,7 +45,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 {
                     Text = medio.Descripcion,
                     AutoSize = true, // Ajustar automáticamente el tamaño del label
-                    Location = new Point(10, 10), // Posición dentro del panel,ESTO LO DEBE DE TENER EL OTRO PANEL
+                    Location = new Point(10, 10), // Posición dentro del panel
                     Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Regular)
                 };
 
@@ -54,7 +54,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 {
                     Text = medio.Valor.ToString("C0"), // Formatear como moneda
                     AutoSize = true,
-                    Location = new Point(200, 10), // Posición dentro del panel
+                    Location = new Point(230, 10), // Posición dentro del panel
                     Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Regular),
                     TextAlign = ContentAlignment.MiddleRight
                 };
@@ -68,7 +68,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 pnlflListaMedioPago.Refresh();
             }
         }
-
         private List<MedioDePago> listarSumatoriaMedioDePago()
         {
             List<MedioDePago> mediosPago = new List<MedioDePago>();
@@ -223,18 +222,18 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 {
                     BorderStyle = BorderStyle.FixedSingle,
                     Width = 300, // Ancho del panel
-                    Margin = new Padding(1) // Margen alrededor del panel
+                    Height = 150,
+                    Margin = new Padding(1), // Margen alrededor del panel
+                    AutoScroll = true,
                 };
-
-
 
                 // Crear un contenedor para las descripciones y valores
                 FlowLayoutPanel innerPanel = new FlowLayoutPanel
                 {
-
                     FlowDirection = FlowDirection.TopDown,
                     Dock = DockStyle.Top,
                     AutoSize = true,
+                    AutoScroll = true,
                     WrapContents = false
                 };
 
@@ -251,43 +250,39 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Agregar los movimientos del grupo al contenedor
                 foreach (var movimiento in grupo)
                 {
-
                     FlowLayoutPanel valuePanel = new FlowLayoutPanel
                     {
                         FlowDirection = FlowDirection.LeftToRight, // Cambiar para alinear los controles horizontalmente
+                        AutoSize = true,
+                        Margin = new Padding(0, 5, 0, 5), // Espaciado entre movimientos
 
-                        AutoSize = true
                     };
-
 
                     Label labelValor = new Label
                     {
                         Text = movimiento.Valor,
-                        Font = new System.Drawing.Font("Arial", 11, System.Drawing.FontStyle.Bold),
+                        Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
                         Width = 100, // Ancho del panel
                         ForeColor = Color.White,
-                        //Margin = new Padding(0, 0, 10, 0),
-                        TextAlign = ContentAlignment.MiddleRight
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.TopLeft,
                     };
 
                     Label labelDescripcion = new Label
                     {
                         Text = movimiento.Descripcion,
-                        Font = new System.Drawing.Font("Arial", 11, System.Drawing.FontStyle.Bold),
+                        Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
+                        Width = 210,
                         ForeColor = Color.White,
-                        Width = 180, // Ancho del panel
-                        //Margin = new Padding(0, 0, 10, 0)
-
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.MiddleLeft
                     };
 
-
-                    valuePanel.Controls.Add(labelDescripcion);
-                    valuePanel.Controls.Add(labelValor);
-
+                    // Agregar primero el valor y luego la descripción
+                    valuePanel.Controls.Add(labelValor);       // Añadir el valor primero
+                    valuePanel.Controls.Add(labelDescripcion); // Luego la descripción
 
                     innerPanel.Controls.Add(valuePanel); // Añadir el panel de valor-descripción al contenedor
-
-
                 }
 
                 panel.Controls.Add(innerPanel);

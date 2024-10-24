@@ -33,7 +33,7 @@ namespace CierreDeCajas.Presentacion.Sistema
         //        List<Domicilio> domicilios = LeerExcel(rutaArchivo);
 
         //        // Insertar los domicilios en la base de datos
-        //        InsertarDomiciliosEnBaseDeDatos(domicilios);
+        //        InsertarDomiciliosEnBaseDeDatos(domicilios);//tabla movimientos 
 
         //        MessageBox.Show("Datos insertados exitosamente.");
         //    }

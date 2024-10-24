@@ -45,7 +45,7 @@ namespace CierreDeCajas.Presentacion.Sistema
 
         private void ListaMovimientos()
         {
-            string consulta = $@"Select MC.IdMovimiento, CM.Concepto, MC.Descripcion, MC.Valor, MP.Descripcion, MC.fecha
+            string consulta = $@"Select MC.IdMovimiento, CM.Concepto AS CONCEPTO, MC.Descripcion AS DESCRIPCION, MC.Valor AS VALOR, MP.Descripcion AS 'MEDIO DE PAGO', MC.fecha AS FECHA
             from MovimientoCaja MC 
             inner join ConceptoMovimiento CM ON MC.IdConcepto= CM.Id 
             inner join MediosDePago MP ON MC.IdMedioPago=MP.IdMedioPago
@@ -90,7 +90,7 @@ namespace CierreDeCajas.Presentacion.Sistema
             cbConceptos.SelectedIndex=cbConceptos.FindStringExact(Concepto);
             txtValor.Text = fila.Cells["Valor"].Value.ToString();
             txtDescripcion.Text=fila.Cells["Descripcion"].Value.ToString();
-            string medioPago = fila.Cells["Descripcion1"].Value.ToString();
+            string medioPago = fila.Cells["MEDIO DE PAGO"].Value.ToString();
             cbMediodepago.SelectedIndex=cbMediodepago.FindStringExact(medioPago);
             btnGuarda.Enabled=false;
         }
@@ -205,6 +205,19 @@ namespace CierreDeCajas.Presentacion.Sistema
             {
                 MessageBox.Show("Se actualizo el movimiento correctamente");
                 limpiarcampos();
+                btnGuarda.Enabled = true;
+                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+
+                ListaMovimientos();//Muestra en el dgv los movimientos
+                frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
+                frm.CitarPanelesMovimientos();
+
+                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                frm.CargarCierreVentas();
             }
             else
             {
@@ -212,18 +225,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 return;
             }
 
-            FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
-
-            ListaMovimientos();//Muestra en el dgv los movimientos
-            frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
-            frm.CitarPanelesMovimientos();
-
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
-            if (!actualizacionExitosa)
-            {
-                MessageBox.Show("Hubo un error actualizando el cierre de caja");
-            }
-            frm.CargarCierreVentas();
+          
         }
 
         private void btnElimina_Click(object sender, EventArgs e)
@@ -255,7 +257,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                     }
                     frm.CargarCierreVentas();
                     limpiarcampos();
-
+                    btnGuarda.Enabled = true;
                 }
                 else
                 {

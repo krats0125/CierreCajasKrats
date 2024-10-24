@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace CierreDeCajas.Presentacion
         {
             InitializeComponent();
             this.ppal = ppal;
-            
+
         }
 
         private void rbMensajero_CheckedChanged(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace CierreDeCajas.Presentacion
             //CargarTodosTrabajadores();
             CargarTodosConceptos();
             listarPrestamos();
-            
+
         }
 
         private void rbTrabajadores_CheckedChanged(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace CierreDeCajas.Presentacion
             if (rbMensajero.Checked)
             {
                 sql = "select Id,Concepto from ConceptoAdelanto where Activo=1 and ( Permiso=2 or Permiso=1)";
-              
+
             }
             else if (rbTrabajadores.Checked)
             {
@@ -83,7 +84,7 @@ namespace CierreDeCajas.Presentacion
             {
                 sql = "select Id,Concepto from ConceptoAdelanto where activo=1 and permiso=1";
             }
-            DataTable ListaConceptosPrestamo = new SentenciaSqlServer().TraerDatos(sql,Conexion.ConexionCierreCaja());
+            DataTable ListaConceptosPrestamo = new SentenciaSqlServer().TraerDatos(sql, Conexion.ConexionCierreCaja());
             cbConceptos.DataSource = ListaConceptosPrestamo;
 
             cbConceptos.DisplayMember = "Concepto";
@@ -94,7 +95,7 @@ namespace CierreDeCajas.Presentacion
         private void CargarTodosTrabajadores()
         {
             string consulta = "";
-            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta,Conexion.ConexionCierreCaja());
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.ConexionCierreCaja());
             lbxTrabajadores.DataSource = lista;
             lbxTrabajadores.DisplayMember = "";
             lbxTrabajadores.ValueMember = "";
@@ -102,34 +103,34 @@ namespace CierreDeCajas.Presentacion
 
         private void CargarTodosConceptos()
         {
-           
+
             string consulta = "select Id,Concepto from ConceptoAdelanto where activo=1";
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.ConexionCierreCaja());
-            cbConceptos.DataSource= lista;
+            cbConceptos.DataSource = lista;
             cbConceptos.DisplayMember = "Concepto";
-            cbConceptos.ValueMember= "Id";
+            cbConceptos.ValueMember = "Id";
         }
 
         private void lbTrabajadores_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int idMov=0;
+            int idMov = 0;
             Movimiento oMovimiento = new Movimiento();
-            
+
             oMovimiento.IdCaja = ppal.idCaja;
             oMovimiento.IdUsuario = ppal.idUsuario;
             oMovimiento.IdCierre = ppal.idCierre;
             oMovimiento.Descripcion = txtObservaciones.Text;
-            oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+            oMovimiento.Valor = Convert.ToDecimal( txtValor.Text);
             oMovimiento.IdConcepto = 9;
-            oMovimiento.IdMedioPago =1;
+            oMovimiento.IdMedioPago = 1;
 
             idMov = new PrestamosRepository().Insertar(oMovimiento);
-            if (idMov>0)
+            if (idMov > 0)
             {
 
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
@@ -141,6 +142,7 @@ namespace CierreDeCajas.Presentacion
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
                 }
                 frm.CargarCierreVentas();
+    
 
             }
             else
@@ -148,7 +150,7 @@ namespace CierreDeCajas.Presentacion
                 MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
             }
 
-            Prestamo oPrestamo= new Prestamo();
+            Prestamo oPrestamo = new Prestamo();
 
             if (rbMensajero.Checked)
             {
@@ -163,17 +165,19 @@ namespace CierreDeCajas.Presentacion
             oPrestamo.Concepto = cbConceptos.Text;
             oPrestamo.Observacion = txtObservaciones.Text;
             oPrestamo.Caja = Convert.ToInt64(ppal.idCaja).ToString();
-            oPrestamo.Cajero=ppal.idUsuario;
+            oPrestamo.Cajero = ppal.idUsuario;
             oPrestamo.IdMovimiento = idMov;
 
 
             bool esMensajero = rbMensajero.Checked;
 
-            bool seGuardo = new PrestamosRepository().InsertarEnPrestamos(oPrestamo,esMensajero,!esMensajero);
+            bool seGuardo = new PrestamosRepository().InsertarEnPrestamos(oPrestamo, esMensajero, !esMensajero);
             if (seGuardo)
             {
                 MessageBox.Show("Préstamo guardado exitosamente.");
                 listarPrestamos();
+                txtValor.Clear();
+                txtObservaciones.Clear();
             }
             else
             {
@@ -187,11 +191,11 @@ namespace CierreDeCajas.Presentacion
             //                   FROM MENSAJEROS INNER JOIN PRESTAMOS ON MENSAJEROS.IdTrabajador = PRESTAMOS.IdTrabajador
             //                   WHERE PRESTAMOS.Cajero='{ppal.idUsuario}';";
 
-            string consulta = $@"SELECT PRESTAMOS_MENSAJEROS2.Fecha, MENSAJEROS.nombre, PRESTAMOS_MENSAJEROS2.Valor, PRESTAMOS_MENSAJEROS2.Concepto, PRESTAMOS_MENSAJEROS2.Observacion
+            string consulta = $@"SELECT PRESTAMOS_MENSAJEROS2.Fecha AS FECHA, MENSAJEROS.nombre AS NOMBRE, PRESTAMOS_MENSAJEROS2.Valor AS VALOR, PRESTAMOS_MENSAJEROS2.Concepto AS CONCEPTO, PRESTAMOS_MENSAJEROS2.Observacion AS OBSERVACIONES
                               FROM MENSAJEROS INNER JOIN PRESTAMOS_MENSAJEROS2 ON MENSAJEROS.IdTrabajador = PRESTAMOS_MENSAJEROS2.IdTrabajador
                               WHERE PRESTAMOS_MENSAJEROS2.Cajero='{ppal.idUsuario}'
                               UNION ALL
-                              SELECT PRESTAMOS2.Fecha, TRABAJADORES.nombre, PRESTAMOS2.Valor, PRESTAMOS2.Concepto, PRESTAMOS2.Observacion
+                              SELECT PRESTAMOS2.Fecha AS FECHA, TRABAJADORES.nombre AS NOMBRE, PRESTAMOS2.Valor AS VALOR, PRESTAMOS2.Concepto AS CONCEPTO, PRESTAMOS2.Observacion AS OBSERVACION
                               FROM PRESTAMOS2 INNER JOIN TRABAJADORES ON PRESTAMOS2.IdTrabajador = TRABAJADORES.IdTrabajador
                               WHERE PRESTAMOS2.Cajero='{ppal.idUsuario}';";
 
@@ -199,6 +203,10 @@ namespace CierreDeCajas.Presentacion
             DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, Conexion.ConexionDbInterna());
             dgvAdelantos.DataSource = lista;
         }
-        
+
+        private void rbMensajero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
     }
 }

@@ -51,7 +51,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.label1.Location = new System.Drawing.Point(30, 173);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -103,12 +103,12 @@
             // cbUsuario
             // 
             this.cbUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbUsuario.FormattingEnabled = true;
             this.cbUsuario.Location = new System.Drawing.Point(34, 203);
             this.cbUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.cbUsuario.Name = "cbUsuario";
-            this.cbUsuario.Size = new System.Drawing.Size(276, 30);
+            this.cbUsuario.Size = new System.Drawing.Size(276, 28);
             this.cbUsuario.TabIndex = 4;
             this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.cbUsuario_SelectedIndexChanged);
             // 
@@ -123,6 +123,7 @@
             this.cbCaja.Size = new System.Drawing.Size(131, 30);
             this.cbCaja.TabIndex = 5;
             this.cbCaja.Visible = false;
+            this.cbCaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCaja_KeyPress);
             // 
             // PanelControles
             // 
@@ -220,14 +221,15 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(35, 289);
+            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtContraseña.Location = new System.Drawing.Point(34, 289);
             this.txtContraseña.Multiline = true;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(274, 30);
             this.txtContraseña.TabIndex = 9;
             this.txtContraseña.Visible = false;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // FrmLogin
             // 

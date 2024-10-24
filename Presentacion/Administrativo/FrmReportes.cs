@@ -28,7 +28,8 @@ namespace CierreDeCajas.Presentacion.Administrativo
         }
         public void listarCierresCaja()
         {
-            string sql = "select * from CierreCaja";
+            string sql = @"select IdCierre,IdUsuario AS NOMBRE,FechaApertura AS 'FECHA DE APERTURA',FechaCierre AS 'FECHA DE CIERRE',TotalMovimientosCaja AS 'MOVIMIENTOS DE CAJA',EntregaUltimoEfectivo AS 'ULTIMO EFECTIVO ENTREGADO',TotalEfectivo 'EFECTIVO', TotalDatafono AS 'DATAFONOS',TotalTransferencia AS 'TRANSFERENCIAS',ValorVentas AS 'VENTAS',Diferencia AS 'DIFERENCIA',TotalLiquidado AS 'TOTAL LOQUIDADO'
+                         from CierreCaja";
             DataTable lista = new SentenciaSqlServer().TraerDatos(sql, cn.ConexionCierreCaja());
             dgvReporte.DataSource = lista;
         }

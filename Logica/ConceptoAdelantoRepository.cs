@@ -46,7 +46,7 @@ namespace CierreDeCajas.Logica
                             cmd.ExecuteNonQuery();
                         }
                         
-                    }
+                        }
                         else if(ambos)
                         {
                             using (SqlCommand cmd = new SqlCommand(sql, conexion))

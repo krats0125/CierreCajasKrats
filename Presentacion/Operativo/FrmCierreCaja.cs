@@ -1,17 +1,11 @@
 ﻿using CierreDeCajas.Logica;
-using CierreDeCajas.Logica.Utilitarios;
 using CierreDeCajas.Modelo;
-using CierreDeCajas.Presentacion.Operativo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CierreDeCajas.Presentacion
@@ -43,7 +37,8 @@ namespace CierreDeCajas.Presentacion
             CargarCierreVentas();
             ActualizarCiereCaja();
             CitarPanelesMovimientos();
-            //CargarValorVentas();
+            cargarVentas();
+ 
 
         }
 
@@ -57,8 +52,8 @@ namespace CierreDeCajas.Presentacion
                 Panel panel = new Panel
                 {
                     Width = pnlflListaMedioPago.Width - 20, // Ajustar el tamaño del panel
-                    Height = 25, // Altura del panel
-                    Margin = new Padding(1) // Margen entre los paneles
+                    Height = 30, // Altura del panel
+                    Margin = new Padding(2) // Margen entre los paneles
                 };
 
                 // Crear el primer label para la descripción
@@ -66,7 +61,7 @@ namespace CierreDeCajas.Presentacion
                 {
                     Text = medio.Descripcion,
                     AutoSize = true, // Ajustar automáticamente el tamaño del label
-                    Location = new Point(10, 10), // Posición dentro del panel,ESTO LO DEBE DE TENER EL OTRO PANEL
+                    Location = new Point(10, 10), // Posición dentro del panel
                     Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Regular)
                 };
 
@@ -75,7 +70,7 @@ namespace CierreDeCajas.Presentacion
                 {
                     Text = medio.Valor.ToString("C0"), // Formatear como moneda
                     AutoSize = true,
-                    Location = new Point(200, 10), // Posición dentro del panel
+                    Location = new Point(230, 10), // Posición dentro del panel
                     Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Regular),
                     TextAlign = ContentAlignment.MiddleRight
                 };
@@ -149,21 +144,21 @@ namespace CierreDeCajas.Presentacion
             {
                 CrearPanelesConMediosDePago(lista);
             }
-            else 
+            else
             {
                 pnlflListaMedioPago.Controls.Clear();
             }
-          
-            
+
+
         }
 
-    
+
         public void CargarCierreVentas()
         {
             string mensaje;
             CierreCajaRepository repository = new CierreCajaRepository();
-            FrmMenuda frmMenuda = new InstanciasRepository().InstanciaFrmMenuda();
-            FrmVentas frmVentas = new InstanciasRepository().InstanciaFrmVentas();
+            //(pendiente) -- se modifico el valor de las ventas
+            decimal valorVentas = 9371470;
 
             CierreCaja oCierreCaja =repository.listar(ppal.idCierre,out mensaje);
 
@@ -175,10 +170,9 @@ namespace CierreDeCajas.Presentacion
                 lb_TotalLiquidado.Text = oCierreCaja.TotalLiquidado.ToString("C0");
                 lb_TotalMovimientosCaja.Text = oCierreCaja.TotalMovimientosCaja.ToString("C0");
                 lb_TotalTransferencia.Text = oCierreCaja.TotalTransferencia.ToString("C0");
-                if (oCierreCaja.ValorVentas != 0)
-                {
-                    lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
-                }
+
+                lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
+
                 lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
 
             }
@@ -200,7 +194,28 @@ namespace CierreDeCajas.Presentacion
             }
 
         }
-      
+        private void lb_ValorVentas_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void cargarVentas()
+        {
+            CierreCajaRepository cierreCajaRepo = new CierreCajaRepository();
+            CierreCaja oCierreCaja = new CierreCaja();
+            decimal totalVentas = cierreCajaRepo.ActualizarVentas(ppal.idUsuario);
+            oCierreCaja.ValorVentas = totalVentas;
+            lb_ValorVentas.Text = totalVentas.ToString("C0");
+            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+            if (!actualizacionExitosa)
+            {
+                MessageBox.Show("Hubo un error actualizando el cierre de caja");
+            }
+            else
+            {
+                CargarCierreVentas();
+            }
+        }
+
 
         public class MovimientoList
         {
@@ -236,7 +251,7 @@ namespace CierreDeCajas.Presentacion
                                 {
                                     Concepto = dr["Concepto"].ToString(),
                                     Descripcion = dr["Descripcion"].ToString(),
-                                    Valor = dr["Valor"].ToString()
+                                    Valor = Convert.ToDecimal(dr["Valor"]).ToString("C0")
                                 }
                                 
                             );
@@ -250,92 +265,90 @@ namespace CierreDeCajas.Presentacion
         }
       
 
-        public void GenerarPanelesMovimientos(List<MovimientoList> movimientos)
-        {
-            // Agrupar movimientos por concepto
-            var grupos = movimientos.GroupBy(m => m.Concepto);
+  
 
-            // Limpiar el panel antes de agregar nuevos controles
-            panelesMovimientos.Controls.Clear();
-
-            foreach (var grupo in grupos)
+            public void GenerarPanelesMovimientos(List<MovimientoList> movimientos)
             {
+                // Agrupar movimientos por concepto
+                var grupos = movimientos.GroupBy(m => m.Concepto);
+
+                // Limpiar el panel antes de agregar nuevos controles
+                panelesMovimientos.Controls.Clear();
+
+                foreach (var grupo in grupos)
+                {
                 // Crear un nuevo panel para cada grupo
                 Panel panel = new Panel
                 {
                     BorderStyle = BorderStyle.FixedSingle,
                     Width = 300, // Ancho del panel
+                    Height = 130,
                     Margin = new Padding(1), // Margen alrededor del panel
-                   
+                    AutoScroll = true,
                 };
 
-               
-
-                // Crear un contenedor para las descripciones y valores
-                FlowLayoutPanel innerPanel = new FlowLayoutPanel
-                {
-                    
-                    FlowDirection = FlowDirection.TopDown,
-                    Dock = DockStyle.Top,
-                    AutoSize = true,
-                    WrapContents = false
-                };
-
-                Label labelTitulo = new Label
-                {
-                    Text = grupo.Key,
-                    Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold),
-                    ForeColor = System.Drawing.Color.FromArgb(84, 178, 231),
-                    AutoSize = true
-                };
-
-                innerPanel.Controls.Add(labelTitulo); // Añadir el título antes de los valores
-
-                // Agregar los movimientos del grupo al contenedor
-                foreach (var movimiento in grupo)
-                {
-
-                    FlowLayoutPanel valuePanel = new FlowLayoutPanel
+                    // Crear un contenedor para las descripciones y valores
+                    FlowLayoutPanel innerPanel = new FlowLayoutPanel
                     {
-                        FlowDirection = FlowDirection.LeftToRight, // Cambiar para alinear los controles horizontalmente
-            
+                        FlowDirection = FlowDirection.TopDown,
+                        Dock = DockStyle.Top,
+                        AutoSize = true,
+                        AutoScroll = true,
+                        WrapContents = false
+                    };
+
+                    Label labelTitulo = new Label
+                    {
+                        Text = grupo.Key,
+                        Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold),
+                        ForeColor = System.Drawing.Color.FromArgb(84, 178, 231),
                         AutoSize = true
                     };
 
-                    
-                    Label labelValor = new Label
+                    innerPanel.Controls.Add(labelTitulo); // Añadir el título antes de los valores
+
+                    // Agregar los movimientos del grupo al contenedor
+                    foreach (var movimiento in grupo)
                     {
-                        Text = movimiento.Valor,
-                        Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
-                        Width = 90, // Ancho del panel
-                        ForeColor = Color.White,
-                        //Margin = new Padding(0, 0, 10, 0),
-                        TextAlign = ContentAlignment.MiddleRight
-                    };
+                        FlowLayoutPanel valuePanel = new FlowLayoutPanel
+                        {
+                            FlowDirection = FlowDirection.LeftToRight, // Cambiar para alinear los controles horizontalmente
+                            AutoSize = true,
+                            Margin = new Padding(0, 5, 0, 5), // Espaciado entre movimientos
+           
+                        };
 
-                    Label labelDescripcion = new Label
-                    {
-                        Text = movimiento.Descripcion,
-                        Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
-                        ForeColor = Color.White,
-                        Width = 210, // Ancho del panel
-                        //Margin = new Padding(0, 0, 10, 0)
+                        Label labelValor = new Label
+                        {
+                            Text = movimiento.Valor,
+                            Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
+                            Width = 100, // Ancho del panel
+                            ForeColor = Color.White,
+                            AutoSize = true,
+                            TextAlign = ContentAlignment.TopLeft,
+                        };
 
-                    };
+                        Label labelDescripcion = new Label
+                        {
+                            Text = movimiento.Descripcion,
+                            Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Bold),
+                            Width = 210,
+                            ForeColor = Color.White,
+                            AutoSize = true,
+                            TextAlign = ContentAlignment.MiddleLeft
+                        };
 
+                        // Agregar primero el valor y luego la descripción
+                        valuePanel.Controls.Add(labelValor);       // Añadir el valor primero
+                        valuePanel.Controls.Add(labelDescripcion); // Luego la descripción
 
-                    valuePanel.Controls.Add(labelDescripcion);
-                    valuePanel.Controls.Add(labelValor);
-                    
+                        innerPanel.Controls.Add(valuePanel); // Añadir el panel de valor-descripción al contenedor
+                    }
 
-                    innerPanel.Controls.Add(valuePanel); // Añadir el panel de valor-descripción al contenedor
-
-                    
+                    panel.Controls.Add(innerPanel);
+                    panelesMovimientos.Controls.Add(panel);
                 }
-
-                panel.Controls.Add(innerPanel);
-                panelesMovimientos.Controls.Add(panel);
             }
         }
     }
-}
+

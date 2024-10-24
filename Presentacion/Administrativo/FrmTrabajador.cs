@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -28,7 +30,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
         private void FrmCreacionCajero_Load(object sender, EventArgs e)
         {
             listaroles();
-            listatrabajadores();
         }
 
         public void listaroles()
@@ -40,31 +41,9 @@ namespace CierreDeCajas.Presentacion.Administrativo
             cbRol.ValueMember = "IdRol";
         }
 
-        public void listatrabajadores()
-        {
-            string sql = "select U.IdUsuario, U.Nombre, R.Rol,U.Activo from Usuario U inner join Rol R on U.IdRol=R.IdRol";
-            DataTable lista = new SentenciaSqlServer().TraerDatos(sql, cn.ConexionCierreCaja());
-            dgvTrabajador.DataSource = lista;
-
-        }
-
      
 
-     
-
-        private void dgvTrabajador_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-                    txtUsuario.Enabled = false;
-            
-                    DataGridViewRow fila = dgvTrabajador.Rows[e.RowIndex];
-
-             
-                    txtUsuario.Text = fila.Cells["IdUsuario"].Value.ToString();
-                    txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
-                    string rol = fila.Cells["Rol"].Value.ToString(); 
-                    cbRol.SelectedIndex = cbRol.FindStringExact(rol); 
-                    btnGuardar.Enabled = false;
-        }
+   
 
         private void limpiarcampos()
         {
@@ -89,7 +68,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
             if (seInserto)
             {
                 MessageBox.Show("Se ha ingresado el trabajador correctamente");
-                listatrabajadores();
                 limpiarcampos();
             }
             else
@@ -112,7 +90,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
             if (seActualizo)
             {
                 MessageBox.Show("Se actualizo el trabajador correctamente");
-                listatrabajadores();
                 limpiarcampos();
             }
             else
@@ -135,7 +112,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 if (seElimino)
                 {
                     MessageBox.Show("Usuario eliminado correctamente");
-                    listatrabajadores();
+
                     limpiarcampos();
                 }
                 else
@@ -143,6 +120,46 @@ namespace CierreDeCajas.Presentacion.Administrativo
                     MessageBox.Show("No se pudo eliminar el usuario. Por favor, inténtelo de nuevo.");
                 }
             }
+        }
+
+        private void rbMensajero_CheckedChanged(object sender, EventArgs e)
+        {
+            string consulta = @"SELECT MENSAJEROS.IdTrabajador AS DOCUMENTO, MENSAJEROS.nombre AS NOMBRE, MENSAJEROS.estado AS ESTADO
+            FROM MENSAJEROS
+            WHERE (((MENSAJEROS.estado)=True));";
+            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, cn.ConexionDbInterna());
+            dgvTrabajadores.DataSource = lista;
+
+        }
+
+        private void rbTrabajadores_CheckedChanged(object sender, EventArgs e)
+        {
+            string consulta = @"SELECT TRABAJADORES.IdTrabajador AS DOCUMENTO, TRABAJADORES.nombre AS NOMBRE, TRABAJADORES.estado AS ESTADO
+            FROM TRABAJADORES
+            WHERE (((TRABAJADORES.estado)=True));";
+            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, cn.ConexionDbInterna());
+            dgvTrabajadores.DataSource = lista;
+
+        }
+
+        private void lbxTrabajador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+                // Obtener la fila seleccionada del DataTable
+                DataGridViewRow filaSeleccionada = dgvTrabajadores.SelectedRows[0];
+
+                // Asignar los valores a los TextBoxes u otros controles
+                txtNombre.Text = filaSeleccionada.Cells["nombre"].ToString();
+                txtUsuario.Text = filaSeleccionada.Cells["IdTrabajador"].ToString();
+                bool estado = Convert.ToBoolean(filaSeleccionada.Cells["estado"]);
+                if (estado)
+                {
+                    rbActivo.Checked = true;
+                }
+                else
+                {
+                    rbInactivo.Checked = true;
+                }
         }
     }
 }

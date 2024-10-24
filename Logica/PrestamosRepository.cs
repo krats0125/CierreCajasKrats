@@ -119,10 +119,46 @@ namespace CierreDeCajas.Logica
            
         }
 
-        public bool Eliminar()
+        public bool Eliminar(Prestamo oPrestamo)
         {
             bool respuesta = false;
+            try
+            {
+                using (OleDbConnection conexion = new OleDbConnection(cn.ConexionDbInterna()))
+                {
+                    conexion.Open();
+                    using (OleDbTransaction transaction= conexion.BeginTransaction())
+                    {
+                        string sql = @"DELETE FROM PRESTAMOS_MENSAJEROS2 WHERE IdPrestamo = @idPrestamo";
+
+                        using (OleDbCommand cmd = new OleDbCommand(sql, conexion,transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
+                            cmd.ExecuteNonQuery();
+                           
+                        }
+                        string consulta = @"DELETE FROM PRESTAMOS2 WHERE IdPrestamo = @idPrestamo";
+                        using (OleDbCommand cmd = new OleDbCommand(consulta, conexion,transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
+                            cmd.ExecuteNonQuery();
+                           
+                        }
+                        transaction.Commit();
+                        respuesta= true;
+                    }
+                    
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el préstamo: {ex.Message}");
+                return respuesta;
+            }
             return respuesta;
+
+           
         }
         
     }
