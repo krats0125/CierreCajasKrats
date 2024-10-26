@@ -8,82 +8,185 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text;
+using CierreDeCajas.Presentacion;
+
 
 namespace CierreDeCajas.Logica
 {
     public class DomicilioRepository
     {
-        //public List<Domicilio> LeerExcel(string rutaArchivo)
-        //{
-        //    List<Domicilio> domicilios = new List<Domicilio>();
-
-        //    // Configuración para permitir la lectura de archivos Excel
-        //    System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-        //    // Leer el archivo Excel
-        //    using (var stream = File.Open(rutaArchivo, FileMode.Open, FileAccess.Read))
-        //    {
-        //        using (var reader = ExcelReaderFactory.CreateReader(stream))
-        //        {
-        //            var dataSet = reader.AsDataSet();
-        //            var hoja = dataSet.Tables[0]; // Asumiendo que la primera hoja contiene los datos
-
-        //            // Recorrer cada fila del archivo Excel
-        //            for (int i = 0; i < hoja.Rows.Count; i++)
-        //            {
-        //                if (i == 5) // Fila 6 (Dirección)
-        //                {
-        //                    DataRow filaDirecciones = hoja.Rows[i];
-        //                    DataRow filaValores = hoja.Rows[i + 1]; // Fila 7 (Valores)
-        //                    DataRow filaMediosDePago = hoja.Rows[i + 2]; // Fila 8 (Medio de pago)
-
-        //                    for (int j = 0; j < hoja.Columns.Count; j++)
-        //                    {
-        //                        string medioDePago = filaMediosDePago[j].ToString();
-
-        //                        if (medioDePago == "Transferencia" || medioDePago == "Qr")
-        //                        {
-        //                            Domicilio domicilio = new Domicilio
-        //                            {
-        //                                Direccion = filaDirecciones[j].ToString(),
-        //                                Valor = Convert.ToDecimal(filaValores[j]),
-        //                                MedioDePago = medioDePago
-        //                            };
-
-        //                            domicilios.Add(domicilio);
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    return domicilios;
-        //}
-
-        public void InsertarDomiciliosEnBaseDeDatos(List<Domicilio> domicilios)
+        CONEXION cn = new CONEXION();
+        Principal ppal = null;
+        public DomicilioRepository(Principal principal)
         {
-            string connectionString = ""; // Reemplaza por tu cadena de conexión
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            ppal = principal;
+        }
+        public bool LeerExcel(string rutaArchivo)
+        {
+            try
             {
-                connection.Open();
+                List<Domicilio> domicilios = new List<Domicilio>();
+                string nombreArchivo = Path.GetFileName(rutaArchivo);
 
-                foreach (var domicilio in domicilios)
+                // Leer el archivo CSV
+                using (var reader = new StreamReader(rutaArchivo))
                 {
-                    string query = "INSERT INTO Domicilios (Direccion, Valor, MedioDePago) VALUES (@Direccion, @Valor, @MedioDePago)";
+                    // Leer la primera línea (encabezados), si existe
+                    string encabezados = reader.ReadLine();
 
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    while (!reader.EndOfStream)
                     {
-                        cmd.Parameters.AddWithValue("@Direccion", domicilio.Direccion);
-                        cmd.Parameters.AddWithValue("@Valor", domicilio.Valor);
-                        cmd.Parameters.AddWithValue("@MedioDePago", domicilio.MedioDePago);
+                        var linea = reader.ReadLine();
+                        var valores = linea.Split(','); // Asumiendo que los campos están separados por comas
+                        decimal dato1 = 0, dato2 = 0, dato3 = 0, valor = 0;
+                        string direccion = string.Empty;
+                        string medioDePago = string.Empty;
+                        int idMedioPago = 0;
 
-                        cmd.ExecuteNonQuery();
+                        if (nombreArchivo.StartsWith("cuadreCajaMensajeros"))
+                        {
+                            dato1 = Convert.ToDecimal(valores[7]);
+                            dato2 = Convert.ToDecimal(valores[8]);
+                            dato3 = Convert.ToDecimal(valores[9]);
+                            direccion = valores[2];
+                            medioDePago = valores[5];
+                            valor = Convert.ToDecimal(valores[11]);
+
+                        }
+                        else if (nombreArchivo.StartsWith("pedidosDetallado")) 
+                        {
+                            dato1 = Convert.ToDecimal(valores[6]);
+                            dato2 = Convert.ToDecimal(valores[7]);
+                            dato3 = Convert.ToDecimal(valores[8]);
+                            direccion = valores[2];
+                            medioDePago = valores[4];
+                            valor = Convert.ToDecimal(valores[10]);
+                        }
+                        idMedioPago = MapearMedioDePago(medioDePago);
+
+                        if (idMedioPago==0)
+                         {
+                            if(dato1!=0)
+                            {
+                                Domicilio domicilio = new Domicilio
+                                {
+                                    Direccion = direccion,
+                                    Valor = dato1,
+                                    MedioDePago = 1,
+                                };
+                                domicilios.Add(domicilio);
+
+                            }
+                            if (dato2 != 0)
+                            {
+                                Domicilio domicilio = new Domicilio
+                                {
+                                    Direccion = direccion,
+                                    Valor = dato2,
+                                    MedioDePago = 3,
+                                };
+                                domicilios.Add(domicilio);
+
+                            }
+                            if (dato3 != 0)
+                            {
+                                Domicilio domicilio = new Domicilio
+                                {
+                                    Direccion = direccion,
+                                    Valor = dato3,
+                                    MedioDePago = 5,
+                                };
+                                domicilios.Add(domicilio);
+
+                            }
+
+                        }
+                        else
+                        {
+                            Domicilio domicilio = new Domicilio
+                            {
+                                Direccion = direccion,
+                                Valor = valor,
+                                MedioDePago = idMedioPago,
+                            };
+                            domicilios.Add(domicilio);
+                        }
+
+
+                        
                     }
                 }
+
+                InsertarDomiciliosEnBaseDeDatos(domicilios); 
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejar el error (puedes agregar logging o manejarlo de otra forma)
+                Console.WriteLine("Error al leer el archivo CSV: " + ex.Message);
+                return false;
             }
         }
 
+       
 
+        public int MapearMedioDePago(string descripcionExcel)
+        {
+            switch (descripcionExcel.ToLower())
+            {
+                case "transferencia":
+                    return 5;
+                case "qr":
+                    return 6; 
+
+                case "datafono":
+                    return 3; 
+
+                case "efectivo":
+                    return 1;
+
+                default:
+                    return 0;
+            }
+        }
+        public bool InsertarDomiciliosEnBaseDeDatos(List<Domicilio> domicilios)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+
+                    foreach (var domicilio in domicilios)
+                    {
+                        string query = "INSERT INTO MovimientoCaja (IdCierre,IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago) " +
+                                       "VALUES (@IdCierre,@IdCaja, @IdUsuario, @IdConcepto, @Valor, @Descripcion, @IdMedioPago)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                            cmd.Parameters.AddWithValue("@IdCaja", ppal.idCaja);
+                            cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
+                            cmd.Parameters.AddWithValue("@IdConcepto", 10); 
+                            cmd.Parameters.AddWithValue("@Valor", domicilio.Valor);
+                            cmd.Parameters.AddWithValue("@Descripcion", domicilio.Direccion);
+                            cmd.Parameters.AddWithValue("@IdMedioPago", domicilio.MedioDePago);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al insertar domicilios en la base de datos: " + ex.Message);
+                return false;
+            }
+
+        }
     }
 }

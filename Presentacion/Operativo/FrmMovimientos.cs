@@ -35,15 +35,16 @@ namespace CierreDeCajas.Presentacion.Sistema
         private void Movimientos_Load(object sender, EventArgs e)
         {
             // se llenan los comboBox
+            ListaMovimientos();
             listarConceptos();
             ListarMediosPago();
-            ListaMovimientos();
+
            
           
             
         }
 
-        private void ListaMovimientos()
+        public void ListaMovimientos()
         {
             string consulta = $@"Select MC.IdMovimiento, CM.Concepto AS CONCEPTO, MC.Descripcion AS DESCRIPCION, MC.Valor AS VALOR, MP.Descripcion AS 'MEDIO DE PAGO', MC.fecha AS FECHA
             from MovimientoCaja MC 
@@ -170,7 +171,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();
                 frm.CitarPanelesMovimientos();
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
                 if (!actualizacionExitosa)
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -212,7 +213,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
                 frm.CitarPanelesMovimientos();
 
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
+                bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
                 if (!actualizacionExitosa)
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -250,7 +251,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                     frm.CargarSumatorias();
                     frm.CitarPanelesMovimientos();
 
-                    bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
+                    bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
                     if (!actualizacionExitosa)
                     {
                         MessageBox.Show("Hubo un error actualizando el cierre de caja");

@@ -10,6 +10,6 @@ namespace CierreDeCajas.Modelo
     {
         public string Direccion { get; set; }
         public decimal Valor { get; set; }
-        public string MedioDePago { get; set; }
+        public int MedioDePago { get; set; }
     }
 }

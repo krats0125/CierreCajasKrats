@@ -16,26 +16,57 @@ namespace CierreDeCajas.Logica
     {
         CierreCaja oCierreCaja = new CierreCaja();
         CONEXION cn = new CONEXION();
-        //(pendiente)se modifico el valor de las ventas
-        decimal valorVentas = 9371470;
+        decimal valorVentas = 0;
+        Principal ppal = null;
+
+
+        public CierreCajaRepository(Principal principal)
+        {
+            ppal = principal;
+            CargarValorVentas();
+
+        }
 
         public decimal ActualizarVentas(string IdUsuario)
         {
-
+            decimal ventasNuevas = 0;
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
                 {
                     conexion.Open();
-                    string sql = "select sum(total) from Facturas1 where IdUsuario=@IdUsuario AND CAST(FechaCreacion AS DATE) = CAST(GETDATE() AS DATE)";
+                    //CAMBIAR DESPUES DE LA PRUEBA
+                    string sql = $@"SELECT 
+                             SUM(F1.total) AS VENTAS,
+                             ISNULL(
+                                 (SELECT SUM(NC.total) 
+                                  FROM Notas_CxC1 NC 
+                                  WHERE NC.IdUsuario = @IdUsuario
+                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE()-1 AS DATE)), 0) AS DEVOLUCIONES,
+                             SUM(F1.total) - 
+                             ISNULL(
+                                 (SELECT SUM(NC.total) 
+                                  FROM Notas_CxC1 NC 
+                                  WHERE NC.IdUsuario = @IdUsuario
+                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE()-1 AS DATE)), 0) AS VentasTotales
+                         FROM 
+                             Facturas1 F1
+                         WHERE 
+                             F1.IdUsuario = @IdUsuario 
+                             AND CAST(F1.FechaCreacion AS DATE) = CAST(GETDATE()-1 AS DATE);";
+
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                        cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
                         using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            while (dr.Read())
+                            if (dr.Read())
                             {
-                                valorVentas = Convert.ToDecimal(dr["sum(total)"]);
+                                ventasNuevas = Convert.ToDecimal(dr["VentasTotales"]);
+                                if (ventasNuevas > 0)
+                                {
+                                    valorVentas = ventasNuevas;
+                                }
                             }
                         }
                     }
@@ -43,10 +74,38 @@ namespace CierreDeCajas.Logica
             }
             catch (Exception ex)
             {
-                return oCierreCaja.ValorVentas;
+                Console.WriteLine($"Error: {ex.Message}");
             }
-            return oCierreCaja.ValorVentas;
+            return valorVentas;
         }
+
+        public void CargarValorVentas()
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = "SELECT ValorVentas FROM CierreCaja WHERE IdCierre = @IdCierre";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            valorVentas = Convert.ToDecimal(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar valor de ventas guardado: {ex.Message}");
+            }
+        }
+
 
 
         public bool ActualizarCierre(int IdCierre)

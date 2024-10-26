@@ -1,4 +1,6 @@
-﻿using CierreDeCajas.Presentacion.Sistema;
+﻿using CierreDeCajas.Logica;
+using CierreDeCajas.Modelo;
+using CierreDeCajas.Presentacion.Sistema;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,7 +10,7 @@ namespace CierreDeCajas.Presentacion
     public partial class Principal : Form
     {
         FrmLogin lgn = new FrmLogin();
-        
+
 
         public string idUsuario;
         public int idCaja;
@@ -28,22 +30,25 @@ namespace CierreDeCajas.Presentacion
             idUsuario = lgn.idUsuario;
             idCaja = lgn.idCaja;
             idCierre = lgn.idCierre;
-           
 
-            // Se inicia el Timer
+
+            //Se inicia el Timer
            TimerHora.Enabled = true;
 
             AbrirFormularioEnPanel<FrmCierreCaja>(this);
             AbrirFormularioEnPanel<FrmMovimientos>(this);
-            AbrirFormularioEnPanel<FrmPrestamos>(this);
+            //AbrirFormularioEnPanel<FrmPrestamos>(this);
             AbrirFormularioEnPanel<FrmMenuda>(this);
             //AbrirFormularioEnPanel<FrmVentas>(this);
+
+            btnAdelantos.Visible = false;
 
 
 
             lb_Caja.Text = lgn.Caja;
             lb_Cajero.Text = lgn.NombreUsuario;
             lbIdCierre.Text =idCierre.ToString();
+
 
         }
 
@@ -160,10 +165,63 @@ namespace CierreDeCajas.Presentacion
 
         }
 
-        //private void btnVentas_Click(object sender, EventArgs e)
-        //{
-        //    FrmVentas ventas = new FrmVentas(this);
-        //    ventas.Show();
-        //}
+        private void btnCargarDomicilios_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos CSV|*.csv", // Cambiar el filtro para archivos CSV
+                 Multiselect = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Almacenar el resultado de la inserción
+                bool insercionExitosa = true;
+
+                foreach (string rutaArchivo in openFileDialog.FileNames) // Iterar sobre los archivos seleccionados
+                {
+                    try
+                    {
+                        // Leer el archivo CSV y obtener los domicilios
+                        DomicilioRepository domicilioRepo = new DomicilioRepository(this);
+                        bool resultado = domicilioRepo.LeerExcel(rutaArchivo);
+
+                        // Verificar si la inserción fue exitosa
+                        if (!resultado)
+                        {
+                            insercionExitosa = false; // Si algún archivo no se insertó correctamente
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Captura cualquier error que pueda ocurrir durante el proceso
+                        MessageBox.Show($"Ocurrió un error al procesar el archivo {rutaArchivo}: {ex.Message}");
+                        insercionExitosa = false; // Actualizar el estado en caso de error
+                    }
+                }
+
+                // Mostrar mensaje final
+                if (insercionExitosa)
+                {
+                    MessageBox.Show("Todos los datos insertados exitosamente.");
+                    FrmMovimientos frmMvt = new FrmMovimientos(this);
+                    frmMvt.ListaMovimientos();
+                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                    frm.CargarSumatorias();
+                    frm.CitarPanelesMovimientos();
+                    bool actualizacionExitosa = new CierreCajaRepository(this).ActualizarCierre(idCierre);
+                    if (!actualizacionExitosa)
+                    {
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    }
+                    frm.CargarCierreVentas();
+                }
+                else
+                {
+                    MessageBox.Show("Algunos datos no se pudieron insertar.");
+                }
+            }
+        }
+    
     }
 }

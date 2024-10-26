@@ -131,7 +131,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public void CargarCierreVentas()
         {
             string mensaje;
-            CierreCajaRepository repository = new CierreCajaRepository();
+            CierreCajaRepository repository = new CierreCajaRepository(ppal);
             FrmMenuda frm = new FrmMenuda(ppal);
 
             CierreCaja oCierreCaja = repository.listar(IdCierre, out mensaje);
@@ -151,7 +151,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public void ActualizarCiereCaja()
         {
 
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(IdCierre);
+            bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(IdCierre);
             if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");

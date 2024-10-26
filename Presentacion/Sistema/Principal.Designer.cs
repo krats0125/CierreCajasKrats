@@ -50,10 +50,11 @@
             this.Elip1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelbotonesSuperior = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCargarDomicilios = new System.Windows.Forms.Button();
             this.btnAdelantos = new System.Windows.Forms.Button();
-            this.btnResumen = new System.Windows.Forms.Button();
             this.btnMenuda = new System.Windows.Forms.Button();
             this.btnMovimientos = new System.Windows.Forms.Button();
+            this.btnResumen = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Elip2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elip3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -65,6 +66,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.AccionMovimientoFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Elip8 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.BarraS.SuspendLayout();
             this.PanelControles.SuspendLayout();
@@ -323,68 +325,69 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnCargarDomicilios);
             this.panel1.Controls.Add(this.btnAdelantos);
-            this.panel1.Controls.Add(this.btnResumen);
             this.panel1.Controls.Add(this.btnMenuda);
             this.panel1.Controls.Add(this.btnMovimientos);
-            this.panel1.Location = new System.Drawing.Point(207, 0);
+            this.panel1.Controls.Add(this.btnResumen);
+            this.panel1.Location = new System.Drawing.Point(251, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 34);
+            this.panel1.Size = new System.Drawing.Size(472, 34);
             this.panel1.TabIndex = 9;
+            // 
+            // btnCargarDomicilios
+            // 
+            this.btnCargarDomicilios.BackColor = System.Drawing.Color.Transparent;
+            this.btnCargarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarDomicilios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCargarDomicilios.FlatAppearance.BorderSize = 0;
+            this.btnCargarDomicilios.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnCargarDomicilios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCargarDomicilios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
+            this.btnCargarDomicilios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarDomicilios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btnCargarDomicilios.Location = new System.Drawing.Point(361, 0);
+            this.btnCargarDomicilios.Name = "btnCargarDomicilios";
+            this.btnCargarDomicilios.Size = new System.Drawing.Size(94, 34);
+            this.btnCargarDomicilios.TabIndex = 9;
+            this.btnCargarDomicilios.Text = "Domicilios ";
+            this.btnCargarDomicilios.UseVisualStyleBackColor = false;
+            this.btnCargarDomicilios.Click += new System.EventHandler(this.btnCargarDomicilios_Click);
             // 
             // btnAdelantos
             // 
-            this.btnAdelantos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAdelantos.BackColor = System.Drawing.Color.Transparent;
             this.btnAdelantos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdelantos.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnAdelantos.FlatAppearance.BorderSize = 0;
             this.btnAdelantos.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnAdelantos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAdelantos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnAdelantos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdelantos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnAdelantos.Location = new System.Drawing.Point(331, 5);
+            this.btnAdelantos.Location = new System.Drawing.Point(273, 0);
             this.btnAdelantos.Name = "btnAdelantos";
-            this.btnAdelantos.Size = new System.Drawing.Size(88, 24);
+            this.btnAdelantos.Size = new System.Drawing.Size(88, 34);
             this.btnAdelantos.TabIndex = 8;
             this.btnAdelantos.Text = "Adelantos";
             this.btnAdelantos.UseVisualStyleBackColor = false;
             this.btnAdelantos.Click += new System.EventHandler(this.btnAdelantos_Click);
             // 
-            // btnResumen
-            // 
-            this.btnResumen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnResumen.BackColor = System.Drawing.Color.Transparent;
-            this.btnResumen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResumen.FlatAppearance.BorderSize = 0;
-            this.btnResumen.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.btnResumen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnResumen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
-            this.btnResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnResumen.Location = new System.Drawing.Point(55, 5);
-            this.btnResumen.Name = "btnResumen";
-            this.btnResumen.Size = new System.Drawing.Size(88, 24);
-            this.btnResumen.TabIndex = 3;
-            this.btnResumen.Text = "Resumen";
-            this.btnResumen.UseVisualStyleBackColor = false;
-            this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
-            // 
             // btnMenuda
             // 
-            this.btnMenuda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenuda.BackColor = System.Drawing.Color.Transparent;
             this.btnMenuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuda.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnMenuda.FlatAppearance.BorderSize = 0;
             this.btnMenuda.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnMenuda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMenuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMenuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMenuda.Location = new System.Drawing.Point(147, 5);
+            this.btnMenuda.Location = new System.Drawing.Point(185, 0);
             this.btnMenuda.Name = "btnMenuda";
-            this.btnMenuda.Size = new System.Drawing.Size(88, 24);
+            this.btnMenuda.Size = new System.Drawing.Size(88, 34);
             this.btnMenuda.TabIndex = 5;
             this.btnMenuda.Text = "Menuda";
             this.btnMenuda.UseVisualStyleBackColor = false;
@@ -392,22 +395,41 @@
             // 
             // btnMovimientos
             // 
-            this.btnMovimientos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMovimientos.BackColor = System.Drawing.Color.Transparent;
             this.btnMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMovimientos.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnMovimientos.FlatAppearance.BorderSize = 0;
             this.btnMovimientos.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnMovimientos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMovimientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMovimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMovimientos.Location = new System.Drawing.Point(239, 5);
+            this.btnMovimientos.Location = new System.Drawing.Point(88, 0);
             this.btnMovimientos.Name = "btnMovimientos";
-            this.btnMovimientos.Size = new System.Drawing.Size(88, 24);
+            this.btnMovimientos.Size = new System.Drawing.Size(97, 34);
             this.btnMovimientos.TabIndex = 4;
             this.btnMovimientos.Text = "Movimientos";
             this.btnMovimientos.UseVisualStyleBackColor = false;
             this.btnMovimientos.Click += new System.EventHandler(this.btnMovimientos_Click);
+            // 
+            // btnResumen
+            // 
+            this.btnResumen.BackColor = System.Drawing.Color.Transparent;
+            this.btnResumen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResumen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnResumen.FlatAppearance.BorderSize = 0;
+            this.btnResumen.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnResumen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnResumen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
+            this.btnResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btnResumen.Location = new System.Drawing.Point(0, 0);
+            this.btnResumen.Name = "btnResumen";
+            this.btnResumen.Size = new System.Drawing.Size(88, 34);
+            this.btnResumen.TabIndex = 3;
+            this.btnResumen.Text = "Resumen";
+            this.btnResumen.UseVisualStyleBackColor = false;
+            this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
             // 
             // panel2
             // 
@@ -480,6 +502,10 @@
             this.AccionMovimientoFormulario.TargetControl = this.PanelControles;
             this.AccionMovimientoFormulario.UseTransparentDrag = true;
             // 
+            // Elip8
+            // 
+            this.Elip8.TargetControl = this.btnCargarDomicilios;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,5 +570,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimientoFormulario;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCargarDomicilios;
+        private Guna.UI2.WinForms.Guna2Elipse Elip8;
     }
 }

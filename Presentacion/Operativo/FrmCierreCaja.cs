@@ -34,10 +34,10 @@ namespace CierreDeCajas.Presentacion
         private void CierreCaja_Load(object sender, EventArgs e)
         {
             CargarSumatorias();
-            CargarCierreVentas();
-            ActualizarCiereCaja();
-            CitarPanelesMovimientos();
             cargarVentas();
+            CargarCierreVentas();
+            CitarPanelesMovimientos();
+           
  
 
         }
@@ -156,9 +156,8 @@ namespace CierreDeCajas.Presentacion
         public void CargarCierreVentas()
         {
             string mensaje;
-            CierreCajaRepository repository = new CierreCajaRepository();
-            //(pendiente) -- se modifico el valor de las ventas
-            decimal valorVentas = 9371470;
+            CierreCajaRepository repository = new CierreCajaRepository(ppal);
+
 
             CierreCaja oCierreCaja =repository.listar(ppal.idCierre,out mensaje);
 
@@ -170,9 +169,7 @@ namespace CierreDeCajas.Presentacion
                 lb_TotalLiquidado.Text = oCierreCaja.TotalLiquidado.ToString("C0");
                 lb_TotalMovimientosCaja.Text = oCierreCaja.TotalMovimientosCaja.ToString("C0");
                 lb_TotalTransferencia.Text = oCierreCaja.TotalTransferencia.ToString("C0");
-
                 lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
-
                 lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
 
             }
@@ -183,7 +180,7 @@ namespace CierreDeCajas.Presentacion
         public void ActualizarCiereCaja()
         {
 
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+            bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
             if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");
@@ -200,19 +197,31 @@ namespace CierreDeCajas.Presentacion
         }
         private void cargarVentas()
         {
-            CierreCajaRepository cierreCajaRepo = new CierreCajaRepository();
-            CierreCaja oCierreCaja = new CierreCaja();
+            CierreCajaRepository cierreCajaRepo = new CierreCajaRepository(ppal);
+
             decimal totalVentas = cierreCajaRepo.ActualizarVentas(ppal.idUsuario);
-            oCierreCaja.ValorVentas = totalVentas;
-            lb_ValorVentas.Text = totalVentas.ToString("C0");
-            bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
-            if (!actualizacionExitosa)
+
+
+            if (totalVentas > 0)
             {
-                MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                lb_ValorVentas.Text = totalVentas.ToString("C0");
+
+
+                bool actualizacionExitosa = cierreCajaRepo.ActualizarCierre(ppal.idCierre);
+
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                else
+                {
+
+                    CargarCierreVentas();
+                }
             }
             else
             {
-                CargarCierreVentas();
+                MessageBox.Show("No se pudo obtener el valor de ventas.");
             }
         }
 

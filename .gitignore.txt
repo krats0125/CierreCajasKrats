@@ -1,0 +1,38 @@
+# Carpetas generadas por Visual Studio
+.vs/
+bin/
+obj/
+
+# Archivos de configuración de Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Paquetes y dependencias
+packages/
+*.nupkg
+*.snupkg
+
+# Archivos de compilación
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*.csproj.user
+*.msbuild.binlog
+
+# Archivos de configuración específicos del usuario
+.vscode/
+
+# Archivos de base de datos
+*.mdf
+*.ldf
+
+# Configuración temporal y archivos generados
+*.tmp
+*.log
+*.cache
+*.pid
+*.swp

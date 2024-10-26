@@ -577,7 +577,7 @@ namespace CierreDeCajas.Presentacion
                     if (frm != null)
                     {
                    
-                        bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                        bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
                         if (!actualizacionExitosa)
                         {
                             MessageBox.Show("Hubo un error actualizando el cierre de caja");

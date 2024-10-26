@@ -1,4 +1,5 @@
-﻿using CierreDeCajas.Modelo;
+﻿using CierreDeCajas.Logica;
+using CierreDeCajas.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,30 +14,15 @@ namespace CierreDeCajas.Presentacion.Sistema
 {
     public partial class FrmDomicilios : Form
     {
-        //public FrmDomicilios()
-        //{
-        //    InitializeComponent();
-        //}
+        public FrmDomicilios()
+        {
+          
+        }
 
-        //private void btnCargarExcel_Click(object sender, EventArgs e)
-        //{
-        //    OpenFileDialog openFileDialog = new OpenFileDialog
-        //    {
-        //        Filter = "Archivos Excel|*.xls;*.xlsx"
-        //    };
-
-        //    if (openFileDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        string rutaArchivo = openFileDialog.FileName;
-
-        //        // Leer el archivo Excel y obtener los domicilios
-        //        List<Domicilio> domicilios = LeerExcel(rutaArchivo);
-
-        //        // Insertar los domicilios en la base de datos
-        //        InsertarDomiciliosEnBaseDeDatos(domicilios);//tabla movimientos 
-
-        //        MessageBox.Show("Datos insertados exitosamente.");
-        //    }
-        //}
+        private void btnCargarExcel_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
 }

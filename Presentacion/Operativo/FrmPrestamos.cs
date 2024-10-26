@@ -136,7 +136,7 @@ namespace CierreDeCajas.Presentacion
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();
                 frm.CitarPanelesMovimientos();
-                bool actualizacionExitosa = new CierreCajaRepository().ActualizarCierre(ppal.idCierre);
+                bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
                 if (!actualizacionExitosa)
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");

@@ -61,7 +61,6 @@
             this.guna2CustomGradientPanel7 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lb_ValorVentas = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel8 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lb_ValorVentas = new System.Windows.Forms.Label();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -436,9 +436,9 @@
             // 
             this.guna2CustomGradientPanel7.BorderRadius = 15;
             this.guna2CustomGradientPanel7.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel7.Controls.Add(this.lb_ValorVentas);
             this.guna2CustomGradientPanel7.Controls.Add(this.pictureBox3);
             this.guna2CustomGradientPanel7.Controls.Add(this.label7);
-            this.guna2CustomGradientPanel7.Controls.Add(this.lb_ValorVentas);
             this.guna2CustomGradientPanel7.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(338, 77);
             this.guna2CustomGradientPanel7.Margin = new System.Windows.Forms.Padding(2);
@@ -469,19 +469,6 @@
             this.label7.Size = new System.Drawing.Size(51, 19);
             this.label7.TabIndex = 19;
             this.label7.Text = "Ventas";
-            // 
-            // lb_ValorVentas
-            // 
-            this.lb_ValorVentas.BackColor = System.Drawing.Color.Transparent;
-            this.lb_ValorVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_ValorVentas.Location = new System.Drawing.Point(53, 37);
-            this.lb_ValorVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_ValorVentas.Name = "lb_ValorVentas";
-            this.lb_ValorVentas.Size = new System.Drawing.Size(111, 28);
-            this.lb_ValorVentas.TabIndex = 8;
-            this.lb_ValorVentas.Text = "$ 0.000.000";
-            this.lb_ValorVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lb_ValorVentas.Click += new System.EventHandler(this.lb_ValorVentas_Click);
             // 
             // guna2CustomGradientPanel8
             // 
@@ -586,6 +573,18 @@
             this.panel2.Size = new System.Drawing.Size(505, 258);
             this.panel2.TabIndex = 0;
             // 
+            // lb_ValorVentas
+            // 
+            this.lb_ValorVentas.BackColor = System.Drawing.Color.Transparent;
+            this.lb_ValorVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lb_ValorVentas.Location = new System.Drawing.Point(49, 37);
+            this.lb_ValorVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_ValorVentas.Name = "lb_ValorVentas";
+            this.lb_ValorVentas.Size = new System.Drawing.Size(111, 28);
+            this.lb_ValorVentas.TabIndex = 25;
+            this.lb_ValorVentas.Text = "$ 0.000.000";
+            this.lb_ValorVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmCierreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,7 +673,7 @@
         private System.Windows.Forms.Label lb_TotalEfectivo;
         private System.Windows.Forms.Label lb_TotalTransferencia;
         private System.Windows.Forms.Label lb_TotalDatafono;
-        private System.Windows.Forms.Label lb_ValorVentas;
         private System.Windows.Forms.Label lb_Diferencia;
+        private System.Windows.Forms.Label lb_ValorVentas;
     }
 }
