@@ -41,5 +41,80 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 MessageBox.Show("Hubo un error guardando el Concepto.");
             }
         }
+
+        private void txtConcepto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                e.SuppressKeyPress = true;
+                txtConcepto.Focus();
+            }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                rbMensajero.Focus();
+            }
+        }
+
+        private void rbMensajero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuardar.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                rbTrabajador.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rbTrabajador_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuardar.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                // Mover el foco al radio button Mensajero
+                rbMensajero.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                // Mover el foco al radio button Ambos
+                rbAmbos.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rbAmbos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuardar.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                // Mover el foco al radio button Mensajero
+                rbMensajero.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                // Mover el foco al radio button Ambos
+                rbAmbos.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

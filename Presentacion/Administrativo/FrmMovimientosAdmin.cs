@@ -95,5 +95,79 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 }
             }
         }
+
+        private void cbConceptos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbMediodepago.Focus();
+            }
+        }
+
+        private void cbMediodepago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtDescripcion.Focus();
+            }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtValor.Focus();
+            }
+        }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbCajero.Focus();
+            }
+
+        }
+
+        private void cbCajero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuarda.Focus();
+            }
+        }
+
+        private void btnGuarda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                Movimiento oMovimiento = new Movimiento();
+
+
+                oMovimiento.IdUsuario = cbCajero.Text;
+                oMovimiento.IdMedioPago = Convert.ToInt32(cbMediodepago.SelectedValue.ToString());
+                oMovimiento.Descripcion = txtDescripcion.Text;
+                oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+                oMovimiento.IdConcepto = Convert.ToInt32(cbConceptos.SelectedValue.ToString());
+
+                bool seInserto = new MovimientosRepository().Insertar(oMovimiento);
+                if (seInserto)
+                {
+                    MessageBox.Show("Se ha insertado el movimiento correctamente.");
+
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
+                }
+            }
+        }
     }
+    
 }

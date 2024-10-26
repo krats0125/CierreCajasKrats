@@ -183,10 +183,6 @@ namespace CierreDeCajas.Presentacion.Sistema
                 MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
             }
 
-           
-
-
-           
         }
 
         private void btnEdita_Click(object sender, EventArgs e)
@@ -268,6 +264,82 @@ namespace CierreDeCajas.Presentacion.Sistema
 
         }
 
+        private void cbConceptos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtValor.Focus();
+            }
+        }
 
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbMediodepago.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(cbMediodepago, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuarda.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(btnGuarda, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+        }
+
+        private void btnGuarda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                Movimiento oMovimiento = new Movimiento();
+
+                oMovimiento.IdCaja = ppal.idCaja;
+                oMovimiento.IdUsuario = ppal.idUsuario;
+                oMovimiento.IdCierre = ppal.idCierre;
+                oMovimiento.IdMedioPago = Convert.ToInt32(cbMediodepago.SelectedValue.ToString());
+                oMovimiento.Descripcion = txtDescripcion.Text;
+                oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+                oMovimiento.IdConcepto = Convert.ToInt32(cbConceptos.SelectedValue.ToString());
+
+                bool seInserto = new MovimientosRepository().Insertar(oMovimiento);
+                if (seInserto)
+                {
+                    MessageBox.Show("Se ha insertado el movimiento correctamente.");
+                    limpiarcampos();
+                    ListaMovimientos();
+                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                    frm.CargarSumatorias();
+                    frm.CitarPanelesMovimientos();
+                    bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
+                    if (!actualizacionExitosa)
+                    {
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    }
+                    frm.CargarCierreVentas();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
+                }
+
+            }
+        }
     }
 }

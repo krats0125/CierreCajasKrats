@@ -208,5 +208,141 @@ namespace CierreDeCajas.Presentacion
         {
            
         }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbConceptos.Focus();
+            }
+             else if (e.KeyCode == Keys.Right)
+            {
+                cbConceptos.Focus();
+                e.SuppressKeyPress = true;
+            }
+            
+        }
+
+        private void cbConceptos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtObservaciones.Focus();
+            }
+        }
+
+        private void txtObservaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuardar.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(btnGuardar, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+        }
+
+        private void btnGuardar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                int idMov = 0;
+                Movimiento oMovimiento = new Movimiento();
+
+                oMovimiento.IdCaja = ppal.idCaja;
+                oMovimiento.IdUsuario = ppal.idUsuario;
+                oMovimiento.IdCierre = ppal.idCierre;
+                oMovimiento.Descripcion = txtObservaciones.Text;
+                oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+                oMovimiento.IdConcepto = 9;
+                oMovimiento.IdMedioPago = 1;
+
+                idMov = new PrestamosRepository().Insertar(oMovimiento);
+                if (idMov > 0)
+                {
+
+                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                    frm.CargarSumatorias();
+                    frm.CitarPanelesMovimientos();
+                    bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
+                    if (!actualizacionExitosa)
+                    {
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    }
+                    frm.CargarCierreVentas();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
+                }
+
+                Prestamo oPrestamo = new Prestamo();
+
+                if (rbMensajero.Checked)
+                {
+                    oPrestamo.IdMensajero = lbxTrabajadores.SelectedValue.ToString();
+                }
+                else if (rbTrabajadores.Checked)
+                {
+                    oPrestamo.IdTrabajador = lbxTrabajadores.SelectedValue.ToString();
+                }
+
+                oPrestamo.Valor = Convert.ToDecimal(txtValor.Text);
+                oPrestamo.Concepto = cbConceptos.Text;
+                oPrestamo.Observacion = txtObservaciones.Text;
+                oPrestamo.Caja = Convert.ToInt64(ppal.idCaja).ToString();
+                oPrestamo.Cajero = ppal.idUsuario;
+                oPrestamo.IdMovimiento = idMov;
+
+
+                bool esMensajero = rbMensajero.Checked;
+
+                bool seGuardo = new PrestamosRepository().InsertarEnPrestamos(oPrestamo, esMensajero, !esMensajero);
+                if (seGuardo)
+                {
+                    MessageBox.Show("Préstamo guardado exitosamente.");
+                    listarPrestamos();
+                    txtValor.Clear();
+                    txtObservaciones.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error guardando el préstamo.");
+                }
+            }
+        }
+
+        private void rbMensajero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(lbxTrabajadores, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                rbTrabajadores.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void lbxTrabajadores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtValor.Focus();
+            }
+        }
     }
 }

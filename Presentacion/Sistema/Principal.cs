@@ -10,7 +10,7 @@ namespace CierreDeCajas.Presentacion
     public partial class Principal : Form
     {
         FrmLogin lgn = new FrmLogin();
-
+        private FrmMovimientos frmMvt;
 
         public string idUsuario;
         public int idCaja;
@@ -204,8 +204,11 @@ namespace CierreDeCajas.Presentacion
                 if (insercionExitosa)
                 {
                     MessageBox.Show("Todos los datos insertados exitosamente.");
-                    FrmMovimientos frmMvt = new FrmMovimientos(this);
-                    frmMvt.ListaMovimientos();
+                    if (frmMvt != null && !frmMvt.IsDisposed)
+                    {
+                        frmMvt.ListaMovimientos();
+                        frmMvt.dgvMovimientos.Refresh();
+                    }
                     FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                     frm.CargarSumatorias();
                     frm.CitarPanelesMovimientos();

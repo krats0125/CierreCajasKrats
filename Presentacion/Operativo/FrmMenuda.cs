@@ -630,6 +630,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txB50.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB100, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB100, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txB50_KeyDown(object sender, KeyEventArgs e)
@@ -641,7 +653,19 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txB20.Focus();
             }
-           
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB50, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB50, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+
         }
 
         private void txB20_KeyDown(object sender, KeyEventArgs e)
@@ -652,6 +676,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txB10.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB20, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB20, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
 
         }
@@ -665,6 +701,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txB5.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB10, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB10, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txB5_KeyDown(object sender, KeyEventArgs e)
@@ -676,7 +724,19 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txB2.Focus();
             }
-            
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB5, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB5, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+
         }
 
         private void txB2_KeyDown(object sender, KeyEventArgs e)
@@ -687,6 +747,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txB1.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB2, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB2, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
 
         }
@@ -700,6 +772,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txM1000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txB1, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txB1, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txM1000_KeyDown(object sender, KeyEventArgs e)
@@ -710,6 +794,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txM500.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txM1000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txM1000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
         }
 
@@ -722,6 +818,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txM200.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txM500, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txM500, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txM200_KeyDown(object sender, KeyEventArgs e)
@@ -732,6 +840,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txM100.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txM200, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txM200, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
         }
 
@@ -744,6 +864,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txM50.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txM100, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txM100, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txM50_KeyDown(object sender, KeyEventArgs e)
@@ -753,6 +885,18 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM50, txtTotal50, 50);
 
                 e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txM50, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txM50, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
         }
 
@@ -769,6 +913,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt50000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt100000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt100000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt50000_KeyDown(object sender, KeyEventArgs e)
@@ -780,6 +936,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt20000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt50000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt50000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt20000_KeyDown(object sender, KeyEventArgs e)
@@ -790,6 +958,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txt10000.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt20000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt20000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
 
         }
@@ -803,6 +983,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt5000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt10000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt10000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
 
         }
 
@@ -815,6 +1007,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt2000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt5000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt5000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt2000_KeyDown(object sender, KeyEventArgs e)
@@ -826,6 +1030,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txtB1000.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt2000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt2000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
         private void txtB1000_KeyDown(object sender, KeyEventArgs e)
         {
@@ -835,6 +1051,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txt1000.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txtB1000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txtB1000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
 
         }
@@ -848,6 +1076,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt500.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt1000, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt1000, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt500_KeyDown(object sender, KeyEventArgs e)
@@ -858,6 +1098,18 @@ namespace CierreDeCajas.Presentacion
 
                 e.SuppressKeyPress = true;
                 txt200.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt500, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt500, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
         }
 
@@ -870,6 +1122,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt100.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt200, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt200, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt100_KeyDown(object sender, KeyEventArgs e)
@@ -881,6 +1145,18 @@ namespace CierreDeCajas.Presentacion
                 e.SuppressKeyPress = true;
                 txt50.Focus();
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt100, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt100, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
         }
 
         private void txt50_KeyDown(object sender, KeyEventArgs e)
@@ -890,6 +1166,18 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt50, txtTotalM50, 50);
 
                 e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                // Mover el foco al control anterior
+                this.SelectNextControl(txt50, false, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                // Mover el foco al control siguiente
+                this.SelectNextControl(txt50, true, true, true, true);
+                e.SuppressKeyPress = true; // Evitar la acción predeterminada
             }
         }
 

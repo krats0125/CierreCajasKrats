@@ -161,5 +161,55 @@ namespace CierreDeCajas.Presentacion.Administrativo
                     rbInactivo.Checked = true;
                 }
         }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtNombre.Focus();
+            }
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbRol.Focus();
+            }
+        }
+
+        private void cbRol_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                rbActivo.Focus();
+            }
+        }
+
+        private void rbActivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                e.SuppressKeyPress = true;
+                rbInactivo.Focus();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnGuardar.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rbInactivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnGuardar.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

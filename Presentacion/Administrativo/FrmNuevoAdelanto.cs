@@ -131,5 +131,119 @@ namespace CierreDeCajas.Presentacion.Administrativo
             cbConceptos.DisplayMember = "Concepto";
             cbConceptos.ValueMember = "Id";
         }
+
+        private void rbMensajero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                lbxTrabajadores.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                rbTrabajador.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rbTrabajador_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                lbxTrabajadores.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                rbMensajero.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void lbxTrabajadores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtValor.Focus();
+            }
+        }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cbConceptos.Focus();
+            }
+        }
+
+        private void cbConceptos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtObservaciones.Focus();
+            }
+        }
+
+        private void txtObservaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGuardar.Focus();
+            }
+
+        }
+
+        private void btnGuardar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                int idMov = 0;
+                Movimiento oMovimiento = new Movimiento();
+
+                oMovimiento.IdUsuario = admin.idUsuario;
+                oMovimiento.Descripcion = txtObservaciones.Text;
+                oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+                oMovimiento.IdConcepto = 9;
+
+                idMov = new PrestamosRepository().Insertar(oMovimiento);
+
+
+                Prestamo oPrestamo = new Prestamo();
+
+                if (rbMensajero.Checked)
+                {
+                    oPrestamo.IdMensajero = lbxTrabajadores.SelectedValue.ToString();
+                }
+                else if (rbTrabajador.Checked)
+                {
+                    oPrestamo.IdTrabajador = lbxTrabajadores.SelectedValue.ToString();
+                }
+
+                oPrestamo.Valor = Convert.ToDecimal(txtValor.Text);
+                oPrestamo.Concepto = cbConceptos.Text;
+                oPrestamo.Observacion = txtObservaciones.Text;
+                oPrestamo.Cajero = admin.idUsuario;
+                oPrestamo.Caja = 0.ToString();
+                oPrestamo.IdMovimiento = idMov;
+
+
+                bool esMensajero = rbMensajero.Checked;
+
+                bool seGuardo = new PrestamosRepository().InsertarEnPrestamos(oPrestamo, esMensajero, !esMensajero);
+                if (seGuardo)
+                {
+                    MessageBox.Show("Préstamo guardado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error guardando el préstamo.");
+                }
+            }
+        }
     }
 }
