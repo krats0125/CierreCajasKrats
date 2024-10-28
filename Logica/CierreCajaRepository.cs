@@ -35,25 +35,24 @@ namespace CierreDeCajas.Logica
                 using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
                 {
                     conexion.Open();
-                    //CAMBIAR DESPUES DE LA PRUEBA
                     string sql = $@"SELECT 
                              SUM(F1.total) AS VENTAS,
                              ISNULL(
                                  (SELECT SUM(NC.total) 
                                   FROM Notas_CxC1 NC 
                                   WHERE NC.IdUsuario = @IdUsuario
-                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE()-1 AS DATE)), 0) AS DEVOLUCIONES,
+                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE() AS DATE)), 0) AS DEVOLUCIONES,
                              SUM(F1.total) - 
                              ISNULL(
                                  (SELECT SUM(NC.total) 
                                   FROM Notas_CxC1 NC 
                                   WHERE NC.IdUsuario = @IdUsuario
-                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE()-1 AS DATE)), 0) AS VentasTotales
+                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE() AS DATE)), 0) AS VentasTotales
                          FROM 
                              Facturas1 F1
                          WHERE 
                              F1.IdUsuario = @IdUsuario 
-                             AND CAST(F1.FechaCreacion AS DATE) = CAST(GETDATE()-1 AS DATE);";
+                             AND CAST(F1.FechaCreacion AS DATE) = CAST(GETDATE() AS DATE);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {

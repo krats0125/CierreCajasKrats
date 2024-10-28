@@ -79,18 +79,26 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
         private void dgvReporte_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
+                if (e.RowIndex >= 0)
+                {
 
                 var fila = dgvReporte.Rows[e.RowIndex];
 
 
                 var idCierre = Convert.ToInt32(fila.Cells["IdCierre"].Value);
-                var idUsuario =fila.Cells["IdUsuario"].Value.ToString();
+                var idUsuario =fila.Cells["NOMBRE"].Value.ToString();
 
                 // Abre el formulario de detalles
                 FrmDetalleReporte frmDetalle = new FrmDetalleReporte(idCierre,idUsuario);
                 frmDetalle.ShowDialog();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                // Podrías agregar más lógica aquí si es necesario
             }
         }
     }

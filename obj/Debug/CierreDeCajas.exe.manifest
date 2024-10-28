@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CierreDeCajas.exe" size="587680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CierreDeCajas.exe" size="596384">
       <assemblyIdentity name="CierreDeCajas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0iGblSq4+8K5Io9Ya7e73IbpRpjJuTDolLEdR3jls/U=</dsig:DigestValue>
+        <dsig:DigestValue>XXIHpggO79yxrFfK4hPufviyOe2T459nx5vmwV1WZRM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

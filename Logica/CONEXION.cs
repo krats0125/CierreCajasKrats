@@ -36,16 +36,16 @@ namespace CierreDeCajas.Logica
 
         public string ConexionCierreCaja()
         {
-            //string servidor = @"SERVIDOR-PC\SQLEXPRESS";
-            //string NombreBaseDatos = "CierresCaja";
-            //string usuario = "sa";
-            //string contraseña = "abcd.1234";
-            //string cadena = $"Data Source={servidor};Initial Catalog={NombreBaseDatos};User ID={usuario};Password={contraseña};";
+            string servidor = @"SERVIDOR-PC\SQLEXPRESS";
+            string NombreBaseDatos = "CierresCaja";
+            string usuario = "sa";
+            string contraseña = "abcd.1234";
+            string cadena = $"Data Source={servidor};Initial Catalog={NombreBaseDatos};User ID={usuario};Password={contraseña};";
 
-            //return cadena;
-
-            string cadena = $"Data Source=localhost;Initial Catalog=CierresCaja;Integrated Security=True;";
             return cadena;
+
+            //string cadena = $"Data Source=localhost;Initial Catalog=CierresCaja;Integrated Security=True;";
+            //return cadena;
 
 
         }

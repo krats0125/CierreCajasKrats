@@ -59,6 +59,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lb_TotalLiquidado = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel7 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lb_ValorVentas = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel8 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -69,7 +70,6 @@
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lb_ValorVentas = new System.Windows.Forms.Label();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -446,6 +446,18 @@
             this.guna2CustomGradientPanel7.Size = new System.Drawing.Size(164, 71);
             this.guna2CustomGradientPanel7.TabIndex = 22;
             // 
+            // lb_ValorVentas
+            // 
+            this.lb_ValorVentas.BackColor = System.Drawing.Color.Transparent;
+            this.lb_ValorVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lb_ValorVentas.Location = new System.Drawing.Point(49, 37);
+            this.lb_ValorVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_ValorVentas.Name = "lb_ValorVentas";
+            this.lb_ValorVentas.Size = new System.Drawing.Size(111, 28);
+            this.lb_ValorVentas.TabIndex = 25;
+            this.lb_ValorVentas.Text = "$ 0.000.000";
+            this.lb_ValorVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
@@ -525,10 +537,11 @@
             this.panelesMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelesMovimientos.AutoScroll = true;
             this.panelesMovimientos.Location = new System.Drawing.Point(32, 278);
             this.panelesMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.panelesMovimientos.Name = "panelesMovimientos";
-            this.panelesMovimientos.Size = new System.Drawing.Size(919, 766);
+            this.panelesMovimientos.Size = new System.Drawing.Size(919, 805);
             this.panelesMovimientos.TabIndex = 25;
             // 
             // guna2CustomGradientPanel9
@@ -573,18 +586,6 @@
             this.panel2.Size = new System.Drawing.Size(505, 258);
             this.panel2.TabIndex = 0;
             // 
-            // lb_ValorVentas
-            // 
-            this.lb_ValorVentas.BackColor = System.Drawing.Color.Transparent;
-            this.lb_ValorVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_ValorVentas.Location = new System.Drawing.Point(49, 37);
-            this.lb_ValorVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_ValorVentas.Name = "lb_ValorVentas";
-            this.lb_ValorVentas.Size = new System.Drawing.Size(111, 28);
-            this.lb_ValorVentas.TabIndex = 25;
-            this.lb_ValorVentas.Text = "$ 0.000.000";
-            this.lb_ValorVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FrmCierreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,10 +594,11 @@
             this.AutoScrollMargin = new System.Drawing.Size(0, 300);
             this.AutoScrollMinSize = new System.Drawing.Size(0, 200);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(962, 1061);
+            this.ClientSize = new System.Drawing.Size(962, 1100);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.guna2CustomGradientPanel9);
             this.Controls.Add(this.panelesMovimientos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCierreCaja";
             this.Text = "Tabla1";

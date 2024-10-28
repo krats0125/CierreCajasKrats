@@ -187,39 +187,46 @@ namespace CierreDeCajas.Presentacion.Sistema
 
         private void btnEdita_Click(object sender, EventArgs e)
         {
-            Movimiento oMovimiento = new Movimiento();
-            oMovimiento.IdMovimiento = Convert.ToInt32(lbIdMovimiento.Text);
-            oMovimiento.IdCaja = ppal.idCaja;
-            oMovimiento.IdUsuario = ppal.idUsuario;
-            oMovimiento.IdCierre = ppal.idCierre;
-            oMovimiento.IdMedioPago = Convert.ToInt32(cbMediodepago.SelectedValue.ToString());
-            oMovimiento.Descripcion = txtDescripcion.Text;
-            oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
-            oMovimiento.IdConcepto = Convert.ToInt32(cbConceptos.SelectedValue.ToString());
-
-            bool seActualizo = new MovimientosRepository().Editar(oMovimiento);
-            if (seActualizo)
+            try
             {
-                MessageBox.Show("Se actualizo el movimiento correctamente");
-                limpiarcampos();
-                btnGuarda.Enabled = true;
-                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                Movimiento oMovimiento = new Movimiento();
+                oMovimiento.IdMovimiento = Convert.ToInt32(lbIdMovimiento.Text);
+                oMovimiento.IdCaja = ppal.idCaja;
+                oMovimiento.IdUsuario = ppal.idUsuario;
+                oMovimiento.IdCierre = ppal.idCierre;
+                oMovimiento.IdMedioPago = Convert.ToInt32(cbMediodepago.SelectedValue.ToString());
+                oMovimiento.Descripcion = txtDescripcion.Text;
+                oMovimiento.Valor = Convert.ToDecimal(txtValor.Text);
+                oMovimiento.IdConcepto = Convert.ToInt32(cbConceptos.SelectedValue.ToString());
 
-                ListaMovimientos();//Muestra en el dgv los movimientos
-                frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
-                frm.CitarPanelesMovimientos();
-
-                bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
-                if (!actualizacionExitosa)
+                bool seActualizo = new MovimientosRepository().Editar(oMovimiento);
+                if (seActualizo)
                 {
-                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    MessageBox.Show("Se actualizo el movimiento correctamente");
+                    limpiarcampos();
+                    btnGuarda.Enabled = true;
+                    FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+
+                    ListaMovimientos();//Muestra en el dgv los movimientos
+                    frm.CargarSumatorias();//Carga los movimientos al panel de medios de pago(cierre de caja)
+                    frm.CitarPanelesMovimientos();
+
+                    bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);//Actualiza el panel del cierre de caja
+                    if (!actualizacionExitosa)
+                    {
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    }
+                    frm.CargarCierreVentas();
                 }
-                frm.CargarCierreVentas();
+                else
+                {
+                    MessageBox.Show("Hubo un error al actualizar el movimiento");
+                    return;
+                }
             }
-            else
+            catch (Exception ex) 
             {
-                MessageBox.Show("Hubo un error al actualizar el movimiento");
-                return;
+                MessageBox.Show("Por favor seleccione el campo que desea editar");
             }
 
           
@@ -227,7 +234,9 @@ namespace CierreDeCajas.Presentacion.Sistema
 
         private void btnElimina_Click(object sender, EventArgs e)
         {
-            Movimiento oMovimiento = new Movimiento();
+            try
+            {
+                Movimiento oMovimiento = new Movimiento();
 
 
             if (MessageBox.Show("¿Está seguro de que desea eliminar este movimiento?", "Confirmar eliminación",
@@ -260,6 +269,11 @@ namespace CierreDeCajas.Presentacion.Sistema
                 {
                     MessageBox.Show("No se pudo eliminar el movimiento. Por favor, inténtelo de nuevo.");
                 }
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Por favor seleccione el campo que desea eliminar");
             }
 
         }
@@ -339,6 +353,33 @@ namespace CierreDeCajas.Presentacion.Sistema
                     MessageBox.Show("Ha ocurrido un error insertando el movimiento.");
                 }
 
+            }
+        }
+
+        private void cbMediodepago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+
+                if (cbTipodecobro.Visible)
+                {
+                    cbTipodecobro.Focus();
+                }
+                else
+                {
+                    txtDescripcion.Focus();
+                }
+            }
+        }
+
+        private void cbTipodecobro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtDescripcion.Focus();
             }
         }
     }

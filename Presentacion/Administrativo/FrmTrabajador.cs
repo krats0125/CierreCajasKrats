@@ -185,7 +185,16 @@ namespace CierreDeCajas.Presentacion.Administrativo
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                rbActivo.Focus();
+
+
+                if (rbActivo.Visible)
+                {
+                    rbActivo.Focus();
+                }
+                else
+                {
+                    btnGuardar.Focus();
+                }
             }
         }
 

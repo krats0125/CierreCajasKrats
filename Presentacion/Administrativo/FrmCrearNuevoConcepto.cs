@@ -48,7 +48,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
             {
 
                 e.SuppressKeyPress = true;
-                txtConcepto.Focus();
+                txtDescripcion.Focus();
             }
         }
 
@@ -68,10 +68,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 e.SuppressKeyPress = true;
                 btnGuardar.Focus();
             }
-            else if (e.KeyCode == Keys.Right)
+            else if (e.KeyCode == Keys.Right) 
             {
-                rbTrabajador.Focus();
-                e.SuppressKeyPress = true;
+                e.SuppressKeyPress = true; 
+                rbTrabajador.Focus(); 
             }
         }
 
