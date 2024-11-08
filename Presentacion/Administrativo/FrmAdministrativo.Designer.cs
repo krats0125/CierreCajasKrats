@@ -45,9 +45,6 @@
             this.CGPTrabajadores = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lbTrabajador = new System.Windows.Forms.Label();
             this.pbTrabajador = new System.Windows.Forms.PictureBox();
-            this.CGPMovimientos = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.pbMovimientos = new System.Windows.Forms.PictureBox();
-            this.lbMovimientos = new System.Windows.Forms.Label();
             this.cgpAdelantos = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pbAdelantos = new System.Windows.Forms.PictureBox();
             this.lbAdelantos = new System.Windows.Forms.Label();
@@ -64,8 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CGPTrabajadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTrabajador)).BeginInit();
-            this.CGPMovimientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMovimientos)).BeginInit();
             this.cgpAdelantos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdelantos)).BeginInit();
             this.CGPReportes.SuspendLayout();
@@ -78,13 +73,12 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.panel1.Controls.Add(this.BarraS);
             this.panel1.Controls.Add(this.CGPTrabajadores);
-            this.panel1.Controls.Add(this.CGPMovimientos);
             this.panel1.Controls.Add(this.cgpAdelantos);
             this.panel1.Controls.Add(this.CGPReportes);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-5, -6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(722, 410);
+            this.panel1.Size = new System.Drawing.Size(722, 412);
             this.panel1.TabIndex = 1;
             // 
             // BarraS
@@ -245,7 +239,7 @@
             this.CGPTrabajadores.Controls.Add(this.pbTrabajador);
             this.CGPTrabajadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPTrabajadores.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPTrabajadores.Location = new System.Drawing.Point(159, 163);
+            this.CGPTrabajadores.Location = new System.Drawing.Point(266, 166);
             this.CGPTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.CGPTrabajadores.Name = "CGPTrabajadores";
             this.CGPTrabajadores.Size = new System.Drawing.Size(209, 102);
@@ -277,47 +271,6 @@
             this.pbTrabajador.TabIndex = 7;
             this.pbTrabajador.TabStop = false;
             this.pbTrabajador.Click += new System.EventHandler(this.pbTrabajador_Click);
-            // 
-            // CGPMovimientos
-            // 
-            this.CGPMovimientos.BorderRadius = 15;
-            this.CGPMovimientos.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.CGPMovimientos.Controls.Add(this.pbMovimientos);
-            this.CGPMovimientos.Controls.Add(this.lbMovimientos);
-            this.CGPMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CGPMovimientos.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPMovimientos.Location = new System.Drawing.Point(368, 163);
-            this.CGPMovimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.CGPMovimientos.Name = "CGPMovimientos";
-            this.CGPMovimientos.Size = new System.Drawing.Size(209, 105);
-            this.CGPMovimientos.TabIndex = 25;
-            this.CGPMovimientos.Click += new System.EventHandler(this.CGPMovimientos_Click);
-            // 
-            // pbMovimientos
-            // 
-            this.pbMovimientos.BackColor = System.Drawing.Color.Transparent;
-            this.pbMovimientos.Image = ((System.Drawing.Image)(resources.GetObject("pbMovimientos.Image")));
-            this.pbMovimientos.Location = new System.Drawing.Point(77, 37);
-            this.pbMovimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.pbMovimientos.Name = "pbMovimientos";
-            this.pbMovimientos.Size = new System.Drawing.Size(41, 45);
-            this.pbMovimientos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMovimientos.TabIndex = 20;
-            this.pbMovimientos.TabStop = false;
-            this.pbMovimientos.Click += new System.EventHandler(this.pbMovimientos_Click);
-            // 
-            // lbMovimientos
-            // 
-            this.lbMovimientos.AutoSize = true;
-            this.lbMovimientos.BackColor = System.Drawing.Color.Transparent;
-            this.lbMovimientos.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMovimientos.Location = new System.Drawing.Point(26, 8);
-            this.lbMovimientos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbMovimientos.Name = "lbMovimientos";
-            this.lbMovimientos.Size = new System.Drawing.Size(145, 28);
-            this.lbMovimientos.TabIndex = 5;
-            this.lbMovimientos.Text = "Movimientos";
-            this.lbMovimientos.Click += new System.EventHandler(this.lbMovimientos_Click);
             // 
             // cgpAdelantos
             // 
@@ -453,9 +406,6 @@
             this.CGPTrabajadores.ResumeLayout(false);
             this.CGPTrabajadores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTrabajador)).EndInit();
-            this.CGPMovimientos.ResumeLayout(false);
-            this.CGPMovimientos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMovimientos)).EndInit();
             this.cgpAdelantos.ResumeLayout(false);
             this.cgpAdelantos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdelantos)).EndInit();
@@ -476,9 +426,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel CGPTrabajadores;
         private System.Windows.Forms.Label lbTrabajador;
         private System.Windows.Forms.PictureBox pbTrabajador;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel CGPMovimientos;
-        private System.Windows.Forms.PictureBox pbMovimientos;
-        private System.Windows.Forms.Label lbMovimientos;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel cgpAdelantos;
         private System.Windows.Forms.PictureBox pbAdelantos;
         private System.Windows.Forms.Label lbAdelantos;

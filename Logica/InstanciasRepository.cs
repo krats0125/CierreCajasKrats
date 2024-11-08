@@ -1,4 +1,5 @@
 ﻿using CierreDeCajas.Presentacion;
+using CierreDeCajas.Presentacion.Administrativo;
 using System.Windows.Forms;
 
 namespace CierreDeCajas.Logica
@@ -24,6 +25,30 @@ namespace CierreDeCajas.Logica
                 if (form is FrmMenuda)
                 {
                     return (FrmMenuda)form; // Retornar la instancia si está abierta
+                }
+            }
+            return null; // Retornar null si no se encuentra ninguna instancia
+        }
+
+        public FrmDetalleReporte InstanciaFrmDetalle()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is FrmDetalleReporte)
+                {
+                    return (FrmDetalleReporte)form; // Retornar la instancia si está abierta
+                }
+            }
+            return null; // Retornar null si no se encuentra ninguna instancia
+        }
+
+        public FrmMenudaAdmin InstanciaFrmMenudaAdmin()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is FrmMenudaAdmin)
+                {
+                    return (FrmMenudaAdmin)form; // Retornar la instancia si está abierta
                 }
             }
             return null; // Retornar null si no se encuentra ninguna instancia

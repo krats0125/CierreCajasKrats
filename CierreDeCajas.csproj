@@ -26,6 +26,7 @@
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -66,7 +67,19 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Cash Register.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=7.4.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.4.2\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.3.7.0\lib\net462\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -76,13 +89,21 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -98,6 +119,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Text.Encoding.CodePages, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encoding.CodePages.8.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
@@ -116,6 +138,7 @@
     <Compile Include="Logica\CierreCajaRepository.cs" />
     <Compile Include="Logica\ConceptoAdelantoRepository.cs" />
     <Compile Include="Logica\CONEXION.cs" />
+    <Compile Include="Logica\DetalleReporteRepository.cs" />
     <Compile Include="Logica\DomicilioRepository.cs" />
     <Compile Include="Logica\InstanciasRepository.cs" />
     <Compile Include="Logica\MenudaRepository.cs" />
@@ -124,7 +147,11 @@
     <Compile Include="Logica\TrabajadoresRepository.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlOLEDB.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlServer.cs" />
+    <Compile Include="Modelo\BonoAlcaldia.cs" />
     <Compile Include="Modelo\ConceptoAdelanto.cs" />
+    <Compile Include="Modelo\Datafonos.cs" />
+    <Compile Include="Modelo\Nota.cs" />
+    <Compile Include="Modelo\TrasferenciaP.cs" />
     <Compile Include="Presentacion\Administrativo\FrmCrearNuevoConcepto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +170,18 @@
     <Compile Include="Presentacion\Administrativo\FrmEliminarAdelanto.Designer.cs">
       <DependentUpon>FrmEliminarAdelanto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmGenerarInforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmGenerarInforme.Designer.cs">
+      <DependentUpon>FrmGenerarInforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmMenudaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmMenudaAdmin.Designer.cs">
+      <DependentUpon>FrmMenudaAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Administrativo\FrmMovimientosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +199,12 @@
     </Compile>
     <Compile Include="Presentacion\Administrativo\FrmReportes.Designer.cs">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmNotas.Designer.cs">
+      <DependentUpon>FrmNotas.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Sistema\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -245,6 +290,12 @@
     <EmbeddedResource Include="Presentacion\Administrativo\FrmEliminarAdelanto.resx">
       <DependentUpon>FrmEliminarAdelanto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmGenerarInforme.resx">
+      <DependentUpon>FrmGenerarInforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmMenudaAdmin.resx">
+      <DependentUpon>FrmMenudaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Administrativo\FrmMovimientosAdmin.resx">
       <DependentUpon>FrmMovimientosAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Administrativo\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmNotas.resx">
+      <DependentUpon>FrmNotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Sistema\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -323,6 +377,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cash Register.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

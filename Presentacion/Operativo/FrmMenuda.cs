@@ -528,20 +528,6 @@ namespace CierreDeCajas.Presentacion
             txtTotalM100.Text= totalM100.ToString("C0");
             txtTotalM50.Text= totalM50.ToString("C0");
 
-            //if (int.TryParse(txtTotalB100.Text,out valor)) total += valor;
-            //if(int.TryParse(txtTotalB50.Text,out valor)) total += valor;
-            //if(int.TryParse(txtTotalB20.Text,out valor)) total+= valor;
-            //if (int.TryParse(txtTotalB10.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalB5.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalB2.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalB1.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalM1.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalM500.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalM200.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalM100.Text, out valor)) total += valor;
-            //if (int.TryParse(txtTotalM50.Text, out valor)) total += valor;
-
-            //lbValorTotalCaja.Text = $"${total}";
         }
 
         private void lbValorTotalEntregado_TextChanged(object sender, EventArgs e)

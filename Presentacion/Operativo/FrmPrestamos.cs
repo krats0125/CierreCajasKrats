@@ -33,10 +33,13 @@ namespace CierreDeCajas.Presentacion
 
         private void rbMensajero_CheckedChanged(object sender, EventArgs e)
         {
-            string consulta = @"SELECT MENSAJEROS.IdTrabajador, MENSAJEROS.nombre, MENSAJEROS.estado
+            //string consulta = @"SELECT MENSAJEROS.IdTrabajador, MENSAJEROS.nombre, MENSAJEROS.estado
+            //FROM MENSAJEROS
+            //WHERE (((MENSAJEROS.estado)=True));";
+            string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM MENSAJEROS
-            WHERE (((MENSAJEROS.estado)=True));";
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, Conexion.ConexionDbInterna());
+            WHERE estado=1";
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
             lbxTrabajadores.DataSource = lista;
             lbxTrabajadores.DisplayMember = "nombre";
             lbxTrabajadores.ValueMember = "IdTrabajador";
@@ -55,11 +58,13 @@ namespace CierreDeCajas.Presentacion
 
         private void rbTrabajadores_CheckedChanged(object sender, EventArgs e)
         {
-            string consulta = @"SELECT TRABAJADORES.IdTrabajador, TRABAJADORES.nombre, TRABAJADORES.estado
+            //string consulta = @"SELECT TRABAJADORES.IdTrabajador, TRABAJADORES.nombre, TRABAJADORES.estado
+            //FROM TRABAJADORES
+            //WHERE (((TRABAJADORES.estado)=True));";
+            string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM TRABAJADORES
-            WHERE (((TRABAJADORES.estado)=True));";
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, Conexion.ConexionDbInterna());
-
+            WHERE estado=1";
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
 
             lbxTrabajadores.DataSource = lista;
             lbxTrabajadores.DisplayMember = "nombre";
@@ -187,20 +192,17 @@ namespace CierreDeCajas.Presentacion
 
         public void listarPrestamos()
         {
-            //string consulta= $@"SELECT PRESTAMOS.Fecha, MENSAJEROS.nombre, PRESTAMOS.Valor, PRESTAMOS.Concepto 
-            //                   FROM MENSAJEROS INNER JOIN PRESTAMOS ON MENSAJEROS.IdTrabajador = PRESTAMOS.IdTrabajador
-            //                   WHERE PRESTAMOS.Cajero='{ppal.idUsuario}';";
 
-            string consulta = $@"SELECT PRESTAMOS_MENSAJEROS2.Fecha AS FECHA, MENSAJEROS.nombre AS NOMBRE, PRESTAMOS_MENSAJEROS2.Valor AS VALOR, PRESTAMOS_MENSAJEROS2.Concepto AS CONCEPTO, PRESTAMOS_MENSAJEROS2.Observacion AS OBSERVACIONES
-                              FROM MENSAJEROS INNER JOIN PRESTAMOS_MENSAJEROS2 ON MENSAJEROS.IdTrabajador = PRESTAMOS_MENSAJEROS2.IdTrabajador
-                              WHERE PRESTAMOS_MENSAJEROS2.Cajero='{ppal.idUsuario}'
+            string consulta = $@"SELECT pm.Fecha AS FECHA, m.nombre AS NOMBRE, pm.Valor AS VALOR, pm.Concepto AS CONCEPTO, pm.Observacion AS OBSERVACIONES
+                              FROM MENSAJEROS m INNER JOIN PRESTAMOS_MENSAJEROS pm ON m.IdTrabajador = pm.IdTrabajador
+                              WHERE pm.Cajero='{ppal.idUsuario}' and pm.Pagado=0
                               UNION ALL
-                              SELECT PRESTAMOS2.Fecha AS FECHA, TRABAJADORES.nombre AS NOMBRE, PRESTAMOS2.Valor AS VALOR, PRESTAMOS2.Concepto AS CONCEPTO, PRESTAMOS2.Observacion AS OBSERVACION
-                              FROM PRESTAMOS2 INNER JOIN TRABAJADORES ON PRESTAMOS2.IdTrabajador = TRABAJADORES.IdTrabajador
-                              WHERE PRESTAMOS2.Cajero='{ppal.idUsuario}';";
+                              SELECT P.Fecha AS FECHA, T.nombre AS NOMBRE, P.Valor AS VALOR, P.Concepto AS CONCEPTO, P.Observacion AS OBSERVACION
+                              FROM PRESTAMOS P INNER JOIN TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
+                              WHERE P.Cajero='{ppal.idUsuario}'  and p.Pagado=0";
 
 
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, Conexion.ConexionDbInterna());
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
             dgvAdelantos.DataSource = lista;
         }
 

@@ -54,6 +54,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse6 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
             this.PanelControles.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -153,7 +159,7 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelControles.Location = new System.Drawing.Point(-10, 0);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
             this.PanelControles.Size = new System.Drawing.Size(962, 29);
             this.PanelControles.TabIndex = 27;
@@ -168,7 +174,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(889, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
@@ -183,7 +189,7 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(914, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox2.TabIndex = 1;
@@ -197,7 +203,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(938, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox1.TabIndex = 0;
@@ -370,6 +376,30 @@
             this.AccionMovimiento.TargetControl = this.PanelControles;
             this.AccionMovimiento.UseTransparentDrag = true;
             // 
+            // Elipse1
+            // 
+            this.Elipse1.TargetControl = this.txtUsuario;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.TargetControl = this.txtNombre;
+            // 
+            // Elipse3
+            // 
+            this.Elipse3.TargetControl = this.cbRol;
+            // 
+            // Elipse4
+            // 
+            this.Elipse4.TargetControl = this.btnGuardar;
+            // 
+            // Elipse5
+            // 
+            this.Elipse5.TargetControl = this.btnEditar;
+            // 
+            // Elipse6
+            // 
+            this.Elipse6.TargetControl = this.btnEliminar;
+            // 
             // FrmTrabajador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,5 +449,11 @@
         private System.Windows.Forms.RadioButton rbTrabajadores;
         private System.Windows.Forms.RadioButton rbMensajero;
         private System.Windows.Forms.DataGridView dgvTrabajadores;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse2;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse3;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse4;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse5;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse6;
     }
 }

@@ -39,6 +39,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdelantos)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +49,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtNombre.Location = new System.Drawing.Point(228, 61);
+            this.txtNombre.Location = new System.Drawing.Point(203, 56);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(150, 26);
             this.txtNombre.TabIndex = 9;
@@ -55,11 +58,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 31);
+            this.label2.Size = new System.Drawing.Size(185, 30);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filtrar por nombre:";
             // 
@@ -162,6 +165,18 @@
             this.panel1.Size = new System.Drawing.Size(698, 356);
             this.panel1.TabIndex = 31;
             // 
+            // Elipse1
+            // 
+            this.Elipse1.TargetControl = this.txtNombre;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.TargetControl = this.dgvAdelantos;
+            // 
+            // Elipse3
+            // 
+            this.Elipse3.TargetControl = this.btnEliminar;
+            // 
             // FrmEliminarAdelanto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +212,8 @@
         private System.Windows.Forms.Button btnEliminar;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimiento;
         private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse2;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse3;
     }
 }

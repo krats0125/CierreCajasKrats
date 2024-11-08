@@ -61,6 +61,18 @@ namespace CierreDeCajas.Logica
             return cadena;
 
         }
+        public string Conexionlabodegadenacho()
+        {
+            string servidor = @"SERVIDOR-PC\SQLEXPRESS";
+            string NombreBaseDatos = "LABODEGADENACHO";
+            string usuario = "sa";
+            string contraseña = "abcd.1234";
+            string cadena = $"Data Source={servidor};Initial Catalog={NombreBaseDatos};User ID={usuario};Password={contraseña};";
+
+            return cadena;
+
+        }
+
 
         public string ConexionDbInterna()
         {

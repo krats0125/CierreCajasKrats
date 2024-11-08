@@ -28,31 +28,33 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public void listarprestamos()
         {
             string consulta =$@"SELECT 
-                          PRESTAMOS_MENSAJEROS2.IdPrestamo,
-                          PRESTAMOS_MENSAJEROS2.Fecha AS FECHA, 
-                          MENSAJEROS.nombre AS NOMBRE, 
-                          PRESTAMOS_MENSAJEROS2.Valor AS VALOR, 
-                          PRESTAMOS_MENSAJEROS2.Concepto AS CONCEPTO, 
-                          PRESTAMOS_MENSAJEROS2.Observacion AS OBSERVACIONES
+                          PM.IdPrestamo,
+                          PM.Fecha AS FECHA, 
+                          M.nombre AS NOMBRE, 
+                          PM.Valor AS VALOR, 
+                          PM.Concepto AS CONCEPTO, 
+                          PM.Observacion AS OBSERVACIONES
                           FROM 
-                              MENSAJEROS 
+                              MENSAJEROS M
                           INNER JOIN 
-                              PRESTAMOS_MENSAJEROS2 ON MENSAJEROS.IdTrabajador = PRESTAMOS_MENSAJEROS2.IdTrabajador
+                              PRESTAMOS_MENSAJEROS PM ON M.IdTrabajador = PM.IdTrabajador
+							  WHERE PM.PAGADO=0
                           UNION ALL
                           SELECT 
-                              PRESTAMOS2.IdPrestamo,
-                              PRESTAMOS2.Fecha AS FECHA, 
-                              TRABAJADORES.nombre AS NOMBRE, 
-                              PRESTAMOS2.Valor AS VALOR, 
-                              PRESTAMOS2.Concepto AS CONCEPTO, 
-                              PRESTAMOS2.Observacion AS OBSERVACIONES
+                              P.IdPrestamo,
+                              P.Fecha AS FECHA, 
+                              T.nombre AS NOMBRE, 
+                              P.Valor AS VALOR, 
+                              P.Concepto AS CONCEPTO, 
+                              P.Observacion AS OBSERVACIONES
                           FROM 
-                              PRESTAMOS2 
+                              PRESTAMOS P
                           INNER JOIN 
-                              TRABAJADORES ON PRESTAMOS2.IdTrabajador = TRABAJADORES.IdTrabajador;";
+                              TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
+							  WHERE P.Pagado=0";
 
 
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, cn.ConexionDbInterna());
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, cn.Conexionlabodegadenacho());
             dgvAdelantos.DataSource = lista;
             dgvAdelantos.Columns[0].Visible = false;
         }
@@ -61,35 +63,36 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             if (txtNombre != null)
             {
-                string sql = $@"SELECT 
-                             PRESTAMOS_MENSAJEROS2.Fecha AS Fecha, 
-                             MENSAJEROS.nombre AS Nombre, 
-                             PRESTAMOS_MENSAJEROS2.Valor AS Valor, 
-                             PRESTAMOS_MENSAJEROS2.Concepto AS Concepto, 
-                             PRESTAMOS_MENSAJEROS2.Observacion AS Observacion
-                             FROM 
-                             MENSAJEROS 
-                             INNER JOIN 
-                             PRESTAMOS_MENSAJEROS2 ON MENSAJEROS.IdTrabajador = PRESTAMOS_MENSAJEROS2.IdTrabajador
+                string consulta = $@"SELECT 
+                          PRESTAMOS_MENSAJEROS.IdPrestamo,
+                          PRESTAMOS_MENSAJEROS.Fecha AS FECHA, 
+                          MENSAJEROS.nombre AS NOMBRE, 
+                          PRESTAMOS_MENSAJEROS.Valor AS VALOR, 
+                          PRESTAMOS_MENSAJEROS.Concepto AS CONCEPTO, 
+                          PRESTAMOS_MENSAJEROS.Observacion AS OBSERVACIONES
+                          FROM 
+                              MENSAJEROS 
+                          INNER JOIN 
+                              PRESTAMOS_MENSAJEROS ON MENSAJEROS.IdTrabajador = PRESTAMOS_MENSAJEROS.IdTrabajador
                              WHERE 
                              MENSAJEROS.nombre LIKE '%{txtNombre.Text}%'
                          
-                             UNION ALL
-                         
-                             SELECT 
-                             PRESTAMOS2.Fecha AS Fecha, 
-                             TRABAJADORES.nombre AS Nombre, 
-                             PRESTAMOS2.Valor AS Valor, 
-                             PRESTAMOS2.Concepto AS Concepto, 
-                             PRESTAMOS2.Observacion AS Observacion
-                             FROM 
-                             PRESTAMOS2 
-                             INNER JOIN 
-                             TRABAJADORES ON PRESTAMOS2.IdTrabajador = TRABAJADORES.IdTrabajador
-                             WHERE 
-                             TRABAJADORES.nombre LIKE '%{txtNombre.Text}%'";
-
-                DataTable lista = new SentenciaSqlOLEDB().TraerDatos(sql, cn.ConexionDbInterna());
+                          UNION ALL
+                          SELECT 
+                              PRESTAMOS.IdPrestamo,
+                              PRESTAMOS.Fecha AS FECHA, 
+                              TRABAJADORES.nombre AS NOMBRE, 
+                              PRESTAMOS.Valor AS VALOR, 
+                              PRESTAMOS.Concepto AS CONCEPTO, 
+                              PRESTAMOS.Observacion AS OBSERVACIONES
+                          FROM 
+                              PRESTAMOS 
+                          INNER JOIN 
+                              TRABAJADORES ON PRESTAMOS.IdTrabajador = TRABAJADORES.IdTrabajador
+                              WHERE 
+                             TRABAJADORES.nombre LIKE '%{txtNombre.Text}%';";
+            
+                DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, cn.Conexionlabodegadenacho());
                 dgvAdelantos.DataSource = lista;
             }
         }

@@ -100,8 +100,6 @@
             // 
             // BarraS
             // 
-            this.BarraS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.BarraS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
             this.BarraS.Controls.Add(this.PanelControles);
             this.BarraS.Controls.Add(this.label6);
@@ -115,9 +113,10 @@
             this.BarraS.Controls.Add(this.lb_FechaActual);
             this.BarraS.Controls.Add(this.lb_Caja);
             this.BarraS.Controls.Add(this.lb_Cajero);
-            this.BarraS.Location = new System.Drawing.Point(-2, 0);
+            this.BarraS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BarraS.Location = new System.Drawing.Point(0, 0);
             this.BarraS.Name = "BarraS";
-            this.BarraS.Size = new System.Drawing.Size(1049, 84);
+            this.BarraS.Size = new System.Drawing.Size(1050, 84);
             this.BarraS.TabIndex = 5;
             this.BarraS.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraS_Paint);
             // 
@@ -129,7 +128,7 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Location = new System.Drawing.Point(248, 2);
+            this.PanelControles.Location = new System.Drawing.Point(249, 2);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
             this.PanelControles.Size = new System.Drawing.Size(795, 26);
@@ -181,7 +180,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(945, 43);
+            this.label6.Location = new System.Drawing.Point(946, 43);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(2, 37);
@@ -194,7 +193,7 @@
             this.lbIdCierre.BackColor = System.Drawing.Color.Transparent;
             this.lbIdCierre.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdCierre.ForeColor = System.Drawing.Color.White;
-            this.lbIdCierre.Location = new System.Drawing.Point(1016, 61);
+            this.lbIdCierre.Location = new System.Drawing.Point(1017, 61);
             this.lbIdCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIdCierre.Name = "lbIdCierre";
             this.lbIdCierre.Size = new System.Drawing.Size(15, 16);
@@ -207,7 +206,7 @@
             this.lbCierre.AutoSize = true;
             this.lbCierre.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCierre.ForeColor = System.Drawing.Color.Gold;
-            this.lbCierre.Location = new System.Drawing.Point(957, 60);
+            this.lbCierre.Location = new System.Drawing.Point(958, 60);
             this.lbCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCierre.Name = "lbCierre";
             this.lbCierre.Size = new System.Drawing.Size(57, 18);
@@ -244,7 +243,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(694, 61);
+            this.label2.Location = new System.Drawing.Point(695, 61);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 18);
@@ -257,7 +256,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(957, 39);
+            this.label3.Location = new System.Drawing.Point(958, 39);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
@@ -271,7 +270,7 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(700, 29);
+            this.lb_FechaActual.Location = new System.Drawing.Point(701, 29);
             this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FechaActual.Name = "lb_FechaActual";
             this.lb_FechaActual.Size = new System.Drawing.Size(211, 25);
@@ -286,7 +285,7 @@
             this.lb_Caja.BackColor = System.Drawing.Color.Transparent;
             this.lb_Caja.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Caja.ForeColor = System.Drawing.Color.White;
-            this.lb_Caja.Location = new System.Drawing.Point(1007, 39);
+            this.lb_Caja.Location = new System.Drawing.Point(1008, 39);
             this.lb_Caja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Caja.Name = "lb_Caja";
             this.lb_Caja.Size = new System.Drawing.Size(25, 16);
@@ -298,7 +297,7 @@
             this.lb_Cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_Cajero.Location = new System.Drawing.Point(754, 62);
+            this.lb_Cajero.Location = new System.Drawing.Point(755, 62);
             this.lb_Cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Cajero.Name = "lb_Cajero";
             this.lb_Cajero.Size = new System.Drawing.Size(177, 18);
@@ -315,9 +314,9 @@
             this.PanelbotonesSuperior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelbotonesSuperior.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelbotonesSuperior.Controls.Add(this.panel1);
-            this.PanelbotonesSuperior.Location = new System.Drawing.Point(47, 6);
+            this.PanelbotonesSuperior.Location = new System.Drawing.Point(12, 6);
             this.PanelbotonesSuperior.Name = "PanelbotonesSuperior";
-            this.PanelbotonesSuperior.Size = new System.Drawing.Size(945, 34);
+            this.PanelbotonesSuperior.Size = new System.Drawing.Size(1030, 34);
             this.PanelbotonesSuperior.TabIndex = 28;
             // 
             // panel1
@@ -330,10 +329,10 @@
             this.panel1.Controls.Add(this.btnMenuda);
             this.panel1.Controls.Add(this.btnMovimientos);
             this.panel1.Controls.Add(this.btnResumen);
-            this.panel1.Location = new System.Drawing.Point(251, 0);
+            this.panel1.Location = new System.Drawing.Point(332, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(472, 34);
+            this.panel1.Size = new System.Drawing.Size(510, 34);
             this.panel1.TabIndex = 9;
             // 
             // btnCargarDomicilios
@@ -433,14 +432,13 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.panel2.Controls.Add(this.PanelbotonesSuperior);
-            this.panel2.Location = new System.Drawing.Point(-2, 84);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 84);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1049, 47);
+            this.panel2.Size = new System.Drawing.Size(1050, 47);
             this.panel2.TabIndex = 4;
             // 
             // Elip2

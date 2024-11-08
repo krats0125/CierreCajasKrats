@@ -120,6 +120,8 @@ namespace CierreDeCajas.Logica
             }
             return respuesta;
         }
+
+      
         //public bool InsertarTemporal(Movimiento oMovimiento)
         //{
         //    bool respuesta = false;
@@ -157,43 +159,43 @@ namespace CierreDeCajas.Logica
 
         //    return respuesta;
         //}
-        public bool TransferirATablaReal()
-        {
-            bool respuesta = false;
-
-            
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
-                {
-                    conexion.Open();
-
-                    string sql = $@"INSERT INTO MovimientoCaja (IdCierre, IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago, fecha)
-                   SELECT @NuevoIdCierre, IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago, Fecha
-                   FROM TempMovimientoCaja
-                   WHERE IdUsuario = @IdUsuario AND IdCaja = @IdCaja;";
+        //public bool TransferirATablaReal()
+        //{
+        //    bool respuesta = false;
 
 
+        //    try
+        //    {
+        //        using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+        //        {
+        //            conexion.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
-                    {
+        //            string sql = $@"INSERT INTO MovimientoCaja (IdCierre, IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago, fecha)
+        //           SELECT @NuevoIdCierre, IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago, Fecha
+        //           FROM TempMovimientoCaja
+        //           WHERE IdUsuario = @IdUsuario AND IdCaja = @IdCaja;";
 
-                        cmd.ExecuteNonQuery();
-                        respuesta = true;
 
 
-                    }
-                }
-            }
-            catch (Exception)
-            {
+        //            using (SqlCommand cmd = new SqlCommand(sql, conexion))
+        //            {
 
-               return respuesta;
-            }
-            
-            return respuesta;
+        //                cmd.ExecuteNonQuery();
+        //                respuesta = true;
 
-        }
+
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //       return respuesta;
+        //    }
+
+        //    return respuesta;
+
+        //}
 
         /*
          < alt + 60

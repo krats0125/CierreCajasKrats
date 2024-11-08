@@ -1,10 +1,13 @@
 ﻿using CierreDeCajas.Logica;
 using CierreDeCajas.Modelo;
+using CierreDeCajas.Presentacion.Operativo;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -37,8 +40,7 @@ namespace CierreDeCajas.Presentacion
             cargarVentas();
             CargarCierreVentas();
             CitarPanelesMovimientos();
-           
- 
+            cargarNovedades();
 
         }
 
@@ -85,145 +87,141 @@ namespace CierreDeCajas.Presentacion
             }
         }
 
-        private List<MedioDePago> listarSumatoriaMedioDePago()
-        {
-            List<MedioDePago> mediosPago = new List<MedioDePago>();
+            private List<MedioDePago> listarSumatoriaMedioDePago()
+            {
+                List<MedioDePago> mediosPago = new List<MedioDePago>();
 
-            try
-                {
-                    using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                try
                     {
-                        conexion.Open();
-
-                        using (SqlCommand cmd = new SqlCommand("usp_listarSumariaValoresPorCierreCajero", conexion))
+                        using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
                         {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.Add(new SqlParameter("@IdUsuario", ppal.idUsuario));
-                            cmd.Parameters.Add(new SqlParameter("@IdCierre", ppal.idCierre));
+                            conexion.Open();
 
-                            using (SqlDataReader dr = cmd.ExecuteReader())
+                            using (SqlCommand cmd = new SqlCommand("usp_listarSumariaValoresPorCierreCajero", conexion))
                             {
-                            while (dr.Read())
-                            {
-                                mediosPago.Add(new MedioDePago()
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add(new SqlParameter("@IdUsuario", ppal.idUsuario));
+                                cmd.Parameters.Add(new SqlParameter("@IdCierre", ppal.idCierre));
+
+                                using (SqlDataReader dr = cmd.ExecuteReader())
                                 {
-                                    Descripcion = dr["Descripcion"].ToString(),
-                                    Valor = Convert.ToDecimal(dr["Valor"].ToString())
-                                });
+                                while (dr.Read())
+                                {
+                                    mediosPago.Add(new MedioDePago()
+                                    {
+                                        Descripcion = dr["Descripcion"].ToString(),
+                                        Valor = Convert.ToDecimal(dr["Valor"].ToString())
+                                    });
+
+                                }
+                                }
+
 
                             }
-                            }
-
-
+                            conexion.Close();
                         }
-                        conexion.Close();
-                    }
                     
-                }
-                catch (Exception)
-                {
+                    }
+                    catch (Exception)
+                    {
 
 
-                    return mediosPago;
+                        return mediosPago;
 
-                }
+                    }
 
 
 
-            return mediosPago;
+                return mediosPago;
     
-        }
+            }
        
 
 
-        public void CargarSumatorias()
-        {
-
-            List<MedioDePago> lista = listarSumatoriaMedioDePago();
-            if(lista.Count > 0 )
+            public void CargarSumatorias()
             {
-                CrearPanelesConMediosDePago(lista);
-            }
-            else
-            {
-                pnlflListaMedioPago.Controls.Clear();
-            }
 
+                List<MedioDePago> lista = listarSumatoriaMedioDePago();
+                if(lista.Count > 0 )
+                {
+                    CrearPanelesConMediosDePago(lista);
+                }
+                else
+                {
+                    pnlflListaMedioPago.Controls.Clear();
+                }
 
-        }
-
-
-        public void CargarCierreVentas()
-        {
-            string mensaje;
-            CierreCajaRepository repository = new CierreCajaRepository(ppal);
-
-
-            CierreCaja oCierreCaja =repository.listar(ppal.idCierre,out mensaje);
-
-            if (oCierreCaja != null)
-            {
-                lb_TotalEfectivo.Text = oCierreCaja.TotalEfectivo.ToString("C0");
-                lb_Diferencia.Text = oCierreCaja.Diferencia.ToString("C0");
-                lb_TotalDatafono.Text = oCierreCaja.TotalDatafono.ToString("C0");
-                lb_TotalLiquidado.Text = oCierreCaja.TotalLiquidado.ToString("C0");
-                lb_TotalMovimientosCaja.Text = oCierreCaja.TotalMovimientosCaja.ToString("C0");
-                lb_TotalTransferencia.Text = oCierreCaja.TotalTransferencia.ToString("C0");
-                lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
-                lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
 
             }
-        }
 
 
-
-        public void ActualizarCiereCaja()
-        {
-
-            bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
-            if (!actualizacionExitosa)
+            public void CargarCierreVentas()
             {
-                MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                string mensaje;
+                CierreCajaRepository repository = new CierreCajaRepository(ppal);
+
+
+                CierreCaja oCierreCaja =repository.listar(ppal.idCierre,out mensaje);
+
+                if (oCierreCaja != null)
+                {
+                    lb_TotalEfectivo.Text = oCierreCaja.TotalEfectivo.ToString("C0");
+                    lb_Diferencia.Text = oCierreCaja.Diferencia.ToString("C0");
+                    lb_TotalDatafono.Text = oCierreCaja.TotalDatafono.ToString("C0");
+                    lb_TotalLiquidado.Text = oCierreCaja.TotalLiquidado.ToString("C0");
+                    lb_TotalMovimientosCaja.Text = oCierreCaja.TotalMovimientosCaja.ToString("C0");
+                    lb_TotalTransferencia.Text = oCierreCaja.TotalTransferencia.ToString("C0");
+                    lb_ValorVentas.Text = oCierreCaja.ValorVentas.ToString("C0");
+                    lb_entregaultimoefectivo.Text = oCierreCaja.EntregaUltimoEfectivo.ToString("C0");
+
+                }
             }
-            else
+
+
+
+            public void ActualizarCiereCaja()
             {
-                CargarCierreVentas();
-            }
 
-        }
-        private void lb_ValorVentas_Click(object sender, EventArgs e)
-        {
-           
-        }
-        private void cargarVentas()
-        {
-            CierreCajaRepository cierreCajaRepo = new CierreCajaRepository(ppal);
-
-            decimal totalVentas = cierreCajaRepo.ActualizarVentas(ppal.idUsuario);
-
-
-            if (totalVentas > 0)
-            {
-                lb_ValorVentas.Text = totalVentas.ToString("C0");
-
-
-                bool actualizacionExitosa = cierreCajaRepo.ActualizarCierre(ppal.idCierre);
-
+                bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(ppal.idCierre);
                 if (!actualizacionExitosa)
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
                 }
                 else
                 {
-
                     CargarCierreVentas();
                 }
+
             }
-            else
+            private void lb_ValorVentas_Click(object sender, EventArgs e)
             {
-                MessageBox.Show("No se pudo obtener el valor de ventas.");
+           
             }
-        }
+            private void cargarVentas()
+            {
+                CierreCajaRepository cierreCajaRepo = new CierreCajaRepository(ppal);
+
+                decimal totalVentas = cierreCajaRepo.ActualizarVentas(ppal.idUsuario);
+
+
+                if (totalVentas > 0)
+                {
+                    lb_ValorVentas.Text = totalVentas.ToString("C0");
+
+
+                    bool actualizacionExitosa = cierreCajaRepo.ActualizarCierre(ppal.idCierre);
+
+                    if (!actualizacionExitosa)
+                    {
+                        MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                    }
+                    else
+                    {
+
+                        CargarCierreVentas();
+                    }
+                }
+            }
 
 
         public class MovimientoList
@@ -358,6 +356,98 @@ namespace CierreDeCajas.Presentacion
                     panelesMovimientos.Controls.Add(panel);
                 }
             }
+
+     
+        private void PrintPage(PrintPageEventArgs e, DataTable datosCierre)
+        {
+            // Ajustes de impresión
+            float yPos = 20;
+            int leftMargin = 5;
+            int bottomMargin = 20; // Margen inferior adicional
+
+            using (Font font = new Font("Arial", 10))
+            {
+                foreach (DataRow row in datosCierre.Rows)
+                {
+                    e.Graphics.DrawString($"Nombre: {row["NOMBRE"]}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Fecha de Apertura: {row["FECHA DE APERTURA"]}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    yPos += 20;
+                    e.Graphics.DrawString($"Movimientos de Caja: {string.Format("{0:N0}", row["TOTAL MOVIMIENTOS DE CAJA"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Último Efectivo Entregado: {string.Format("{0:N0}", row["ULTIMO EFECTIVO ENTREGADO"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Total Efectivo: {string.Format("{0:N0}", row["TOTAL EFECTIVO"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Datafonos: {string.Format("{0:N0}", row["TOTAL DATAFONOS"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Transferencias: {string.Format("{0:N0}", row["TOTAL TRANSFERENCIAS"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Ventas: {string.Format("{0:N0}", row["VENTAS"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Diferencia: {string.Format("{0:N0}", row["DIFERENCIA"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
+                    e.Graphics.DrawString($"Total Liquidado: {string.Format("{0:N0}", row["TOTAL LIQUIDADO"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 40; // Espacio adicional entre tirillas
+                }
+                yPos += bottomMargin;
+            }
+        }
+
+        private void btnImprime_Click(object sender, EventArgs e)
+        {
+            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(ppal);
+            DataTable datosCierre = cierreCajaRepository.ObtenerCierre(ppal.idUsuario, ppal.Fecha);
+
+            if (datosCierre.Rows.Count > 0)
+            {
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += (s, ev) => PrintPage(ev, datosCierre);
+                PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog
+                {
+                    Document = pd
+                };
+                printPreviewDialog.ShowDialog();
+
+                //pd.Print();
+            }
+        }
+        private void cargarNovedades()
+        {
+            CierreCajaRepository cierrecaja = new CierreCajaRepository(ppal);
+            string novedades = cierrecaja.CargarNovedades();
+            if (novedades != null)
+            {
+                lbNovedades.Visible = true;
+                txtnotas.Visible = true;
+                txtnotas.Text = novedades;
+            }
+
+        }
+
+
+        private void btnNotas_Click(object sender, EventArgs e)
+        {
+           
+            FrmNotas notas = new FrmNotas(ppal);
+
+            
+            if (notas.ShowDialog() == DialogResult.OK)
+            {
+                
+                txtnotas.Text = notas.nota; 
+                lbNovedades.Visible = true;
+                txtnotas.Visible = true; 
+
+                if(txtnotas != null)
+                {
+                    lbNovedades.Visible = true;
+                    txtnotas.Visible = true;
+                }
+            }
         }
     }
+}
+
 

@@ -70,6 +70,10 @@
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnImprime = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnNotas = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.txtnotas = new System.Windows.Forms.TextBox();
+            this.lbNovedades = new System.Windows.Forms.Label();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -538,10 +542,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelesMovimientos.AutoScroll = true;
-            this.panelesMovimientos.Location = new System.Drawing.Point(32, 278);
+            this.panelesMovimientos.Location = new System.Drawing.Point(39, 336);
             this.panelesMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.panelesMovimientos.Name = "panelesMovimientos";
-            this.panelesMovimientos.Size = new System.Drawing.Size(919, 805);
+            this.panelesMovimientos.Size = new System.Drawing.Size(1000, 735);
             this.panelesMovimientos.TabIndex = 25;
             // 
             // guna2CustomGradientPanel9
@@ -552,7 +556,7 @@
             this.guna2CustomGradientPanel9.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel9.Controls.Add(this.pnlflListaMedioPago);
             this.guna2CustomGradientPanel9.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(561, 17);
+            this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(639, 37);
             this.guna2CustomGradientPanel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CustomGradientPanel9.Name = "guna2CustomGradientPanel9";
             this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(379, 246);
@@ -572,7 +576,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 258);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(583, 231);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -580,11 +584,69 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(42, 13);
+            this.panel2.Location = new System.Drawing.Point(34, 28);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 8, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(505, 258);
+            this.panel2.Size = new System.Drawing.Size(583, 231);
             this.panel2.TabIndex = 0;
+            // 
+            // btnImprime
+            // 
+            this.btnImprime.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnImprime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprime.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnImprime.Image = ((System.Drawing.Image)(resources.GetObject("btnImprime.Image")));
+            this.btnImprime.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnImprime.ImageRotate = 0F;
+            this.btnImprime.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnImprime.Location = new System.Drawing.Point(972, 1);
+            this.btnImprime.Name = "btnImprime";
+            this.btnImprime.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnImprime.Size = new System.Drawing.Size(32, 32);
+            this.btnImprime.TabIndex = 27;
+            this.btnImprime.Click += new System.EventHandler(this.btnImprime_Click);
+            // 
+            // btnNotas
+            // 
+            this.btnNotas.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnNotas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotas.HoverState.ImageSize = new System.Drawing.Size(33, 33);
+            this.btnNotas.Image = ((System.Drawing.Image)(resources.GetObject("btnNotas.Image")));
+            this.btnNotas.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnNotas.ImageRotate = 0F;
+            this.btnNotas.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnNotas.Location = new System.Drawing.Point(921, 1);
+            this.btnNotas.Name = "btnNotas";
+            this.btnNotas.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnNotas.Size = new System.Drawing.Size(35, 35);
+            this.btnNotas.TabIndex = 30;
+            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
+            // 
+            // txtnotas
+            // 
+            this.txtnotas.BackColor = System.Drawing.Color.White;
+            this.txtnotas.Enabled = false;
+            this.txtnotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnotas.ForeColor = System.Drawing.Color.Black;
+            this.txtnotas.Location = new System.Drawing.Point(41, 279);
+            this.txtnotas.Multiline = true;
+            this.txtnotas.Name = "txtnotas";
+            this.txtnotas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtnotas.Size = new System.Drawing.Size(327, 42);
+            this.txtnotas.TabIndex = 31;
+            this.txtnotas.Visible = false;
+            // 
+            // lbNovedades
+            // 
+            this.lbNovedades.AutoSize = true;
+            this.lbNovedades.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNovedades.ForeColor = System.Drawing.Color.White;
+            this.lbNovedades.Location = new System.Drawing.Point(35, 253);
+            this.lbNovedades.Name = "lbNovedades";
+            this.lbNovedades.Size = new System.Drawing.Size(91, 21);
+            this.lbNovedades.TabIndex = 32;
+            this.lbNovedades.Text = "Novedades:";
+            this.lbNovedades.Visible = false;
             // 
             // FrmCierreCaja
             // 
@@ -594,7 +656,11 @@
             this.AutoScrollMargin = new System.Drawing.Size(0, 300);
             this.AutoScrollMinSize = new System.Drawing.Size(0, 200);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(962, 1100);
+            this.ClientSize = new System.Drawing.Size(1050, 1100);
+            this.Controls.Add(this.lbNovedades);
+            this.Controls.Add(this.txtnotas);
+            this.Controls.Add(this.btnNotas);
+            this.Controls.Add(this.btnImprime);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.guna2CustomGradientPanel9);
             this.Controls.Add(this.panelesMovimientos);
@@ -633,6 +699,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -677,5 +744,9 @@
         private System.Windows.Forms.Label lb_TotalDatafono;
         private System.Windows.Forms.Label lb_Diferencia;
         private System.Windows.Forms.Label lb_ValorVentas;
+        private Guna.UI2.WinForms.Guna2ImageButton btnImprime;
+        private Guna.UI2.WinForms.Guna2ImageButton btnNotas;
+        private System.Windows.Forms.TextBox txtnotas;
+        private System.Windows.Forms.Label lbNovedades;
     }
 }

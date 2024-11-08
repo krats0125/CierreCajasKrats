@@ -44,6 +44,9 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel4.SuspendLayout();
             this.PanelControles.SuspendLayout();
             this.SuspendLayout();
@@ -138,9 +141,9 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(143, 200);
+            this.btnGuardar.Location = new System.Drawing.Point(144, 203);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(138, 41);
+            this.btnGuardar.Size = new System.Drawing.Size(137, 38);
             this.btnGuardar.TabIndex = 20;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -186,7 +189,7 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelControles.Location = new System.Drawing.Point(-6, -1);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
             this.PanelControles.Size = new System.Drawing.Size(464, 30);
             this.PanelControles.TabIndex = 25;
@@ -201,7 +204,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(391, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
@@ -216,7 +219,7 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(416, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox2.TabIndex = 1;
@@ -230,7 +233,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(440, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox1.TabIndex = 0;
@@ -240,6 +243,18 @@
             this.AccionMovimiento.DockIndicatorTransparencyValue = 0.6D;
             this.AccionMovimiento.TargetControl = this.PanelControles;
             this.AccionMovimiento.UseTransparentDrag = true;
+            // 
+            // Elipse1
+            // 
+            this.Elipse1.TargetControl = this.btnGuardar;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.TargetControl = this.txtConcepto;
+            // 
+            // Elipse3
+            // 
+            this.Elipse3.TargetControl = this.txtDescripcion;
             // 
             // FrmCrearNuevoConcepto
             // 
@@ -278,5 +293,8 @@
         private System.Windows.Forms.RadioButton rbTrabajador;
         private System.Windows.Forms.RadioButton rbMensajero;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimiento;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse2;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse3;
     }
 }

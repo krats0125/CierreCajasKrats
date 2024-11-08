@@ -72,10 +72,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
         private void rbMensajero_CheckedChanged(object sender, EventArgs e)
         {
-            string consulta = @"SELECT MENSAJEROS.IdTrabajador, MENSAJEROS.nombre, MENSAJEROS.estado
+            string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM MENSAJEROS
-            WHERE (((MENSAJEROS.estado)=True));";
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, conexion.ConexionDbInterna());
+            WHERE estado=1";
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, conexion.Conexionlabodegadenacho());
             lbxTrabajadores.DataSource = lista;
             lbxTrabajadores.DisplayMember = "nombre";
             lbxTrabajadores.ValueMember = "IdTrabajador";
@@ -84,10 +84,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
         private void rbTrabajador_CheckedChanged(object sender, EventArgs e)
         {
-            string consulta = @"SELECT TRABAJADORES.IdTrabajador, TRABAJADORES.nombre, TRABAJADORES.estado
+            string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM TRABAJADORES
-            WHERE (((TRABAJADORES.estado)=True));";
-            DataTable lista = new SentenciaSqlOLEDB().TraerDatos(consulta, conexion.ConexionDbInterna());
+            WHERE estado=1";
+            DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, conexion.Conexionlabodegadenacho());
 
 
             lbxTrabajadores.DataSource = lista;
@@ -244,6 +244,11 @@ namespace CierreDeCajas.Presentacion.Administrativo
                     MessageBox.Show("Hubo un error guardando el préstamo.");
                 }
             }
+        }
+
+        private void FrmNuevoAdelanto_Load(object sender, EventArgs e)
+        {
+            CargarTodosConceptos();
         }
     }
 }

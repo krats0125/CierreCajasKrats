@@ -16,7 +16,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
     {
         FrmLogin lgn = new FrmLogin();
         public string idUsuario;
-
+        FrmDetalleReporte frm;
         public FrmAdministrativo(FrmLogin login)
         {
             lgn= login;
@@ -90,20 +90,20 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
         private void pbMovimientos_Click(object sender, EventArgs e)
         {
-            FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin();
-            movimientos.Show();
+            //FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin(frm);
+            //movimientos.Show();
         }
 
         private void CGPMovimientos_Click(object sender, EventArgs e)
         {
-            FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin();
-            movimientos.Show();
+            //FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin(frm);
+            //movimientos.Show();
         }
 
         private void lbMovimientos_Click(object sender, EventArgs e)
         {
-            FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin();
-            movimientos.Show();
+            //FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin(frm);
+            //movimientos.Show();
         }
 
      

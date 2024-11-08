@@ -1,5 +1,6 @@
 ﻿using CierreDeCajas.Logica;
 using CierreDeCajas.Modelo;
+using CierreDeCajas.Presentacion.Sistema;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +17,17 @@ namespace CierreDeCajas.Presentacion.Administrativo
     public partial class FrmDetalleReporte : Form
     {
         CONEXION cn = new CONEXION();
-        Principal ppal;
-        private int IdCierre;
-        private string IdUsuario;
-        public FrmDetalleReporte(int IdCierre, string idUsuario)
+        public int IdCierre;
+        public string IdUsuario;
+        private FrmMovimientosAdmin FrmMovimientosAdmin;
+        private DateTime fechaApertura;
+        public FrmDetalleReporte(int IdCierre, string idUsuario, DateTime fechaApertura)
         {
             InitializeComponent();
             this.IdCierre = IdCierre;
             this.IdUsuario = idUsuario;
+            FrmMovimientosAdmin = new FrmMovimientosAdmin(this, fechaApertura);
+            this.fechaApertura = fechaApertura;
         }
 
         private void CrearPanelesConMediosDePago(List<MedioDePago> mediosPago)
@@ -131,8 +135,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public void CargarCierreVentas()
         {
             string mensaje;
-            CierreCajaRepository repository = new CierreCajaRepository(ppal);
-            FrmMenuda frm = new FrmMenuda(ppal);
+            DetalleReporteRepository repository = new DetalleReporteRepository(this,fechaApertura);
 
             CierreCaja oCierreCaja = repository.listar(IdCierre, out mensaje);
 
@@ -151,10 +154,48 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public void ActualizarCiereCaja()
         {
 
-            bool actualizacionExitosa = new CierreCajaRepository(ppal).ActualizarCierre(IdCierre);
+            bool actualizacionExitosa = new DetalleReporteRepository(this,fechaApertura).ActualizarCierre(IdCierre);
             if (!actualizacionExitosa)
             {
                 MessageBox.Show("Hubo un error actualizando el cierre de caja");
+            }
+
+        }
+        private void cargarVentas()
+        {
+            DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+
+            decimal totalVentas = detallerepo.ActualizarVentas(IdUsuario);
+
+
+            if (totalVentas > 0)
+            {
+                lb_ValorVentas.Text = totalVentas.ToString("C0");
+
+
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                else
+                {
+
+                    CargarCierreVentas();
+                }
+            }
+        }
+
+        private void cargarNovedades()
+        {
+            DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+            string novedades=detallerepo.CargarNovedades();
+            if (novedades != null)
+            {
+                lbNovedades.Visible = true;
+                txtnotas.Visible = true;
+                txtnotas.Text = novedades;
             }
 
         }
@@ -193,7 +234,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                                 {
                                     Concepto = dr["Concepto"].ToString(),
                                     Descripcion = dr["Descripcion"].ToString(),
-                                    Valor = dr["Valor"].ToString()
+                                    Valor = Convert.ToDecimal(dr["Valor"]).ToString("C0")
                                 }
 
                             );
@@ -293,10 +334,81 @@ namespace CierreDeCajas.Presentacion.Administrativo
         private void FrmDetalleReporte_Load(object sender, EventArgs e)
         {
             CargarSumatorias();
+            cargarVentas();
             CargarCierreVentas();
-            ActualizarCiereCaja();
             CitarPanelesMovimientos();
+            cargarNovedades();
+            lb_Cajero.Text = IdUsuario;
+        }
 
+        private void btnMovimientos_Click(object sender, EventArgs e)
+        {
+            FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin(this, fechaApertura);
+            movimientos.Show();
+        }
+
+        private void btnMenuda_Click(object sender, EventArgs e)
+        {
+            FrmMenudaAdmin menuda = new FrmMenudaAdmin(this, fechaApertura);
+            menuda.Show();
+        }
+
+        private void btnCargarDomicilios_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos CSV|*.csv",
+                Multiselect = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Instanciar el repositorio y pasarle la lista de archivos
+                DetalleReporteRepository Repo = new DetalleReporteRepository(this, fechaApertura    );
+                List<string> rutasArchivos = openFileDialog.FileNames.ToList();
+
+                try
+                {
+                    // Leer todos los archivos seleccionados en una sola llamada
+                    bool insercionExitosa = Repo.LeerExcel(rutasArchivos);
+
+
+                    if (insercionExitosa)
+                    {
+                        MessageBox.Show("Todos los datos insertados exitosamente.");
+
+                        FrmMovimientosAdmin.ListaMovimientos(); ;
+                        CargarSumatorias();
+                        CitarPanelesMovimientos();
+                        DetalleReporteRepository detallerepo = new DetalleReporteRepository(this,fechaApertura);
+                        bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+
+                        if (!actualizacionExitosa)
+                        {
+                            MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                        }
+                        else
+                        {
+
+                            CargarCierreVentas();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Algunos datos no se pudieron insertar. Asegúrate de cerrar el archivo y vuelve a intentarlo.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al procesar los archivos: {ex.Message}");
+                }
+            }
+        }
+
+        private void txtnotas_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

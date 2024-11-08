@@ -24,5 +24,17 @@ namespace CierreDeCajas.Presentacion.Sistema
             
             
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmDomicilios
+            // 
+            this.ClientSize = new System.Drawing.Size(526, 275);
+            this.Name = "FrmDomicilios";
+            this.ResumeLayout(false);
+
+        }
     }
 }

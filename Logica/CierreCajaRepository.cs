@@ -17,6 +17,7 @@ namespace CierreDeCajas.Logica
         CierreCaja oCierreCaja = new CierreCaja();
         CONEXION cn = new CONEXION();
         decimal valorVentas = 0;
+        string novedades=null;
         Principal ppal = null;
 
 
@@ -105,6 +106,34 @@ namespace CierreDeCajas.Logica
             }
         }
 
+        public string CargarNovedades()
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = "select descripcion from novedades where IdCierre=@IdCierre";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            novedades = Convert.ToString(result);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar valor de ventas guardado: {ex.Message}");
+            }
+            return novedades;
+        }
 
 
         public bool ActualizarCierre(int IdCierre)
@@ -199,6 +228,46 @@ namespace CierreDeCajas.Logica
 
             return oCierreCaja;
         }
+
+        public DataTable ObtenerCierre(string IdUsuario, DateTime FechaApertura)
+        {
+            DataTable dt = new DataTable();
+            string fechaformateada = FechaApertura.ToString("yyyy-MM-dd");
+            try
+            {
+                
+                using (SqlConnection conexion=new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string consulta = $@"SELECT IdUsuario AS NOMBRE, FechaApertura AS 'FECHA DE APERTURA',
+                         TotalMovimientosCaja AS 'TOTAL MOVIMIENTOS DE CAJA',
+                         EntregaUltimoEfectivo AS 'ULTIMO EFECTIVO ENTREGADO', TotalEfectivo AS 'TOTAL EFECTIVO', 
+                         TotalDatafono AS 'TOTAL DATAFONOS', TotalTransferencia AS 'TOTAL TRANSFERENCIAS', 
+                         ValorVentas AS 'VENTAS', Diferencia AS 'DIFERENCIA', TotalLiquidado AS 'TOTAL LIQUIDADO'
+                         FROM CierreCaja WHERE IdUsuario= '{IdUsuario}'
+                         AND CAST(FechaApertura AS DATE) = '{fechaformateada}'
+                         AND IdCierre={ppal.idCierre}";
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion))
+                    {
+
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                       
+                        
+                    
+                }
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return dt;
+        }
+    
     }
+
+  
  
 }

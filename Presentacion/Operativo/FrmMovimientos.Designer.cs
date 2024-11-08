@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelTitulo = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +49,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbConceptos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse6 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse7 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse8 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse9 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,7 +80,7 @@
             this.PanelTitulo.Controls.Add(this.label5);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.PanelTitulo.Name = "PanelTitulo";
             this.PanelTitulo.Size = new System.Drawing.Size(1036, 42);
             this.PanelTitulo.TabIndex = 12;
@@ -223,7 +233,7 @@
             this.dgvMovimientos.ReadOnly = true;
             this.dgvMovimientos.RowHeadersWidth = 51;
             this.dgvMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMovimientos.Size = new System.Drawing.Size(806, 213);
+            this.dgvMovimientos.Size = new System.Drawing.Size(809, 213);
             this.dgvMovimientos.TabIndex = 0;
             this.dgvMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimientos_CellContentClick);
             // 
@@ -312,6 +322,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Concepto:";
             // 
+            // Elipse1
+            // 
+            this.Elipse1.TargetControl = this.cbConceptos;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.TargetControl = this.txtValor;
+            // 
+            // Elipse3
+            // 
+            this.Elipse3.TargetControl = this.cbMediodepago;
+            // 
+            // Elipse4
+            // 
+            this.Elipse4.TargetControl = this.cbTipodecobro;
+            // 
+            // Elipse5
+            // 
+            this.Elipse5.TargetControl = this.txtDescripcion;
+            // 
+            // Elipse6
+            // 
+            this.Elipse6.TargetControl = this.btnGuarda;
+            // 
+            // Elipse7
+            // 
+            this.Elipse7.TargetControl = this.btnElimina;
+            // 
+            // Elipse8
+            // 
+            this.Elipse8.TargetControl = this.btnElimina;
+            // 
+            // Elipse9
+            // 
+            this.Elipse9.TargetControl = this.dgvMovimientos;
+            // 
             // FrmMovimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,5 +403,14 @@
         private System.Windows.Forms.Button btnElimina;
         private System.Windows.Forms.Button btnEdita;
         public System.Windows.Forms.DataGridView dgvMovimientos;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse2;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse3;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse4;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse5;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse6;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse7;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse8;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse9;
     }
 }

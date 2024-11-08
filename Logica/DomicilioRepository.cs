@@ -8,8 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text;
 using CierreDeCajas.Presentacion;
+using System.Windows.Forms;
 
 
 namespace CierreDeCajas.Logica
@@ -22,115 +22,89 @@ namespace CierreDeCajas.Logica
         {
             ppal = principal;
         }
-        public bool LeerExcel(string rutaArchivo)
+
+        public bool LeerExcel(List<string> rutasArchivos)
         {
             try
             {
                 List<Domicilio> domicilios = new List<Domicilio>();
-                string nombreArchivo = Path.GetFileName(rutaArchivo);
 
-                // Leer el archivo CSV
-                using (var reader = new StreamReader(rutaArchivo))
+                foreach (string rutaArchivo in rutasArchivos)
                 {
-                    // Leer la primera línea (encabezados), si existe
-                    string encabezados = reader.ReadLine();
+                    string nombreArchivo = Path.GetFileName(rutaArchivo).Trim();
 
-                    while (!reader.EndOfStream)
+                    using (var reader = new StreamReader(rutaArchivo))
                     {
-                        var linea = reader.ReadLine();
-                        var valores = linea.Split(','); // Asumiendo que los campos están separados por comas
-                        decimal dato1 = 0, dato2 = 0, dato3 = 0, valor = 0;
-                        string direccion = string.Empty;
-                        string medioDePago = string.Empty;
-                        int idMedioPago = 0;
+                        string encabezados = reader.ReadLine(); // Leer la primera línea (encabezados)
 
-                        if (nombreArchivo.StartsWith("cuadreCajaMensajeros"))
+                        while (!reader.EndOfStream)
                         {
-                            dato1 = Convert.ToDecimal(valores[7]);
-                            dato2 = Convert.ToDecimal(valores[8]);
-                            dato3 = Convert.ToDecimal(valores[9]);
-                            direccion = valores[2];
-                            medioDePago = valores[5];
-                            valor = Convert.ToDecimal(valores[11]);
+                            var linea = reader.ReadLine();
+                            var valores = linea.Split(',');
 
-                        }
-                        else if (nombreArchivo.StartsWith("pedidosDetallado")) 
-                        {
-                            dato1 = Convert.ToDecimal(valores[6]);
-                            dato2 = Convert.ToDecimal(valores[7]);
-                            dato3 = Convert.ToDecimal(valores[8]);
-                            direccion = valores[2];
-                            medioDePago = valores[4];
-                            valor = Convert.ToDecimal(valores[10]);
-                        }
-                        idMedioPago = MapearMedioDePago(medioDePago);
+                            decimal dato1 = 0, dato2 = 0, dato3 = 0, valor = 0;
+                            string direccion = string.Empty;
+                            string medioDePago = string.Empty;
+                            int idMedioPago = 0;
 
-                        if (idMedioPago==0)
-                         {
-                            if(dato1!=0)
+                            if (nombreArchivo.StartsWith("cuadreCajaMensajeros"))
                             {
-                                Domicilio domicilio = new Domicilio
-                                {
-                                    Direccion = direccion,
-                                    Valor = dato1,
-                                    MedioDePago = 1,
-                                };
-                                domicilios.Add(domicilio);
-
+                                dato1 = Convert.ToDecimal(valores[7]);
+                                dato2 = Convert.ToDecimal(valores[8]);
+                                dato3 = Convert.ToDecimal(valores[9]);
+                                direccion = valores[2];
+                                medioDePago = valores[5];
+                                valor = Convert.ToDecimal(valores[11]);
                             }
-                            if (dato2 != 0)
+                            else if (nombreArchivo.StartsWith("pedidosDetallado"))
                             {
-                                Domicilio domicilio = new Domicilio
-                                {
-                                    Direccion = direccion,
-                                    Valor = dato2,
-                                    MedioDePago = 3,
-                                };
-                                domicilios.Add(domicilio);
-
-                            }
-                            if (dato3 != 0)
-                            {
-                                Domicilio domicilio = new Domicilio
-                                {
-                                    Direccion = direccion,
-                                    Valor = dato3,
-                                    MedioDePago = 5,
-                                };
-                                domicilios.Add(domicilio);
-
+                                dato1 = Convert.ToDecimal(valores[6]);
+                                dato2 = Convert.ToDecimal(valores[7]);
+                                dato3 = Convert.ToDecimal(valores[8]);
+                                direccion = valores[2];
+                                medioDePago = valores[4];
+                                valor = Convert.ToDecimal(valores[10]);
                             }
 
-                        }
-                        else
-                        {
-                            Domicilio domicilio = new Domicilio
+                            idMedioPago = MapearMedioDePago(medioDePago);
+
+                            // Lógica para agregar Domicilio según datos obtenidos
+                            if (idMedioPago == 0)
                             {
-                                Direccion = direccion,
-                                Valor = valor,
-                                MedioDePago = idMedioPago,
-                            };
-                            domicilios.Add(domicilio);
+                                if (dato1 != 0)
+                                {
+                                    domicilios.Add(new Domicilio { Direccion = direccion, Valor = dato1, MedioDePago = 11 });
+                                }
+                                if (dato2 != 0)
+                                {
+                                    domicilios.Add(new Domicilio { Direccion = direccion, Valor = dato2, MedioDePago = 3 });
+                                }
+                                if (dato3 != 0)
+                                {
+                                    domicilios.Add(new Domicilio { Direccion = direccion, Valor = dato3, MedioDePago = 5 });
+                                }
+                            }
+                            else
+                            {
+                                domicilios.Add(new Domicilio { Direccion = direccion, Valor = valor, MedioDePago = idMedioPago });
+                            }
                         }
-
-
-                        
                     }
                 }
 
-                InsertarDomiciliosEnBaseDeDatos(domicilios); 
-
+                // Insertar todos los domicilios en la base de datos en una sola operación
+                InsertarDomiciliosEnBaseDeDatos(domicilios);
                 return true;
             }
             catch (Exception ex)
             {
-                // Manejar el error (puedes agregar logging o manejarlo de otra forma)
-                Console.WriteLine("Error al leer el archivo CSV: " + ex.Message);
+                Console.WriteLine("Error al leer archivos CSV: " + ex.Message);
                 return false;
             }
         }
-
        
+
+
 
         public int MapearMedioDePago(string descripcionExcel)
         {
@@ -145,7 +119,7 @@ namespace CierreDeCajas.Logica
                     return 3; 
 
                 case "efectivo":
-                    return 1;
+                    return 11;
 
                 default:
                     return 0;
@@ -155,28 +129,44 @@ namespace CierreDeCajas.Logica
         {
             try
             {
-                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                DialogResult dialogResult = MessageBox.Show("Se eliminaran los archivos anteriores.¿Desea continuar?",
+                    "Confirmación de eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
                 {
-                    conexion.Open();
-
-                    foreach (var domicilio in domicilios)
+                    using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
                     {
-                        string query = "INSERT INTO MovimientoCaja (IdCierre,IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago) " +
-                                       "VALUES (@IdCierre,@IdCaja, @IdUsuario, @IdConcepto, @Valor, @Descripcion, @IdMedioPago)";
-
-                        using (SqlCommand cmd = new SqlCommand(query, conexion))
+                        conexion.Open();
+                        string consulta = "Delete from MovimientoCaja Where IdCierre=@IdCierre and IdConcepto=10";
+                        using (SqlCommand Eliminarcmd=new SqlCommand(consulta,conexion))
                         {
-                            cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
-                            cmd.Parameters.AddWithValue("@IdCaja", ppal.idCaja);
-                            cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
-                            cmd.Parameters.AddWithValue("@IdConcepto", 10); 
-                            cmd.Parameters.AddWithValue("@Valor", domicilio.Valor);
-                            cmd.Parameters.AddWithValue("@Descripcion", domicilio.Direccion);
-                            cmd.Parameters.AddWithValue("@IdMedioPago", domicilio.MedioDePago);
-
-                            cmd.ExecuteNonQuery();
+                            Eliminarcmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                            Eliminarcmd.ExecuteNonQuery();
                         }
+
+                            foreach (var domicilio in domicilios)
+                            {
+                                string query = "INSERT INTO MovimientoCaja (IdCierre,IdCaja, IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago) " +
+                                               "VALUES (@IdCierre,@IdCaja, @IdUsuario, @IdConcepto, @Valor, @Descripcion, @IdMedioPago)";
+
+                                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                                {
+                                    cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                                    cmd.Parameters.AddWithValue("@IdCaja", ppal.idCaja);
+                                    cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
+                                    cmd.Parameters.AddWithValue("@IdConcepto", 10);
+                                    cmd.Parameters.AddWithValue("@Valor", domicilio.Valor);
+                                    cmd.Parameters.AddWithValue("@Descripcion", domicilio.Direccion);
+                                    cmd.Parameters.AddWithValue("@IdMedioPago", domicilio.MedioDePago);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
                     }
+
+
                 }
 
                 return true;

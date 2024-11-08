@@ -46,6 +46,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelControles.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +64,7 @@
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelControles.Location = new System.Drawing.Point(-11, -1);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
             this.PanelControles.Size = new System.Drawing.Size(466, 31);
             this.PanelControles.TabIndex = 26;
@@ -74,7 +79,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(393, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
@@ -89,7 +94,7 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(418, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox2.TabIndex = 1;
@@ -103,7 +108,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(442, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox1.TabIndex = 0;
@@ -123,7 +128,7 @@
             this.panel5.Controls.Add(this.txtValor);
             this.panel5.Location = new System.Drawing.Point(-2, 32);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(465, 413);
+            this.panel5.Size = new System.Drawing.Size(465, 395);
             this.panel5.TabIndex = 27;
             // 
             // btnGuardar
@@ -266,6 +271,26 @@
             this.AccionMovimiento.TargetControl = this.PanelControles;
             this.AccionMovimiento.UseTransparentDrag = true;
             // 
+            // Elipse1
+            // 
+            this.Elipse1.TargetControl = this.lbxTrabajadores;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.TargetControl = this.txtValor;
+            // 
+            // Elipse3
+            // 
+            this.Elipse3.TargetControl = this.cbConceptos;
+            // 
+            // Elipse4
+            // 
+            this.Elipse4.TargetControl = this.txtObservaciones;
+            // 
+            // Elipse5
+            // 
+            this.Elipse5.TargetControl = this.btnGuardar;
+            // 
             // FrmNuevoAdelanto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +304,7 @@
             this.Name = "FrmNuevoAdelanto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoAdelanto";
+            this.Load += new System.EventHandler(this.FrmNuevoAdelanto_Load);
             this.PanelControles.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -305,5 +331,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtValor;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimiento;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse2;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse3;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse4;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse5;
     }
 }
