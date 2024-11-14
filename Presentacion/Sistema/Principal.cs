@@ -53,6 +53,7 @@ namespace CierreDeCajas.Presentacion
 
             cargarTransferencias();
             cargarDatafonos();
+            cargarBonos();
         }
 
 
@@ -210,6 +211,36 @@ namespace CierreDeCajas.Presentacion
                 
                     frmMvt.ListaMovimientos();
                 
+
+                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                frm.CargarSumatorias();
+                frm.CitarPanelesMovimientos();
+
+                bool actualizacionExitosa = new CierreCajaRepository(this).ActualizarCierre(idCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                frm.CargarCierreVentas();
+            }
+
+        }
+
+        private void cargarBonos()
+        {
+            var BonosCargados = frmMvt.traerBonos();
+
+
+            bool insercionExitosa = frmMvt.InsertarBonoAlcadia
+                (BonosCargados);
+
+            if (insercionExitosa)
+            {
+
+
+                frmMvt.ListaMovimientos();
+
 
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();

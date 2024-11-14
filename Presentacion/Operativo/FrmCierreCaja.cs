@@ -447,6 +447,11 @@ namespace CierreDeCajas.Presentacion
                 }
             }
         }
+
+        private void lbNovedades_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

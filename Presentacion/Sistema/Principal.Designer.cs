@@ -180,7 +180,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(946, 43);
+            this.label6.Location = new System.Drawing.Point(931, 43);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(2, 37);
@@ -193,7 +193,7 @@
             this.lbIdCierre.BackColor = System.Drawing.Color.Transparent;
             this.lbIdCierre.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdCierre.ForeColor = System.Drawing.Color.White;
-            this.lbIdCierre.Location = new System.Drawing.Point(1017, 61);
+            this.lbIdCierre.Location = new System.Drawing.Point(1002, 61);
             this.lbIdCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIdCierre.Name = "lbIdCierre";
             this.lbIdCierre.Size = new System.Drawing.Size(15, 16);
@@ -206,7 +206,7 @@
             this.lbCierre.AutoSize = true;
             this.lbCierre.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCierre.ForeColor = System.Drawing.Color.Gold;
-            this.lbCierre.Location = new System.Drawing.Point(958, 60);
+            this.lbCierre.Location = new System.Drawing.Point(943, 60);
             this.lbCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCierre.Name = "lbCierre";
             this.lbCierre.Size = new System.Drawing.Size(57, 18);
@@ -256,7 +256,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(958, 39);
+            this.label3.Location = new System.Drawing.Point(943, 39);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
@@ -285,7 +285,7 @@
             this.lb_Caja.BackColor = System.Drawing.Color.Transparent;
             this.lb_Caja.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Caja.ForeColor = System.Drawing.Color.White;
-            this.lb_Caja.Location = new System.Drawing.Point(1008, 39);
+            this.lb_Caja.Location = new System.Drawing.Point(993, 39);
             this.lb_Caja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Caja.Name = "lb_Caja";
             this.lb_Caja.Size = new System.Drawing.Size(25, 16);

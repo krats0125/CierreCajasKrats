@@ -74,6 +74,7 @@
             this.btnNotas = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtnotas = new System.Windows.Forms.TextBox();
             this.lbNovedades = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -647,6 +648,15 @@
             this.lbNovedades.TabIndex = 32;
             this.lbNovedades.Text = "Novedades:";
             this.lbNovedades.Visible = false;
+            this.lbNovedades.Click += new System.EventHandler(this.lbNovedades_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1050, 31);
+            this.panel3.TabIndex = 33;
             // 
             // FrmCierreCaja
             // 
@@ -664,6 +674,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.guna2CustomGradientPanel9);
             this.Controls.Add(this.panelesMovimientos);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCierreCaja";
@@ -748,5 +759,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton btnNotas;
         private System.Windows.Forms.TextBox txtnotas;
         private System.Windows.Forms.Label lbNovedades;
+        private System.Windows.Forms.Panel panel3;
     }
 }

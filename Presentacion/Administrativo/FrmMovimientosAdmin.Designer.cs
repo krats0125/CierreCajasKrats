@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCajero = new System.Windows.Forms.Label();
-            this.dgvMovimientos = new System.Windows.Forms.DataGridView();
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnEdita = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.lbIdMovimiento = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvMovimientos = new System.Windows.Forms.DataGridView();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -63,9 +63,9 @@
             this.Elipse9 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elipse10 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).BeginInit();
             this.PanelControles.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,16 +102,6 @@
             this.lbCajero.TabIndex = 40;
             this.lbCajero.Text = "label6";
             this.lbCajero.Visible = false;
-            // 
-            // dgvMovimientos
-            // 
-            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovimientos.Location = new System.Drawing.Point(0, 3);
-            this.dgvMovimientos.Name = "dgvMovimientos";
-            this.dgvMovimientos.Size = new System.Drawing.Size(745, 195);
-            this.dgvMovimientos.TabIndex = 39;
-            this.dgvMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimientos_CellContentClick);
             // 
             // btnElimina
             // 
@@ -244,6 +234,11 @@
             this.cbTipodecobro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbTipodecobro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbTipodecobro.FormattingEnabled = true;
+            this.cbTipodecobro.Items.AddRange(new object[] {
+            "Efectivo pendiente",
+            "Datafono pendiente",
+            "Efectivo cobrado",
+            "Datafono cobrado"});
             this.cbTipodecobro.Location = new System.Drawing.Point(135, 193);
             this.cbTipodecobro.Name = "cbTipodecobro";
             this.cbTipodecobro.Size = new System.Drawing.Size(200, 28);
@@ -346,6 +341,16 @@
             this.panel2.Size = new System.Drawing.Size(748, 201);
             this.panel2.TabIndex = 41;
             // 
+            // dgvMovimientos
+            // 
+            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMovimientos.Location = new System.Drawing.Point(0, 3);
+            this.dgvMovimientos.Name = "dgvMovimientos";
+            this.dgvMovimientos.Size = new System.Drawing.Size(745, 195);
+            this.dgvMovimientos.TabIndex = 39;
+            this.dgvMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimientos_CellContentClick);
+            // 
             // AccionMovimiento
             // 
             this.AccionMovimiento.DockIndicatorTransparencyValue = 0.6D;
@@ -406,9 +411,9 @@
             this.Load += new System.EventHandler(this.FrmMovimientosAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).EndInit();
             this.PanelControles.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -23,6 +23,7 @@ namespace CierreDeCajas.Logica
         decimal entregaUltimoEfectivo = 0;
         string novedades;
         private DateTime fechaApertura;
+        public int idcaja;
 
         public DetalleReporteRepository(FrmDetalleReporte frmDr,DateTime fechaApertura )
         {
@@ -363,6 +364,8 @@ namespace CierreDeCajas.Logica
                     return 0;
             }
         }
+
+
         public bool InsertarDomiciliosEnBaseDeDatos(List<Domicilio> domicilios)
         {
             try
@@ -386,12 +389,13 @@ namespace CierreDeCajas.Logica
 
                         foreach (var domicilio in domicilios)
                         {
-                            string query = "INSERT INTO MovimientoCaja (IdCierre,IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago) " +
-                                           "VALUES (@IdCierre,@IdUsuario, @IdConcepto, @Valor, @Descripcion, @IdMedioPago)";
+                            string query = "INSERT INTO MovimientoCaja (IdCierre,IdCaja,IdUsuario, IdConcepto, Valor, Descripcion, IdMedioPago) " +
+                                           "VALUES (@IdCierre,@IdCaja,@IdUsuario, @IdConcepto, @Valor, @Descripcion, @IdMedioPago)";
 
                             using (SqlCommand cmd = new SqlCommand(query, cn))
                             {
                                 cmd.Parameters.AddWithValue("@IdCierre", frmDr.IdCierre);
+                                cmd.Parameters.AddWithValue("@IdCaja", frmDr.idcaja);
                                 cmd.Parameters.AddWithValue("@IdUsuario", frmDr.IdUsuario);
                                 cmd.Parameters.AddWithValue("@IdConcepto", 10);
                                 cmd.Parameters.AddWithValue("@Valor", domicilio.Valor);

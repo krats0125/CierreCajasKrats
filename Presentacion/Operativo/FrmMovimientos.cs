@@ -24,12 +24,13 @@ namespace CierreDeCajas.Presentacion.Sistema
     {
         Principal ppal = null;
         CONEXION Conexion = new CONEXION();
+        public int idCaja;
         public FrmMovimientos(Principal ppal)
         {
             this.ppal = ppal;
 
             InitializeComponent();
-           
+           this.idCaja=ppal.idCaja;
 
         }
 
@@ -53,7 +54,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 using (SqlConnection conexion = new SqlConnection(Conexion.ConexionRibisoft()))
                 {
                     conexion.Open();
-                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago
+                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago,f.Numero
                                       from Facturas1 f inner join formaspago fp 
                                       on f.Numero=fp.Numero 
                                       where fp.MedioPago='0405' and f.IdUsuario=@IdUsuario and f.fecha=@Fecha";
@@ -72,7 +73,8 @@ namespace CierreDeCajas.Presentacion.Sistema
                                 {
                                     Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
-                                    MedioDePago = reader["MedioPago"].ToString()//reader.GetString(2)
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Numero"].ToString()
                                 };
                                 transferencias.Add(transferencia);
                             }
@@ -87,9 +89,15 @@ namespace CierreDeCajas.Presentacion.Sistema
             }
             return transferencias;
         }
+        private static bool TransferenciasInsertados = false;
 
         public bool InsetarTransferencias(List<TrasferenciaP> transferencias)
         {
+            if (TransferenciasInsertados)
+            {
+                return false;
+            }
+
             bool respuesta = false;
             try
             {
@@ -99,7 +107,26 @@ namespace CierreDeCajas.Presentacion.Sistema
 
                     foreach (var Transferencias in transferencias)
                     {
-                       
+
+                        string consultaVerificacion = @"
+                                                      SELECT COUNT(*) FROM MovimientoCaja
+                                                      WHERE IdCierre = @IdCierre AND Valor = @Valor AND Fecha = @Fecha AND IdMedioPago = @IdMedioPago AND Factura = @Factura";
+
+                        using (SqlCommand cmdVerificar = new SqlCommand(consultaVerificacion, conexion))
+                        {
+                            cmdVerificar.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                            cmdVerificar.Parameters.AddWithValue("@Valor", Transferencias.Valor);
+                            cmdVerificar.Parameters.AddWithValue("@Fecha", Transferencias.Fecha);
+                            cmdVerificar.Parameters.AddWithValue("@IdMedioPago", 2);
+                            cmdVerificar.Parameters.AddWithValue("@Factura", Transferencias.Factura);
+
+                            int count = (int)cmdVerificar.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                continue; // Si ya existe, saltar esta inserción
+                            }
+                        }
                         using (SqlCommand cmd = new SqlCommand("InsertarTransferencia", conexion))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -110,19 +137,22 @@ namespace CierreDeCajas.Presentacion.Sistema
                             cmd.Parameters.AddWithValue("@Valor", Transferencias.Valor);
                             cmd.Parameters.AddWithValue("@IdMedioPago", 4);
                             cmd.Parameters.AddWithValue("@Fecha", Transferencias.Fecha);
+                            cmd.Parameters.AddWithValue("@Factura", Transferencias.Factura);
 
                             cmd.ExecuteNonQuery();
                         }
                     }
                 }
                 ListaMovimientos();
-                respuesta=true;
+                respuesta = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar los datafonos: " + ex.Message);
-                respuesta=false;
+                Console.WriteLine("Error al insertar los Datafonos: " + ex.Message);
+                respuesta = false;
             }
+
+            TransferenciasInsertados = true; // Marcar que ya se insertaron los bonos
             return respuesta;
         }
 
@@ -137,7 +167,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 using (SqlConnection conexion = new SqlConnection(Conexion.ConexionRibisoft()))
                 {
                     conexion.Open();
-                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago 
+                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago,f.Numero 
                                        from Facturas1 f inner join formaspago fp on f.Numero=fp.Numero 
                                        where fp.MedioPago='0401' and f.IdUsuario=@IdUsuario and f.fecha=@Fecha";
                     using (SqlCommand cmd = new SqlCommand(consulta, conexion))
@@ -155,7 +185,8 @@ namespace CierreDeCajas.Presentacion.Sistema
                                 {
                                     Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
-                                    MedioDePago = reader["MedioPago"].ToString()//reader.GetString(2)
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Numero"].ToString()
                                 };
                                 Datafonos.Add(datafonos);
                             }
@@ -171,8 +202,15 @@ namespace CierreDeCajas.Presentacion.Sistema
             return Datafonos;
         }
 
+        private static bool DatafonosInsertados = false;
+
         public bool InsertarDatafonos(List<Datafonos> datafonos)
         {
+            if (DatafonosInsertados)
+            {
+                return false;
+            }
+
             bool respuesta = false;
             try
             {
@@ -182,6 +220,26 @@ namespace CierreDeCajas.Presentacion.Sistema
 
                     foreach (var Datafonos in datafonos)
                     {
+
+                        string consultaVerificacion = @"
+                                                      SELECT COUNT(*) FROM MovimientoCaja
+                                                      WHERE IdCierre = @IdCierre AND Valor = @Valor AND Fecha = @Fecha AND IdMedioPago = @IdMedioPago AND Factura = @Factura";
+
+                        using (SqlCommand cmdVerificar = new SqlCommand(consultaVerificacion, conexion))
+                        {
+                            cmdVerificar.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                            cmdVerificar.Parameters.AddWithValue("@Valor", Datafonos.Valor);
+                            cmdVerificar.Parameters.AddWithValue("@Fecha", Datafonos.Fecha);
+                            cmdVerificar.Parameters.AddWithValue("@IdMedioPago", 2);
+                            cmdVerificar.Parameters.AddWithValue("@Factura", Datafonos.Factura);
+
+                            int count = (int)cmdVerificar.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                continue; // Si ya existe, saltar esta inserción
+                            }
+                        }
 
                         using (SqlCommand cmd = new SqlCommand("InsertarDatafono", conexion))
                         {
@@ -193,6 +251,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                             cmd.Parameters.AddWithValue("@Valor", Datafonos.Valor   );
                             cmd.Parameters.AddWithValue("@IdMedioPago", 2);
                             cmd.Parameters.AddWithValue("@Fecha", Datafonos.Fecha);
+                            cmd.Parameters.AddWithValue("@Factura", Datafonos.Factura);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -203,16 +262,18 @@ namespace CierreDeCajas.Presentacion.Sistema
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar los datafonos: " + ex.Message);
+                Console.WriteLine("Error al insertar los Datafonos: " + ex.Message);
                 respuesta = false;
             }
+
+            DatafonosInsertados = true; // Marcar que ya se insertaron los bonos
             return respuesta;
         }
 
 
-        public List<Datafonos> traerBonos()
+        public List<BonoAlcaldia> traerBonos()
         {
-            List<Datafonos> Datafonos = new List<Datafonos>();
+            List<BonoAlcaldia> BonosAlcaldia = new List<BonoAlcaldia>();
             string fechaformateada= ppal.Fecha.ToString("yyyy-MM-dd");
             try
             {
@@ -221,7 +282,7 @@ namespace CierreDeCajas.Presentacion.Sistema
                 using (SqlConnection conexion = new SqlConnection(Conexion.ConexionRibisoft()))
                 {
                     conexion.Open();
-                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago
+                    string consulta = $@"select fp.Valor,f.Fecha, fp.MedioPago,f.Numero
                                       from Facturas1 f inner join formaspago fp 
                                       on f.Numero=fp.Numero 
                                       where fp.MedioPago='0501' and f.IdUsuario=@IdUsuario and f.fecha=@Fecha";
@@ -235,13 +296,14 @@ namespace CierreDeCajas.Presentacion.Sistema
                             while (reader.Read())
                             {
 
-                                Datafonos datafonos = new Datafonos
+                                BonoAlcaldia bonosalcaldia = new BonoAlcaldia
                                 {
                                     Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
-                                    MedioDePago = reader["MedioPago"].ToString()//reader.GetString(2)
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Numero"].ToString()
                                 };
-                                Datafonos.Add(datafonos);
+                                BonosAlcaldia.Add(bonosalcaldia);
                             }
                         }
                     }
@@ -252,11 +314,17 @@ namespace CierreDeCajas.Presentacion.Sistema
             {
                 Console.WriteLine("Error al traer datafonos: " + ex.Message);
             }
-            return Datafonos;
+            return BonosAlcaldia;
         }
 
+        private static bool BonosInsertados = false;
         public bool InsertarBonoAlcadia(List<BonoAlcaldia> bonos)
         {
+            if (BonosInsertados)
+            {
+                return false;
+            }
+
             bool respuesta = false;
             try
             {
@@ -267,7 +335,28 @@ namespace CierreDeCajas.Presentacion.Sistema
                     foreach (var Bonos in bonos)
                     {
 
-                        using (SqlCommand cmd = new SqlCommand("InsertarDatafono", conexion))
+                        string consultaVerificacion = @"
+                                                      SELECT COUNT(*) FROM MovimientoCaja
+                                                      WHERE IdCierre = @IdCierre AND Valor = @Valor AND Fecha = @Fecha AND IdMedioPago = @IdMedioPago AND Factura = @Factura";
+
+                        using (SqlCommand cmdVerificar = new SqlCommand(consultaVerificacion, conexion))
+                        {
+                            cmdVerificar.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
+                            cmdVerificar.Parameters.AddWithValue("@Valor", Bonos.Valor);
+                            cmdVerificar.Parameters.AddWithValue("@Fecha", Bonos.Fecha);
+                            cmdVerificar.Parameters.AddWithValue("@IdMedioPago", 7);
+                            cmdVerificar.Parameters.AddWithValue("@Factura", Bonos.Factura);
+
+                            int count = (int)cmdVerificar.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                continue; // Si ya existe, saltar esta inserción
+                            }
+                        }
+
+                        // Insertar el bono si no existe
+                        using (SqlCommand cmd = new SqlCommand("InsertarBonos", conexion))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@IdCierre", ppal.idCierre);
@@ -275,8 +364,9 @@ namespace CierreDeCajas.Presentacion.Sistema
                             cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
                             cmd.Parameters.AddWithValue("@IdConcepto", 16);
                             cmd.Parameters.AddWithValue("@Valor", Bonos.Valor);
-                            cmd.Parameters.AddWithValue("@IdMedioPago", 2);
+                            cmd.Parameters.AddWithValue("@IdMedioPago", 7);
                             cmd.Parameters.AddWithValue("@Fecha", Bonos.Fecha);
+                            cmd.Parameters.AddWithValue("@Factura", Bonos.Factura);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -290,6 +380,8 @@ namespace CierreDeCajas.Presentacion.Sistema
                 Console.WriteLine("Error al insertar los bonos: " + ex.Message);
                 respuesta = false;
             }
+
+            BonosInsertados = true; // Marcar que ya se insertaron los bonos
             return respuesta;
         }
 

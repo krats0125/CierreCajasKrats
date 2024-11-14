@@ -1,4 +1,5 @@
-﻿using CierreDeCajas.Logica;
+﻿
+using CierreDeCajas.Logica;
 using CierreDeCajas.Modelo;
 using CierreDeCajas.Presentacion.Sistema;
 using System;
@@ -21,6 +22,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         public string IdUsuario;
         private FrmMovimientosAdmin FrmMovimientosAdmin;
         private DateTime fechaApertura;
+        public int idcaja;
         public FrmDetalleReporte(int IdCierre, string idUsuario, DateTime fechaApertura)
         {
             InitializeComponent();
@@ -30,6 +32,22 @@ namespace CierreDeCajas.Presentacion.Administrativo
             this.fechaApertura = fechaApertura;
         }
 
+        private void FrmDetalleReporte_Load(object sender, EventArgs e)
+        {
+            CargarSumatorias();
+            cargarVentas();
+            CargarCierreVentas();
+            CitarPanelesMovimientos();
+            cargarNovedades();
+            lb_Cajero.Text = IdUsuario;
+            cargarDatafonos();
+
+
+
+            cargarTransferencias();
+            TraerCaja();
+            cargarBonos();
+        }
         private void CrearPanelesConMediosDePago(List<MedioDePago> mediosPago)
         {
             pnlflListaMedioPago.Controls.Clear(); // Limpiar panel antes de agregar nuevos elementos
@@ -331,14 +349,35 @@ namespace CierreDeCajas.Presentacion.Administrativo
             }
         }
 
-        private void FrmDetalleReporte_Load(object sender, EventArgs e)
+    
+
+        public int TraerCaja()
         {
-            CargarSumatorias();
-            cargarVentas();
-            CargarCierreVentas();
-            CitarPanelesMovimientos();
-            cargarNovedades();
-            lb_Cajero.Text = IdUsuario;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = "select top 1 idcaja from MovimientoCaja where IdCierre=@IdCierre";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCierre", IdCierre);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            idcaja = Convert.ToInt32(result);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar valor de ventas guardado: {ex.Message}");
+            }
+            return idcaja;
         }
 
         private void btnMovimientos_Click(object sender, EventArgs e)
@@ -409,6 +448,95 @@ namespace CierreDeCajas.Presentacion.Administrativo
         private void txtnotas_TextChanged(object sender, EventArgs e)
         {
             
+        }
+        private void cargarTransferencias()
+        {
+            var transferenciasCargadas = FrmMovimientosAdmin.traerTransferencias();
+
+
+            bool insercionExitosa = FrmMovimientosAdmin.InsetarTransferencias(transferenciasCargadas);
+
+            if (insercionExitosa)
+            {
+
+
+                FrmMovimientosAdmin.ListaMovimientos();
+
+
+
+                CargarSumatorias();
+                CitarPanelesMovimientos();
+
+                DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                CargarCierreVentas();
+            }
+
+        }
+
+        private void cargarDatafonos()
+        {
+            var datafonosCargados = FrmMovimientosAdmin.traerDatafonos();
+
+
+            bool insercionExitosa = FrmMovimientosAdmin.InsertarDatafonos(datafonosCargados);
+
+            if (insercionExitosa)
+            {
+
+
+                FrmMovimientosAdmin.ListaMovimientos();
+
+
+
+                CargarSumatorias();
+                CitarPanelesMovimientos();
+
+                DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                CargarCierreVentas();
+            }
+
+        }
+
+        private void cargarBonos()
+        {
+            var bonosCargados = FrmMovimientosAdmin.traerBonos();
+
+
+            bool insercionExitosa = FrmMovimientosAdmin.InsertarBonoAlcadia(bonosCargados);
+
+            if (insercionExitosa)
+            {
+
+
+                FrmMovimientosAdmin.ListaMovimientos();
+
+
+
+                CargarSumatorias();
+                CitarPanelesMovimientos();
+
+                DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                CargarCierreVentas();
+            }
+
         }
     }
 }
