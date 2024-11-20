@@ -42,8 +42,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
             lb_Cajero.Text = IdUsuario;
             cargarDatafonos();
 
-
-
             cargarTransferencias();
             TraerCaja();
             cargarBonos();

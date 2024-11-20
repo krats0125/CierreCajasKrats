@@ -65,7 +65,14 @@ namespace CierreDeCajas.Logica
                                 medioDePago = valores[4];
                                 valor = Convert.ToDecimal(valores[10]);
                             }
-
+                            if(dato3==13444)
+                            {
+                                MessageBox.Show("");
+                            }
+                            if (valor == 13444)
+                            {
+                                MessageBox.Show("");
+                            }
                             idMedioPago = MapearMedioDePago(medioDePago);
 
                             // Lógica para agregar Domicilio según datos obtenidos
@@ -115,7 +122,7 @@ namespace CierreDeCajas.Logica
                 case "qr":
                     return 6; 
 
-                case "datafono":
+                case "tarjeta":
                     return 3; 
 
                 case "efectivo":

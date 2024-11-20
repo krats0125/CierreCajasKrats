@@ -304,6 +304,8 @@ namespace CierreDeCajas.Logica
                                 medioDePago = valores[4];
                                 valor = Convert.ToDecimal(valores[10]);
                             }
+                          
+                            
 
                             idMedioPago = MapearMedioDePago(medioDePago);
 
@@ -354,7 +356,7 @@ namespace CierreDeCajas.Logica
                 case "qr":
                     return 6;
 
-                case "datafono":
+                case "tarjeta":
                     return 3;
 
                 case "efectivo":

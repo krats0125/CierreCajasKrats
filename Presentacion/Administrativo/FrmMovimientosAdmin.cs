@@ -115,7 +115,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                             cmdVerificar.Parameters.AddWithValue("@IdMedioPago", 2);
                             cmdVerificar.Parameters.AddWithValue("@Factura", Transferencias.Factura);
 
-                            int count = (int)cmdVerificar.ExecuteScalar();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               int count = (int)cmdVerificar.ExecuteScalar();
 
 
                             if (count > 0)
