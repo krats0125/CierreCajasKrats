@@ -55,6 +55,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.AccionMoverFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.BarraS.SuspendLayout();
             this.PanelControles.SuspendLayout();
@@ -66,11 +69,14 @@
             this.CGPReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).BeginInit();
             this.panel2.SuspendLayout();
+            this.guna2CustomGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.guna2CustomGradientPanel1);
             this.panel1.Controls.Add(this.BarraS);
             this.panel1.Controls.Add(this.CGPTrabajadores);
             this.panel1.Controls.Add(this.cgpAdelantos);
@@ -239,7 +245,7 @@
             this.CGPTrabajadores.Controls.Add(this.pbTrabajador);
             this.CGPTrabajadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPTrabajadores.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPTrabajadores.Location = new System.Drawing.Point(266, 166);
+            this.CGPTrabajadores.Location = new System.Drawing.Point(162, 166);
             this.CGPTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.CGPTrabajadores.Name = "CGPTrabajadores";
             this.CGPTrabajadores.Size = new System.Drawing.Size(209, 102);
@@ -386,6 +392,44 @@
             this.AccionMoverFormulario.TargetControl = this.PanelControles;
             this.AccionMoverFormulario.UseTransparentDrag = true;
             // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.BorderRadius = 15;
+            this.guna2CustomGradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
+            this.guna2CustomGradientPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(365, 166);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(209, 102);
+            this.guna2CustomGradientPanel1.TabIndex = 27;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
+            this.label4.Location = new System.Drawing.Point(36, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 28);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Caja Menor";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(78, 40);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 45);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmAdministrativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +458,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,5 +492,8 @@
         private System.Windows.Forms.Label lb_cajero;
         private System.Windows.Forms.Timer TimerHora;
         private Guna.UI2.WinForms.Guna2DragControl AccionMoverFormulario;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

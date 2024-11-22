@@ -428,3 +428,8 @@ Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTE
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.pdb
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmGenerarInforme.resources
 Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Operativo.FrmNotas.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmCajaMenor.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmSuperCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmMovimientosSuperCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmResumenSuperCaja.resources
+Z:\APP BODEGA DE NACHO\Nuevos projectos\Formatos windows Forms\CIERRE CAJA\SISTEMA CIERRE CAJA\Cierresdecaja\obj\Debug\CierreDeCajas.Presentacion.Administrativo.FrmMenudaSuperCaja.resources

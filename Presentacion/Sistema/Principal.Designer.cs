@@ -84,7 +84,7 @@
             this.PanelMaestro.Location = new System.Drawing.Point(-2, 129);
             this.PanelMaestro.Margin = new System.Windows.Forms.Padding(2);
             this.PanelMaestro.Name = "PanelMaestro";
-            this.PanelMaestro.Size = new System.Drawing.Size(1050, 564);
+            this.PanelMaestro.Size = new System.Drawing.Size(1050, 566);
             this.PanelMaestro.TabIndex = 3;
             // 
             // pictureBox1
