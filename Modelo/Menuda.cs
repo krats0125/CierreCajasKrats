@@ -11,18 +11,18 @@ namespace CierreDeCajas.Modelo
         public string IdUsuario { get; set; }
         public int IdCierre { get; set; }
         public decimal valorentregado { get; set; }
-        public int Billete_100 { get; set; }
-        public int Billete_50 { get; set; }
-        public int Billete_20 { get; set; }
-        public int Billete_10 { get; set; }
-        public int Billete_5 { get; set; }
-        public int Billete_2 { get; set; }
-        public int Billete_1 { get; set; }
-        public int Moneda_1000 { get; set; }
-        public int Moneda_500 { get; set; }
-        public int Moneda_200 { get; set; }
-        public int Moneda_100    { get; set; }
-        public int Moneda_50 { get; set; }
+        public decimal Billete_100 { get; set; }
+        public decimal Billete_50 { get; set; }
+        public decimal Billete_20 { get; set; }
+        public decimal Billete_10 { get; set; }
+        public decimal Billete_5 { get; set; }
+        public decimal Billete_2 { get; set; }
+        public decimal Billete_1 { get; set; }
+        public decimal Moneda_1000 { get; set; }
+        public decimal Moneda_500 { get; set; }
+        public decimal Moneda_200 { get; set; }
+        public decimal Moneda_100    { get; set; }
+        public decimal Moneda_50 { get; set; }
 
 
 

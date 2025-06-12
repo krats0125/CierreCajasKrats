@@ -23,6 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <MinimumRequiredVersion>1.0.0.2</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -142,18 +143,29 @@
     <Compile Include="Logica\DomicilioRepository.cs" />
     <Compile Include="Logica\InstanciasRepository.cs" />
     <Compile Include="Logica\MenudaRepository.cs" />
+    <Compile Include="Logica\MenudaSuperCajaRepository.cs" />
     <Compile Include="Logica\MovimientosRepository.cs" />
+    <Compile Include="Logica\MovimientoSuperCajaRepository.cs" />
+    <Compile Include="Logica\NotaAprobacionRepository.cs" />
     <Compile Include="Logica\PrestamosRepository.cs" />
+    <Compile Include="Logica\SistemaRepository.cs" />
     <Compile Include="Logica\TrabajadoresRepository.cs" />
-    <Compile Include="Logica\Utilitarios\CierreSuperCajaRepository.cs" />
+    <Compile Include="Logica\CierreSuperCajaRepository.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlOLEDB.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlServer.cs" />
+    <Compile Include="Logica\SuperCajaAdminRepository.cs" />
+    <Compile Include="Logica\Utilitarios\TransferenciasRepository.cs" />
     <Compile Include="Modelo\BonoAlcaldia.cs" />
     <Compile Include="Modelo\CierreSuperCaja.cs" />
     <Compile Include="Modelo\ConceptoAdelanto.cs" />
     <Compile Include="Modelo\Datafonos.cs" />
+    <Compile Include="Modelo\Devoluciones.cs" />
+    <Compile Include="Modelo\MovimientoSuperCaja.cs" />
     <Compile Include="Modelo\Nota.cs" />
+    <Compile Include="Modelo\NotaAprobacion.cs" />
+    <Compile Include="Modelo\Sistema.cs" />
     <Compile Include="Modelo\TrasferenciaP.cs" />
+    <Compile Include="Modelo\VentasRappi.cs" />
     <Compile Include="Presentacion\Administrativo\FrmCajaMenor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,11 +220,29 @@
     <Compile Include="Presentacion\Administrativo\FrmMovimientosSuperCaja.Designer.cs">
       <DependentUpon>FrmMovimientosSuperCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNotaAprobacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNotaAprobacion.Designer.cs">
+      <DependentUpon>FrmNotaAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNotasSuperCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmNotasSuperCaja.Designer.cs">
+      <DependentUpon>FrmNotasSuperCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Administrativo\FrmNuevoAdelanto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Administrativo\FrmNuevoAdelanto.Designer.cs">
       <DependentUpon>FrmNuevoAdelanto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmPrestamosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Administrativo\FrmPrestamosAdmin.Designer.cs">
+      <DependentUpon>FrmPrestamosAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Administrativo\FrmReportes.cs">
       <SubType>Form</SubType>
@@ -231,6 +261,30 @@
     </Compile>
     <Compile Include="Presentacion\Administrativo\FrmSuperCaja.Designer.cs">
       <DependentUpon>FrmSuperCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmMenudaSuperCajaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmMenudaSuperCajaAdmin.Designer.cs">
+      <DependentUpon>FrmMenudaSuperCajaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmMovimientosSuperCajaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmMovimientosSuperCajaAdmin.Designer.cs">
+      <DependentUpon>FrmMovimientosSuperCajaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmReporteSuperCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmReporteSuperCaja.Designer.cs">
+      <DependentUpon>FrmReporteSuperCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmResumenSuperCajaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AdminSuperCaja\FrmResumenSuperCajaAdmin.Designer.cs">
+      <DependentUpon>FrmResumenSuperCajaAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Operativo\FrmNotas.cs">
       <SubType>Form</SubType>
@@ -340,8 +394,17 @@
     <EmbeddedResource Include="Presentacion\Administrativo\FrmMovimientosSuperCaja.resx">
       <DependentUpon>FrmMovimientosSuperCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmNotaAprobacion.resx">
+      <DependentUpon>FrmNotaAprobacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmNotasSuperCaja.resx">
+      <DependentUpon>FrmNotasSuperCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Administrativo\FrmNuevoAdelanto.resx">
       <DependentUpon>FrmNuevoAdelanto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Administrativo\FrmPrestamosAdmin.resx">
+      <DependentUpon>FrmPrestamosAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Administrativo\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
@@ -351,6 +414,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Administrativo\FrmSuperCaja.resx">
       <DependentUpon>FrmSuperCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AdminSuperCaja\FrmMenudaSuperCajaAdmin.resx">
+      <DependentUpon>FrmMenudaSuperCajaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AdminSuperCaja\FrmMovimientosSuperCajaAdmin.resx">
+      <DependentUpon>FrmMovimientosSuperCajaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AdminSuperCaja\FrmReporteSuperCaja.resx">
+      <DependentUpon>FrmReporteSuperCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AdminSuperCaja\FrmResumenSuperCajaAdmin.resx">
+      <DependentUpon>FrmResumenSuperCajaAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Operativo\FrmNotas.resx">
       <DependentUpon>FrmNotas.cs</DependentUpon>

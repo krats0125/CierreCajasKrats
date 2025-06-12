@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x86\|Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x32\|Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x64\|Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x94\|publish\</PublishUrlHistory>
-    <InstallUrlHistory />
+    <PublishUrlHistory>Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x86\|Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\|C:\Users\user\Desktop\Sistema cierre de cajas\|\\servidor-pc\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas - copia\x86\|Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas - copia\x86\</PublishUrlHistory>
+    <InstallUrlHistory>\\servidor-pc\APP BODEGA DE NACHO\Nuevos proyectos\Sistema Cierre de Cajas - copia\x86\|\\servidor-pc\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas - copia\x86\</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>\\servidor-pc\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas - copia\x86\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>es-ES</FallbackCulture>

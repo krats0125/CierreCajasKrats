@@ -35,9 +35,23 @@ namespace CierreDeCajas.Presentacion.Administrativo
         }
         public void listarCierresCaja()
         {
-            string sql = @"select IdCierre,IdUsuario AS NOMBRE,FechaApertura AS 'FECHA DE APERTURA',FechaCierre AS 'FECHA DE CIERRE',TotalMovimientosCaja AS 'MOVIMIENTOS DE CAJA',EntregaUltimoEfectivo AS 'ULTIMO EFECTIVO ENTREGADO',TotalEfectivo 'EFECTIVO', TotalDatafono AS 'DATAFONOS',TotalTransferencia AS 'TRANSFERENCIAS',ValorVentas AS 'VENTAS',Diferencia AS 'DIFERENCIA',TotalLiquidado AS 'TOTAL LOQUIDADO'
-                         from CierreCaja
-						 order by [FECHA DE APERTURA] desc";
+            string sql = @"SELECT 
+                          IdCierre,
+                          IdUsuario AS NOMBRE,
+                          FechaApertura AS 'FECHA DE APERTURA',
+                          FechaCierre AS 'FECHA DE CIERRE',
+                          FORMAT(TotalMovimientosCaja, 'C0', 'es-CO') AS 'MOVIMIENTOS DE CAJA',
+                          FORMAT(EntregaUltimoEfectivo, 'C0', 'es-CO') AS 'ULTIMO EFECTIVO ENTREGADO',
+                          FORMAT(TotalEfectivo, 'C0', 'es-CO') AS 'EFECTIVO',
+                          FORMAT(TotalDatafono, 'C0', 'es-CO') AS 'DATAFONOS',
+                          FORMAT(TotalTransferencia, 'C0', 'es-CO') AS 'TRANSFERENCIAS',
+                          FORMAT(ValorVentas, 'C0', 'es-CO') AS 'VENTAS',
+                          FORMAT(Diferencia, 'C0', 'es-CO') AS 'DIFERENCIA',
+                          FORMAT(TotalLiquidado, 'C0', 'es-CO') AS 'TOTAL LIQUIDADO'
+                      FROM 
+                          CierreCaja
+                      ORDER BY 
+                          [FECHA DE APERTURA] DESC";
             DataTable lista = new SentenciaSqlServer().TraerDatos(sql, cn.ConexionCierreCaja());
             dgvReporte.DataSource = lista;
             dgvReporte.Refresh();
@@ -54,7 +68,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 DataTable lista = new SentenciaSqlServer().TraerDatos(sql, cn.ConexionCierreCaja());
                 dgvReporte.DataSource = lista;
             }
-
         }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
@@ -106,15 +119,16 @@ namespace CierreDeCajas.Presentacion.Administrativo
                     var fechaApertura = Convert.ToDateTime(fila.Cells["FECHA DE APERTURA"].Value);
                     // Abre el formulario de detalles
                     FrmDetalleReporte frmDetalle = new FrmDetalleReporte(idCierre, idUsuario, fechaApertura);
-                    frmDetalle.ShowDialog();
+                    frmDetalle.Show();
                 }
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                // Podrías agregar más lógica aquí si es necesario
+              
             }
         }
+        #region Finalizar cierre
 
         private void btnFinalizarCierre_Click(object sender, EventArgs e)
         {
@@ -293,7 +307,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
-
+        #endregion
         private void btnGenerarInforme_Click(object sender, EventArgs e)
         {
             FrmGenerarInforme generarInforme = new FrmGenerarInforme();
@@ -305,6 +319,80 @@ namespace CierreDeCajas.Presentacion.Administrativo
             FrmGenerarInforme generarInforme = new FrmGenerarInforme();
             generarInforme.Show();
         }
-    }  
+
+        #region Transferencias presenciales
+
+        private void ExportarTransferencias()
+        {
+            TransferenciasRepository transferenciasRepository = new TransferenciasRepository();
+            DataTable dtAcumulado = new DataTable();
+
+            dtAcumulado.Columns.Add("Cajero");
+            dtAcumulado.Columns.Add("Valor");
+
+            foreach (DataGridViewRow row in dgvReporte.Rows)
+            {
+                if(row.Visible)
+                {
+                    idCierre = Convert.ToInt32(row.Cells["IdCierre"].Value);
+                    DataTable datosTransferencias = transferenciasRepository.ExportarTransferencias(idCierre);
+                    if (datosTransferencias.Rows.Count > 0)
+                    {
+                        foreach (DataRow dataRow in datosTransferencias.Rows)
+                        {
+                            dtAcumulado.ImportRow(dataRow);
+                        }
+
+                    }
+                } 
+                      
+            }
+            // Crear el archivo Excel
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+             {
+                 // Configurar el diálogo
+                 saveFileDialog.Filter = "Excel Files|*.xlsx";
+                 saveFileDialog.Title = "Guardar archivo Excel";
+                 saveFileDialog.FileName = $"Transferencias_{dtpFecha.Value.ToString("dd-MM-yyyy")}.xlsx";
+            
+                 // Mostrar el diálogo y esperar la respuesta del usuario
+                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                 {
+                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+             // Crear el archivo Excel
+                     using (ExcelPackage excelPackage = new ExcelPackage())
+                     {
+                         ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Transferencias");
+            
+                         // Cargar los datos en la hoja de Excel a partir de la segunda fila
+                         worksheet.Cells["A1"].LoadFromDataTable(dtAcumulado, true);
+                         worksheet.Cells.AutoFitColumns();
+            
+                          for (int i = 2; i <= dtAcumulado.Rows.Count + 1; i++) 
+                          {
+                              if (decimal.TryParse(worksheet.Cells[i, 2].Text, out decimal valor))
+                              {
+                                  worksheet.Cells[i, 2].Value = valor;
+                                  worksheet.Cells[i, 2].Style.Numberformat.Format = "$#,##0";  
+                          
+                              }
+                          }
+                 // Guardar el archivo en la ubicación seleccionada
+                 FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                         excelPackage.SaveAs(fileInfo);
+            
+                         // Mensaje de confirmación
+                         MessageBox.Show($"Archivo guardado exitosamente", "Exportación Completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     }
+                 }
+            }
+        }
+
+        private void btnDescargarTransferencias_Click(object sender, EventArgs e)
+        {
+            ExportarTransferencias();
+        }
+        #endregion
+    }
 }
 

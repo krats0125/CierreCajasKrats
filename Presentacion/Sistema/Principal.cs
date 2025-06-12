@@ -25,8 +25,6 @@ namespace CierreDeCajas.Presentacion
             frmMvt = new FrmMovimientos(this);
 
         }
-
-
         private void Principal_Load_1(object sender, EventArgs e)
         {
             //Se Asignan las variables globales
@@ -40,11 +38,11 @@ namespace CierreDeCajas.Presentacion
 
             AbrirFormularioEnPanel<FrmCierreCaja>(this);
             AbrirFormularioEnPanel<FrmMovimientos>(this);
-            //AbrirFormularioEnPanel<FrmPrestamos>(this);
+            AbrirFormularioEnPanel<FrmPrestamos>(this);
             AbrirFormularioEnPanel<FrmMenuda>(this);
             //AbrirFormularioEnPanel<FrmVentas>(this);
 
-            btnAdelantos.Visible = false;
+            //btnAdelantos.Visible = false;
 
 
             lb_Caja.Text = lgn.Caja;
@@ -54,10 +52,10 @@ namespace CierreDeCajas.Presentacion
             cargarTransferencias();
             cargarDatafonos();
             cargarBonos();
+            cargarVentasRappi();
         }
 
-
-
+        #region Panel padre para los formularios
         private Dictionary<Type, Form> InstanciaDelFormulario = new Dictionary<Type, Form>();
         private void AbrirFormularioEnPanel1<T>() where T : Form, new()
         {
@@ -120,12 +118,12 @@ namespace CierreDeCajas.Presentacion
             // Almacenar la instancia del formulario en el diccionario
             InstanciaDelFormulario.Add(formType, FormularioHijo);
         }
-
+        #endregion
 
         private void TimerHora_Tick(object sender, EventArgs e)
         {
-            
-            lb_FechaActual.Text = Fecha.ToString();
+            string fecha = DateTime.Now.ToString();
+            lb_FechaActual.Text = fecha;
         }
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
@@ -134,8 +132,7 @@ namespace CierreDeCajas.Presentacion
             Application.Exit();
 
         }
-
-
+        #region Botones del menú
         private void btnResumen_Click(object sender, EventArgs e)
         {
             AbrirFormularioEnPanel<FrmCierreCaja>(this);
@@ -163,12 +160,63 @@ namespace CierreDeCajas.Presentacion
             AbrirFormularioEnPanel<FrmPrestamos>(this);
             
         }
+        private void btnCargarDomicilios_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos CSV|*.csv",
+                Multiselect = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Instanciar el repositorio y pasarle la lista de archivos
+                DomicilioRepository domicilioRepo = new DomicilioRepository(this);
+                List<string> rutasArchivos = openFileDialog.FileNames.ToList();
+
+                try
+                {
+                    // Leer todos los archivos seleccionados en una sola llamada
+                    bool insercionExitosa = domicilioRepo.LeerExcel(rutasArchivos);
+
+
+                    if (insercionExitosa)
+                    {
+                        MessageBox.Show("Todos los datos insertados exitosamente.");
+
+                        frmMvt.ListaMovimientos();
+                        FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                        frm.CargarSumatorias();
+                        frm.CitarPanelesMovimientos();
+
+                        bool actualizacionExitosa = new CierreCajaRepository(this).ActualizarCierre(idCierre);
+                        if (!actualizacionExitosa)
+                        {
+                            MessageBox.Show("Hubo un error actualizando el cierre de caja.");
+                        }
+
+                        frm.CargarCierreVentas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Algunos datos no se pudieron insertar. Asegúrate de cerrar el archivo y vuelve a intentarlo.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al procesar los archivos: {ex.Message}");
+                }
+            }
+        }
+        #endregion
 
         private void BarraS_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        #region Cargar valores del sistema 
         private void cargarTransferencias()
         {
             var transferenciasCargadas = frmMvt.traerTransferencias();
@@ -198,6 +246,33 @@ namespace CierreDeCajas.Presentacion
             
         }
 
+        private void cargarVentasRappi()
+        {
+            var VentasRappiCargadas = frmMvt.traerVentasRappi();
+            //frmMvt.EliminarDevolucionesRappi();
+            bool insercionExitosa = frmMvt.InsetarVentasRappi(VentasRappiCargadas);
+
+            if (insercionExitosa)
+            {
+
+
+                frmMvt.ListaMovimientos();
+
+
+                FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
+                frm.CargarSumatorias();
+                frm.CitarPanelesMovimientos();
+
+                bool actualizacionExitosa = new CierreCajaRepository(this).ActualizarCierre(idCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                frm.CargarCierreVentas();
+            }
+
+        }
         private void cargarDatafonos()
         {
             var datafonosCargados = frmMvt.traerDatafonos();
@@ -256,56 +331,8 @@ namespace CierreDeCajas.Presentacion
             }
 
         }
-
-        private void btnCargarDomicilios_Click(object sender, EventArgs e)
-        {
-            
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Archivos CSV|*.csv",
-                Multiselect = true
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Instanciar el repositorio y pasarle la lista de archivos
-                DomicilioRepository domicilioRepo = new DomicilioRepository(this);
-                List<string> rutasArchivos = openFileDialog.FileNames.ToList();
-
-                try
-                {
-                    // Leer todos los archivos seleccionados en una sola llamada
-                    bool insercionExitosa = domicilioRepo.LeerExcel(rutasArchivos);
-
-                    
-                    if (insercionExitosa)
-                    {
-                        MessageBox.Show("Todos los datos insertados exitosamente.");
-
-                            frmMvt.ListaMovimientos();
-                        FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
-                        frm.CargarSumatorias();
-                        frm.CitarPanelesMovimientos();
-
-                        bool actualizacionExitosa = new CierreCajaRepository(this).ActualizarCierre(idCierre);
-                        if (!actualizacionExitosa)
-                        {
-                            MessageBox.Show("Hubo un error actualizando el cierre de caja.");
-                        }
-
-                        frm.CargarCierreVentas();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Algunos datos no se pudieron insertar. Asegúrate de cerrar el archivo y vuelve a intentarlo.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error al procesar los archivos: {ex.Message}");
-                }
-            }
-        }
+        #endregion
+      
     
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CierreDeCajas.Logica;
 using CierreDeCajas.Logica.Utilitarios;
+using CierreDeCajas.Modelo;
 using CierreDeCajas.Presentacion;
 using CierreDeCajas.Presentacion.Administrativo;
 using System;
@@ -19,14 +20,11 @@ namespace CierreDeCajas
     {
         CONEXION Cn = new CONEXION();
 
-
         public int idCaja = 0;
         public string Caja = null;
         public string idUsuario = null;
         public string NombreUsuario = null;
         public int idCierre = 0;
-
-
 
         public FrmLogin()
         {
@@ -51,13 +49,20 @@ namespace CierreDeCajas
         }
         private void listarCajeros()
         {
-            string sql = "select IdUsuario, Descripcion,Grupo from Usuarios where Estado=1";
+            string sql = "select IdUsuario, Descripcion,Grupo from Usuarios where Estado=1 and grupo!=5 order by IdUsuario";
             DataTable listaCajero = new SentenciaSqlServer().TraerDatos(sql, Cn.ConexionRibisoft());
             cbUsuario.DataSource = listaCajero;
-            cbUsuario.DisplayMember = "Descripcion";
+            cbUsuario.DisplayMember = "IdUsuario";
             cbUsuario.ValueMember = "IdUsuario";
         }
-
+        //private void listarCajeros()
+        //{
+        //    string sql = "select IdUsuario, Descripcion,Grupo from Usuario";
+        //    DataTable listaCajero = new SentenciaSqlServer().TraerDatos(sql, Cn.ConexionCierreCaja());
+        //    cbUsuario.DataSource = listaCajero;
+        //    cbUsuario.DisplayMember = "IdUsuario";
+        //    cbUsuario.ValueMember = "IdUsuario";
+        //}
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -66,38 +71,85 @@ namespace CierreDeCajas
                 DataRowView drv = (DataRowView)cbUsuario.SelectedItem;
                 int grupo = Convert.ToInt32(drv["Grupo"].ToString());
 
+        
                 if (grupo == 1)
                 {
+        
                     idUsuario = cbUsuario.SelectedValue.ToString();
                     NombreUsuario = cbUsuario.Text.ToString();
                     string contraseña = txtContraseña.Text;
                     string contraseñaCorrecta = obtenerContraseña();
                     if (contraseña.Equals(contraseñaCorrecta))
                     {
-                        this.Visible = false;
-                        FrmAdministrativo frmadmin = new FrmAdministrativo(this);
-                        frmadmin.Show();
+                        if (rbSuperCaja.Checked)
+                        {
+                            idUsuario = cbUsuario.SelectedValue.ToString();
+                            NombreUsuario = cbUsuario.Text.ToString();
+                            idCierre = InsertarEnCierreSuperCaja();
+                            this.Visible = false;
+                            FrmSuperCaja frmsupercaja = new FrmSuperCaja(this);
+                            frmsupercaja.Show();
+                         
+                        }
+                        else if(rbAdministrativo.Checked)
+                        {
+                           
+                            this.Visible = false;
+                            FrmAdministrativo frmadmin = new FrmAdministrativo(this);
+                            frmadmin.Show();
 
+                        }
+                        else if(rbCierreCaja.Checked)
+                        {
+                            lbCaja.Visible = true;
+                            cbCaja.Visible = true;
+                            idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
+                            idUsuario = cbUsuario.SelectedValue.ToString();
+                            Caja = cbCaja.Text.ToString();
+                            NombreUsuario = cbUsuario.Text.ToString();
+                            idCierre = InsertarEnCierre();
+                            DialogResult result = MessageBox.Show("¿Desea abrir un cierre de caja?","Confirmación",MessageBoxButtons.YesNo);
+                            if(result==DialogResult.Yes)
+                            {
+                                Principal frm = new Principal(this);
+                                frm.Show();
+                                this.Visible = false;
+                            }
+                           
+                        }
                     }
-                    else
-                    {
-                        
-                        MessageBox.Show("Contraseña incorrecta.");
-                        txtContraseña.Clear(); 
+                else
+                {
 
-                    }
+                    MessageBox.Show("Contraseña incorrecta.");
+                    txtContraseña.Clear();
 
                 }
+
+            }
                 else if (grupo == 2)
                 {
-                    idCaja = Convert.ToInt16(cbCaja.SelectedValue.ToString());
-                    idUsuario = cbUsuario.SelectedValue.ToString();
-                    Caja = cbCaja.Text.ToString();
-                    NombreUsuario = cbUsuario.Text.ToString();
-                    idCierre = InsertarEnCierre();
-                    Principal frm = new Principal(this);
-                    frm.Show();
-                    this.Visible = false;
+                    if(rbCierreCaja.Checked)
+                    {
+                        idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
+                        idUsuario = cbUsuario.SelectedValue.ToString();
+                        Caja = cbCaja.Text.ToString();
+                        NombreUsuario = cbUsuario.Text.ToString();
+                        idCierre = InsertarEnCierre();
+                        Principal frm = new Principal(this);
+                        frm.Show();
+                        this.Visible = false;
+                    }
+                    else if(rbSuperCaja.Checked)
+                    {
+                        idUsuario = cbUsuario.SelectedValue.ToString();
+                        NombreUsuario = cbUsuario.Text.ToString();
+                        idCierre = InsertarEnCierreSuperCaja();
+                        this.Visible = false;
+                        FrmSuperCaja frmsupercaja = new FrmSuperCaja(this);
+                        frmsupercaja.Show();
+                    }
+                    
                 }
 
             }
@@ -142,6 +194,45 @@ namespace CierreDeCajas
 
         }
 
+        private int InsertarEnCierreSuperCaja()
+        {
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(Cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("ValidarCierreSuperCaja", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@IdUsuario", idUsuario));
+                        // Ejecutar el procedimiento almacenado y obtener el resultado
+                        object result = cmd.ExecuteScalar();
+
+                        // Verificar si el resultado no es nulo y convertirlo a int
+                        if (result != null && int.TryParse(result.ToString(), out int nuevoIdCierre))
+                        {
+                            idCierre = nuevoIdCierre;
+                        }
+
+
+                    }
+                    conexion.Close();
+                }
+                return idCierre;
+            }
+            catch (Exception)
+            {
+
+
+                return 0;
+
+            }
+
+
+        }
+
         private void cbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbUsuario.SelectedItem != null)
@@ -155,15 +246,25 @@ namespace CierreDeCajas
                     cbCaja.Visible = false;
                     lbContraseña.Visible = true;
                     txtContraseña.Visible = true;
-
+                    rbSuperCaja.Visible = true;
+                    rbAdministrativo.Visible = true;
+                    rbCierreCaja.Checked = false;
+                    btnEntrar.Location = new Point(99, 380);
                 }
                 else
                 {
+                    lbCaja.Location = new Point(115, 233);
+                    cbCaja.Location = new Point(107, 273);
                     lbCaja.Visible = true;
                     cbCaja.Visible = true;
                     lbContraseña.Visible = false;
                     txtContraseña.Visible = false;
+                    rbSuperCaja.Visible = true;
+                    rbAdministrativo.Visible = false;
+                    rbCierreCaja.Focus();
+                    btnEntrar.Location = new Point(99, 350);
                 }
+                Console.WriteLine($"btnEntrar Location: {btnEntrar.Location}"); // Depuración
             }
 
         }
@@ -196,15 +297,14 @@ namespace CierreDeCajas
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                
-                        idCaja = Convert.ToInt16(cbCaja.SelectedValue.ToString());
+                        idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
                         idUsuario = cbUsuario.SelectedValue.ToString();
                         Caja = cbCaja.Text.ToString();
                         NombreUsuario = cbUsuario.Text.ToString();
                         idCierre = InsertarEnCierre();
                         Principal frm = new Principal(this);
                         frm.Show();
-                        this.Visible = false;
-                    
+                        this.Visible = false;  
                 
             }
         }
@@ -215,45 +315,194 @@ namespace CierreDeCajas
         {
             if (e.KeyCode == Keys.Enter)
             {
+               e.SuppressKeyPress = true;
+                rbSuperCaja.Focus();
+            }
+
+        }
+
+        private void rbSuperCaja_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    if (cbUsuario.SelectedItem != null)
+            //    {
+            //        DataRowView drv = (DataRowView)cbUsuario.SelectedItem;
+            //        int grupo = Convert.ToInt32(drv["Grupo"].ToString());
+
+
+            //        if (grupo == 1)
+            //        {
+
+            //            idUsuario = cbUsuario.SelectedValue.ToString();
+            //            NombreUsuario = cbUsuario.Text.ToString();
+            //            string contraseña = txtContraseña.Text;
+            //            string contraseñaCorrecta = obtenerContraseña();
+            //            if (contraseña.Equals(contraseñaCorrecta))
+            //            {
+            //                if (rbSuperCaja.Checked)
+            //                {
+
+            //                    idUsuario = cbUsuario.SelectedValue.ToString();
+            //                    NombreUsuario = cbUsuario.Text.ToString();
+            //                    idCierre = InsertarEnCierreSuperCaja();
+            //                    this.Visible = false;
+            //                    FrmSuperCaja frmsupercaja = new FrmSuperCaja(this);
+            //                    frmsupercaja.Show();
+            //                }
+            //                else
+            //                {
+            //                    this.Visible = false;
+            //                    FrmAdministrativo frmadmin = new FrmAdministrativo(this);
+            //                    frmadmin.Show();
+            //                }
+
+            //            }
+            //            else
+            //            {
+
+            //                MessageBox.Show("Contraseña incorrecta.");
+            //                txtContraseña.Clear();
+
+            //            }
+
+            //        }
+            //        else if (grupo == 2)
+            //        {
+            //            idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
+            //            idUsuario = cbUsuario.SelectedValue.ToString();
+            //            Caja = cbCaja.Text.ToString();
+            //            NombreUsuario = cbUsuario.Text.ToString();
+            //            idCierre = InsertarEnCierre();
+            //            Principal frm = new Principal(this);
+            //            frm.Show();
+            //            this.Visible = false;
+            //        }
+
+            //    }
+
+            //}
+            //else if (e.KeyCode == Keys.Right)
+            //{
+            //    // Mover el foco al control siguiente
+            //    this.SelectNextControl(rbAdministrativo, true, true, true, true);
+            //    e.SuppressKeyPress = true; // Evitar la acción predeterminada
+            //}
+
+        }
+
+        private void rbCierresCajeros_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    if (cbUsuario.SelectedItem != null)
+            //    {
+            //        DataRowView drv = (DataRowView)cbUsuario.SelectedItem;
+            //        int grupo = Convert.ToInt32(drv["Grupo"].ToString());
+
+
+            //        if (grupo == 1)
+            //        {
+
+            //            idUsuario = cbUsuario.SelectedValue.ToString();
+            //            NombreUsuario = cbUsuario.Text.ToString();
+            //            string contraseña = txtContraseña.Text;
+            //            string contraseñaCorrecta = obtenerContraseña();
+            //            if (contraseña.Equals(contraseñaCorrecta))
+            //            {
+            //                if (rbSuperCaja.Checked)
+            //                {
+
+            //                    idUsuario = cbUsuario.SelectedValue.ToString();
+            //                    NombreUsuario = cbUsuario.Text.ToString();
+            //                    idCierre = InsertarEnCierreSuperCaja();
+            //                    this.Visible = false;
+            //                    FrmSuperCaja frmsupercaja = new FrmSuperCaja(this);
+            //                    frmsupercaja.Show();
+            //                }
+            //                else
+            //                {
+            //                    this.Visible = false;
+            //                    FrmAdministrativo frmadmin = new FrmAdministrativo(this);
+            //                    frmadmin.Show();
+            //                }
+
+            //            }
+            //            else
+            //            {
+
+            //                MessageBox.Show("Contraseña incorrecta.");
+            //                txtContraseña.Clear();
+
+            //            }
+
+            //        }
+            //        else if (grupo == 2)
+            //        {
+            //            idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
+            //            idUsuario = cbUsuario.SelectedValue.ToString();
+            //            Caja = cbCaja.Text.ToString();
+            //            NombreUsuario = cbUsuario.Text.ToString();
+            //            idCierre = InsertarEnCierre();
+            //            Principal frm = new Principal(this);
+            //            frm.Show();
+            //            this.Visible = false;
+            //        }
+
+            //    }
+
+            //}
+        }
+
+        private void rbCierreCaja_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCierreCaja.Checked)
+            {
                 if (cbUsuario.SelectedItem != null)
                 {
                     DataRowView drv = (DataRowView)cbUsuario.SelectedItem;
                     int grupo = Convert.ToInt32(drv["Grupo"].ToString());
 
+
                     if (grupo == 1)
                     {
-                        idUsuario = cbUsuario.SelectedValue.ToString();
-                        NombreUsuario = cbUsuario.Text.ToString();
-                        string contraseña = txtContraseña.Text;
-                        string contraseñaCorrecta = obtenerContraseña();
-                        if (contraseña.Equals(contraseñaCorrecta))
-                        {
-                            this.Visible = false;
-                            FrmAdministrativo frmadmin = new FrmAdministrativo(this);
-                            frmadmin.Show();
-
-                        }
-                        else
-                        {
-                            txtContraseña.Clear();
-                            MessageBox.Show("Contraseña incorrecta.");
-                        }
-
+                        lbCaja.Location = new Point(23, 369);
+                        cbCaja.Location = new Point(126, 369);
+                        lbCaja.Visible = true;
+                        cbCaja.Visible = true;
+                        btnEntrar.Location = new Point(101, 420);
                     }
-                    else if (grupo == 2)
+                    if(grupo==2)
                     {
-                        idCaja = Convert.ToInt16(cbCaja.SelectedValue.ToString());
-                        idUsuario = cbUsuario.SelectedValue.ToString();
-                        Caja = cbCaja.Text.ToString();
-                        NombreUsuario = cbUsuario.Text.ToString();
-                        idCierre = InsertarEnCierre();
-                        Principal frm = new Principal(this);
-                        frm.Show();
-                        this.Visible = false;
+                        lbCaja.Visible = true;
+                        cbCaja.Visible = true;
+                        btnEntrar.Location = new Point(99, 350);
                     }
+                            
                 }
             }
+            else
+            {
+                lbCaja.Visible = false;
+                cbCaja.Visible = false;
+                btnEntrar.Location = new Point(106,383);
+            }
+          
+        }
 
+        private void rbSuperCaja_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbUsuario.SelectedItem != null)
+            {
+                DataRowView drv = (DataRowView)cbUsuario.SelectedItem;
+                int grupo = Convert.ToInt32(drv["Grupo"].ToString());
+
+
+                if (grupo == 2)
+                {
+                    btnEntrar.Location = new Point(99, 350);
+                }
+            }
         }
     }
 }

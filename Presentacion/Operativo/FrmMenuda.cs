@@ -21,24 +21,21 @@ namespace CierreDeCajas.Presentacion
     {
         Principal ppal = null;
         public decimal valorentregado=0;
-        Menuda oMenuda = new Menuda();
- 
-
-
+        private Menuda oMenuda;
         public FrmMenuda(Principal ppal)
         {
             this.ppal = ppal;
             InitializeComponent();
-          
+            this.oMenuda = new Menuda();
         }
 
        
 
         //Metodo general para aumentar la cantidad de billetes por medio del boton +
-        private void aumentar(TextBox tx, TextBox txtotal, int denominacion)
+        private void aumentar(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
-            if (!int.TryParse(tx.Text, out cantidad))
+            decimal cantidad = 0;
+            if (!decimal.TryParse(tx.Text, out cantidad))
             {
                 cantidad = 0;
             }
@@ -46,24 +43,26 @@ namespace CierreDeCajas.Presentacion
             cantidad++;
             tx.Text = cantidad.ToString();
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
             calcularTotalEntregado();
             calcularTotalCaja();
 
         }
         //Metodo general para disminuir la cantidad de billetes por medio del boton -
-        private void Disminuir(TextBox tx, TextBox txtotal, int denominacion)
+        private void Disminuir(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
-            if (!int.TryParse(tx.Text, out cantidad))
+            decimal cantidad = 0;
+            if (!decimal.TryParse(tx.Text, out cantidad) || cantidad <= 0)
             {
                 cantidad = 0;
+                MessageBox.Show("Ingrese un valor válido y no negativo.");
+                return;
             }
             cantidad--;
             tx.Text = cantidad.ToString();
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
             calcularTotalEntregado();
             calcularTotalCaja();
@@ -323,7 +322,6 @@ namespace CierreDeCajas.Presentacion
         {
             try
             {
-                Menuda oMenuda = new Menuda();
                 oMenuda.IdCierre = ppal.idCierre;
                 MenudaRepository menuda = new MenudaRepository();
 
@@ -362,7 +360,7 @@ namespace CierreDeCajas.Presentacion
             txM100.Text = oMenuda.Moneda_100.ToString();
             txM50.Text = oMenuda.Moneda_50.ToString();
 
-            int total = 0;
+            decimal total = 0;
             total += TryConvertToInt(txB100.Text) * 100000;
             total += TryConvertToInt(txB50.Text) * 50000;
             total += TryConvertToInt(txB20.Text) * 20000;
@@ -457,19 +455,19 @@ namespace CierreDeCajas.Presentacion
 
         public void calcularTotalEntregado()
         {
-            int total = 0;
-            int totalB100 = TryConvertToInt(txB100.Text) * 100000;
-            int totalB50 = TryConvertToInt(txB50.Text) * 50000;
-            int totalB20 = TryConvertToInt(txB20.Text) * 20000;
-            int totalB10 = TryConvertToInt(txB10.Text) * 10000;
-            int totalB5 = TryConvertToInt(txB5.Text) * 5000;
-            int totalB2 = TryConvertToInt(txB2.Text) * 2000;
-            int totalB1 = TryConvertToInt(txB1.Text) * 1000;
-            int totalM1000 = TryConvertToInt(txM1000.Text) * 1000;
-            int totalM500 = TryConvertToInt(txM500.Text) * 500;
-            int totalM200 = TryConvertToInt(txM200.Text) * 200;
-            int totalM100 = TryConvertToInt(txM100.Text) * 100;
-            int totalM50 = TryConvertToInt(txM50.Text) * 50;
+            decimal total = 0;
+            decimal totalB100 = TryConvertToInt(txB100.Text) * 100000;
+            decimal totalB50 = TryConvertToInt(txB50.Text) * 50000;
+            decimal totalB20 = TryConvertToInt(txB20.Text) * 20000;
+            decimal totalB10 = TryConvertToInt(txB10.Text) * 10000;
+            decimal totalB5 = TryConvertToInt(txB5.Text) * 5000;
+            decimal totalB2 = TryConvertToInt(txB2.Text) * 2000;
+            decimal totalB1 = TryConvertToInt(txB1.Text) * 1000;
+            decimal totalM1000 = TryConvertToInt(txM1000.Text) * 1000;
+            decimal totalM500 = TryConvertToInt(txM500.Text) * 500;
+            decimal totalM200 = TryConvertToInt(txM200.Text) * 200;
+            decimal totalM100 = TryConvertToInt(txM100.Text) * 100;
+            decimal totalM50 = TryConvertToInt(txM50.Text) * 50;
 
             total += totalB100 + totalB50 + totalB20 + totalB10 + totalB5 + totalB2 + totalB1 +
              totalM1000 + totalM500 + totalM200 + totalM100 + totalM50;
@@ -495,21 +493,21 @@ namespace CierreDeCajas.Presentacion
 
         private void calcularTotalCaja()
         {
-            int total = 0;
-            int valor;
+            decimal total = 0;
+            decimal valor;
 
-            int totalB100 = TryConvertToInt(txt100000.Text) * 100000;
-            int totalB50 = TryConvertToInt(txt50000.Text) * 50000;
-            int totalB20 = TryConvertToInt(txt20000.Text) * 20000;
-            int totalB10 = TryConvertToInt(txt10000.Text) * 10000;
-            int totalB5 = TryConvertToInt(txt5000.Text) * 5000;
-            int totalB2 = TryConvertToInt(txt2000.Text) * 2000;
-            int totalB1 = TryConvertToInt(txtB1000.Text) * 1000;
-            int totalM1000 = TryConvertToInt(txt1000.Text) * 1000;
-            int totalM500 = TryConvertToInt(txt500.Text) * 500;
-            int totalM200 = TryConvertToInt(txt200.Text) * 200;
-            int totalM100 = TryConvertToInt(txt100.Text) * 100;
-            int totalM50 = TryConvertToInt(txt50.Text) * 50;
+            decimal totalB100 = TryConvertToInt(txt100000.Text) * 100000;
+            decimal totalB50 = TryConvertToInt(txt50000.Text) * 50000;
+            decimal totalB20 = TryConvertToInt(txt20000.Text) * 20000;
+            decimal totalB10 = TryConvertToInt(txt10000.Text) * 10000;
+            decimal totalB5 = TryConvertToInt(txt5000.Text) * 5000;
+            decimal totalB2 = TryConvertToInt(txt2000.Text) * 2000;
+            decimal totalB1 = TryConvertToInt(txtB1000.Text) * 1000;
+            decimal totalM1000 = TryConvertToInt(txt1000.Text) * 1000;
+            decimal totalM500 = TryConvertToInt(txt500.Text) * 500;
+            decimal totalM200 = TryConvertToInt(txt200.Text) * 200;
+            decimal totalM100 = TryConvertToInt(txt100.Text) * 100;
+            decimal totalM50 = TryConvertToInt(txt50.Text) * 50;
 
             total += totalB100 + totalB50 + totalB20 + totalB10 + totalB5 + totalB2 + totalB1 +
             totalM1000 + totalM500 + totalM200 + totalM100 + totalM50;
@@ -532,8 +530,6 @@ namespace CierreDeCajas.Presentacion
 
         private void lbValorTotalEntregado_TextChanged(object sender, EventArgs e)
         {
-            
-
             try
             {
                 oMenuda.IdUsuario = ppal.idUsuario;
@@ -542,6 +538,7 @@ namespace CierreDeCajas.Presentacion
                 oMenuda.Billete_50 = TryConvertToInt(txB50.Text);
                 oMenuda.Billete_20 = TryConvertToInt(txB20.Text);
                 oMenuda.Billete_10 = TryConvertToInt(txB10.Text);
+
                 oMenuda.Billete_5 = TryConvertToInt(txB5.Text);
                 oMenuda.Billete_2 = TryConvertToInt(txB2.Text);
                 oMenuda.Billete_1 = TryConvertToInt(txB1.Text);
@@ -580,24 +577,25 @@ namespace CierreDeCajas.Presentacion
 
         }
 
-        private int TryConvertToInt(string input)
+        private decimal TryConvertToInt(string input)
         {
-            int result = 0;
-            int.TryParse(input, out result);
+            decimal result = 0;
+            decimal.TryParse(input, out result);
             return result;
         }
         //Metodo para actualizar la cantidad sin necesidad de tocar los botones + -
-        private void ActualizarTotalManual(TextBox tx, TextBox txtotal, int denominacion)
+        private void ActualizarTotalManual(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
 
-            if (!int.TryParse(tx.Text, out cantidad))
+            decimal cantidad = 0;
+
+            if (!decimal.TryParse(tx.Text, out cantidad))
             {
                 cantidad = 0;
             }
 
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
 
 
@@ -621,19 +619,21 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB100, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM50.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB100, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB50.Focus();
             }
         }
 
         private void txB50_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
+            { 
                 ActualizarTotalManual(txB50, txtTotal50000, 50000);
 
                 e.SuppressKeyPress = true;
@@ -644,12 +644,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB50, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB100.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB50, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB20.Focus();
             }
 
         }
@@ -668,12 +670,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB20, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB50.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB20, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB10.Focus();
             }
 
         }
@@ -692,12 +696,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB10, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB20.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB10, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB5.Focus();
             }
         }
 
@@ -715,12 +721,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB5, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB10.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB5, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB2.Focus();
             }
 
         }
@@ -729,22 +737,25 @@ namespace CierreDeCajas.Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ActualizarTotalManual(txB2, txtTotal2000, 2000);
 
+                ActualizarTotalManual(txB2, txtTotal2000, 2000);
                 e.SuppressKeyPress = true;
                 txB1.Focus();
+
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB2, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB5.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB2, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB1.Focus();
             }
 
         }
@@ -753,22 +764,26 @@ namespace CierreDeCajas.Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
+
                 ActualizarTotalManual(txB1, txtTotalB1000, 1000);
 
                 e.SuppressKeyPress = true;
                 txM1000.Focus();
+
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB1, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB2.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB1, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM1000.Focus();
             }
         }
 
@@ -776,6 +791,7 @@ namespace CierreDeCajas.Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
+
                 ActualizarTotalManual(txM1000, txtTotal1000, 1000);
 
                 e.SuppressKeyPress = true;
@@ -786,12 +802,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM1000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB1.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM1000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM500.Focus();
             }
         }
 
@@ -799,22 +817,26 @@ namespace CierreDeCajas.Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
+
                 ActualizarTotalManual(txM500, txtTotal500, 500);
 
                 e.SuppressKeyPress = true;
                 txM200.Focus();
+
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM500, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM1000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM500, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM200.Focus();
             }
         }
 
@@ -822,22 +844,26 @@ namespace CierreDeCajas.Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
+
                 ActualizarTotalManual(txM200, txtTotal200, 200);
 
                 e.SuppressKeyPress = true;
                 txM100.Focus();
+
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM200, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM500.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM200, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM100.Focus();
             }
         }
 
@@ -848,19 +874,21 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txM100, txtTotal100, 100);
 
                 e.SuppressKeyPress = true;
-                txM50.Focus();
+                txM50.Focus(); 
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM100, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM200.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM100, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM50.Focus();
             }
         }
 
@@ -869,20 +897,22 @@ namespace CierreDeCajas.Presentacion
             if (e.KeyCode == Keys.Enter)
             {
                 ActualizarTotalManual(txM50, txtTotal50, 50);
-
                 e.SuppressKeyPress = true;
+                txB100.Focus(); 
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM50, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM100.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM50, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB100.Focus();
             }
         }
 
@@ -904,12 +934,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt100000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt50.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt100000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt50000.Focus();
             }
         }
 
@@ -927,12 +959,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt50000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt100000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt50000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt20000.Focus();
             }
         }
 
@@ -950,12 +984,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt20000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt50000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt20000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt10000.Focus();
             }
 
         }
@@ -974,12 +1010,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt10000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt20000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt10000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt5000.Focus();
             }
 
         }
@@ -998,12 +1036,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt5000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt10000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt5000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt2000.Focus();
             }
         }
 
@@ -1021,12 +1061,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt2000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt5000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt2000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txtB1000.Focus();
             }
         }
         private void txtB1000_KeyDown(object sender, KeyEventArgs e)
@@ -1043,12 +1085,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txtB1000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt2000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txtB1000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt1000.Focus();
             }
 
         }
@@ -1067,12 +1111,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt1000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txtB1000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt1000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt500.Focus();
             }
         }
 
@@ -1090,12 +1136,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt500, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt1000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt500, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt200.Focus();
             }
         }
 
@@ -1113,12 +1161,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt200, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt500.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt200, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt100.Focus();
             }
         }
 
@@ -1136,12 +1186,14 @@ namespace CierreDeCajas.Presentacion
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt100, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt200.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt100, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt50.Focus();
             }
         }
 
@@ -1152,18 +1204,21 @@ namespace CierreDeCajas.Presentacion
                 ActualizarTotalManual(txt50, txtTotalM50, 50);
 
                 e.SuppressKeyPress = true;
+                txt100000.Focus();
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txt50, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt100.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txt50, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txt100000.Focus();
             }
         }
 

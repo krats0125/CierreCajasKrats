@@ -35,18 +35,17 @@
             this.BarraS = new System.Windows.Forms.Panel();
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lbIdCierre = new System.Windows.Forms.Label();
             this.lbCierre = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lb_FechaActual = new System.Windows.Forms.Label();
             this.lb_Caja = new System.Windows.Forms.Label();
             this.lb_Cajero = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.Elip1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelbotonesSuperior = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -106,13 +105,13 @@
             this.BarraS.Controls.Add(this.pictureBox1);
             this.BarraS.Controls.Add(this.lbIdCierre);
             this.BarraS.Controls.Add(this.lbCierre);
-            this.BarraS.Controls.Add(this.label5);
             this.BarraS.Controls.Add(this.label1);
             this.BarraS.Controls.Add(this.label2);
             this.BarraS.Controls.Add(this.label3);
             this.BarraS.Controls.Add(this.lb_FechaActual);
             this.BarraS.Controls.Add(this.lb_Caja);
             this.BarraS.Controls.Add(this.lb_Cajero);
+            this.BarraS.Controls.Add(this.label5);
             this.BarraS.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraS.Location = new System.Drawing.Point(0, 0);
             this.BarraS.Name = "BarraS";
@@ -125,7 +124,6 @@
             this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelControles.BackColor = System.Drawing.Color.Transparent;
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelControles.Location = new System.Drawing.Point(249, 2);
@@ -142,25 +140,11 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(722, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(746, 0);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(747, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
             // 
@@ -180,7 +164,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(931, 43);
+            this.label6.Location = new System.Drawing.Point(923, 38);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(2, 37);
@@ -193,7 +177,7 @@
             this.lbIdCierre.BackColor = System.Drawing.Color.Transparent;
             this.lbIdCierre.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdCierre.ForeColor = System.Drawing.Color.White;
-            this.lbIdCierre.Location = new System.Drawing.Point(1002, 61);
+            this.lbIdCierre.Location = new System.Drawing.Point(988, 59);
             this.lbIdCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIdCierre.Name = "lbIdCierre";
             this.lbIdCierre.Size = new System.Drawing.Size(15, 16);
@@ -206,24 +190,12 @@
             this.lbCierre.AutoSize = true;
             this.lbCierre.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCierre.ForeColor = System.Drawing.Color.Gold;
-            this.lbCierre.Location = new System.Drawing.Point(943, 60);
+            this.lbCierre.Location = new System.Drawing.Point(929, 58);
             this.lbCierre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCierre.Name = "lbCierre";
             this.lbCierre.Size = new System.Drawing.Size(57, 18);
             this.lbCierre.TabIndex = 11;
             this.lbCierre.Text = "Cierre:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(74, 37);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(622, 38);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "SUPERMERCADO LA BODEGA DE NACHO";
             // 
             // label1
             // 
@@ -243,7 +215,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(695, 61);
+            this.label2.Location = new System.Drawing.Point(686, 60);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 18);
@@ -256,7 +228,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(943, 39);
+            this.label3.Location = new System.Drawing.Point(929, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
@@ -270,7 +242,7 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(701, 29);
+            this.lb_FechaActual.Location = new System.Drawing.Point(695, 30);
             this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FechaActual.Name = "lb_FechaActual";
             this.lb_FechaActual.Size = new System.Drawing.Size(211, 25);
@@ -285,7 +257,7 @@
             this.lb_Caja.BackColor = System.Drawing.Color.Transparent;
             this.lb_Caja.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Caja.ForeColor = System.Drawing.Color.White;
-            this.lb_Caja.Location = new System.Drawing.Point(993, 39);
+            this.lb_Caja.Location = new System.Drawing.Point(979, 37);
             this.lb_Caja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Caja.Name = "lb_Caja";
             this.lb_Caja.Size = new System.Drawing.Size(25, 16);
@@ -297,12 +269,24 @@
             this.lb_Cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_Cajero.Location = new System.Drawing.Point(755, 62);
+            this.lb_Cajero.Location = new System.Drawing.Point(746, 61);
             this.lb_Cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Cajero.Name = "lb_Cajero";
             this.lb_Cajero.Size = new System.Drawing.Size(177, 18);
             this.lb_Cajero.TabIndex = 9;
             this.lb_Cajero.Text = "Cajero Prueba";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(69, 37);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(622, 38);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "SUPERMERCADO LA BODEGA DE NACHO";
             // 
             // Elip1
             // 
@@ -514,11 +498,12 @@
             this.Controls.Add(this.PanelMaestro);
             this.Controls.Add(this.BarraS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Principal";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CIERRE DE CAJA";
+            this.Text = "Cierre de Caja";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -564,7 +549,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimientoFormulario;
         private System.Windows.Forms.Panel panel1;

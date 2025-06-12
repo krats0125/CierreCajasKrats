@@ -37,31 +37,30 @@
             this.lb_TotalEfectivo = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel10 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.lbEfectivoS = new System.Windows.Forms.Label();
             this.lbEfectivoSistema = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbDiferenciaE = new System.Windows.Forms.Label();
             this.lbDiferenciaEfectivo = new System.Windows.Forms.Label();
-            this.lb_TotalTransferencia = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lb_TotalMovimientosCaja = new System.Windows.Forms.Label();
+            this.lbMovimientos = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lbDatafonos = new System.Windows.Forms.Label();
             this.lb_TotalDatafono = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel7 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.lb_ValorVentas = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbDatafonosSistema = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lbDatafonosS = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel11 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.DiferenciaDatafonos = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.lb_TotalMovimientosCaja = new System.Windows.Forms.Label();
-            this.lbMovimientos = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.DiferenciaD = new System.Windows.Forms.Label();
+            this.lbDiferenciaDatafonos = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.lb_entregaultimoefectivo = new System.Windows.Forms.Label();
             this.lbUltimEfectivo = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -70,11 +69,11 @@
             this.guna2CustomGradientPanel8 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lbCobrado = new System.Windows.Forms.Label();
-            this.lb_Diferencia = new System.Windows.Forms.Label();
+            this.lbTotalCobrado = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lbDiferencias = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbDiferenciastotales = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNotas = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnImprime = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -85,6 +84,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panelesMovimientos = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_entregaultimoefectivo = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -93,14 +93,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.guna2CustomGradientPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.guna2CustomGradientPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            this.guna2CustomGradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2CustomGradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.guna2CustomGradientPanel6.SuspendLayout();
@@ -201,8 +201,8 @@
             this.guna2CustomGradientPanel10.BorderRadius = 15;
             this.guna2CustomGradientPanel10.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel10.Controls.Add(this.pictureBox10);
+            this.guna2CustomGradientPanel10.Controls.Add(this.lbEfectivoS);
             this.guna2CustomGradientPanel10.Controls.Add(this.lbEfectivoSistema);
-            this.guna2CustomGradientPanel10.Controls.Add(this.label12);
             this.guna2CustomGradientPanel10.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(170, 2);
             this.guna2CustomGradientPanel10.Margin = new System.Windows.Forms.Padding(2);
@@ -222,37 +222,37 @@
             this.pictureBox10.TabIndex = 8;
             this.pictureBox10.TabStop = false;
             // 
+            // lbEfectivoS
+            // 
+            this.lbEfectivoS.AutoSize = true;
+            this.lbEfectivoS.BackColor = System.Drawing.Color.Transparent;
+            this.lbEfectivoS.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEfectivoS.Location = new System.Drawing.Point(7, 2);
+            this.lbEfectivoS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbEfectivoS.Name = "lbEfectivoS";
+            this.lbEfectivoS.Size = new System.Drawing.Size(108, 19);
+            this.lbEfectivoS.TabIndex = 5;
+            this.lbEfectivoS.Text = "Efectivo sistema";
+            // 
             // lbEfectivoSistema
             // 
-            this.lbEfectivoSistema.AutoSize = true;
             this.lbEfectivoSistema.BackColor = System.Drawing.Color.Transparent;
-            this.lbEfectivoSistema.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEfectivoSistema.Location = new System.Drawing.Point(7, 2);
+            this.lbEfectivoSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbEfectivoSistema.Location = new System.Drawing.Point(50, 35);
             this.lbEfectivoSistema.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbEfectivoSistema.Name = "lbEfectivoSistema";
-            this.lbEfectivoSistema.Size = new System.Drawing.Size(108, 19);
-            this.lbEfectivoSistema.TabIndex = 5;
-            this.lbEfectivoSistema.Text = "Efectivo sistema";
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label12.Location = new System.Drawing.Point(50, 35);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(111, 28);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "$ 0.000.000";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbEfectivoSistema.Size = new System.Drawing.Size(111, 28);
+            this.lbEfectivoSistema.TabIndex = 8;
+            this.lbEfectivoSistema.Text = "$ 0.000.000";
+            this.lbEfectivoSistema.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // guna2CustomGradientPanel3
             // 
             this.guna2CustomGradientPanel3.BorderRadius = 15;
             this.guna2CustomGradientPanel3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel3.Controls.Add(this.pictureBox1);
+            this.guna2CustomGradientPanel3.Controls.Add(this.lbDiferenciaE);
             this.guna2CustomGradientPanel3.Controls.Add(this.lbDiferenciaEfectivo);
-            this.guna2CustomGradientPanel3.Controls.Add(this.lb_TotalTransferencia);
             this.guna2CustomGradientPanel3.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(338, 2);
             this.guna2CustomGradientPanel3.Margin = new System.Windows.Forms.Padding(2);
@@ -272,29 +272,79 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // lbDiferenciaE
+            // 
+            this.lbDiferenciaE.AutoSize = true;
+            this.lbDiferenciaE.BackColor = System.Drawing.Color.Transparent;
+            this.lbDiferenciaE.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDiferenciaE.Location = new System.Drawing.Point(7, 2);
+            this.lbDiferenciaE.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDiferenciaE.Name = "lbDiferenciaE";
+            this.lbDiferenciaE.Size = new System.Drawing.Size(143, 19);
+            this.lbDiferenciaE.TabIndex = 5;
+            this.lbDiferenciaE.Text = "Diferencia de efectivo";
+            // 
             // lbDiferenciaEfectivo
             // 
-            this.lbDiferenciaEfectivo.AutoSize = true;
             this.lbDiferenciaEfectivo.BackColor = System.Drawing.Color.Transparent;
-            this.lbDiferenciaEfectivo.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDiferenciaEfectivo.Location = new System.Drawing.Point(7, 2);
+            this.lbDiferenciaEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbDiferenciaEfectivo.Location = new System.Drawing.Point(50, 35);
             this.lbDiferenciaEfectivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDiferenciaEfectivo.Name = "lbDiferenciaEfectivo";
-            this.lbDiferenciaEfectivo.Size = new System.Drawing.Size(143, 19);
-            this.lbDiferenciaEfectivo.TabIndex = 5;
-            this.lbDiferenciaEfectivo.Text = "Diferencia de efectivo";
+            this.lbDiferenciaEfectivo.Size = new System.Drawing.Size(111, 28);
+            this.lbDiferenciaEfectivo.TabIndex = 8;
+            this.lbDiferenciaEfectivo.Text = "$ 0.000.000";
+            this.lbDiferenciaEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lb_TotalTransferencia
+            // guna2CustomGradientPanel2
             // 
-            this.lb_TotalTransferencia.BackColor = System.Drawing.Color.Transparent;
-            this.lb_TotalTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_TotalTransferencia.Location = new System.Drawing.Point(50, 35);
-            this.lb_TotalTransferencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_TotalTransferencia.Name = "lb_TotalTransferencia";
-            this.lb_TotalTransferencia.Size = new System.Drawing.Size(111, 28);
-            this.lb_TotalTransferencia.TabIndex = 8;
-            this.lb_TotalTransferencia.Text = "$ 0.000.000";
-            this.lb_TotalTransferencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.guna2CustomGradientPanel2.BorderRadius = 15;
+            this.guna2CustomGradientPanel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel2.Controls.Add(this.lb_TotalMovimientosCaja);
+            this.guna2CustomGradientPanel2.Controls.Add(this.lbMovimientos);
+            this.guna2CustomGradientPanel2.Controls.Add(this.pictureBox2);
+            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(506, 2);
+            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(164, 71);
+            this.guna2CustomGradientPanel2.TabIndex = 21;
+            // 
+            // lb_TotalMovimientosCaja
+            // 
+            this.lb_TotalMovimientosCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lb_TotalMovimientosCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lb_TotalMovimientosCaja.Location = new System.Drawing.Point(51, 35);
+            this.lb_TotalMovimientosCaja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_TotalMovimientosCaja.Name = "lb_TotalMovimientosCaja";
+            this.lb_TotalMovimientosCaja.Size = new System.Drawing.Size(111, 28);
+            this.lb_TotalMovimientosCaja.TabIndex = 7;
+            this.lb_TotalMovimientosCaja.Text = "$ 0.000.000";
+            this.lb_TotalMovimientosCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbMovimientos
+            // 
+            this.lbMovimientos.AutoSize = true;
+            this.lbMovimientos.BackColor = System.Drawing.Color.Transparent;
+            this.lbMovimientos.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMovimientos.Location = new System.Drawing.Point(4, 0);
+            this.lbMovimientos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbMovimientos.Name = "lbMovimientos";
+            this.lbMovimientos.Size = new System.Drawing.Size(122, 19);
+            this.lbMovimientos.TabIndex = 5;
+            this.lbMovimientos.Text = "Total movimientos";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 26);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 45);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // guna2CustomGradientPanel4
             // 
@@ -350,9 +400,9 @@
             // 
             this.guna2CustomGradientPanel7.BorderRadius = 15;
             this.guna2CustomGradientPanel7.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2CustomGradientPanel7.Controls.Add(this.lb_ValorVentas);
-            this.guna2CustomGradientPanel7.Controls.Add(this.pictureBox3);
             this.guna2CustomGradientPanel7.Controls.Add(this.lbDatafonosSistema);
+            this.guna2CustomGradientPanel7.Controls.Add(this.pictureBox3);
+            this.guna2CustomGradientPanel7.Controls.Add(this.lbDatafonosS);
             this.guna2CustomGradientPanel7.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(170, 77);
             this.guna2CustomGradientPanel7.Margin = new System.Windows.Forms.Padding(2);
@@ -360,17 +410,17 @@
             this.guna2CustomGradientPanel7.Size = new System.Drawing.Size(164, 71);
             this.guna2CustomGradientPanel7.TabIndex = 22;
             // 
-            // lb_ValorVentas
+            // lbDatafonosSistema
             // 
-            this.lb_ValorVentas.BackColor = System.Drawing.Color.Transparent;
-            this.lb_ValorVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_ValorVentas.Location = new System.Drawing.Point(49, 37);
-            this.lb_ValorVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_ValorVentas.Name = "lb_ValorVentas";
-            this.lb_ValorVentas.Size = new System.Drawing.Size(111, 28);
-            this.lb_ValorVentas.TabIndex = 25;
-            this.lb_ValorVentas.Text = "$ 0.000.000";
-            this.lb_ValorVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbDatafonosSistema.BackColor = System.Drawing.Color.Transparent;
+            this.lbDatafonosSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbDatafonosSistema.Location = new System.Drawing.Point(49, 37);
+            this.lbDatafonosSistema.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDatafonosSistema.Name = "lbDatafonosSistema";
+            this.lbDatafonosSistema.Size = new System.Drawing.Size(111, 28);
+            this.lbDatafonosSistema.TabIndex = 25;
+            this.lbDatafonosSistema.Text = "$ 0.000.000";
+            this.lbDatafonosSistema.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBox3
             // 
@@ -384,25 +434,25 @@
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
-            // lbDatafonosSistema
+            // lbDatafonosS
             // 
-            this.lbDatafonosSistema.AutoSize = true;
-            this.lbDatafonosSistema.BackColor = System.Drawing.Color.Transparent;
-            this.lbDatafonosSistema.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDatafonosSistema.Location = new System.Drawing.Point(7, 4);
-            this.lbDatafonosSistema.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbDatafonosSistema.Name = "lbDatafonosSistema";
-            this.lbDatafonosSistema.Size = new System.Drawing.Size(118, 19);
-            this.lbDatafonosSistema.TabIndex = 19;
-            this.lbDatafonosSistema.Text = "Datofono sistema";
+            this.lbDatafonosS.AutoSize = true;
+            this.lbDatafonosS.BackColor = System.Drawing.Color.Transparent;
+            this.lbDatafonosS.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDatafonosS.Location = new System.Drawing.Point(7, 4);
+            this.lbDatafonosS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDatafonosS.Name = "lbDatafonosS";
+            this.lbDatafonosS.Size = new System.Drawing.Size(118, 19);
+            this.lbDatafonosS.TabIndex = 19;
+            this.lbDatafonosS.Text = "Datofono sistema";
             // 
             // guna2CustomGradientPanel11
             // 
             this.guna2CustomGradientPanel11.BorderRadius = 15;
             this.guna2CustomGradientPanel11.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel11.Controls.Add(this.pictureBox11);
-            this.guna2CustomGradientPanel11.Controls.Add(this.DiferenciaDatafonos);
-            this.guna2CustomGradientPanel11.Controls.Add(this.label14);
+            this.guna2CustomGradientPanel11.Controls.Add(this.DiferenciaD);
+            this.guna2CustomGradientPanel11.Controls.Add(this.lbDiferenciaDatafonos);
             this.guna2CustomGradientPanel11.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel11.Location = new System.Drawing.Point(338, 77);
             this.guna2CustomGradientPanel11.Margin = new System.Windows.Forms.Padding(2);
@@ -413,6 +463,7 @@
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.ErrorImage")));
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(6, 26);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
@@ -422,87 +473,37 @@
             this.pictureBox11.TabIndex = 21;
             this.pictureBox11.TabStop = false;
             // 
-            // DiferenciaDatafonos
+            // DiferenciaD
             // 
-            this.DiferenciaDatafonos.AutoSize = true;
-            this.DiferenciaDatafonos.BackColor = System.Drawing.Color.Transparent;
-            this.DiferenciaDatafonos.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiferenciaDatafonos.Location = new System.Drawing.Point(4, 4);
-            this.DiferenciaDatafonos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.DiferenciaDatafonos.Name = "DiferenciaDatafonos";
-            this.DiferenciaDatafonos.Size = new System.Drawing.Size(137, 19);
-            this.DiferenciaDatafonos.TabIndex = 5;
-            this.DiferenciaDatafonos.Text = "Diferencia datafonos";
+            this.DiferenciaD.AutoSize = true;
+            this.DiferenciaD.BackColor = System.Drawing.Color.Transparent;
+            this.DiferenciaD.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiferenciaD.Location = new System.Drawing.Point(4, 4);
+            this.DiferenciaD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DiferenciaD.Name = "DiferenciaD";
+            this.DiferenciaD.Size = new System.Drawing.Size(137, 19);
+            this.DiferenciaD.TabIndex = 5;
+            this.DiferenciaD.Text = "Diferencia datafonos";
             // 
-            // label14
+            // lbDiferenciaDatafonos
             // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label14.Location = new System.Drawing.Point(53, 36);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(111, 28);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "$ 0.000.000";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2CustomGradientPanel2
-            // 
-            this.guna2CustomGradientPanel2.BorderRadius = 15;
-            this.guna2CustomGradientPanel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2CustomGradientPanel2.Controls.Add(this.lb_TotalMovimientosCaja);
-            this.guna2CustomGradientPanel2.Controls.Add(this.lbMovimientos);
-            this.guna2CustomGradientPanel2.Controls.Add(this.pictureBox2);
-            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(506, 2);
-            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(164, 71);
-            this.guna2CustomGradientPanel2.TabIndex = 21;
-            // 
-            // lb_TotalMovimientosCaja
-            // 
-            this.lb_TotalMovimientosCaja.BackColor = System.Drawing.Color.Transparent;
-            this.lb_TotalMovimientosCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_TotalMovimientosCaja.Location = new System.Drawing.Point(51, 35);
-            this.lb_TotalMovimientosCaja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_TotalMovimientosCaja.Name = "lb_TotalMovimientosCaja";
-            this.lb_TotalMovimientosCaja.Size = new System.Drawing.Size(111, 28);
-            this.lb_TotalMovimientosCaja.TabIndex = 7;
-            this.lb_TotalMovimientosCaja.Text = "$ 0.000.000";
-            this.lb_TotalMovimientosCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbMovimientos
-            // 
-            this.lbMovimientos.AutoSize = true;
-            this.lbMovimientos.BackColor = System.Drawing.Color.Transparent;
-            this.lbMovimientos.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMovimientos.Location = new System.Drawing.Point(4, 0);
-            this.lbMovimientos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbMovimientos.Name = "lbMovimientos";
-            this.lbMovimientos.Size = new System.Drawing.Size(122, 19);
-            this.lbMovimientos.TabIndex = 5;
-            this.lbMovimientos.Text = "Total movimientos";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 26);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.lbDiferenciaDatafonos.BackColor = System.Drawing.Color.Transparent;
+            this.lbDiferenciaDatafonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbDiferenciaDatafonos.Location = new System.Drawing.Point(53, 36);
+            this.lbDiferenciaDatafonos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDiferenciaDatafonos.Name = "lbDiferenciaDatafonos";
+            this.lbDiferenciaDatafonos.Size = new System.Drawing.Size(111, 28);
+            this.lbDiferenciaDatafonos.TabIndex = 8;
+            this.lbDiferenciaDatafonos.Text = "$ 0.000.000";
+            this.lbDiferenciaDatafonos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // guna2CustomGradientPanel5
             // 
             this.guna2CustomGradientPanel5.BorderRadius = 15;
             this.guna2CustomGradientPanel5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel5.Controls.Add(this.pictureBox7);
-            this.guna2CustomGradientPanel5.Controls.Add(this.lb_entregaultimoefectivo);
             this.guna2CustomGradientPanel5.Controls.Add(this.lbUltimEfectivo);
+            this.guna2CustomGradientPanel5.Controls.Add(this.lb_entregaultimoefectivo);
             this.guna2CustomGradientPanel5.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel5.Location = new System.Drawing.Point(506, 77);
             this.guna2CustomGradientPanel5.Margin = new System.Windows.Forms.Padding(2);
@@ -521,18 +522,6 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 23;
             this.pictureBox7.TabStop = false;
-            // 
-            // lb_entregaultimoefectivo
-            // 
-            this.lb_entregaultimoefectivo.BackColor = System.Drawing.Color.Transparent;
-            this.lb_entregaultimoefectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_entregaultimoefectivo.Location = new System.Drawing.Point(50, 37);
-            this.lb_entregaultimoefectivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_entregaultimoefectivo.Name = "lb_entregaultimoefectivo";
-            this.lb_entregaultimoefectivo.Size = new System.Drawing.Size(112, 28);
-            this.lb_entregaultimoefectivo.TabIndex = 23;
-            this.lb_entregaultimoefectivo.Text = "$ 0.000.000";
-            this.lb_entregaultimoefectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbUltimEfectivo
             // 
@@ -603,7 +592,7 @@
             this.guna2CustomGradientPanel8.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel8.Controls.Add(this.pictureBox6);
             this.guna2CustomGradientPanel8.Controls.Add(this.lbCobrado);
-            this.guna2CustomGradientPanel8.Controls.Add(this.lb_Diferencia);
+            this.guna2CustomGradientPanel8.Controls.Add(this.lbTotalCobrado);
             this.guna2CustomGradientPanel8.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel8.Location = new System.Drawing.Point(170, 152);
             this.guna2CustomGradientPanel8.Margin = new System.Windows.Forms.Padding(2);
@@ -635,17 +624,17 @@
             this.lbCobrado.TabIndex = 20;
             this.lbCobrado.Text = "Cobrado";
             // 
-            // lb_Diferencia
+            // lbTotalCobrado
             // 
-            this.lb_Diferencia.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Diferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lb_Diferencia.Location = new System.Drawing.Point(50, 36);
-            this.lb_Diferencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_Diferencia.Name = "lb_Diferencia";
-            this.lb_Diferencia.Size = new System.Drawing.Size(111, 28);
-            this.lb_Diferencia.TabIndex = 8;
-            this.lb_Diferencia.Text = "$ 0.000.000";
-            this.lb_Diferencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbTotalCobrado.BackColor = System.Drawing.Color.Transparent;
+            this.lbTotalCobrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbTotalCobrado.Location = new System.Drawing.Point(50, 36);
+            this.lbTotalCobrado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTotalCobrado.Name = "lbTotalCobrado";
+            this.lbTotalCobrado.Size = new System.Drawing.Size(111, 28);
+            this.lbTotalCobrado.TabIndex = 8;
+            this.lbTotalCobrado.Text = "$ 0.000.000";
+            this.lbTotalCobrado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // guna2CustomGradientPanel9
             // 
@@ -653,7 +642,7 @@
             this.guna2CustomGradientPanel9.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel9.Controls.Add(this.pictureBox9);
             this.guna2CustomGradientPanel9.Controls.Add(this.lbDiferencias);
-            this.guna2CustomGradientPanel9.Controls.Add(this.label10);
+            this.guna2CustomGradientPanel9.Controls.Add(this.lbDiferenciastotales);
             this.guna2CustomGradientPanel9.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(338, 152);
             this.guna2CustomGradientPanel9.Margin = new System.Windows.Forms.Padding(2);
@@ -685,17 +674,17 @@
             this.lbDiferencias.TabIndex = 20;
             this.lbDiferencias.Text = "Diferencia";
             // 
-            // label10
+            // lbDiferenciastotales
             // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label10.Location = new System.Drawing.Point(50, 36);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 28);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "$ 0.000.000";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbDiferenciastotales.BackColor = System.Drawing.Color.Transparent;
+            this.lbDiferenciastotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbDiferenciastotales.Location = new System.Drawing.Point(50, 36);
+            this.lbDiferenciastotales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDiferenciastotales.Name = "lbDiferenciastotales";
+            this.lbDiferenciastotales.Size = new System.Drawing.Size(111, 28);
+            this.lbDiferenciastotales.TabIndex = 8;
+            this.lbDiferenciastotales.Text = "$ 0.000.000";
+            this.lbDiferenciastotales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel3
             // 
@@ -721,6 +710,7 @@
             this.btnNotas.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnNotas.Size = new System.Drawing.Size(35, 35);
             this.btnNotas.TabIndex = 31;
+            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
             // 
             // btnImprime
             // 
@@ -736,6 +726,7 @@
             this.btnImprime.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnImprime.Size = new System.Drawing.Size(32, 32);
             this.btnImprime.TabIndex = 28;
+            this.btnImprime.Click += new System.EventHandler(this.btnImprime_Click);
             // 
             // lbNovedades
             // 
@@ -759,7 +750,7 @@
             this.txtnotas.Multiline = true;
             this.txtnotas.Name = "txtnotas";
             this.txtnotas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtnotas.Size = new System.Drawing.Size(327, 42);
+            this.txtnotas.Size = new System.Drawing.Size(327, 58);
             this.txtnotas.TabIndex = 35;
             this.txtnotas.Visible = false;
             // 
@@ -816,11 +807,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelesMovimientos.AutoScroll = true;
-            this.panelesMovimientos.Location = new System.Drawing.Point(11, 343);
+            this.panelesMovimientos.Location = new System.Drawing.Point(9, 359);
             this.panelesMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.panelesMovimientos.Name = "panelesMovimientos";
-            this.panelesMovimientos.Size = new System.Drawing.Size(1028, 754);
+            this.panelesMovimientos.Size = new System.Drawing.Size(1030, 730);
             this.panelesMovimientos.TabIndex = 38;
+            // 
+            // lb_entregaultimoefectivo
+            // 
+            this.lb_entregaultimoefectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lb_entregaultimoefectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lb_entregaultimoefectivo.Location = new System.Drawing.Point(50, 36);
+            this.lb_entregaultimoefectivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_entregaultimoefectivo.Name = "lb_entregaultimoefectivo";
+            this.lb_entregaultimoefectivo.Size = new System.Drawing.Size(111, 28);
+            this.lb_entregaultimoefectivo.TabIndex = 8;
+            this.lb_entregaultimoefectivo.Text = "$ 0.000.000";
+            this.lb_entregaultimoefectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmResumenSuperCaja
             // 
@@ -828,8 +831,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1050, 1100);
-            this.Controls.Add(this.lbNovedades);
             this.Controls.Add(this.panelesMovimientos);
+            this.Controls.Add(this.lbNovedades);
             this.Controls.Add(this.guna2CustomGradientPanel12);
             this.Controls.Add(this.txtnotas);
             this.Controls.Add(this.panel2);
@@ -838,6 +841,7 @@
             this.Name = "FrmResumenSuperCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FrmResumenSuperCaja";
+            this.Load += new System.EventHandler(this.FrmResumenSuperCaja_Load);
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
@@ -849,6 +853,9 @@
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
+            this.guna2CustomGradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             this.guna2CustomGradientPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -858,9 +865,6 @@
             this.guna2CustomGradientPanel11.ResumeLayout(false);
             this.guna2CustomGradientPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            this.guna2CustomGradientPanel2.ResumeLayout(false);
-            this.guna2CustomGradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2CustomGradientPanel5.ResumeLayout(false);
             this.guna2CustomGradientPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -896,24 +900,23 @@
         private System.Windows.Forms.Label lb_TotalEfectivo;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbDiferenciaE;
         private System.Windows.Forms.Label lbDiferenciaEfectivo;
-        private System.Windows.Forms.Label lb_TotalTransferencia;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel5;
         private System.Windows.Forms.PictureBox pictureBox7;
-        public System.Windows.Forms.Label lb_entregaultimoefectivo;
         private System.Windows.Forms.Label lbUltimEfectivo;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel6;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label Lbtotalliquidado;
         private System.Windows.Forms.Label lb_TotalLiquidado;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel7;
-        private System.Windows.Forms.Label lb_ValorVentas;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbDatafonosSistema;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lbDatafonosS;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel8;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lbCobrado;
-        private System.Windows.Forms.Label lb_Diferencia;
+        private System.Windows.Forms.Label lbTotalCobrado;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label lbDatafonos;
@@ -925,20 +928,21 @@
         private System.Windows.Forms.TextBox txtnotas;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel10;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label lbEfectivoS;
         private System.Windows.Forms.Label lbEfectivoSistema;
-        private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel11;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.Label DiferenciaDatafonos;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label DiferenciaD;
+        private System.Windows.Forms.Label lbDiferenciaDatafonos;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel9;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lbDiferencias;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbDiferenciastotales;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel12;
         private System.Windows.Forms.FlowLayoutPanel pnlflListaMedioPago;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.FlowLayoutPanel panelesMovimientos;
+        private System.Windows.Forms.Label lb_entregaultimoefectivo;
     }
 }

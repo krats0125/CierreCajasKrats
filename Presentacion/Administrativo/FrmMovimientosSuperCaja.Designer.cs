@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelTitulo = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnEdita = new System.Windows.Forms.Button();
             this.btnGuarda = new System.Windows.Forms.Button();
-            this.lbTipoCobro = new System.Windows.Forms.Label();
-            this.cbTipodecobro = new System.Windows.Forms.ComboBox();
             this.lbIdMovimiento = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvMovimientos = new System.Windows.Forms.DataGridView();
@@ -80,8 +81,6 @@
             this.panel3.Controls.Add(this.btnElimina);
             this.panel3.Controls.Add(this.btnEdita);
             this.panel3.Controls.Add(this.btnGuarda);
-            this.panel3.Controls.Add(this.lbTipoCobro);
-            this.panel3.Controls.Add(this.cbTipodecobro);
             this.panel3.Controls.Add(this.lbIdMovimiento);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.txtValor);
@@ -94,7 +93,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(102, 54);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(822, 489);
+            this.panel3.Size = new System.Drawing.Size(842, 489);
             this.panel3.TabIndex = 14;
             // 
             // btnElimina
@@ -105,7 +104,7 @@
             this.btnElimina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElimina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnElimina.ForeColor = System.Drawing.Color.Black;
-            this.btnElimina.Location = new System.Drawing.Point(676, 191);
+            this.btnElimina.Location = new System.Drawing.Point(494, 199);
             this.btnElimina.Name = "btnElimina";
             this.btnElimina.Size = new System.Drawing.Size(85, 31);
             this.btnElimina.TabIndex = 24;
@@ -121,7 +120,7 @@
             this.btnEdita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdita.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdita.ForeColor = System.Drawing.Color.Black;
-            this.btnEdita.Location = new System.Drawing.Point(574, 191);
+            this.btnEdita.Location = new System.Drawing.Point(392, 199);
             this.btnEdita.Name = "btnEdita";
             this.btnEdita.Size = new System.Drawing.Size(85, 31);
             this.btnEdita.TabIndex = 23;
@@ -137,40 +136,14 @@
             this.btnGuarda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuarda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuarda.ForeColor = System.Drawing.Color.Black;
-            this.btnGuarda.Location = new System.Drawing.Point(472, 191);
+            this.btnGuarda.Location = new System.Drawing.Point(290, 199);
             this.btnGuarda.Name = "btnGuarda";
             this.btnGuarda.Size = new System.Drawing.Size(85, 31);
             this.btnGuarda.TabIndex = 22;
             this.btnGuarda.Text = "Guardar";
             this.btnGuarda.UseVisualStyleBackColor = false;
             this.btnGuarda.Click += new System.EventHandler(this.btnGuarda_Click);
-            // 
-            // lbTipoCobro
-            // 
-            this.lbTipoCobro.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTipoCobro.ForeColor = System.Drawing.Color.White;
-            this.lbTipoCobro.Location = new System.Drawing.Point(32, 178);
-            this.lbTipoCobro.Name = "lbTipoCobro";
-            this.lbTipoCobro.Size = new System.Drawing.Size(132, 60);
-            this.lbTipoCobro.TabIndex = 18;
-            this.lbTipoCobro.Text = "Tipo de cobro:";
-            this.lbTipoCobro.Visible = false;
-            // 
-            // cbTipodecobro
-            // 
-            this.cbTipodecobro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTipodecobro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbTipodecobro.FormattingEnabled = true;
-            this.cbTipodecobro.Items.AddRange(new object[] {
-            "Efectivo pendiente",
-            "Datafono pendiente",
-            "Efectivo cobrado",
-            "Datafono cobrado"});
-            this.cbTipodecobro.Location = new System.Drawing.Point(162, 205);
-            this.cbTipodecobro.Name = "cbTipodecobro";
-            this.cbTipodecobro.Size = new System.Drawing.Size(200, 28);
-            this.cbTipodecobro.TabIndex = 17;
-            this.cbTipodecobro.Visible = false;
+            this.btnGuarda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnGuarda_KeyDown);
             // 
             // lbIdMovimiento
             // 
@@ -200,17 +173,45 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMovimientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMovimientos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            this.dgvMovimientos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvMovimientos.Location = new System.Drawing.Point(-17, 0);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMovimientos.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvMovimientos.EnableHeadersVisualStyles = false;
+            this.dgvMovimientos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.dgvMovimientos.Location = new System.Drawing.Point(-5, 0);
             this.dgvMovimientos.MultiSelect = false;
             this.dgvMovimientos.Name = "dgvMovimientos";
             this.dgvMovimientos.ReadOnly = true;
+            this.dgvMovimientos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMovimientos.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMovimientos.RowHeadersWidth = 51;
-            this.dgvMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMovimientos.Size = new System.Drawing.Size(809, 213);
             this.dgvMovimientos.TabIndex = 0;
+            this.dgvMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimientos_CellContentClick_1);
             // 
             // txtValor
             // 
@@ -219,6 +220,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(200, 26);
             this.txtValor.TabIndex = 1;
+            this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValor_KeyDown);
             // 
             // cbMediodepago
             // 
@@ -280,6 +282,7 @@
             this.cbConceptos.Name = "cbConceptos";
             this.cbConceptos.Size = new System.Drawing.Size(200, 28);
             this.cbConceptos.TabIndex = 0;
+            this.cbConceptos.SelectedIndexChanged += new System.EventHandler(this.cbConceptos_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -321,8 +324,6 @@
         private System.Windows.Forms.Button btnElimina;
         private System.Windows.Forms.Button btnEdita;
         private System.Windows.Forms.Button btnGuarda;
-        private System.Windows.Forms.Label lbTipoCobro;
-        private System.Windows.Forms.ComboBox cbTipodecobro;
         private System.Windows.Forms.Label lbIdMovimiento;
         private System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.DataGridView dgvMovimientos;

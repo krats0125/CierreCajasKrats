@@ -27,36 +27,47 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
         public void listarprestamos()
         {
-            string consulta =$@"SELECT 
-                          PM.IdPrestamo,
-                          PM.Fecha AS FECHA, 
-                          M.nombre AS NOMBRE, 
-                          PM.Valor AS VALOR, 
-                          PM.Concepto AS CONCEPTO, 
-                          PM.Observacion AS OBSERVACIONES
-                          FROM 
-                              MENSAJEROS M
-                          INNER JOIN 
-                              PRESTAMOS_MENSAJEROS PM ON M.IdTrabajador = PM.IdTrabajador
-							  WHERE PM.PAGADO=0
-                          UNION ALL
-                          SELECT 
-                              P.IdPrestamo,
-                              P.Fecha AS FECHA, 
-                              T.nombre AS NOMBRE, 
-                              P.Valor AS VALOR, 
-                              P.Concepto AS CONCEPTO, 
-                              P.Observacion AS OBSERVACIONES
-                          FROM 
-                              PRESTAMOS P
-                          INNER JOIN 
-                              TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
-							  WHERE P.Pagado=0";
-
-
+            string consulta = $@"SELECT 
+                 PM.IdPrestamo,
+                 PM.Fecha AS FECHA, 
+                 M.nombre AS NOMBRE, 
+                 PM.Valor AS VALOR, 
+                 PM.Concepto AS CONCEPTO, 
+                 PM.Observacion AS OBSERVACIONES,
+                 'MENSAJEROS' AS Origen,
+             	PM.IdMovimiento
+             FROM 
+                 MENSAJEROS M
+             INNER JOIN 
+                 PRESTAMOS_MENSAJEROS PM ON M.IdTrabajador = PM.IdTrabajador
+             WHERE 
+                 PM.PAGADO = 0 
+             
+             UNION ALL
+             
+             SELECT 
+                 P.IdPrestamo,
+                 P.Fecha AS FECHA, 
+                 T.nombre AS NOMBRE, 
+                 P.Valor AS VALOR, 
+                 P.Concepto AS CONCEPTO, 
+                 P.Observacion AS OBSERVACIONES,
+                 'TRABAJADORES' AS Origen,
+             	P.IdMovimiento
+             FROM 
+                 PRESTAMOS P
+             INNER JOIN 
+                 TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
+             WHERE 
+                 P.Pagado = 0 
+             
+             ORDER BY 
+                 fecha DESC;";
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, cn.Conexionlabodegadenacho());
             dgvAdelantos.DataSource = lista;
             dgvAdelantos.Columns[0].Visible = false;
+            dgvAdelantos.Columns["Origen"].Visible = false;
+            dgvAdelantos.Columns["IdMovimiento"].Visible = false;
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -104,13 +115,24 @@ namespace CierreDeCajas.Presentacion.Administrativo
             if (dgvAdelantos.SelectedRows.Count > 0)
             {
                 int idPrestamo = Convert.ToInt32(dgvAdelantos.SelectedRows[0].Cells["IdPrestamo"].Value);
+                string origen = dgvAdelantos.SelectedRows[0].Cells["Origen"].Value.ToString();
+                int idMovimiento = Convert.ToInt32(dgvAdelantos.SelectedRows[0].Cells["IdMovimiento"].Value);
 
- 
                 DialogResult dialogResult = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     oPrestamo.IdPrestamo = idPrestamo;
-                    bool seElimino = new PrestamosRepository().Eliminar(oPrestamo);
+                    bool seElimino =false;
+                    if (origen == "MENSAJEROS")
+                    {
+                        seElimino = new PrestamosRepository().EliminarPrestamoMensajero(oPrestamo);
+                        seElimino = new PrestamosRepository().EliminarMovimientoCaja(idMovimiento);
+                    }
+                    else if (origen == "TRABAJADORES")
+                    {
+                        seElimino = new PrestamosRepository().EliminarPrestamoTrabajador(oPrestamo);
+                        seElimino = new PrestamosRepository().EliminarMovimientoCaja(idMovimiento);
+                    }
                     if (seElimino)
                     {
                         MessageBox.Show("Registro eliminado correctamente.");

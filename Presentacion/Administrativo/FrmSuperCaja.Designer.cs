@@ -53,12 +53,12 @@
             this.btnMovimientos = new System.Windows.Forms.Button();
             this.btnResumen = new System.Windows.Forms.Button();
             this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.PanelMaestro = new System.Windows.Forms.Panel();
             this.Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.BarraS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelControles.SuspendLayout();
@@ -165,7 +165,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuario.ForeColor = System.Drawing.Color.Gold;
-            this.lbUsuario.Location = new System.Drawing.Point(695, 61);
+            this.lbUsuario.Location = new System.Drawing.Point(696, 61);
             this.lbUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUsuario.Name = "lbUsuario";
             this.lbUsuario.Size = new System.Drawing.Size(67, 18);
@@ -179,7 +179,7 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(701, 29);
+            this.lb_FechaActual.Location = new System.Drawing.Point(702, 29);
             this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FechaActual.Name = "lb_FechaActual";
             this.lb_FechaActual.Size = new System.Drawing.Size(211, 25);
@@ -192,7 +192,7 @@
             this.lb_Cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_Cajero.Location = new System.Drawing.Point(759, 62);
+            this.lb_Cajero.Location = new System.Drawing.Point(760, 62);
             this.lb_Cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Cajero.Name = "lb_Cajero";
             this.lb_Cajero.Size = new System.Drawing.Size(168, 18);
@@ -313,6 +313,7 @@
             this.btnSistema.TabIndex = 9;
             this.btnSistema.Text = "Sistema";
             this.btnSistema.UseVisualStyleBackColor = false;
+            this.btnSistema.Click += new System.EventHandler(this.btnSistema_Click);
             // 
             // btnMenuda
             // 
@@ -375,10 +376,6 @@
             // 
             this.Elipse1.TargetControl = this.PanelbotonesSuperior;
             // 
-            // TimerHora
-            // 
-            this.TimerHora.Tick += new System.EventHandler(this.TimerHora_Tick);
-            // 
             // PanelMaestro
             // 
             this.PanelMaestro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -407,6 +404,10 @@
             // 
             this.Elipse5.TargetControl = this.btnSistema;
             // 
+            // TimerHora
+            // 
+            this.TimerHora.Tick += new System.EventHandler(this.TimerHora_Tick_1);
+            // 
             // FrmSuperCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,8 +418,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.BarraS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSuperCaja";
-            this.Text = "FrmSuperCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Super Caja";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSuperCaja_FormClosing);
             this.Load += new System.EventHandler(this.FrmSuperCaja_Load);
             this.BarraS.ResumeLayout(false);
@@ -452,16 +455,17 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelbotonesSuperior;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSistema;
-        private System.Windows.Forms.Button btnMenuda;
+      
         private System.Windows.Forms.Button btnMovimientos;
         private System.Windows.Forms.Button btnResumen;
+        private System.Windows.Forms.Button btnMenuda;
         private Guna.UI2.WinForms.Guna2Elipse Elipse1;
-        private System.Windows.Forms.Timer TimerHora;
         private System.Windows.Forms.Panel PanelMaestro;
         private Guna.UI2.WinForms.Guna2Elipse Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse Elipse3;
         private Guna.UI2.WinForms.Guna2Elipse Elipse4;
         private Guna.UI2.WinForms.Guna2Elipse Elipse5;
+        public System.Windows.Forms.Button btnSistema;
+        private System.Windows.Forms.Timer TimerHora;
     }
 }

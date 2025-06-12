@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearNuevoConcepto));
             this.panel4 = new System.Windows.Forms.Panel();
             this.rbAmbos = new System.Windows.Forms.RadioButton();
             this.rbTrabajador = new System.Windows.Forms.RadioButton();
@@ -41,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -53,6 +53,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.rbAmbos);
             this.panel4.Controls.Add(this.rbTrabajador);
             this.panel4.Controls.Add(this.rbMensajero);
@@ -62,9 +63,9 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.txtConcepto);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(5, 32);
+            this.panel4.Location = new System.Drawing.Point(0, 30);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(451, 278);
+            this.panel4.Size = new System.Drawing.Size(456, 278);
             this.panel4.TabIndex = 24;
             // 
             // rbAmbos
@@ -182,16 +183,16 @@
             // 
             // PanelControles
             // 
-            this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.PanelControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Location = new System.Drawing.Point(-6, -1);
+            this.PanelControles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelControles.Location = new System.Drawing.Point(0, 0);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(464, 30);
+            this.PanelControles.Size = new System.Drawing.Size(457, 30);
             this.PanelControles.TabIndex = 25;
             // 
             // guna2ControlBox3
@@ -203,26 +204,11 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(391, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(406, 0);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(416, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
             // 
@@ -232,7 +218,7 @@
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(440, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(431, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
@@ -266,9 +252,10 @@
             this.Controls.Add(this.PanelControles);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCrearNuevoConcepto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCrearNuevoConcepto";
+            this.Text = "Nuevo Concepto";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.PanelControles.ResumeLayout(false);
@@ -287,7 +274,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.RadioButton rbAmbos;
         private System.Windows.Forms.RadioButton rbTrabajador;

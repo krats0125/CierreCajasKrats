@@ -64,11 +64,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lb_TotalDatafono = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblDevoluciones = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelesMovimientos = new System.Windows.Forms.FlowLayoutPanel();
-            this.PanelControles = new System.Windows.Forms.Panel();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.AccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2CustomGradientPanel10 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlflListaMedioPago = new System.Windows.Forms.FlowLayoutPanel();
@@ -76,6 +76,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PanelbotonesSuperior = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNotaAprobacion = new System.Windows.Forms.Button();
+            this.btnAdelantos = new System.Windows.Forms.Button();
             this.btnCargarDomicilios = new System.Windows.Forms.Button();
             this.btnMenuda = new System.Windows.Forms.Button();
             this.btnMovimientos = new System.Windows.Forms.Button();
@@ -89,6 +91,7 @@
             this.Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.lbNovedades = new System.Windows.Forms.Label();
             this.txtnotas = new System.Windows.Forms.TextBox();
+            this.txtNotaAprobacion = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
@@ -107,7 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.PanelControles.SuspendLayout();
+            this.guna2CustomGradientPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.guna2CustomGradientPanel10.SuspendLayout();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,14 +124,17 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(45, 83);
+            this.panel2.Location = new System.Drawing.Point(45, 62);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 8, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(519, 234);
+            this.panel2.Size = new System.Drawing.Size(536, 234);
             this.panel2.TabIndex = 26;
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel2);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel1);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel3);
@@ -136,11 +143,11 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel7);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel8);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel4);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel9);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(519, 234);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(534, 234);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // guna2CustomGradientPanel2
@@ -412,7 +419,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(4, 27);
+            this.pictureBox3.Location = new System.Drawing.Point(4, 26);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(41, 45);
@@ -544,79 +551,71 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Total datafonos";
             // 
+            // guna2CustomGradientPanel9
+            // 
+            this.guna2CustomGradientPanel9.BorderRadius = 15;
+            this.guna2CustomGradientPanel9.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel9.Controls.Add(this.lblDevoluciones);
+            this.guna2CustomGradientPanel9.Controls.Add(this.pictureBox9);
+            this.guna2CustomGradientPanel9.Controls.Add(this.label11);
+            this.guna2CustomGradientPanel9.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(338, 152);
+            this.guna2CustomGradientPanel9.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CustomGradientPanel9.Name = "guna2CustomGradientPanel9";
+            this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(164, 71);
+            this.guna2CustomGradientPanel9.TabIndex = 27;
+            // 
+            // lblDevoluciones
+            // 
+            this.lblDevoluciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblDevoluciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lblDevoluciones.Location = new System.Drawing.Point(49, 37);
+            this.lblDevoluciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDevoluciones.Name = "lblDevoluciones";
+            this.lblDevoluciones.Size = new System.Drawing.Size(111, 28);
+            this.lblDevoluciones.TabIndex = 25;
+            this.lblDevoluciones.Text = "$ 0.000.000";
+            this.lblDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(4, 26);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(41, 45);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 11;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(7, 4);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 19);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Devoluciones";
+            // 
             // panelesMovimientos
             // 
             this.panelesMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelesMovimientos.Location = new System.Drawing.Point(45, 379);
+            this.panelesMovimientos.AutoScroll = true;
+            this.panelesMovimientos.Location = new System.Drawing.Point(45, 373);
             this.panelesMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.panelesMovimientos.Name = "panelesMovimientos";
-            this.panelesMovimientos.Size = new System.Drawing.Size(911, 591);
+            this.panelesMovimientos.Size = new System.Drawing.Size(928, 365);
             this.panelesMovimientos.TabIndex = 28;
-            // 
-            // PanelControles
-            // 
-            this.PanelControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
-            this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
-            this.PanelControles.Controls.Add(this.guna2ControlBox1);
-            this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelControles.Location = new System.Drawing.Point(0, 0);
-            this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
-            this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(983, 29);
-            this.PanelControles.TabIndex = 29;
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.BorderRadius = 10;
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(910, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(935, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.BorderRadius = 10;
-            this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(959, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox1.TabIndex = 0;
             // 
             // AccionMovimiento
             // 
             this.AccionMovimiento.DockIndicatorTransparencyValue = 0.6D;
-            this.AccionMovimiento.TargetControl = this.PanelControles;
             this.AccionMovimiento.UseTransparentDrag = true;
             // 
             // guna2CustomGradientPanel10
@@ -627,7 +626,7 @@
             this.guna2CustomGradientPanel10.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.guna2CustomGradientPanel10.Controls.Add(this.pnlflListaMedioPago);
             this.guna2CustomGradientPanel10.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(577, 88);
+            this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(594, 61);
             this.guna2CustomGradientPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CustomGradientPanel10.Name = "guna2CustomGradientPanel10";
             this.guna2CustomGradientPanel10.Size = new System.Drawing.Size(379, 246);
@@ -671,40 +670,78 @@
             this.PanelbotonesSuperior.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelbotonesSuperior.Controls.Add(this.panel1);
             this.PanelbotonesSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelbotonesSuperior.Location = new System.Drawing.Point(0, 29);
+            this.PanelbotonesSuperior.Location = new System.Drawing.Point(0, 0);
             this.PanelbotonesSuperior.Name = "PanelbotonesSuperior";
-            this.PanelbotonesSuperior.Size = new System.Drawing.Size(983, 34);
+            this.PanelbotonesSuperior.Size = new System.Drawing.Size(1000, 34);
             this.PanelbotonesSuperior.TabIndex = 30;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.btnNotaAprobacion);
+            this.panel1.Controls.Add(this.btnAdelantos);
             this.panel1.Controls.Add(this.btnCargarDomicilios);
             this.panel1.Controls.Add(this.btnMenuda);
             this.panel1.Controls.Add(this.btnMovimientos);
             this.panel1.Controls.Add(this.btnResumen);
-            this.panel1.Location = new System.Drawing.Point(316, 0);
+            this.panel1.Location = new System.Drawing.Point(238, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 34);
+            this.panel1.Size = new System.Drawing.Size(612, 34);
             this.panel1.TabIndex = 9;
+            // 
+            // btnNotaAprobacion
+            // 
+            this.btnNotaAprobacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNotaAprobacion.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotaAprobacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotaAprobacion.FlatAppearance.BorderSize = 0;
+            this.btnNotaAprobacion.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnNotaAprobacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnNotaAprobacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
+            this.btnNotaAprobacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotaAprobacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btnNotaAprobacion.Location = new System.Drawing.Point(482, 0);
+            this.btnNotaAprobacion.Name = "btnNotaAprobacion";
+            this.btnNotaAprobacion.Size = new System.Drawing.Size(88, 34);
+            this.btnNotaAprobacion.TabIndex = 12;
+            this.btnNotaAprobacion.Text = "Nota";
+            this.btnNotaAprobacion.UseVisualStyleBackColor = false;
+            this.btnNotaAprobacion.Click += new System.EventHandler(this.btnNotaAprobacion_Click);
+            // 
+            // btnAdelantos
+            // 
+            this.btnAdelantos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAdelantos.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdelantos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdelantos.FlatAppearance.BorderSize = 0;
+            this.btnAdelantos.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnAdelantos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAdelantos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
+            this.btnAdelantos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdelantos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btnAdelantos.Location = new System.Drawing.Point(310, 0);
+            this.btnAdelantos.Name = "btnAdelantos";
+            this.btnAdelantos.Size = new System.Drawing.Size(88, 34);
+            this.btnAdelantos.TabIndex = 11;
+            this.btnAdelantos.Text = "Adelantos";
+            this.btnAdelantos.UseVisualStyleBackColor = false;
+            this.btnAdelantos.Click += new System.EventHandler(this.btnAdelantos_Click);
             // 
             // btnCargarDomicilios
             // 
+            this.btnCargarDomicilios.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCargarDomicilios.BackColor = System.Drawing.Color.Transparent;
             this.btnCargarDomicilios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCargarDomicilios.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCargarDomicilios.FlatAppearance.BorderSize = 0;
             this.btnCargarDomicilios.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnCargarDomicilios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnCargarDomicilios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnCargarDomicilios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarDomicilios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnCargarDomicilios.Location = new System.Drawing.Point(273, 0);
+            this.btnCargarDomicilios.Location = new System.Drawing.Point(397, 0);
             this.btnCargarDomicilios.Name = "btnCargarDomicilios";
-            this.btnCargarDomicilios.Size = new System.Drawing.Size(94, 34);
+            this.btnCargarDomicilios.Size = new System.Drawing.Size(88, 34);
             this.btnCargarDomicilios.TabIndex = 10;
             this.btnCargarDomicilios.Text = "Domicilios ";
             this.btnCargarDomicilios.UseVisualStyleBackColor = false;
@@ -712,16 +749,16 @@
             // 
             // btnMenuda
             // 
+            this.btnMenuda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnMenuda.BackColor = System.Drawing.Color.Transparent;
             this.btnMenuda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuda.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnMenuda.FlatAppearance.BorderSize = 0;
             this.btnMenuda.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnMenuda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMenuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMenuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMenuda.Location = new System.Drawing.Point(185, 0);
+            this.btnMenuda.Location = new System.Drawing.Point(228, 0);
             this.btnMenuda.Name = "btnMenuda";
             this.btnMenuda.Size = new System.Drawing.Size(88, 34);
             this.btnMenuda.TabIndex = 5;
@@ -731,16 +768,16 @@
             // 
             // btnMovimientos
             // 
+            this.btnMovimientos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnMovimientos.BackColor = System.Drawing.Color.Transparent;
             this.btnMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMovimientos.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnMovimientos.FlatAppearance.BorderSize = 0;
             this.btnMovimientos.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnMovimientos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMovimientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnMovimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnMovimientos.Location = new System.Drawing.Point(88, 0);
+            this.btnMovimientos.Location = new System.Drawing.Point(131, 0);
             this.btnMovimientos.Name = "btnMovimientos";
             this.btnMovimientos.Size = new System.Drawing.Size(97, 34);
             this.btnMovimientos.TabIndex = 4;
@@ -750,16 +787,16 @@
             // 
             // btnResumen
             // 
+            this.btnResumen.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnResumen.BackColor = System.Drawing.Color.Transparent;
             this.btnResumen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResumen.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnResumen.FlatAppearance.BorderSize = 0;
             this.btnResumen.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.btnResumen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnResumen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
             this.btnResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.btnResumen.Location = new System.Drawing.Point(0, 0);
+            this.btnResumen.Location = new System.Drawing.Point(43, 0);
             this.btnResumen.Name = "btnResumen";
             this.btnResumen.Size = new System.Drawing.Size(88, 34);
             this.btnResumen.TabIndex = 3;
@@ -784,7 +821,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gold;
-            this.label10.Location = new System.Drawing.Point(791, 67);
+            this.label10.Location = new System.Drawing.Point(808, 38);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 18);
@@ -796,7 +833,7 @@
             this.lb_Cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_Cajero.Location = new System.Drawing.Point(861, 68);
+            this.lb_Cajero.Location = new System.Drawing.Point(878, 39);
             this.lb_Cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Cajero.Name = "lb_Cajero";
             this.lb_Cajero.Size = new System.Drawing.Size(121, 18);
@@ -813,10 +850,11 @@
             // 
             // lbNovedades
             // 
+            this.lbNovedades.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbNovedades.AutoSize = true;
             this.lbNovedades.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNovedades.ForeColor = System.Drawing.Color.White;
-            this.lbNovedades.Location = new System.Drawing.Point(41, 306);
+            this.lbNovedades.Location = new System.Drawing.Point(41, 292);
             this.lbNovedades.Name = "lbNovedades";
             this.lbNovedades.Size = new System.Drawing.Size(91, 21);
             this.lbNovedades.TabIndex = 34;
@@ -825,38 +863,65 @@
             // 
             // txtnotas
             // 
+            this.txtnotas.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtnotas.BackColor = System.Drawing.Color.White;
-            this.txtnotas.Enabled = false;
             this.txtnotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnotas.ForeColor = System.Drawing.Color.Black;
-            this.txtnotas.Location = new System.Drawing.Point(47, 332);
+            this.txtnotas.Location = new System.Drawing.Point(47, 318);
             this.txtnotas.Multiline = true;
             this.txtnotas.Name = "txtnotas";
+            this.txtnotas.ReadOnly = true;
             this.txtnotas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtnotas.Size = new System.Drawing.Size(327, 42);
             this.txtnotas.TabIndex = 33;
             this.txtnotas.Visible = false;
             this.txtnotas.TextChanged += new System.EventHandler(this.txtnotas_TextChanged);
             // 
+            // txtNotaAprobacion
+            // 
+            this.txtNotaAprobacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNotaAprobacion.BorderColor = System.Drawing.Color.Red;
+            this.txtNotaAprobacion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotaAprobacion.DefaultText = "";
+            this.txtNotaAprobacion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNotaAprobacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNotaAprobacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotaAprobacion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotaAprobacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotaAprobacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtNotaAprobacion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNotaAprobacion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotaAprobacion.Location = new System.Drawing.Point(592, 313);
+            this.txtNotaAprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNotaAprobacion.Multiline = true;
+            this.txtNotaAprobacion.Name = "txtNotaAprobacion";
+            this.txtNotaAprobacion.PasswordChar = '\0';
+            this.txtNotaAprobacion.PlaceholderText = "";
+            this.txtNotaAprobacion.ReadOnly = true;
+            this.txtNotaAprobacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNotaAprobacion.SelectedText = "";
+            this.txtNotaAprobacion.Size = new System.Drawing.Size(381, 54);
+            this.txtNotaAprobacion.TabIndex = 38;
+            this.txtNotaAprobacion.Visible = false;
+            // 
             // FrmDetalleReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(983, 981);
+            this.ClientSize = new System.Drawing.Size(1000, 755);
+            this.Controls.Add(this.txtNotaAprobacion);
             this.Controls.Add(this.lbNovedades);
             this.Controls.Add(this.txtnotas);
             this.Controls.Add(this.lb_Cajero);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.PanelbotonesSuperior);
             this.Controls.Add(this.guna2CustomGradientPanel10);
-            this.Controls.Add(this.PanelControles);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelesMovimientos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetalleReporte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDetalleReporte";
             this.Load += new System.EventHandler(this.FrmDetalleReporte_Load);
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -884,7 +949,9 @@
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             this.guna2CustomGradientPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.PanelControles.ResumeLayout(false);
+            this.guna2CustomGradientPanel9.ResumeLayout(false);
+            this.guna2CustomGradientPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.guna2CustomGradientPanel10.ResumeLayout(false);
             this.pnlflListaMedioPago.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -932,10 +999,6 @@
         private System.Windows.Forms.Label lb_TotalDatafono;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel panelesMovimientos;
-        private System.Windows.Forms.Panel PanelControles;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2DragControl AccionMovimiento;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel10;
         private System.Windows.Forms.FlowLayoutPanel pnlflListaMedioPago;
@@ -956,5 +1019,12 @@
         private Guna.UI2.WinForms.Guna2Elipse Elipse5;
         private System.Windows.Forms.Label lbNovedades;
         private System.Windows.Forms.TextBox txtnotas;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel9;
+        private System.Windows.Forms.Label lblDevoluciones;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnAdelantos;
+        private System.Windows.Forms.Button btnNotaAprobacion;
+        private Guna.UI2.WinForms.Guna2TextBox txtNotaAprobacion;
     }
 }

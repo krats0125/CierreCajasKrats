@@ -42,10 +42,10 @@
             this.lbAdelantos = new System.Windows.Forms.Label();
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.AcccionMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1.SuspendLayout();
             this.cgpEliminarAdelanto.SuspendLayout();
@@ -66,6 +66,7 @@
             this.panel1.Controls.Add(this.CGPAdelantos);
             this.panel1.Controls.Add(this.PanelControles);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(457, 340);
@@ -79,7 +80,7 @@
             this.cgpEliminarAdelanto.Controls.Add(this.lbEliminarAdelanto);
             this.cgpEliminarAdelanto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgpEliminarAdelanto.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.cgpEliminarAdelanto.Location = new System.Drawing.Point(125, 200);
+            this.cgpEliminarAdelanto.Location = new System.Drawing.Point(121, 198);
             this.cgpEliminarAdelanto.Margin = new System.Windows.Forms.Padding(2);
             this.cgpEliminarAdelanto.Name = "cgpEliminarAdelanto";
             this.cgpEliminarAdelanto.Size = new System.Drawing.Size(209, 105);
@@ -120,7 +121,7 @@
             this.CGPConcepto.Controls.Add(this.pbConcepto);
             this.CGPConcepto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPConcepto.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPConcepto.Location = new System.Drawing.Point(24, 91);
+            this.CGPConcepto.Location = new System.Drawing.Point(119, 91);
             this.CGPConcepto.Margin = new System.Windows.Forms.Padding(2);
             this.CGPConcepto.Name = "CGPConcepto";
             this.CGPConcepto.Size = new System.Drawing.Size(209, 105);
@@ -161,11 +162,12 @@
             this.CGPAdelantos.Controls.Add(this.lbAdelantos);
             this.CGPAdelantos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPAdelantos.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPAdelantos.Location = new System.Drawing.Point(233, 91);
+            this.CGPAdelantos.Location = new System.Drawing.Point(336, 91);
             this.CGPAdelantos.Margin = new System.Windows.Forms.Padding(2);
             this.CGPAdelantos.Name = "CGPAdelantos";
             this.CGPAdelantos.Size = new System.Drawing.Size(209, 105);
             this.CGPAdelantos.TabIndex = 27;
+            this.CGPAdelantos.Visible = false;
             this.CGPAdelantos.Click += new System.EventHandler(this.CGPAdelantos_Click);
             // 
             // pbAdelantos
@@ -196,16 +198,16 @@
             // 
             // PanelControles
             // 
-            this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.PanelControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Location = new System.Drawing.Point(-9, -1);
+            this.PanelControles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelControles.Location = new System.Drawing.Point(0, 0);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(466, 26);
+            this.PanelControles.Size = new System.Drawing.Size(457, 31);
             this.PanelControles.TabIndex = 26;
             // 
             // guna2ControlBox3
@@ -216,25 +218,11 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(393, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(405, -1);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(418, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
             // 
@@ -243,7 +231,7 @@
             this.guna2ControlBox1.BorderRadius = 10;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(442, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(431, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
@@ -270,6 +258,14 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "ADELANTOS";
             // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(0, 31);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(454, 306);
+            this.panel3.TabIndex = 29;
+            // 
             // AcccionMovimiento
             // 
             this.AcccionMovimiento.DockIndicatorTransparencyValue = 0.6D;
@@ -284,9 +280,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdelantos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAdelantos";
+            this.Text = "Adelantos";
             this.panel1.ResumeLayout(false);
             this.cgpEliminarAdelanto.ResumeLayout(false);
             this.cgpEliminarAdelanto.PerformLayout();
@@ -311,7 +308,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel CGPConcepto;
         private System.Windows.Forms.Label lbConcepto;
@@ -323,5 +319,6 @@
         private System.Windows.Forms.PictureBox pbEliminarAdelanto;
         private System.Windows.Forms.Label lbEliminarAdelanto;
         private Guna.UI2.WinForms.Guna2DragControl AcccionMovimiento;
+        private System.Windows.Forms.Panel panel3;
     }
 }

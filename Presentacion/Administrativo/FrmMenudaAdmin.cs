@@ -17,12 +17,13 @@ namespace CierreDeCajas.Presentacion.Administrativo
         FrmDetalleReporte frmDr = null;
         private DateTime fechaApertura;
         public decimal valorentregado = 0;
-        Menuda oMenuda = new Menuda();
+         private Menuda oMenuda;
         public FrmMenudaAdmin(FrmDetalleReporte frmDr,DateTime fechaApertura)
         {
             InitializeComponent();
             this.frmDr = frmDr;
             this.fechaApertura=fechaApertura;
+            this.oMenuda=new Menuda();
         }
 
 
@@ -30,7 +31,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             try
             {
-                Menuda oMenuda = new Menuda();
                 oMenuda.IdCierre = frmDr.IdCierre;
                 MenudaRepository menuda = new MenudaRepository();
 
@@ -68,7 +68,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
             txM100.Text = oMenuda.Moneda_100.ToString();
             txM50.Text = oMenuda.Moneda_50.ToString();
 
-            int total = 0;
+            decimal total = 0;
             total += TryConvertToInt(txB100.Text) * 100000;
             total += TryConvertToInt(txB50.Text) * 50000;
             total += TryConvertToInt(txB20.Text) * 20000;
@@ -132,10 +132,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
         }
 
         //Metodo general para aumentar la cantidad de billetes por medio del boton +
-        private void aumentar(TextBox tx, TextBox txtotal, int denominacion)
+        private void aumentar(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
-            if (!int.TryParse(tx.Text, out cantidad))
+            decimal cantidad = 0;
+            if (!decimal.TryParse(tx.Text, out cantidad))
             {
                 cantidad = 0;
             }
@@ -143,47 +143,48 @@ namespace CierreDeCajas.Presentacion.Administrativo
             cantidad++;
             tx.Text = cantidad.ToString();
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
             calcularTotalEntregado();
 
         }
         //Metodo general para disminuir la cantidad de billetes por medio del boton -
-        private void Disminuir(TextBox tx, TextBox txtotal, int denominacion)
+        private void Disminuir(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
-            if (!int.TryParse(tx.Text, out cantidad))
+            decimal cantidad = 0;
+            if (!decimal.TryParse(tx.Text, out cantidad)||cantidad<=0)
             {
-                cantidad = 0;
+                MessageBox.Show("El valor ingresado es incorrecto, por favor ingrese un valor positivo");
+                return;
             }
             cantidad--;
             tx.Text = cantidad.ToString();
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
             calcularTotalEntregado();
         }
-        private int TryConvertToInt(string input)
+        private decimal TryConvertToInt(string input)
         {
-            int result = 0;
-            int.TryParse(input, out result);
+            decimal result = 0;
+            decimal.TryParse(input, out result);
             return result;
         }
         public void calcularTotalEntregado()
         {
-            int total = 0;
-            int totalB100 = TryConvertToInt(txB100.Text) * 100000;
-            int totalB50 = TryConvertToInt(txB50.Text) * 50000;
-            int totalB20 = TryConvertToInt(txB20.Text) * 20000;
-            int totalB10 = TryConvertToInt(txB10.Text) * 10000;
-            int totalB5 = TryConvertToInt(txB5.Text) * 5000;
-            int totalB2 = TryConvertToInt(txB2.Text) * 2000;
-            int totalB1 = TryConvertToInt(txB1.Text) * 1000;
-            int totalM1000 = TryConvertToInt(txM1000.Text) * 1000;
-            int totalM500 = TryConvertToInt(txM500.Text) * 500;
-            int totalM200 = TryConvertToInt(txM200.Text) * 200;
-            int totalM100 = TryConvertToInt(txM100.Text) * 100;
-            int totalM50 = TryConvertToInt(txM50.Text) * 50;
+            decimal total = 0;
+            decimal totalB100 = TryConvertToInt(txB100.Text) * 100000;
+            decimal totalB50 = TryConvertToInt(txB50.Text) * 50000;
+            decimal totalB20 = TryConvertToInt(txB20.Text) * 20000;
+            decimal totalB10 = TryConvertToInt(txB10.Text) * 10000;
+            decimal totalB5 = TryConvertToInt(txB5.Text) * 5000;
+            decimal totalB2 = TryConvertToInt(txB2.Text) * 2000;
+            decimal totalB1 = TryConvertToInt(txB1.Text) * 1000;
+            decimal totalM1000 = TryConvertToInt(txM1000.Text) * 1000;
+            decimal totalM500 = TryConvertToInt(txM500.Text) * 500;
+            decimal totalM200 = TryConvertToInt(txM200.Text) * 200;
+            decimal totalM100 = TryConvertToInt(txM100.Text) * 100;
+            decimal totalM50 = TryConvertToInt(txM50.Text) * 50;
 
             total += totalB100 + totalB50 + totalB20 + totalB10 + totalB5 + totalB2 + totalB1 +
              totalM1000 + totalM500 + totalM200 + totalM100 + totalM50;
@@ -338,6 +339,10 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             try
             {
+                if (frmDr.IdCierre != oMenuda.IdCierre)
+                {
+                    return;
+                }
                 oMenuda.IdUsuario = frmDr.IdUsuario;
                 oMenuda.IdCierre = frmDr.IdCierre;
                 oMenuda.Billete_100 = TryConvertToInt(txB100.Text);
@@ -387,17 +392,17 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
         }
         //Metodo para actualizar la cantidad sin necesidad de tocar los botones + -
-        private void ActualizarTotalManual(TextBox tx, TextBox txtotal, int denominacion)
+        private void ActualizarTotalManual(TextBox tx, TextBox txtotal, decimal denominacion)
         {
-            int cantidad = 0;
+            decimal cantidad = 0;
 
-            if (!int.TryParse(tx.Text, out cantidad))
+            if (!decimal.TryParse(tx.Text, out cantidad))
             {
                 cantidad = 0;
             }
 
 
-            int total = cantidad * denominacion;
+            decimal total = cantidad * denominacion;
             txtotal.Text = total.ToString();
 
 
@@ -419,12 +424,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB100, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM50.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB100, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB50.Focus();
             }
         }
         private void txB50_KeyDown(object sender, KeyEventArgs e)
@@ -441,12 +448,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB50, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB100.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB50, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB20.Focus();
             }
         }
 
@@ -464,12 +473,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB20, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB50.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB20, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB10.Focus();
             }
 
         }
@@ -489,12 +500,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB10, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB20.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB10, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB5.Focus();
             }
         }
 
@@ -512,12 +525,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB5, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB10.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB5, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB2.Focus();
             }
         }
 
@@ -535,12 +550,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB2, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB5.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB2, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB1.Focus();
             }
         }
 
@@ -559,12 +576,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txB1, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB2.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txB1, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM1000.Focus();
             }
         }
 
@@ -582,12 +601,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM1000, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB1.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM1000, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM500.Focus();
             }
         }
 
@@ -605,12 +626,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM500, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM1000.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM500, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM200.Focus();
             }
         }
 
@@ -628,12 +651,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM200, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM500.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM200, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM100.Focus();
             }
         }
 
@@ -651,12 +676,14 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM100, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM200.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM100, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM50.Focus();
             }
         }
 
@@ -668,18 +695,21 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 ActualizarTotalManual(txM50, txtTotal50, 50);
 
                 e.SuppressKeyPress = true;
+                txB100.Focus();
             }
             else if (e.KeyCode == Keys.Up)
             {
                 // Mover el foco al control anterior
                 this.SelectNextControl(txM50, false, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txM100.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 // Mover el foco al control siguiente
                 this.SelectNextControl(txM50, true, true, true, true);
                 e.SuppressKeyPress = true; // Evitar la acción predeterminada
+                txB100.Focus();
             }
         }
         #endregion

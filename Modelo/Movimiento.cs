@@ -8,7 +8,7 @@ namespace CierreDeCajas.Modelo
 {
     public class Movimiento
     {
-        public int IdMovimiento { get; set; }
+        public long IdMovimiento { get; set; }
 
         public int IdCaja { get; set; }
         public int IdCierre { get; set; }

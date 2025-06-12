@@ -17,7 +17,9 @@ namespace CierreDeCajas.Logica
         CierreCaja oCierreCaja = new CierreCaja();
         CONEXION cn = new CONEXION();
         decimal valorVentas = 0;
+        decimal valorDevoluciones=0;
         string novedades=null;
+        string notaAprobacion = null;
         Principal ppal = null;
 
 
@@ -25,6 +27,7 @@ namespace CierreDeCajas.Logica
         {
             ppal = principal;
             CargarValorVentas();
+           
 
         }
 
@@ -42,18 +45,19 @@ namespace CierreDeCajas.Logica
                                  (SELECT SUM(NC.total) 
                                   FROM Notas_CxC1 NC 
                                   WHERE NC.IdUsuario = @IdUsuario
-                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE() AS DATE)), 0) AS DEVOLUCIONES,
+                                  AND CAST(NC.FechaCreacion AS DATE) = CAST(DATEADD(HOUR, -5, GETDATE()) AS DATE)), 0) AS DEVOLUCIONES,
                              SUM(F1.total) - 
                              ISNULL(
                                  (SELECT SUM(NC.total) 
                                   FROM Notas_CxC1 NC 
                                   WHERE NC.IdUsuario = @IdUsuario
-                                  AND CAST(NC.Fecha AS DATE) = CAST(GETDATE() AS DATE)), 0) AS VentasTotales
+                                  AND CAST(NC.FechaCreacion AS DATE) = CAST(DATEADD(HOUR, -5, GETDATE()) AS DATE)), 0) AS VentasTotales
                          FROM 
                              Facturas1 F1
                          WHERE 
-                             F1.IdUsuario = @IdUsuario 
-                             AND CAST(F1.FechaCreacion AS DATE) = CAST(GETDATE() AS DATE);";
+                             F1.IdUsuario =@IdUsuario
+							 AND F1.Anulado=0
+                             AND CAST(F1.FechaCreacion AS DATE) = CAST(DATEADD(HOUR, -5, GETDATE()) AS DATE);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
@@ -78,7 +82,6 @@ namespace CierreDeCajas.Logica
             }
             return valorVentas;
         }
-
         public void CargarValorVentas()
         {
             try
@@ -106,6 +109,45 @@ namespace CierreDeCajas.Logica
             }
         }
 
+
+        public decimal ActualizarDevoluciones(string idUsuario)
+        {
+            decimal devoluciones = 0;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionRibisoft()))
+                {
+                    conexion.Open();
+                    string consulta = @"select SUM(total) from Notas_CxC1 
+                                    where IdUsuario=@IdUsuario AND CONVERT(date,FechaCreacion)=CONVERT(date,DATEADD(HOUR, -5, GETDATE()))";
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
+
+                        var resultado = cmd.ExecuteScalar();
+
+                        if (resultado != DBNull.Value)
+                        {
+                            devoluciones = Convert.ToDecimal(resultado);
+                            if (devoluciones > 0)
+                            {
+                                valorDevoluciones = devoluciones;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return valorDevoluciones;
+        }
+
+
         public string CargarNovedades()
         {
             try
@@ -130,10 +172,36 @@ namespace CierreDeCajas.Logica
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al cargar valor de ventas guardado: {ex.Message}");
+                Console.WriteLine($"Error al cargar las notas: {ex.Message}");
             }
             return novedades;
         }
+        public string mostrarNota()
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = @"select descripcion from NotasAprobacion where idCierre=@idcierre";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idcierre", ppal.idCierre);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            notaAprobacion = Convert.ToString(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                notaAprobacion = "";
+            }
+            return notaAprobacion;
+        }
+
 
 
         public bool ActualizarCierre(int IdCierre)

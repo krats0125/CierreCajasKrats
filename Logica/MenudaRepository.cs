@@ -103,8 +103,5 @@ namespace CierreDeCajas.Logica
         }
 
 
-
-
-
     }
 }

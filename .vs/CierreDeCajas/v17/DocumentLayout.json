@@ -1,42 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\",
+  "WorkspaceRootPath": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmmenudasupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmmenudasupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|d:\\users\\user\\escritorio\\programas c#\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmmenudasupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmmenudasupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\presentacion\\sistema\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\sistema\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmenuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\presentacion\\sistema\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\sistema\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmmovimientossupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmmovimientossupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmsupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmsupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmsupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmsupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|z:\\app bodega de nacho\\nuevos projectos\\formatos windows forms\\cierre caja\\sistema cierre caja\\cierresdecaja\\presentacion\\administrativo\\frmmovimientossupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\administrativo\\frmmovimientossupercaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F08E1664-E9D3-48AA-9CC9-396851D3362D}|CierreDeCajas.csproj|solutionrelative:presentacion\\operativo\\frmcierrecaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,139 +26,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmMenudaSuperCaja.cs",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Title": "FrmMenuda.cs",
+              "DocumentMoniker": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMenuda.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMenuda.cs",
+              "ToolTip": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMenuda.cs",
+              "RelativeToolTip": "Presentacion\\Operativo\\FrmMenuda.cs",
+              "ViewState": "AQIAAAUCAAAAAAAAAADwvzICAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:50:41.652Z",
+              "WhenOpened": "2025-06-12T02:02:48.311Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmSuperCaja.cs",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:49:05.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FrmSuperCaja.cs [Dise\u00F1o]",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmSuperCaja.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmSuperCaja.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:49:04.224Z",
-              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmMenudaSuperCaja.cs [Dise\u00F1o]",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmMenudaSuperCaja.cs [Dise\u00F1o]",
+              "Title": "FrmLogin.cs",
+              "DocumentMoniker": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Sistema\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Sistema\\FrmLogin.cs",
+              "ToolTip": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Sistema\\FrmLogin.cs",
+              "RelativeToolTip": "Presentacion\\Sistema\\FrmLogin.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAIA2wEMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:47:30.388Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-06-12T02:02:28.143Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmMenuda.cs [Dise\u00F1o]",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMenuda.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMenuda.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMenuda.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Presentacion\\Operativo\\FrmMenuda.cs [Dise\u00F1o]",
+              "Title": "FrmLogin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Sistema\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Sistema\\FrmLogin.cs",
+              "ToolTip": "X:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Sistema\\FrmLogin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:45:25.001Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmMovimientos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMovimientos.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMovimientos.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMovimientos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Presentacion\\Operativo\\FrmMovimientos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:34:50.98Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmMovimientos.cs",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMovimientos.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmMovimientos.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmMovimientos.cs",
-              "RelativeToolTip": "Presentacion\\Operativo\\FrmMovimientos.cs",
-              "ViewState": "AgIAAKUBAAAAAAAAAAAIwA4CAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:34:53.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T02:02:23.439Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmMovimientosSuperCaja.cs",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "Title": "FrmCierreCaja.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Users\\user\\Escritorio\\Programas C#\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Operativo\\FrmCierreCaja.cs",
+              "ToolTip": "X:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Operativo\\FrmCierreCaja.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:34:01.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FrmMovimientosSuperCaja.cs [Dise\u00F1o]",
-              "DocumentMoniker": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs",
-              "ToolTip": "Z:\\APP BODEGA DE NACHO\\Nuevos projectos\\Formatos windows Forms\\CIERRE CAJA\\SISTEMA CIERRE CAJA\\Cierresdecaja\\Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Presentacion\\Administrativo\\FrmMovimientosSuperCaja.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T22:33:58.492Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-06-12T02:02:03.03Z"
             }
           ]
         }

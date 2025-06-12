@@ -69,12 +69,18 @@
             this.panelesMovimientos = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2CustomGradientPanel10 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblDevoluciones = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnImprime = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnNotas = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtnotas = new System.Windows.Forms.TextBox();
             this.lbNovedades = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnActualizar = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.txtNotaAprobacion = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlflListaMedioPago.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -95,7 +101,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.guna2CustomGradientPanel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.guna2CustomGradientPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_entregaultimoefectivo
@@ -573,6 +582,7 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel7);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel8);
             this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.guna2CustomGradientPanel10);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -580,12 +590,62 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(583, 231);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // guna2CustomGradientPanel10
+            // 
+            this.guna2CustomGradientPanel10.BorderRadius = 15;
+            this.guna2CustomGradientPanel10.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel10.Controls.Add(this.lblDevoluciones);
+            this.guna2CustomGradientPanel10.Controls.Add(this.pictureBox9);
+            this.guna2CustomGradientPanel10.Controls.Add(this.label10);
+            this.guna2CustomGradientPanel10.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(338, 152);
+            this.guna2CustomGradientPanel10.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CustomGradientPanel10.Name = "guna2CustomGradientPanel10";
+            this.guna2CustomGradientPanel10.Size = new System.Drawing.Size(164, 71);
+            this.guna2CustomGradientPanel10.TabIndex = 26;
+            // 
+            // lblDevoluciones
+            // 
+            this.lblDevoluciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblDevoluciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lblDevoluciones.Location = new System.Drawing.Point(49, 37);
+            this.lblDevoluciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDevoluciones.Name = "lblDevoluciones";
+            this.lblDevoluciones.Size = new System.Drawing.Size(111, 28);
+            this.lblDevoluciones.TabIndex = 25;
+            this.lblDevoluciones.Text = "$ 0.000.000";
+            this.lblDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(4, 25);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(41, 45);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 11;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(7, 4);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 19);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Devoluciones";
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(34, 28);
+            this.panel2.Location = new System.Drawing.Point(34, 29);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 8, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(583, 231);
@@ -626,12 +686,12 @@
             // txtnotas
             // 
             this.txtnotas.BackColor = System.Drawing.Color.White;
-            this.txtnotas.Enabled = false;
             this.txtnotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnotas.ForeColor = System.Drawing.Color.Black;
             this.txtnotas.Location = new System.Drawing.Point(41, 279);
             this.txtnotas.Multiline = true;
             this.txtnotas.Name = "txtnotas";
+            this.txtnotas.ReadOnly = true;
             this.txtnotas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtnotas.Size = new System.Drawing.Size(327, 42);
             this.txtnotas.TabIndex = 31;
@@ -652,11 +712,55 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnActualizar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1050, 31);
             this.panel3.TabIndex = 33;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.CheckedState.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.HoverState.ImageSize = new System.Drawing.Size(27, 27);
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnActualizar.ImageRotate = 0F;
+            this.btnActualizar.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnActualizar.Location = new System.Drawing.Point(34, 0);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.PressedState.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnActualizar.Size = new System.Drawing.Size(28, 28);
+            this.btnActualizar.TabIndex = 34;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // txtNotaAprobacion
+            // 
+            this.txtNotaAprobacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNotaAprobacion.BorderColor = System.Drawing.Color.Red;
+            this.txtNotaAprobacion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotaAprobacion.DefaultText = "";
+            this.txtNotaAprobacion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNotaAprobacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNotaAprobacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotaAprobacion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotaAprobacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotaAprobacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtNotaAprobacion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNotaAprobacion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotaAprobacion.Location = new System.Drawing.Point(639, 289);
+            this.txtNotaAprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNotaAprobacion.Multiline = true;
+            this.txtNotaAprobacion.Name = "txtNotaAprobacion";
+            this.txtNotaAprobacion.PasswordChar = '\0';
+            this.txtNotaAprobacion.PlaceholderText = "";
+            this.txtNotaAprobacion.ReadOnly = true;
+            this.txtNotaAprobacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNotaAprobacion.SelectedText = "";
+            this.txtNotaAprobacion.Size = new System.Drawing.Size(381, 41);
+            this.txtNotaAprobacion.TabIndex = 37;
+            this.txtNotaAprobacion.Visible = false;
             // 
             // FrmCierreCaja
             // 
@@ -667,6 +771,7 @@
             this.AutoScrollMinSize = new System.Drawing.Size(0, 200);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1050, 1100);
+            this.Controls.Add(this.txtNotaAprobacion);
             this.Controls.Add(this.lbNovedades);
             this.Controls.Add(this.txtnotas);
             this.Controls.Add(this.btnNotas);
@@ -708,7 +813,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.guna2CustomGradientPanel9.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel10.ResumeLayout(false);
+            this.guna2CustomGradientPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -760,5 +869,11 @@
         private System.Windows.Forms.TextBox txtnotas;
         private System.Windows.Forms.Label lbNovedades;
         private System.Windows.Forms.Panel panel3;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel10;
+        private System.Windows.Forms.Label lblDevoluciones;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2ImageButton btnActualizar;
+        private Guna.UI2.WinForms.Guna2TextBox txtNotaAprobacion;
     }
 }

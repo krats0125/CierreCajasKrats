@@ -36,15 +36,17 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             CargarSumatorias();
             cargarVentas();
+            cargarDevoluciones();
             CargarCierreVentas();
             CitarPanelesMovimientos();
             cargarNovedades();
+            cargarNotaAprobacion();
             lb_Cajero.Text = IdUsuario;
             cargarDatafonos();
-
             cargarTransferencias();
             TraerCaja();
             cargarBonos();
+            cargarRappi();
         }
         private void CrearPanelesConMediosDePago(List<MedioDePago> mediosPago)
         {
@@ -203,6 +205,26 @@ namespace CierreDeCajas.Presentacion.Administrativo
             }
         }
 
+        public void cargarDevoluciones()
+        {
+            DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+            decimal totalDevoluciones = detallerepo.ActualizarDevoluciones(IdUsuario);
+
+            if (totalDevoluciones > 0)
+            {
+                lblDevoluciones.Text = totalDevoluciones.ToString("C0");
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                else
+                {
+                    CargarCierreVentas();
+                }
+            }
+        }
+
         private void cargarNovedades()
         {
             DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
@@ -212,6 +234,18 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 lbNovedades.Visible = true;
                 txtnotas.Visible = true;
                 txtnotas.Text = novedades;
+            }
+
+        }
+        public void cargarNotaAprobacion()
+        {
+            NotaAprobacionRepository repo = new NotaAprobacionRepository();
+            NotaAprobacion oNota =new  NotaAprobacion();
+            string notaAprobacion = repo.mostrarNota(IdCierre);
+            if (notaAprobacion != null && notaAprobacion!="")
+            {
+                txtNotaAprobacion.Visible = true;
+                txtNotaAprobacion.Text = notaAprobacion;
             }
 
         }
@@ -381,13 +415,13 @@ namespace CierreDeCajas.Presentacion.Administrativo
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
             FrmMovimientosAdmin movimientos = new FrmMovimientosAdmin(this, fechaApertura);
-            movimientos.Show();
+            movimientos.ShowDialog();
         }
 
         private void btnMenuda_Click(object sender, EventArgs e)
         {
             FrmMenudaAdmin menuda = new FrmMenudaAdmin(this, fechaApertura);
-            menuda.Show();
+            menuda.ShowDialog();
         }
 
         private void btnCargarDomicilios_Click(object sender, EventArgs e)
@@ -402,7 +436,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Instanciar el repositorio y pasarle la lista de archivos
-                DetalleReporteRepository Repo = new DetalleReporteRepository(this, fechaApertura    );
+                DetalleReporteRepository Repo = new DetalleReporteRepository(this, fechaApertura);
                 List<string> rutasArchivos = openFileDialog.FileNames.ToList();
 
                 try
@@ -451,7 +485,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             var transferenciasCargadas = FrmMovimientosAdmin.traerTransferencias();
 
-
             bool insercionExitosa = FrmMovimientosAdmin.InsetarTransferencias(transferenciasCargadas);
 
             if (insercionExitosa)
@@ -486,12 +519,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
 
             if (insercionExitosa)
             {
-
-
                 FrmMovimientosAdmin.ListaMovimientos();
-
-
-
                 CargarSumatorias();
                 CitarPanelesMovimientos();
 
@@ -501,7 +529,6 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 {
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
                 }
-
                 CargarCierreVentas();
             }
 
@@ -535,6 +562,43 @@ namespace CierreDeCajas.Presentacion.Administrativo
                 CargarCierreVentas();
             }
 
+        }
+        private void cargarRappi()
+        {
+            var Rappi = FrmMovimientosAdmin.traerVentasRappi();
+            //FrmMovimientosAdmin.EliminarDevolucionesRappi();
+
+            bool insercionExitosa = FrmMovimientosAdmin.InsertarVentasRappi(Rappi);
+
+
+            if (insercionExitosa)
+            {
+                FrmMovimientosAdmin.ListaMovimientos();
+                CargarSumatorias();
+                CitarPanelesMovimientos();
+
+                DetalleReporteRepository detallerepo = new DetalleReporteRepository(this, fechaApertura);
+                bool actualizacionExitosa = detallerepo.ActualizarCierre(IdCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+
+                CargarCierreVentas();
+            }
+
+        }
+
+        private void btnAdelantos_Click(object sender, EventArgs e)
+        {
+            FrmPrestamosAdmin adelantos = new FrmPrestamosAdmin(this, fechaApertura);
+            adelantos.ShowDialog();
+        }
+
+        private void btnNotaAprobacion_Click(object sender, EventArgs e)
+        {
+            FrmNotaAprobacion notaAprobacion = new FrmNotaAprobacion(this);
+            notaAprobacion.ShowDialog();
         }
     }
 }

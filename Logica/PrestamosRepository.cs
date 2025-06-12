@@ -15,11 +15,11 @@ namespace CierreDeCajas.Logica
     {
         CONEXION cn = new CONEXION();
 
-        
+
         public int Insertar(Movimiento oMovimiento)
         {
             int idMovimiento = 0;
-           
+
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
@@ -116,7 +116,7 @@ namespace CierreDeCajas.Logica
 
         //    return respuesta;
 
-           
+
         //}
 
 
@@ -133,19 +133,19 @@ namespace CierreDeCajas.Logica
 
                     if (esMensajero)
                     {
-                        sql = @"INSERT INTO PRESTAMOS_MENSAJEROS(IdTrabajador, Valor, Concepto, Caja, Cajero, Observacion,IdMovimiento)  
-                        VALUES (@IdTrabajador, @Valor, @Concepto, @Caja, @Cajero, @Observacion,@IdMovimiento)";
+                        sql = @"insert into PRESTAMOS_MENSAJEROS(Fecha,IdTrabajador,Valor,Concepto,Caja,Cajero,Observacion,IdMovimiento)
+                              values(@Fecha,@IdMensajero, @Valor, @Concepto, @Caja, @Cajero, @Observacion,@IdMovimiento)";
                     }
                     else if (esTrabajador)
                     {
-                        sql = @"INSERT INTO PRESTAMOS(IdTrabajador, Valor, Concepto, Caja, Cajero, Observacion,IdMovimiento)  
-                        VALUES ( @IdTrabajador, @Valor, @Concepto, @Caja, @Cajero, @Observacion,@IdMovimiento)";
+                        sql = @"insert into PRESTAMOS(Fecha,IdTrabajador,Valor,Concepto,Caja,Cajero,Observacion,IdMovimiento)
+                               values(@Fecha,@IdTrabajador, @Valor, @Concepto, @Caja, @Cajero, @Observacion,@IdMovimiento)";
                     }
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
                         string idTrabajador = esMensajero ? oPrestamo.IdMensajero : oPrestamo.IdTrabajador;
-                        cmd.Parameters.AddWithValue("@IdTrabajador", idTrabajador);
+                        cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                         cmd.Parameters.AddWithValue("@Valor", oPrestamo.Valor);
                         cmd.Parameters.AddWithValue("@Concepto", oPrestamo.Concepto);
                         cmd.Parameters.AddWithValue("@Caja", oPrestamo.Caja);
@@ -181,50 +181,7 @@ namespace CierreDeCajas.Logica
 
 
         }
-
-        //public bool Eliminar(Prestamo oPrestamo)
-        //{
-        //    bool respuesta = false;
-        //    try
-        //    {
-        //        using (OleDbConnection conexion = new OleDbConnection(cn.ConexionDbInterna()))
-        //        {
-        //            conexion.Open();
-        //            using (OleDbTransaction transaction= conexion.BeginTransaction())
-        //            {
-        //                string sql = @"DELETE FROM PRESTAMOS_MENSAJEROS WHERE IdPrestamo = @idPrestamo";
-
-        //                using (OleDbCommand cmd = new OleDbCommand(sql, conexion,transaction))
-        //                {
-        //                    cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
-        //                    cmd.ExecuteNonQuery();
-
-        //                }
-        //                string consulta = @"DELETE FROM PRESTAMOS WHERE IdPrestamo = @idPrestamo";
-        //                using (OleDbCommand cmd = new OleDbCommand(consulta, conexion,transaction))
-        //                {
-        //                    cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
-        //                    cmd.ExecuteNonQuery();
-
-        //                }
-        //                transaction.Commit();
-        //                respuesta= true;
-        //            }
-
-        //        }
-
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        MessageBox.Show($"Error al eliminar el préstamo: {ex.Message}");
-        //        return respuesta;
-        //    }
-        //    return respuesta;
-
-
-        //}
-
-        public bool Eliminar(Prestamo oPrestamo)
+        public bool EliminarPrestamoTrabajador(Prestamo oPrestamo)
         {
             bool respuesta = false;
             try
@@ -232,31 +189,14 @@ namespace CierreDeCajas.Logica
                 using (SqlConnection conexion = new SqlConnection(cn.Conexionlabodegadenacho()))
                 {
                     conexion.Open();
-                    using (SqlTransaction transaction = conexion.BeginTransaction())
+                    string sql = @"DELETE FROM PRESTAMOS WHERE IdPrestamo = @idPrestamo";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
-                        string sql = @"Update PRESTAMOS_MENSAJEROS
-							         set Pagado=1
-							         WHERE IdPrestamo = @idPrestamo";
-
-                        using (SqlCommand cmd = new SqlCommand(sql, conexion, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
-                            cmd.ExecuteNonQuery();
-
-                        }
-                        string consulta = @"Update PRESTAMOS
-							              set Pagado=1
-							              WHERE IdPrestamo = @idPrestamo";
-                        using (SqlCommand cmd = new SqlCommand(consulta, conexion, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
-                            cmd.ExecuteNonQuery();
-
-                        }
-                        transaction.Commit();
-                        respuesta = true;
+                        cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
+                        cmd.ExecuteNonQuery();
                     }
-
+                    respuesta = true;
                 }
 
             }
@@ -266,10 +206,61 @@ namespace CierreDeCajas.Logica
                 return respuesta;
             }
             return respuesta;
-
-
         }
 
+        public bool EliminarPrestamoMensajero(Prestamo oPrestamo)
+        {
+            bool respuesta = false;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.Conexionlabodegadenacho()))
+                {
+                    conexion.Open();
 
+                    string sql = @"DELETE FROM PRESTAMOS_MENSAJEROS WHERE IdPrestamo = @idPrestamo";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idPrestamo", oPrestamo.IdPrestamo);
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    respuesta = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el préstamo: {ex.Message}");
+                return respuesta;
+            }
+            return respuesta;
+        }
+
+        public bool EliminarMovimientoCaja(int idMovimiento)
+        {
+            bool respuesta = false;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cn.ConexionCierreCaja()))
+                {
+                    conexion.Open();
+                    string sql = @"delete from MovimientoCaja where IdMovimiento=@IdMovimiento";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdMovimiento", idMovimiento);
+                        cmd.ExecuteNonQuery();
+                    }
+                    respuesta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el movimiento de caja: {ex.Message}");
+                return respuesta;
+            }
+            return respuesta;
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CierreDeCajas.Modelo;
+using CierreDeCajas.Presentacion.AdminSuperCaja;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,7 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             FrmTrabajador trabajador = new FrmTrabajador();
             trabajador.Show();
+
         }
 
         private void lbTrabajador_Click(object sender, EventArgs e)
@@ -118,6 +120,35 @@ namespace CierreDeCajas.Presentacion.Administrativo
         {
             FrmAdelantos adelantos = new FrmAdelantos(this);
             adelantos.Show();
+        }
+
+        private void cgpSuperCaja_Paint(object sender, PaintEventArgs e)
+        {
+            FrmReporteSuperCaja supercaja = new FrmReporteSuperCaja();
+            supercaja.Show();
+        }
+
+        private void lbSuperCaja_Click(object sender, EventArgs e)
+        {
+            FrmReporteSuperCaja supercaja = new FrmReporteSuperCaja();
+            supercaja.Show();
+        }
+
+        private void pbSuperCaja_Click(object sender, EventArgs e)
+        {
+            FrmReporteSuperCaja supercaja = new FrmReporteSuperCaja();
+            supercaja.Show();
+        }
+
+        private void cgpSuperCaja_Click(object sender, EventArgs e)
+        {
+            FrmReporteSuperCaja supercaja = new FrmReporteSuperCaja();
+            supercaja.Show();
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

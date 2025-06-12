@@ -23,25 +23,16 @@ namespace CierreDeCajas.Presentacion
         {
             InitializeComponent();
             this.ppal = ppal;
-        
-
-
         }
-        private void FrmVentas_TotalVentasChanged(decimal totalVentas)
-        {
-          
-        }
-       
-
-
         private void CierreCaja_Load(object sender, EventArgs e)
         {
             CargarSumatorias();
             cargarVentas();
+            cargarDevoluciones();
             CargarCierreVentas();
             CitarPanelesMovimientos();
             cargarNovedades();
-
+            cargarNotaAprobacion();
         }
 
         private void CrearPanelesConMediosDePago(List<MedioDePago> mediosPago)
@@ -193,10 +184,7 @@ namespace CierreDeCajas.Presentacion
                 }
 
             }
-            private void lb_ValorVentas_Click(object sender, EventArgs e)
-            {
-           
-            }
+       
             private void cargarVentas()
             {
                 CierreCajaRepository cierreCajaRepo = new CierreCajaRepository(ppal);
@@ -223,7 +211,24 @@ namespace CierreDeCajas.Presentacion
                 }
             }
 
-
+        private void cargarDevoluciones()
+        {
+            CierreCajaRepository cierreCajaRepo = new CierreCajaRepository(ppal);
+            decimal totalDevoluciones = cierreCajaRepo.ActualizarDevoluciones(ppal.idUsuario);
+            if (totalDevoluciones > 0)
+            {
+                lblDevoluciones.Text = totalDevoluciones.ToString("C0");
+                bool actualizacionExitosa = cierreCajaRepo.ActualizarCierre(ppal.idCierre);
+                if (!actualizacionExitosa)
+                {
+                    MessageBox.Show("Hubo un error actualizando el cierre de caja");
+                }
+                else
+                {
+                    CargarCierreVentas();
+                }
+            }
+        }
         public class MovimientoList
         {
             public string Concepto { get; set; }
@@ -380,6 +385,8 @@ namespace CierreDeCajas.Presentacion
                     yPos += 20;
                     e.Graphics.DrawString($"Total Efectivo: {string.Format("{0:N0}", row["TOTAL EFECTIVO"])}", font, Brushes.Black, leftMargin, yPos);
                     yPos += 20;
+                    e.Graphics.DrawString($"Total Efectivo sistema: {string.Format("{0:N0}", row["TOTAL EFECTIVO"])}", font, Brushes.Black, leftMargin, yPos);
+                    yPos += 20;
                     e.Graphics.DrawString($"Datafonos: {string.Format("{0:N0}", row["TOTAL DATAFONOS"])}", font, Brushes.Black, leftMargin, yPos);
                     yPos += 20;
                     e.Graphics.DrawString($"Transferencias: {string.Format("{0:N0}", row["TOTAL TRANSFERENCIAS"])}", font, Brushes.Black, leftMargin, yPos);
@@ -397,20 +404,23 @@ namespace CierreDeCajas.Presentacion
 
         private void btnImprime_Click(object sender, EventArgs e)
         {
-            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(ppal);
-            DataTable datosCierre = cierreCajaRepository.ObtenerCierre(ppal.idUsuario, ppal.Fecha);
-
-            if (datosCierre.Rows.Count > 0)
+            try
             {
-                PrintDocument pd = new PrintDocument();
-                pd.PrintPage += (s, ev) => PrintPage(ev, datosCierre);
-                PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog
-                {
-                    Document = pd
-                };
-                printPreviewDialog.ShowDialog();
+                CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(ppal);
+                DataTable datosCierre = cierreCajaRepository.ObtenerCierre(ppal.idUsuario, ppal.Fecha);
 
-                //pd.Print();
+                if (datosCierre.Rows.Count > 0)
+                {
+                    PrintDocument pd = new PrintDocument();
+                    pd.PrintPage += (s, ev) => PrintPage(ev, datosCierre);
+
+                    // Inicia la impresión
+                    pd.Print();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar imprimir: " + ex.Message);
             }
         }
         private void cargarNovedades()
@@ -422,6 +432,23 @@ namespace CierreDeCajas.Presentacion
                 lbNovedades.Visible = true;
                 txtnotas.Visible = true;
                 txtnotas.Text = novedades;
+            }
+        }
+        private void cargarNotaAprobacion()
+        {
+            NotaAprobacionRepository repo = new NotaAprobacionRepository();
+            NotaAprobacion oNota = new NotaAprobacion();
+            string notaAprobacion = repo.mostrarNota(ppal.idCierre);
+            if (notaAprobacion != null && notaAprobacion != "")
+            {
+                oNota.Mostrado=repo.NotaMostrada(ppal.idCierre);
+                if (!oNota.Mostrado)
+                {
+                    MessageBox.Show(notaAprobacion, "Aprobación de prestamo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    repo.MarcarNotaComoMostrada(ppal.idCierre);
+                }
+                txtNotaAprobacion.Visible = true;
+                txtNotaAprobacion.Text = notaAprobacion;
             }
 
         }
@@ -451,6 +478,16 @@ namespace CierreDeCajas.Presentacion
         private void lbNovedades_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarSumatorias();
+            cargarVentas();
+            cargarDevoluciones();
+            CargarCierreVentas();
+            cargarNotaAprobacion();
+            
         }
     }
 }

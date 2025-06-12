@@ -45,6 +45,9 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lbContraseña = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.rbSuperCaja = new System.Windows.Forms.RadioButton();
+            this.rbAdministrativo = new System.Windows.Forms.RadioButton();
+            this.rbCierreCaja = new System.Windows.Forms.RadioButton();
             this.PanelControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +77,7 @@
             this.btnEntrar.FillColor = System.Drawing.Color.Gold;
             this.btnEntrar.Font = new System.Drawing.Font("Arial", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.Black;
-            this.btnEntrar.Location = new System.Drawing.Point(101, 339);
+            this.btnEntrar.Location = new System.Drawing.Point(97, 374);
             this.btnEntrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.ShadowDecoration.BorderRadius = 10;
@@ -87,10 +90,10 @@
             // 
             this.lbCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.lbCaja.Location = new System.Drawing.Point(101, 238);
+            this.lbCaja.Location = new System.Drawing.Point(47, 433);
             this.lbCaja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCaja.Name = "lbCaja";
-            this.lbCaja.Size = new System.Drawing.Size(125, 49);
+            this.lbCaja.Size = new System.Drawing.Size(99, 27);
             this.lbCaja.TabIndex = 3;
             this.lbCaja.Text = "Caja";
             this.lbCaja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,10 +124,10 @@
             this.cbCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCaja.FormattingEnabled = true;
-            this.cbCaja.Location = new System.Drawing.Point(106, 290);
+            this.cbCaja.Location = new System.Drawing.Point(135, 433);
             this.cbCaja.Margin = new System.Windows.Forms.Padding(9, 2, 2, 2);
             this.cbCaja.Name = "cbCaja";
-            this.cbCaja.Size = new System.Drawing.Size(131, 30);
+            this.cbCaja.Size = new System.Drawing.Size(120, 30);
             this.cbCaja.TabIndex = 5;
             this.cbCaja.Visible = false;
             this.cbCaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCaja_KeyPress);
@@ -138,7 +141,7 @@
             this.PanelControles.Location = new System.Drawing.Point(0, 0);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(340, 35);
+            this.PanelControles.Size = new System.Drawing.Size(341, 35);
             this.PanelControles.TabIndex = 6;
             // 
             // label3
@@ -149,9 +152,9 @@
             this.label3.Location = new System.Drawing.Point(8, 2);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 30);
+            this.label3.Size = new System.Drawing.Size(159, 30);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Cierre de Caja";
+            this.label3.Text = "Cierre De Caja";
             // 
             // guna2ControlBox3
             // 
@@ -162,7 +165,7 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.guna2ControlBox3.Location = new System.Drawing.Point(279, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(280, 2);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.PressedColor = System.Drawing.Color.CadetBlue;
@@ -177,7 +180,7 @@
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.guna2ControlBox1.Location = new System.Drawing.Point(306, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(307, 2);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.PressedColor = System.Drawing.Color.CadetBlue;
@@ -205,7 +208,7 @@
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(340, 136);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(341, 136);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -214,7 +217,7 @@
             // 
             this.lbContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
-            this.lbContraseña.Location = new System.Drawing.Point(101, 237);
+            this.lbContraseña.Location = new System.Drawing.Point(92, 233);
             this.lbContraseña.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbContraseña.Name = "lbContraseña";
             this.lbContraseña.Size = new System.Drawing.Size(141, 49);
@@ -226,7 +229,7 @@
             // txtContraseña
             // 
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtContraseña.Location = new System.Drawing.Point(36, 289);
+            this.txtContraseña.Location = new System.Drawing.Point(34, 275);
             this.txtContraseña.Multiline = true;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
@@ -234,12 +237,57 @@
             this.txtContraseña.TabIndex = 11;
             this.txtContraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContraseña_KeyDown);
             // 
+            // rbSuperCaja
+            // 
+            this.rbSuperCaja.AutoSize = true;
+            this.rbSuperCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSuperCaja.Location = new System.Drawing.Point(161, 315);
+            this.rbSuperCaja.Name = "rbSuperCaja";
+            this.rbSuperCaja.Size = new System.Drawing.Size(152, 24);
+            this.rbSuperCaja.TabIndex = 12;
+            this.rbSuperCaja.TabStop = true;
+            this.rbSuperCaja.Text = "Cierre Super Caja";
+            this.rbSuperCaja.UseVisualStyleBackColor = true;
+            this.rbSuperCaja.Visible = false;
+            this.rbSuperCaja.CheckedChanged += new System.EventHandler(this.rbSuperCaja_CheckedChanged);
+            this.rbSuperCaja.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbSuperCaja_KeyDown);
+            // 
+            // rbAdministrativo
+            // 
+            this.rbAdministrativo.AutoSize = true;
+            this.rbAdministrativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rbAdministrativo.Location = new System.Drawing.Point(107, 345);
+            this.rbAdministrativo.Name = "rbAdministrativo";
+            this.rbAdministrativo.Size = new System.Drawing.Size(126, 24);
+            this.rbAdministrativo.TabIndex = 13;
+            this.rbAdministrativo.TabStop = true;
+            this.rbAdministrativo.Text = "Administrativo";
+            this.rbAdministrativo.UseVisualStyleBackColor = true;
+            this.rbAdministrativo.Visible = false;
+            this.rbAdministrativo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbCierresCajeros_KeyDown);
+            // 
+            // rbCierreCaja
+            // 
+            this.rbCierreCaja.AutoSize = true;
+            this.rbCierreCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rbCierreCaja.Location = new System.Drawing.Point(28, 315);
+            this.rbCierreCaja.Name = "rbCierreCaja";
+            this.rbCierreCaja.Size = new System.Drawing.Size(127, 24);
+            this.rbCierreCaja.TabIndex = 14;
+            this.rbCierreCaja.TabStop = true;
+            this.rbCierreCaja.Text = "Cierre de Caja";
+            this.rbCierreCaja.UseVisualStyleBackColor = true;
+            this.rbCierreCaja.CheckedChanged += new System.EventHandler(this.rbCierreCaja_CheckedChanged);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(340, 391);
+            this.ClientSize = new System.Drawing.Size(341, 476);
+            this.Controls.Add(this.rbCierreCaja);
+            this.Controls.Add(this.rbAdministrativo);
+            this.Controls.Add(this.rbSuperCaja);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.guna2CirclePictureBox1);
@@ -250,10 +298,11 @@
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Inicio de Sesión";
             this.Load += new System.EventHandler(this.Login_Load);
             this.PanelControles.ResumeLayout(false);
             this.PanelControles.PerformLayout();
@@ -280,5 +329,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbContraseña;
         private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.RadioButton rbAdministrativo;
+        private System.Windows.Forms.RadioButton rbSuperCaja;
+        private System.Windows.Forms.RadioButton rbCierreCaja;
     }
 }

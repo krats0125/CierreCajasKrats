@@ -31,10 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrativo));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cgpSuperCaja = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pbSuperCaja = new System.Windows.Forms.PictureBox();
+            this.lbSuperCaja = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BarraS = new System.Windows.Forms.Panel();
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,10 +60,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.AccionMoverFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.cgpSuperCaja.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuperCaja)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.BarraS.SuspendLayout();
             this.PanelControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,13 +75,12 @@
             this.CGPReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).BeginInit();
             this.panel2.SuspendLayout();
-            this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.cgpSuperCaja);
             this.panel1.Controls.Add(this.guna2CustomGradientPanel1);
             this.panel1.Controls.Add(this.BarraS);
             this.panel1.Controls.Add(this.CGPTrabajadores);
@@ -84,13 +89,93 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-5, -6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(722, 412);
+            this.panel1.Size = new System.Drawing.Size(722, 409);
             this.panel1.TabIndex = 1;
+            // 
+            // cgpSuperCaja
+            // 
+            this.cgpSuperCaja.BorderRadius = 15;
+            this.cgpSuperCaja.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.cgpSuperCaja.Controls.Add(this.pbSuperCaja);
+            this.cgpSuperCaja.Controls.Add(this.lbSuperCaja);
+            this.cgpSuperCaja.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cgpSuperCaja.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.cgpSuperCaja.Location = new System.Drawing.Point(363, 163);
+            this.cgpSuperCaja.Margin = new System.Windows.Forms.Padding(2);
+            this.cgpSuperCaja.Name = "cgpSuperCaja";
+            this.cgpSuperCaja.Size = new System.Drawing.Size(209, 105);
+            this.cgpSuperCaja.TabIndex = 29;
+            this.cgpSuperCaja.Click += new System.EventHandler(this.cgpSuperCaja_Click);
+            // 
+            // pbSuperCaja
+            // 
+            this.pbSuperCaja.BackColor = System.Drawing.Color.Transparent;
+            this.pbSuperCaja.Image = ((System.Drawing.Image)(resources.GetObject("pbSuperCaja.Image")));
+            this.pbSuperCaja.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbSuperCaja.InitialImage")));
+            this.pbSuperCaja.Location = new System.Drawing.Point(78, 43);
+            this.pbSuperCaja.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSuperCaja.Name = "pbSuperCaja";
+            this.pbSuperCaja.Size = new System.Drawing.Size(41, 45);
+            this.pbSuperCaja.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSuperCaja.TabIndex = 23;
+            this.pbSuperCaja.TabStop = false;
+            this.pbSuperCaja.Click += new System.EventHandler(this.pbSuperCaja_Click);
+            // 
+            // lbSuperCaja
+            // 
+            this.lbSuperCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lbSuperCaja.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSuperCaja.Location = new System.Drawing.Point(3, -16);
+            this.lbSuperCaja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSuperCaja.Name = "lbSuperCaja";
+            this.lbSuperCaja.Size = new System.Drawing.Size(210, 76);
+            this.lbSuperCaja.TabIndex = 5;
+            this.lbSuperCaja.Text = "Cierres super caja";
+            this.lbSuperCaja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbSuperCaja.Click += new System.EventHandler(this.lbSuperCaja_Click);
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.BorderRadius = 15;
+            this.guna2CustomGradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
+            this.guna2CustomGradientPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(577, 225);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(209, 105);
+            this.guna2CustomGradientPanel1.TabIndex = 27;
+            this.guna2CustomGradientPanel1.Visible = false;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
+            this.label4.Location = new System.Drawing.Point(36, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 28);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Caja Menor";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(78, 40);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 45);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // BarraS
             // 
-            this.BarraS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.BarraS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
             this.BarraS.Controls.Add(this.PanelControles);
             this.BarraS.Controls.Add(this.pictureBox1);
@@ -99,9 +184,10 @@
             this.BarraS.Controls.Add(this.label3);
             this.BarraS.Controls.Add(this.lb_FechaActual);
             this.BarraS.Controls.Add(this.lb_cajero);
-            this.BarraS.Location = new System.Drawing.Point(3, 3);
+            this.BarraS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BarraS.Location = new System.Drawing.Point(0, 0);
             this.BarraS.Name = "BarraS";
-            this.BarraS.Size = new System.Drawing.Size(719, 84);
+            this.BarraS.Size = new System.Drawing.Size(722, 84);
             this.BarraS.TabIndex = 29;
             // 
             // PanelControles
@@ -109,10 +195,9 @@
             this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelControles.BackColor = System.Drawing.Color.Transparent;
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Location = new System.Drawing.Point(219, 2);
+            this.PanelControles.Location = new System.Drawing.Point(222, 2);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
             this.PanelControles.Size = new System.Drawing.Size(500, 26);
@@ -127,26 +212,11 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(427, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(451, 3);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(452, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
             // 
@@ -156,7 +226,7 @@
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(476, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(476, 3);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
@@ -203,7 +273,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(500, 61);
+            this.label3.Location = new System.Drawing.Point(497, 61);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 18);
@@ -217,7 +287,7 @@
             this.lb_FechaActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_FechaActual.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_FechaActual.ForeColor = System.Drawing.Color.Gold;
-            this.lb_FechaActual.Location = new System.Drawing.Point(493, 33);
+            this.lb_FechaActual.Location = new System.Drawing.Point(496, 33);
             this.lb_FechaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FechaActual.Name = "lb_FechaActual";
             this.lb_FechaActual.Size = new System.Drawing.Size(224, 25);
@@ -230,7 +300,7 @@
             this.lb_cajero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_cajero.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_cajero.ForeColor = System.Drawing.Color.White;
-            this.lb_cajero.Location = new System.Drawing.Point(571, 62);
+            this.lb_cajero.Location = new System.Drawing.Point(568, 62);
             this.lb_cajero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_cajero.Name = "lb_cajero";
             this.lb_cajero.Size = new System.Drawing.Size(155, 18);
@@ -245,18 +315,19 @@
             this.CGPTrabajadores.Controls.Add(this.pbTrabajador);
             this.CGPTrabajadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPTrabajadores.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPTrabajadores.Location = new System.Drawing.Point(162, 166);
+            this.CGPTrabajadores.Location = new System.Drawing.Point(8, 268);
             this.CGPTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.CGPTrabajadores.Name = "CGPTrabajadores";
-            this.CGPTrabajadores.Size = new System.Drawing.Size(209, 102);
+            this.CGPTrabajadores.Size = new System.Drawing.Size(209, 105);
             this.CGPTrabajadores.TabIndex = 26;
+            this.CGPTrabajadores.Visible = false;
             this.CGPTrabajadores.Click += new System.EventHandler(this.CGPTrabajadores_Click);
             // 
             // lbTrabajador
             // 
             this.lbTrabajador.AutoSize = true;
             this.lbTrabajador.BackColor = System.Drawing.Color.Transparent;
-            this.lbTrabajador.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
+            this.lbTrabajador.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTrabajador.Location = new System.Drawing.Point(29, 8);
             this.lbTrabajador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTrabajador.Name = "lbTrabajador";
@@ -286,7 +357,7 @@
             this.cgpAdelantos.Controls.Add(this.lbAdelantos);
             this.cgpAdelantos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgpAdelantos.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.cgpAdelantos.Location = new System.Drawing.Point(365, 269);
+            this.cgpAdelantos.Location = new System.Drawing.Point(267, 268);
             this.cgpAdelantos.Margin = new System.Windows.Forms.Padding(2);
             this.cgpAdelantos.Name = "cgpAdelantos";
             this.cgpAdelantos.Size = new System.Drawing.Size(209, 105);
@@ -311,7 +382,7 @@
             this.lbAdelantos.AutoSize = true;
             this.lbAdelantos.BackColor = System.Drawing.Color.Transparent;
             this.lbAdelantos.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
-            this.lbAdelantos.Location = new System.Drawing.Point(39, 5);
+            this.lbAdelantos.Location = new System.Drawing.Point(39, 6);
             this.lbAdelantos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbAdelantos.Name = "lbAdelantos";
             this.lbAdelantos.Size = new System.Drawing.Size(114, 28);
@@ -327,7 +398,7 @@
             this.CGPReportes.Controls.Add(this.lbReportes);
             this.CGPReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CGPReportes.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.CGPReportes.Location = new System.Drawing.Point(159, 268);
+            this.CGPReportes.Location = new System.Drawing.Point(154, 163);
             this.CGPReportes.Margin = new System.Windows.Forms.Padding(2);
             this.CGPReportes.Name = "CGPReportes";
             this.CGPReportes.Size = new System.Drawing.Size(209, 105);
@@ -339,7 +410,7 @@
             this.pbReportes.BackColor = System.Drawing.Color.Transparent;
             this.pbReportes.Image = ((System.Drawing.Image)(resources.GetObject("pbReportes.Image")));
             this.pbReportes.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbReportes.InitialImage")));
-            this.pbReportes.Location = new System.Drawing.Point(84, 38);
+            this.pbReportes.Location = new System.Drawing.Point(75, 35);
             this.pbReportes.Margin = new System.Windows.Forms.Padding(2);
             this.pbReportes.Name = "pbReportes";
             this.pbReportes.Size = new System.Drawing.Size(41, 45);
@@ -350,15 +421,14 @@
             // 
             // lbReportes
             // 
-            this.lbReportes.AutoSize = true;
             this.lbReportes.BackColor = System.Drawing.Color.Transparent;
-            this.lbReportes.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
-            this.lbReportes.Location = new System.Drawing.Point(51, 5);
+            this.lbReportes.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReportes.Location = new System.Drawing.Point(21, -18);
             this.lbReportes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbReportes.Name = "lbReportes";
-            this.lbReportes.Size = new System.Drawing.Size(102, 28);
+            this.lbReportes.Size = new System.Drawing.Size(163, 76);
             this.lbReportes.TabIndex = 5;
-            this.lbReportes.Text = "Reportes";
+            this.lbReportes.Text = "Cierres de caja";
             this.lbReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbReportes.Click += new System.EventHandler(this.lbReportes_Click);
             // 
@@ -392,44 +462,6 @@
             this.AccionMoverFormulario.TargetControl = this.PanelControles;
             this.AccionMoverFormulario.UseTransparentDrag = true;
             // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.BorderRadius = 15;
-            this.guna2CustomGradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2CustomGradientPanel1.Controls.Add(this.label4);
-            this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
-            this.guna2CustomGradientPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(365, 166);
-            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(209, 102);
-            this.guna2CustomGradientPanel1.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F);
-            this.label4.Location = new System.Drawing.Point(36, 8);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 28);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Caja Menor";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(78, 40);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
             // FrmAdministrativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,12 +469,18 @@
             this.ClientSize = new System.Drawing.Size(716, 403);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdministrativo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAdministrativo";
+            this.Text = "Administrativo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAdministrativo_FormClosing);
             this.Load += new System.EventHandler(this.FrmAdministrativo_Load);
             this.panel1.ResumeLayout(false);
+            this.cgpSuperCaja.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuperCaja)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.BarraS.ResumeLayout(false);
             this.BarraS.PerformLayout();
             this.PanelControles.ResumeLayout(false);
@@ -454,13 +492,9 @@
             this.cgpAdelantos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdelantos)).EndInit();
             this.CGPReportes.ResumeLayout(false);
-            this.CGPReportes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,7 +516,6 @@
         private System.Windows.Forms.Panel BarraS;
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -495,5 +528,8 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel cgpSuperCaja;
+        private System.Windows.Forms.PictureBox pbSuperCaja;
+        private System.Windows.Forms.Label lbSuperCaja;
     }
 }

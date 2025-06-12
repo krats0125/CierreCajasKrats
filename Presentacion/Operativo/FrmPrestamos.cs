@@ -38,7 +38,8 @@ namespace CierreDeCajas.Presentacion
             //WHERE (((MENSAJEROS.estado)=True));";
             string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM MENSAJEROS
-            WHERE estado=1";
+            WHERE estado=1
+            ORDER BY nombre";
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
             lbxTrabajadores.DataSource = lista;
             lbxTrabajadores.DisplayMember = "nombre";
@@ -53,7 +54,7 @@ namespace CierreDeCajas.Presentacion
             //CargarTodosTrabajadores();
             CargarTodosConceptos();
             listarPrestamos();
-
+            dgvAdelantos.ClearSelection();
         }
 
         private void rbTrabajadores_CheckedChanged(object sender, EventArgs e)
@@ -63,7 +64,8 @@ namespace CierreDeCajas.Presentacion
             //WHERE (((TRABAJADORES.estado)=True));";
             string consulta = @"SELECT IdTrabajador, nombre, estado
             FROM TRABAJADORES
-            WHERE estado=1";
+            WHERE estado=1
+            ORDER BY nombre";
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
 
             lbxTrabajadores.DataSource = lista;
@@ -147,7 +149,6 @@ namespace CierreDeCajas.Presentacion
                     MessageBox.Show("Hubo un error actualizando el cierre de caja");
                 }
                 frm.CargarCierreVentas();
-    
 
             }
             else
@@ -180,28 +181,51 @@ namespace CierreDeCajas.Presentacion
             if (seGuardo)
             {
                 MessageBox.Show("Préstamo guardado exitosamente.");
-                listarPrestamos();
                 txtValor.Clear();
                 txtObservaciones.Clear();
+                listarPrestamos();
             }
             else
             {
                 MessageBox.Show("Hubo un error guardando el préstamo.");
             }
+
         }
 
         public void listarPrestamos()
         {
 
-            string consulta = $@"SELECT pm.Fecha AS FECHA, m.nombre AS NOMBRE, pm.Valor AS VALOR, pm.Concepto AS CONCEPTO, pm.Observacion AS OBSERVACIONES
-                              FROM MENSAJEROS m INNER JOIN PRESTAMOS_MENSAJEROS pm ON m.IdTrabajador = pm.IdTrabajador
-                              WHERE pm.Cajero='{ppal.idUsuario}' and pm.Pagado=0
-                              UNION ALL
-                              SELECT P.Fecha AS FECHA, T.nombre AS NOMBRE, P.Valor AS VALOR, P.Concepto AS CONCEPTO, P.Observacion AS OBSERVACION
-                              FROM PRESTAMOS P INNER JOIN TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
-                              WHERE P.Cajero='{ppal.idUsuario}'  and p.Pagado=0";
-
-
+            string consulta = $@"SELECT 
+                                pm.Fecha AS FECHA, 
+                                m.nombre AS NOMBRE, 
+                                FORMAT(pm.Valor, 'C0', 'es-CO') AS VALOR, 
+                                pm.Concepto AS CONCEPTO, 
+                                pm.Observacion AS OBSERVACIONES
+                            FROM 
+                                MENSAJEROS m 
+                            INNER JOIN 
+                                PRESTAMOS_MENSAJEROS pm ON m.IdTrabajador = pm.IdTrabajador
+                            WHERE 
+                                pm.Cajero = '{ppal.idUsuario}' 
+                                AND pm.Pagado = 0 
+                                AND CONVERT(DATE, pm.Fecha) = CONVERT(date, DATEADD(HOUR, -5, GETDATE()))
+                            
+                            UNION ALL
+                            
+                            SELECT 
+                                P.Fecha AS FECHA, 
+                                T.nombre AS NOMBRE, 
+                                FORMAT(P.Valor, 'C0', 'es-CO') AS VALOR, 
+                                P.Concepto AS CONCEPTO, 
+                                P.Observacion AS OBSERVACION
+                            FROM 
+                                PRESTAMOS P 
+                            INNER JOIN 
+                                TRABAJADORES T ON P.IdTrabajador = T.IdTrabajador
+                            WHERE 
+                                P.Cajero = '{ppal.idUsuario}'  
+                                AND P.Pagado = 0 
+                                AND CONVERT(DATE, P.Fecha) = CONVERT(date, DATEADD(HOUR, -5, GETDATE()))";
             DataTable lista = new SentenciaSqlServer().TraerDatos(consulta, Conexion.Conexionlabodegadenacho());
             dgvAdelantos.DataSource = lista;
         }

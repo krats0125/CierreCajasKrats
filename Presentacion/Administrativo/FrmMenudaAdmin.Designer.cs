@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenudaAdmin));
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label30 = new System.Windows.Forms.Label();
@@ -116,23 +116,25 @@
             this.btRestaM100 = new System.Windows.Forms.Button();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.controlMovimiento = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PanelControles.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelControles
             // 
-            this.PanelControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.PanelControles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelControles.Controls.Add(this.guna2ControlBox3);
-            this.PanelControles.Controls.Add(this.guna2ControlBox2);
             this.PanelControles.Controls.Add(this.guna2ControlBox1);
             this.PanelControles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelControles.Location = new System.Drawing.Point(-2, -1);
+            this.PanelControles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelControles.Location = new System.Drawing.Point(0, 0);
             this.PanelControles.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControles.Name = "PanelControles";
-            this.PanelControles.Size = new System.Drawing.Size(958, 29);
+            this.PanelControles.Size = new System.Drawing.Size(953, 29);
             this.PanelControles.TabIndex = 30;
             // 
             // guna2ControlBox3
@@ -144,26 +146,11 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(885, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(900, 0);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.BorderRadius = 10;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(910, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 24);
-            this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox1
             // 
@@ -173,7 +160,7 @@
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(934, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(927, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
@@ -285,9 +272,8 @@
             this.txB1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB1.Location = new System.Drawing.Point(238, 237);
             this.txB1.Margin = new System.Windows.Forms.Padding(2);
-            this.txB1.Multiline = true;
             this.txB1.Name = "txB1";
-            this.txB1.Size = new System.Drawing.Size(61, 25);
+            this.txB1.Size = new System.Drawing.Size(61, 20);
             this.txB1.TabIndex = 204;
             this.txB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB1_KeyDown);
@@ -323,9 +309,8 @@
             this.txM50.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txM50.Location = new System.Drawing.Point(238, 397);
             this.txM50.Margin = new System.Windows.Forms.Padding(2);
-            this.txM50.Multiline = true;
             this.txM50.Name = "txM50";
-            this.txM50.Size = new System.Drawing.Size(61, 25);
+            this.txM50.Size = new System.Drawing.Size(61, 20);
             this.txM50.TabIndex = 10;
             this.txM50.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txM50.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txM50_KeyDown);
@@ -335,9 +320,8 @@
             this.txB100.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB100.Location = new System.Drawing.Point(238, 45);
             this.txB100.Margin = new System.Windows.Forms.Padding(2);
-            this.txB100.Multiline = true;
             this.txB100.Name = "txB100";
-            this.txB100.Size = new System.Drawing.Size(61, 25);
+            this.txB100.Size = new System.Drawing.Size(61, 20);
             this.txB100.TabIndex = 0;
             this.txB100.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB100.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB100_KeyDown);
@@ -361,9 +345,8 @@
             this.txB50.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB50.Location = new System.Drawing.Point(238, 77);
             this.txB50.Margin = new System.Windows.Forms.Padding(2);
-            this.txB50.Multiline = true;
             this.txB50.Name = "txB50";
-            this.txB50.Size = new System.Drawing.Size(61, 25);
+            this.txB50.Size = new System.Drawing.Size(61, 20);
             this.txB50.TabIndex = 1;
             this.txB50.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB50.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB50_KeyDown);
@@ -386,9 +369,8 @@
             this.txB20.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB20.Location = new System.Drawing.Point(238, 109);
             this.txB20.Margin = new System.Windows.Forms.Padding(2);
-            this.txB20.Multiline = true;
             this.txB20.Name = "txB20";
-            this.txB20.Size = new System.Drawing.Size(61, 25);
+            this.txB20.Size = new System.Drawing.Size(61, 20);
             this.txB20.TabIndex = 2;
             this.txB20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB20_KeyDown);
@@ -411,9 +393,8 @@
             this.txB10.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB10.Location = new System.Drawing.Point(238, 141);
             this.txB10.Margin = new System.Windows.Forms.Padding(2);
-            this.txB10.Multiline = true;
             this.txB10.Name = "txB10";
-            this.txB10.Size = new System.Drawing.Size(61, 25);
+            this.txB10.Size = new System.Drawing.Size(61, 20);
             this.txB10.TabIndex = 3;
             this.txB10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB10_KeyDown);
@@ -436,9 +417,8 @@
             this.txB5.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB5.Location = new System.Drawing.Point(238, 173);
             this.txB5.Margin = new System.Windows.Forms.Padding(2);
-            this.txB5.Multiline = true;
             this.txB5.Name = "txB5";
-            this.txB5.Size = new System.Drawing.Size(61, 25);
+            this.txB5.Size = new System.Drawing.Size(61, 20);
             this.txB5.TabIndex = 4;
             this.txB5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB5_KeyDown);
@@ -461,9 +441,8 @@
             this.txB2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txB2.Location = new System.Drawing.Point(238, 205);
             this.txB2.Margin = new System.Windows.Forms.Padding(2);
-            this.txB2.Multiline = true;
             this.txB2.Name = "txB2";
-            this.txB2.Size = new System.Drawing.Size(61, 25);
+            this.txB2.Size = new System.Drawing.Size(61, 20);
             this.txB2.TabIndex = 5;
             this.txB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txB2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txB2_KeyDown);
@@ -486,9 +465,8 @@
             this.txM1000.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txM1000.Location = new System.Drawing.Point(238, 269);
             this.txM1000.Margin = new System.Windows.Forms.Padding(2);
-            this.txM1000.Multiline = true;
             this.txM1000.Name = "txM1000";
-            this.txM1000.Size = new System.Drawing.Size(61, 25);
+            this.txM1000.Size = new System.Drawing.Size(61, 20);
             this.txM1000.TabIndex = 6;
             this.txM1000.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txM1000.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txM1000_KeyDown);
@@ -511,9 +489,8 @@
             this.txM500.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txM500.Location = new System.Drawing.Point(238, 301);
             this.txM500.Margin = new System.Windows.Forms.Padding(2);
-            this.txM500.Multiline = true;
             this.txM500.Name = "txM500";
-            this.txM500.Size = new System.Drawing.Size(61, 25);
+            this.txM500.Size = new System.Drawing.Size(61, 20);
             this.txM500.TabIndex = 7;
             this.txM500.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txM500.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txM500_KeyDown);
@@ -536,9 +513,8 @@
             this.txM200.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txM200.Location = new System.Drawing.Point(238, 333);
             this.txM200.Margin = new System.Windows.Forms.Padding(2);
-            this.txM200.Multiline = true;
             this.txM200.Name = "txM200";
-            this.txM200.Size = new System.Drawing.Size(61, 25);
+            this.txM200.Size = new System.Drawing.Size(61, 20);
             this.txM200.TabIndex = 8;
             this.txM200.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txM200.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txM200_KeyDown);
@@ -561,9 +537,8 @@
             this.txM100.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txM100.Location = new System.Drawing.Point(238, 365);
             this.txM100.Margin = new System.Windows.Forms.Padding(2);
-            this.txM100.Multiline = true;
             this.txM100.Name = "txM100";
-            this.txM100.Size = new System.Drawing.Size(61, 25);
+            this.txM100.Size = new System.Drawing.Size(61, 20);
             this.txM100.TabIndex = 9;
             this.txM100.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txM100.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txM100_KeyDown);
@@ -585,7 +560,7 @@
             // 
             this.btSumaB1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB1.Location = new System.Drawing.Point(306, 235);
+            this.btSumaB1.Location = new System.Drawing.Point(303, 235);
             this.btSumaB1.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB1.Name = "btSumaB1";
             this.btSumaB1.Size = new System.Drawing.Size(22, 26);
@@ -599,7 +574,7 @@
             this.btRestaB1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB1.Location = new System.Drawing.Point(213, 236);
+            this.btRestaB1.Location = new System.Drawing.Point(212, 235);
             this.btRestaB1.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB1.Name = "btRestaB1";
             this.btRestaB1.Size = new System.Drawing.Size(22, 26);
@@ -684,7 +659,7 @@
             this.btRestaM50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaM50.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaM50.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaM50.Location = new System.Drawing.Point(213, 396);
+            this.btRestaM50.Location = new System.Drawing.Point(212, 395);
             this.btRestaM50.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaM50.Name = "btRestaM50";
             this.btRestaM50.Size = new System.Drawing.Size(22, 26);
@@ -708,7 +683,7 @@
             // 
             this.btSumaM50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaM50.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaM50.Location = new System.Drawing.Point(306, 395);
+            this.btSumaM50.Location = new System.Drawing.Point(303, 395);
             this.btSumaM50.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaM50.Name = "btSumaM50";
             this.btSumaM50.Size = new System.Drawing.Size(22, 26);
@@ -801,7 +776,7 @@
             // 
             this.btSumaB100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB100.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB100.Location = new System.Drawing.Point(306, 43);
+            this.btSumaB100.Location = new System.Drawing.Point(303, 43);
             this.btSumaB100.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB100.Name = "btSumaB100";
             this.btSumaB100.Size = new System.Drawing.Size(22, 26);
@@ -815,7 +790,7 @@
             this.btRestaB100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB100.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB100.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB100.Location = new System.Drawing.Point(213, 44);
+            this.btRestaB100.Location = new System.Drawing.Point(212, 43);
             this.btRestaB100.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB100.Name = "btRestaB100";
             this.btRestaB100.Size = new System.Drawing.Size(22, 26);
@@ -979,7 +954,7 @@
             // 
             this.btSumaB50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB50.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB50.Location = new System.Drawing.Point(306, 75);
+            this.btSumaB50.Location = new System.Drawing.Point(303, 75);
             this.btSumaB50.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB50.Name = "btSumaB50";
             this.btSumaB50.Size = new System.Drawing.Size(22, 26);
@@ -993,7 +968,7 @@
             this.btRestaB50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB50.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB50.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB50.Location = new System.Drawing.Point(213, 76);
+            this.btRestaB50.Location = new System.Drawing.Point(212, 75);
             this.btRestaB50.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB50.Name = "btRestaB50";
             this.btRestaB50.Size = new System.Drawing.Size(22, 26);
@@ -1007,7 +982,7 @@
             // 
             this.btSumaB20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB20.Location = new System.Drawing.Point(306, 107);
+            this.btSumaB20.Location = new System.Drawing.Point(303, 107);
             this.btSumaB20.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB20.Name = "btSumaB20";
             this.btSumaB20.Size = new System.Drawing.Size(22, 26);
@@ -1021,7 +996,7 @@
             this.btRestaB20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB20.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB20.Location = new System.Drawing.Point(213, 108);
+            this.btRestaB20.Location = new System.Drawing.Point(212, 107);
             this.btRestaB20.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB20.Name = "btRestaB20";
             this.btRestaB20.Size = new System.Drawing.Size(22, 26);
@@ -1035,7 +1010,7 @@
             // 
             this.btSumaB10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB10.Location = new System.Drawing.Point(306, 139);
+            this.btSumaB10.Location = new System.Drawing.Point(303, 139);
             this.btSumaB10.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB10.Name = "btSumaB10";
             this.btSumaB10.Size = new System.Drawing.Size(22, 26);
@@ -1049,7 +1024,7 @@
             this.btRestaB10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB10.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB10.Location = new System.Drawing.Point(213, 140);
+            this.btRestaB10.Location = new System.Drawing.Point(212, 139);
             this.btRestaB10.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB10.Name = "btRestaB10";
             this.btRestaB10.Size = new System.Drawing.Size(22, 26);
@@ -1063,7 +1038,7 @@
             // 
             this.btSumaB5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB5.Location = new System.Drawing.Point(306, 171);
+            this.btSumaB5.Location = new System.Drawing.Point(303, 171);
             this.btSumaB5.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB5.Name = "btSumaB5";
             this.btSumaB5.Size = new System.Drawing.Size(22, 26);
@@ -1077,7 +1052,7 @@
             this.btRestaB5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB5.Location = new System.Drawing.Point(213, 172);
+            this.btRestaB5.Location = new System.Drawing.Point(212, 171);
             this.btRestaB5.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB5.Name = "btRestaB5";
             this.btRestaB5.Size = new System.Drawing.Size(22, 26);
@@ -1091,7 +1066,7 @@
             // 
             this.btSumaB2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaB2.Location = new System.Drawing.Point(306, 203);
+            this.btSumaB2.Location = new System.Drawing.Point(303, 203);
             this.btSumaB2.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaB2.Name = "btSumaB2";
             this.btSumaB2.Size = new System.Drawing.Size(22, 26);
@@ -1105,7 +1080,7 @@
             this.btRestaB2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaB2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaB2.Location = new System.Drawing.Point(213, 204);
+            this.btRestaB2.Location = new System.Drawing.Point(212, 203);
             this.btRestaB2.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaB2.Name = "btRestaB2";
             this.btRestaB2.Size = new System.Drawing.Size(22, 26);
@@ -1119,7 +1094,7 @@
             // 
             this.btSumaM1000.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaM1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaM1000.Location = new System.Drawing.Point(306, 267);
+            this.btSumaM1000.Location = new System.Drawing.Point(303, 267);
             this.btSumaM1000.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaM1000.Name = "btSumaM1000";
             this.btSumaM1000.Size = new System.Drawing.Size(22, 26);
@@ -1133,7 +1108,7 @@
             this.btRestaM1000.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaM1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaM1000.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaM1000.Location = new System.Drawing.Point(213, 268);
+            this.btRestaM1000.Location = new System.Drawing.Point(212, 267);
             this.btRestaM1000.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaM1000.Name = "btRestaM1000";
             this.btRestaM1000.Size = new System.Drawing.Size(22, 26);
@@ -1147,7 +1122,7 @@
             // 
             this.btSumaM500.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaM500.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaM500.Location = new System.Drawing.Point(306, 299);
+            this.btSumaM500.Location = new System.Drawing.Point(303, 299);
             this.btSumaM500.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaM500.Name = "btSumaM500";
             this.btSumaM500.Size = new System.Drawing.Size(22, 26);
@@ -1161,7 +1136,7 @@
             this.btRestaM500.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaM500.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaM500.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaM500.Location = new System.Drawing.Point(213, 300);
+            this.btRestaM500.Location = new System.Drawing.Point(212, 299);
             this.btRestaM500.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaM500.Name = "btRestaM500";
             this.btRestaM500.Size = new System.Drawing.Size(22, 26);
@@ -1175,7 +1150,7 @@
             // 
             this.btSumaM200.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaM200.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaM200.Location = new System.Drawing.Point(306, 331);
+            this.btSumaM200.Location = new System.Drawing.Point(303, 331);
             this.btSumaM200.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaM200.Name = "btSumaM200";
             this.btSumaM200.Size = new System.Drawing.Size(22, 26);
@@ -1189,7 +1164,7 @@
             this.btRestaM200.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaM200.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaM200.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaM200.Location = new System.Drawing.Point(213, 332);
+            this.btRestaM200.Location = new System.Drawing.Point(212, 331);
             this.btRestaM200.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaM200.Name = "btRestaM200";
             this.btRestaM200.Size = new System.Drawing.Size(22, 26);
@@ -1203,7 +1178,7 @@
             // 
             this.btSumaM100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSumaM100.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSumaM100.Location = new System.Drawing.Point(306, 363);
+            this.btSumaM100.Location = new System.Drawing.Point(303, 363);
             this.btSumaM100.Margin = new System.Windows.Forms.Padding(2);
             this.btSumaM100.Name = "btSumaM100";
             this.btSumaM100.Size = new System.Drawing.Size(22, 26);
@@ -1217,7 +1192,7 @@
             this.btRestaM100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRestaM100.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btRestaM100.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btRestaM100.Location = new System.Drawing.Point(213, 364);
+            this.btRestaM100.Location = new System.Drawing.Point(212, 363);
             this.btRestaM100.Margin = new System.Windows.Forms.Padding(2);
             this.btRestaM100.Name = "btRestaM100";
             this.btRestaM100.Size = new System.Drawing.Size(22, 26);
@@ -1232,7 +1207,7 @@
             this.guna2TabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(159, 66);
+            this.guna2TabControl1.Location = new System.Drawing.Point(159, 33);
             this.guna2TabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
@@ -1262,23 +1237,34 @@
             this.controlMovimiento.TargetControl = this.PanelControles;
             this.controlMovimiento.UseTransparentDrag = true;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.guna2TabControl1);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(953, 574);
+            this.panel1.TabIndex = 211;
+            // 
             // FrmMenudaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(48)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(953, 604);
-            this.Controls.Add(this.guna2TabControl1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanelControles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMenudaAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenudaAdmin";
+            this.Text = "Menuda Cajeros Administrativa ";
             this.Load += new System.EventHandler(this.FrmMenudaAdmin_Load);
             this.PanelControles.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.guna2TabControl1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1287,7 +1273,6 @@
 
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label30;
@@ -1372,5 +1357,6 @@
         private System.Windows.Forms.Button btRestaM100;
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
         private Guna.UI2.WinForms.Guna2DragControl controlMovimiento;
+        private System.Windows.Forms.Panel panel1;
     }
 }
