@@ -1,9 +1,10 @@
 ﻿using CierreDeCajas.Modelo;
 using CierreDeCajas.Presentacion;
-
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace CierreDeCajas.Logica
         Principal ppal = null;
 
 
+        bool test = false;
+        const string mesDiaPrueba = "0702";
+
         public CierreCajaRepository(Principal principal)
         {
             ppal = principal;
@@ -31,7 +35,7 @@ namespace CierreDeCajas.Logica
 
         }
 
-        public decimal ActualizarVentas(string IdUsuario)
+        public decimal ActualizarVentas2(string IdUsuario)
         {
             decimal ventasNuevas = 0;
             try
@@ -82,6 +86,61 @@ namespace CierreDeCajas.Logica
             }
             return valorVentas;
         }
+        public decimal ActualizarVentas(string IdUsuario)
+        {
+            decimal ventasNuevas = 0;
+
+            
+           
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+            
+            string tablaVentaMes = "Ventae" + mes;
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+
+            }
+
+
+            try
+            {
+                using (OdbcConnection conexion = new OdbcConnection(cn.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string sql = $@"SELECT
+                                    SUM(IIF(Estado  = 'PAGADA', total, 0)) AS VentasTotales
+                                    FROM {tablaVentaMes} WHERE mmdd = '{mesDia}' and vendedor = '{IdUsuario}'";
+
+                    sql = sql.Trim();
+
+                    using (OdbcCommand cmd = new OdbcCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
+                        using (OdbcDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                ventasNuevas = Convert.ToDecimal(dr["VentasTotales"]);
+                                if (ventasNuevas > 0)
+                                {
+                                    valorVentas = ventasNuevas;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return valorVentas;
+        }
         public void CargarValorVentas()
         {
             try
@@ -110,7 +169,7 @@ namespace CierreDeCajas.Logica
         }
 
 
-        public decimal ActualizarDevoluciones(string idUsuario)
+        public decimal ActualizarDevoluciones2(string idUsuario)
         {
             decimal devoluciones = 0;
             try
@@ -125,6 +184,57 @@ namespace CierreDeCajas.Logica
                     {
                         cmd.Parameters.AddWithValue("@IdUsuario", ppal.idUsuario);
 
+                        var resultado = cmd.ExecuteScalar();
+
+                        if (resultado != DBNull.Value)
+                        {
+                            devoluciones = Convert.ToDecimal(resultado);
+                            if (devoluciones > 0)
+                            {
+                                valorDevoluciones = devoluciones;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return valorDevoluciones;
+        }
+        public decimal ActualizarDevoluciones(string idUsuario)
+        {
+            decimal devoluciones = 0;
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+            string tablaVentaMes = "Ventae" + mes;
+
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+
+            }
+
+            try
+            {
+                using (OdbcConnection conexion = new OdbcConnection(cn.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string consulta = $@"SELECT
+                                         SUM(IIF(Estado  = 'ANULADA', total, 0)) AS Devoluciones
+                                         FROM {tablaVentaMes} WHERE mmdd = '{mesDia}' and vendedor = '{idUsuario}'";
+
+                    consulta = consulta.Trim();
+
+                    using (OdbcCommand cmd = new OdbcCommand(consulta, conexion))
+                    {
                         var resultado = cmd.ExecuteScalar();
 
                         if (resultado != DBNull.Value)

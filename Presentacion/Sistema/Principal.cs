@@ -3,6 +3,9 @@ using CierreDeCajas.Modelo;
 using CierreDeCajas.Presentacion.Sistema;
 using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,7 +23,7 @@ namespace CierreDeCajas.Presentacion
 
         public Principal(FrmLogin login)
         {
-           lgn = login;
+            lgn = login;
             InitializeComponent();
             frmMvt = new FrmMovimientos(this);
 
@@ -49,10 +52,13 @@ namespace CierreDeCajas.Presentacion
             lb_Cajero.Text = lgn.NombreUsuario;
             lbIdCierre.Text =idCierre.ToString();
 
+            // Crear metodo Utilitario para traer todos los valores. y para insertar los valores. 
+
+
             cargarTransferencias();
             cargarDatafonos();
-            cargarBonos();
-            cargarVentasRappi();
+            //cargarBonos();
+            //cargarVentasRappi();
         }
 
         #region Panel padre para los formularios
@@ -120,6 +126,7 @@ namespace CierreDeCajas.Presentacion
         }
         #endregion
 
+        
         private void TimerHora_Tick(object sender, EventArgs e)
         {
             string fecha = DateTime.Now.ToString();
@@ -159,6 +166,11 @@ namespace CierreDeCajas.Presentacion
         {
             AbrirFormularioEnPanel<FrmPrestamos>(this);
             
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioEnPanel<FrmMovimientos>(this);
         }
         private void btnCargarDomicilios_Click(object sender, EventArgs e)
         {
@@ -211,11 +223,7 @@ namespace CierreDeCajas.Presentacion
         }
         #endregion
 
-        private void BarraS_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+  
         #region Cargar valores del sistema 
         private void cargarTransferencias()
         {
@@ -228,9 +236,8 @@ namespace CierreDeCajas.Presentacion
             {
 
                 
-                    frmMvt.ListaMovimientos();
+               frmMvt.ListaMovimientos();
                 
-
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();
                 frm.CitarPanelesMovimientos();
@@ -282,11 +289,9 @@ namespace CierreDeCajas.Presentacion
 
             if (insercionExitosa)
             {
-
+                                
+                frmMvt.ListaMovimientos();
                 
-                    frmMvt.ListaMovimientos();
-                
-
                 FrmCierreCaja frm = new InstanciasRepository().InstanciaFrmCierredeCaja();
                 frm.CargarSumatorias();
                 frm.CitarPanelesMovimientos();
@@ -304,6 +309,8 @@ namespace CierreDeCajas.Presentacion
 
         private void cargarBonos()
         {
+            // su uso se da cuando se quiera obtener los bonos del a alcaldia.
+            return;
             var BonosCargados = frmMvt.traerBonos();
 
 
@@ -331,8 +338,9 @@ namespace CierreDeCajas.Presentacion
             }
 
         }
+
         #endregion
-      
-    
+
+       
     }
 }

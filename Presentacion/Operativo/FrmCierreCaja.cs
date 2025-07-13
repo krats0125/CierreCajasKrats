@@ -482,6 +482,7 @@ namespace CierreDeCajas.Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+
             CargarSumatorias();
             cargarVentas();
             cargarDevoluciones();

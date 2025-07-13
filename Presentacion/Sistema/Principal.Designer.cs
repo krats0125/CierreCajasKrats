@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.PanelMaestro = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BarraS = new System.Windows.Forms.Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -66,8 +66,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.AccionMovimientoFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Elip8 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnFacturas = new System.Windows.Forms.Button();
             this.BarraS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.PanelControles.SuspendLayout();
             this.PanelbotonesSuperior.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,23 +87,12 @@
             this.PanelMaestro.Size = new System.Drawing.Size(1050, 566);
             this.PanelMaestro.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // BarraS
             // 
             this.BarraS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.BarraS.Controls.Add(this.guna2PictureBox1);
             this.BarraS.Controls.Add(this.PanelControles);
             this.BarraS.Controls.Add(this.label6);
-            this.BarraS.Controls.Add(this.pictureBox1);
             this.BarraS.Controls.Add(this.lbIdCierre);
             this.BarraS.Controls.Add(this.lbCierre);
             this.BarraS.Controls.Add(this.label1);
@@ -117,7 +107,19 @@
             this.BarraS.Name = "BarraS";
             this.BarraS.Size = new System.Drawing.Size(1050, 84);
             this.BarraS.TabIndex = 5;
-            this.BarraS.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraS_Paint);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 10;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 11);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(72, 68);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 14;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // PanelControles
             // 
@@ -284,9 +286,9 @@
             this.label5.Location = new System.Drawing.Point(69, 37);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(622, 38);
+            this.label5.Size = new System.Drawing.Size(469, 38);
             this.label5.TabIndex = 10;
-            this.label5.Text = "SUPERMERCADO LA BODEGA DE NACHO";
+            this.label5.Text = "SUPERMERCADOS MY TIENDA";
             // 
             // Elip1
             // 
@@ -308,15 +310,16 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnFacturas);
             this.panel1.Controls.Add(this.btnCargarDomicilios);
             this.panel1.Controls.Add(this.btnAdelantos);
             this.panel1.Controls.Add(this.btnMenuda);
             this.panel1.Controls.Add(this.btnMovimientos);
             this.panel1.Controls.Add(this.btnResumen);
-            this.panel1.Location = new System.Drawing.Point(332, 1);
+            this.panel1.Location = new System.Drawing.Point(216, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 34);
+            this.panel1.Size = new System.Drawing.Size(572, 34);
             this.panel1.TabIndex = 9;
             // 
             // btnCargarDomicilios
@@ -488,6 +491,25 @@
             // 
             this.Elip8.TargetControl = this.btnCargarDomicilios;
             // 
+            // btnFacturas
+            // 
+            this.btnFacturas.BackColor = System.Drawing.Color.Transparent;
+            this.btnFacturas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFacturas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFacturas.FlatAppearance.BorderSize = 0;
+            this.btnFacturas.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnFacturas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFacturas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(178)))), ((int)(((byte)(231)))));
+            this.btnFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btnFacturas.Location = new System.Drawing.Point(455, 0);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Size = new System.Drawing.Size(94, 34);
+            this.btnFacturas.TabIndex = 10;
+            this.btnFacturas.Text = "Facturas";
+            this.btnFacturas.UseVisualStyleBackColor = false;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,9 +528,9 @@
             this.Text = "Cierre de Caja";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.BarraS.ResumeLayout(false);
             this.BarraS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.PanelControles.ResumeLayout(false);
             this.PanelbotonesSuperior.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -522,7 +544,6 @@
         private Guna.UI2.WinForms.Guna2Elipse Elip1;
         private System.Windows.Forms.Panel BarraS;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
@@ -554,5 +575,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCargarDomicilios;
         private Guna.UI2.WinForms.Guna2Elipse Elip8;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.Button btnFacturas;
     }
 }

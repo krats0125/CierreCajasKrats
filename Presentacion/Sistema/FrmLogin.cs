@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -40,20 +41,48 @@ namespace CierreDeCajas
 
         private void listarcaja()
         {
-            string sql = "select IdCaja,NombreCaja from Caja where Activo=1";
-            DataTable listaCaja = new SentenciaSqlServer().TraerDatos(sql, Cn.ConexionCierreCaja());
+            try
+            {
+                string sql = "select IdCaja,NombreCaja from Caja where Activo=1";
+                DataTable listaCaja = new SentenciaSqlServer().TraerDatos(sql, Cn.ConexionCierreCaja());
 
-            cbCaja.DataSource = listaCaja;
-            cbCaja.DisplayMember = "NombreCaja";
-            cbCaja.ValueMember = "IdCaja";
+                cbCaja.DataSource = listaCaja;
+                cbCaja.DisplayMember = "NombreCaja";
+                cbCaja.ValueMember = "IdCaja";
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No se pudo conectar con la la red, revisa la conexion de la carpeta");
+            }
+           
         }
-        private void listarCajeros()
+        
+        private void listarCajeros2()
         {
             string sql = "select IdUsuario, Descripcion,Grupo from Usuarios where Estado=1 and grupo!=5 order by IdUsuario";
             DataTable listaCajero = new SentenciaSqlServer().TraerDatos(sql, Cn.ConexionRibisoft());
             cbUsuario.DataSource = listaCajero;
             cbUsuario.DisplayMember = "IdUsuario";
             cbUsuario.ValueMember = "IdUsuario";
+        }
+
+        private void listarCajeros()
+        {
+            try
+            {
+                string sql = "select id_usuario as IdUsuario, nombre,2 as grupo from Usuarios order by nombre asc";
+                DataTable listaCajero = new SentenciasSqlODBC().TraerDatos(sql, Cn.ConexionVisualFoxPro());
+                cbUsuario.DataSource = listaCajero;
+                cbUsuario.DisplayMember = "nombre";
+                cbUsuario.ValueMember = "idusuario";
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No se pudo conectar con la la red, revisa la conexion de la carpeta");
+            }
+           
         }
         //private void listarCajeros()
         //{
@@ -132,7 +161,7 @@ namespace CierreDeCajas
                     if(rbCierreCaja.Checked)
                     {
                         idCaja = Convert.ToInt32(cbCaja.SelectedValue.ToString());
-                        idUsuario = cbUsuario.SelectedValue.ToString();
+                        idUsuario = cbUsuario.SelectedValue.ToString().Trim();
                         Caja = cbCaja.Text.ToString();
                         NombreUsuario = cbUsuario.Text.ToString();
                         idCierre = InsertarEnCierre();
@@ -268,12 +297,12 @@ namespace CierreDeCajas
             }
 
         }
-        private string obtenerContraseña()
+        private string obtenerContraseña2()
         {
             using (SqlConnection conexion = new SqlConnection(Cn.ConexionRibisoft()))
             {
                 conexion.Open();
-                string sql = "select contraseña from Usuarios where  IdUsuario=@IdUsuario";
+                string sql = "select contraseña from Usuarios where IdUsuario=@IdUsuario";
                 using (SqlCommand cmd = new SqlCommand(sql, conexion))
                 {
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -290,7 +319,30 @@ namespace CierreDeCajas
             }
         }
 
-     
+        private string obtenerContraseña()
+        {
+            using (OdbcConnection conexion = new OdbcConnection(Cn.ConexionVisualFoxPro()))
+            {
+                conexion.Open();
+                string sql = "select contraseña from claves where id_usuario = @IdUsuario";
+                using (OdbcCommand cmd = new OdbcCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    object resultado = cmd.ExecuteScalar();
+                    if (resultado != null)
+                    {
+                        return resultado.ToString();
+                    }
+                    else
+                    {
+                        return string.Empty;
+                    }
+                }
+            }
+        }
+
+
+
 
         private void cbCaja_KeyPress(object sender, KeyPressEventArgs e)
         {

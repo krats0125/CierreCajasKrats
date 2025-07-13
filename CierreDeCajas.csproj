@@ -7,13 +7,13 @@
     <ProjectGuid>{F08E1664-E9D3-48AA-9CC9-396851D3362D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CierreDeCajas</RootNamespace>
-    <AssemblyName>CierreDeCajas</AssemblyName>
+    <AssemblyName>CierreDeCajasMyTienda</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>Z:\APP BODEGA DE NACHO\Nuevos projectos\Sistema Cierre de Cajas\x86\</PublishUrl>
+    <PublishUrl>D:\Users\user\Escritorio\Programas C#\Instalador CierreCajasMyTienda\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -151,15 +151,18 @@
     <Compile Include="Logica\SistemaRepository.cs" />
     <Compile Include="Logica\TrabajadoresRepository.cs" />
     <Compile Include="Logica\CierreSuperCajaRepository.cs" />
+    <Compile Include="Logica\TransaccionesRepository.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlOLEDB.cs" />
     <Compile Include="Logica\Utilitarios\SentenciaSqlServer.cs" />
     <Compile Include="Logica\SuperCajaAdminRepository.cs" />
+    <Compile Include="Logica\Utilitarios\SentenciasSqlODBC.cs" />
     <Compile Include="Logica\Utilitarios\TransferenciasRepository.cs" />
     <Compile Include="Modelo\BonoAlcaldia.cs" />
     <Compile Include="Modelo\CierreSuperCaja.cs" />
     <Compile Include="Modelo\ConceptoAdelanto.cs" />
     <Compile Include="Modelo\Datafonos.cs" />
     <Compile Include="Modelo\Devoluciones.cs" />
+    <Compile Include="Modelo\MovimientoCaja.cs" />
     <Compile Include="Modelo\MovimientoSuperCaja.cs" />
     <Compile Include="Modelo\Nota.cs" />
     <Compile Include="Modelo\NotaAprobacion.cs" />
@@ -285,6 +288,12 @@
     </Compile>
     <Compile Include="Presentacion\AdminSuperCaja\FrmResumenSuperCajaAdmin.Designer.cs">
       <DependentUpon>FrmResumenSuperCajaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Operativo\FrmFacturas.Designer.cs">
+      <DependentUpon>FrmFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Operativo\FrmNotas.cs">
       <SubType>Form</SubType>
@@ -426,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\AdminSuperCaja\FrmResumenSuperCajaAdmin.resx">
       <DependentUpon>FrmResumenSuperCajaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Operativo\FrmFacturas.resx">
+      <DependentUpon>FrmFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Operativo\FrmNotas.resx">
       <DependentUpon>FrmNotas.cs</DependentUpon>

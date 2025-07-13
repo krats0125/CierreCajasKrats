@@ -1,5 +1,6 @@
 ﻿using CierreDeCajas.Presentacion;
 using CierreDeCajas.Presentacion.Administrativo;
+using CierreDeCajas.Presentacion.Operativo;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,8 @@ namespace CierreDeCajas
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            //Application.Run(new FrmLogin());
+            Application.Run(new FrmFacturas());
         }
     }
 }

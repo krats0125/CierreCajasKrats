@@ -4,10 +4,12 @@ using CierreDeCajas.Logica;
 using CierreDeCajas.Logica.Utilitarios;
 using CierreDeCajas.Modelo;
 using Guna.UI2.WinForms.Suite;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -27,6 +29,11 @@ namespace CierreDeCajas.Presentacion.Sistema
         Principal ppal = null;
         CONEXION Conexion = new CONEXION();
         public int idCaja;
+
+        private bool test = false;
+        const string mesDiaPrueba = "0702";
+
+
         public FrmMovimientos(Principal ppal)
         {
             this.ppal = ppal;
@@ -46,7 +53,7 @@ namespace CierreDeCajas.Presentacion.Sistema
 
         }
         #region Traer Transferencias
-        public List<TrasferenciaP> traerTransferencias()
+        public List<TrasferenciaP> traerTransferencias2()
         {
             List<TrasferenciaP> transferencias = new List<TrasferenciaP>();
             string fecha = ppal.Fecha.ToString("yyyy-MM-dd");
@@ -88,6 +95,67 @@ namespace CierreDeCajas.Presentacion.Sistema
                     }
                 }
           
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al traer transferencias: " + ex.Message);
+            }
+            return transferencias;
+        }
+
+        public List<TrasferenciaP> traerTransferencias()
+        {
+            List<TrasferenciaP> transferencias = new List<TrasferenciaP>();
+            
+            string fecha = ppal.Fecha.ToString("yyyy-MM-dd");
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+
+            string tablaMesVenta = "Ventae" + mes;
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+            
+            }
+
+          
+            try
+            {
+
+
+                using (OdbcConnection conexion = new OdbcConnection(Conexion.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string consulta = $@"select ve.fpago as MedioPago, ve.total_fpago as Valor, v.estado, ve.id_usuario,ve.fecha,allTrim(v.terminal) + v.mmdd + v.conse as factura from ventacam ve
+                                         inner join {tablaMesVenta} v on ve.terminal = v.terminal and ve.mmdd = v.mmdd and ve.conse = v.conse
+                                         where ve.fpago = 'TR' and ve.id_usuario = '{ppal.idUsuario}' and ve.mmdd = '{mesDia}' and v.estado <> 'ANULADA'";
+                    consulta = consulta.Trim();
+                    
+                    using (OdbcCommand cmd = new OdbcCommand(consulta, conexion))
+                    {
+                        
+                        using (OdbcDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                
+                                TrasferenciaP transferencia = new TrasferenciaP
+                                {
+                                    Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
+                                    Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Factura"].ToString()
+                                };
+                                transferencias.Add(transferencia);
+                            }
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -164,7 +232,7 @@ namespace CierreDeCajas.Presentacion.Sistema
         #endregion
 
         #region Traer Rappi
-        public List<VentasRappi> traerVentasRappi()
+        public List<VentasRappi> traerVentasRappi2()
         {
             List<VentasRappi> rappi = new List<VentasRappi>();
             string fecha = ppal.Fecha.ToString("yyyy-MM-dd");
@@ -197,6 +265,62 @@ namespace CierreDeCajas.Presentacion.Sistema
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
                                     MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
                                     Factura = reader["Numero"].ToString()
+                                };
+                                rappi.Add(ventaRappi);
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al traer las ventas de Rappi: " + ex.Message);
+            }
+            return rappi;
+        }
+        public List<VentasRappi> traerVentasRappi()
+        {
+            List<VentasRappi> rappi = new List<VentasRappi>();
+            string fecha = ppal.Fecha.ToString("yyyy-MM-dd");
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+
+            string tablaMesVenta = "Ventae" + mes;
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+            }
+
+            try
+            {
+                using (OdbcConnection conexion = new OdbcConnection(Conexion.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string consulta = $@"select ve.fpago as MedioPago, ve.total_fpago as Valor, v.estado, ve.id_usuario,ve.fecha,allTrim(v.terminal) + v.mmdd + v.conse as factura from ventacam ve
+                                         inner join {tablaMesVenta} v on ve.terminal = v.terminal and ve.mmdd = v.mmdd and ve.conse = v.conse
+                                         where ve.fpago = 'RA' and ve.id_usuario = '{ppal.idUsuario}' and ve.mmdd = '{mesDia}' and v.estado <> 'ANULADA'";
+
+                    consulta = consulta.Trim();
+
+                    using (OdbcCommand cmd = new OdbcCommand(consulta, conexion))
+                    {
+                       
+                        using (OdbcDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                VentasRappi ventaRappi = new VentasRappi
+                                {
+                                    Valor = Convert.ToDecimal(reader["Valor"]),           
+                                    Fecha = Convert.ToDateTime(reader["Fecha"]),   
+                                    MedioDePago = reader["MedioPago"].ToString(),
+                                    Factura = reader["Factura"].ToString()
                                 };
                                 rappi.Add(ventaRappi);
                             }
@@ -278,6 +402,7 @@ namespace CierreDeCajas.Presentacion.Sistema
             VentasRappiInsertados = true;
             return respuesta;
         }
+        
         //public void EliminarDevolucionesRappi()
         //{
         //    List<Devoluciones> devolucionesList = new List<Devoluciones>();
@@ -389,7 +514,7 @@ namespace CierreDeCajas.Presentacion.Sistema
         #endregion
 
         #region Traer Datafonos
-        public List<Datafonos> traerDatafonos()
+        public List<Datafonos> traerDatafonos2()
         {
             List<Datafonos> Datafonos = new List<Datafonos>();
             string fechaformateada= ppal.Fecha.ToString("yyyy-MM-dd");
@@ -423,6 +548,64 @@ namespace CierreDeCajas.Presentacion.Sistema
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
                                     MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
                                     Factura = reader["Numero"].ToString()
+                                };
+                                Datafonos.Add(datafonos);
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al traer datafonos: " + ex.Message);
+            }
+            return Datafonos;
+        }
+
+        public List<Datafonos> traerDatafonos()
+        {
+            List<Datafonos> Datafonos = new List<Datafonos>();
+
+            string fecha = ppal.Fecha.ToString("yyyy-MM-dd");
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+
+            string tablaMesVenta = "Ventae" + mes;
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+            }
+
+
+           
+            try
+            {
+
+
+                using (OdbcConnection conexion = new OdbcConnection(Conexion.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string consulta = $@"select ve.fpago as MedioPago, ve.total_fpago as Valor, v.estado, ve.id_usuario,ve.fecha,allTrim(v.terminal) + v.mmdd + v.conse as factura from ventacam ve
+                                         inner join {tablaMesVenta} v on ve.terminal = v.terminal and ve.mmdd = v.mmdd and ve.conse = v.conse
+                                         where (ve.fpago = 'TD' or ve.fpago = 'TC') and ve.id_usuario = '{ppal.idUsuario}' and ve.mmdd = '{mesDia}' and v.estado <> 'ANULADA'";
+                    using (OdbcCommand cmd = new OdbcCommand(consulta, conexion))
+                    {
+                        using (OdbcDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                               
+                                Datafonos datafonos = new Datafonos
+                                {
+                                    Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
+                                    Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Factura"].ToString()
                                 };
                                 Datafonos.Add(datafonos);
                             }
@@ -508,7 +691,7 @@ namespace CierreDeCajas.Presentacion.Sistema
         #endregion
 
         #region Traer bonos
-        public List<BonoAlcaldia> traerBonos()
+        public List<BonoAlcaldia> traerBonos2()
         {
             List<BonoAlcaldia> BonosAlcaldia = new List<BonoAlcaldia>();
             string fechaformateada= ppal.Fecha.ToString("yyyy-MM-dd");
@@ -541,6 +724,63 @@ namespace CierreDeCajas.Presentacion.Sistema
                                     Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
                                     MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
                                     Factura = reader["Numero"].ToString()
+                                };
+                                BonosAlcaldia.Add(bonosalcaldia);
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al traer datafonos: " + ex.Message);
+            }
+            return BonosAlcaldia;
+        }
+        public List<BonoAlcaldia> traerBonos()
+        {
+            List<BonoAlcaldia> BonosAlcaldia = new List<BonoAlcaldia>();
+            string fechaformateada = ppal.Fecha.ToString("yyyy-MM-dd");
+
+            string mes = DateTime.Now.ToString("MM");
+            string dia = DateTime.Now.ToString("dd");
+
+            string mesDia = mes + dia;
+
+            string tablaMesVenta = "Ventae" + mes;
+
+            if (test)
+            {
+                mesDia = mesDiaPrueba;
+            }
+
+            try
+            {
+
+                using (SqlConnection conexion = new SqlConnection(Conexion.ConexionVisualFoxPro()))
+                {
+                    conexion.Open();
+                    string consulta = $@"select ve.fpago as MedioPago, ve.total_fpago as Valor, v.estado, ve.id_usuario,ve.fecha,allTrim(v.terminal) + v.mmdd + v.conse as factura from ventacam ve
+                                         inner join {tablaMesVenta} v on ve.terminal = v.terminal and ve.mmdd = v.mmdd and ve.conse = v.conse
+                                         where ve.fpago = 'BO' and ve.id_usuario = '{ppal.idUsuario}' and ve.mmdd = '{mesDia}' and v.estado <> 'ANULADA'";
+
+                    consulta = consulta.Trim();
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                BonoAlcaldia bonosalcaldia = new BonoAlcaldia
+                                {
+                                    Valor = Convert.ToDecimal(reader["Valor"]),           //GetDecimal(0),
+                                    Fecha = Convert.ToDateTime(reader["Fecha"]),   //reader.GetDateTime(1),
+                                    MedioDePago = reader["MedioPago"].ToString(),//reader.GetString(2)
+                                    Factura = reader["Factura"].ToString()
                                 };
                                 BonosAlcaldia.Add(bonosalcaldia);
                             }

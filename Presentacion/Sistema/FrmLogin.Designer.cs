@@ -200,15 +200,16 @@
             // 
             // guna2CirclePictureBox1
             // 
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Black;
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 35);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 34);
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(341, 136);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(341, 137);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -290,13 +291,13 @@
             this.Controls.Add(this.rbSuperCaja);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.lbContraseña);
-            this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.PanelControles);
             this.Controls.Add(this.cbCaja);
             this.Controls.Add(this.cbUsuario);
             this.Controls.Add(this.lbCaja);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2CirclePictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);

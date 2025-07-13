@@ -41,7 +41,6 @@
             this.PanelControles = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.AccionMoverFormulario = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1.SuspendLayout();
             this.cgpSuperCaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSuperCaja)).BeginInit();
@@ -67,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.BarraS.SuspendLayout();
             this.PanelControles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CGPTrabajadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTrabajador)).BeginInit();
             this.cgpAdelantos.SuspendLayout();
@@ -75,6 +74,7 @@
             this.CGPReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -177,8 +177,8 @@
             // BarraS
             // 
             this.BarraS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(50)))));
+            this.BarraS.Controls.Add(this.guna2PictureBox1);
             this.BarraS.Controls.Add(this.PanelControles);
-            this.BarraS.Controls.Add(this.pictureBox1);
             this.BarraS.Controls.Add(this.label1);
             this.BarraS.Controls.Add(this.label2);
             this.BarraS.Controls.Add(this.label3);
@@ -232,17 +232,6 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 24);
             this.guna2ControlBox1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -251,9 +240,9 @@
             this.label1.Location = new System.Drawing.Point(76, 53);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 22);
+            this.label1.Size = new System.Drawing.Size(298, 22);
             this.label1.TabIndex = 10;
-            this.label1.Text = "SUPERMERCADO LA BODEGA DE NACHO";
+            this.label1.Text = "SUPERMERCADOS MY TIENDA";
             // 
             // label2
             // 
@@ -462,6 +451,19 @@
             this.AccionMoverFormulario.TargetControl = this.PanelControles;
             this.AccionMoverFormulario.UseTransparentDrag = true;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 10;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(8, 11);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(72, 68);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 15;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // FrmAdministrativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,7 +486,6 @@
             this.BarraS.ResumeLayout(false);
             this.BarraS.PerformLayout();
             this.PanelControles.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CGPTrabajadores.ResumeLayout(false);
             this.CGPTrabajadores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTrabajador)).EndInit();
@@ -495,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbReportes)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -517,7 +519,6 @@
         private System.Windows.Forms.Panel PanelControles;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -531,5 +532,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel cgpSuperCaja;
         private System.Windows.Forms.PictureBox pbSuperCaja;
         private System.Windows.Forms.Label lbSuperCaja;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

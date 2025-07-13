@@ -4,6 +4,7 @@ using CierreDeCajas.Presentacion.Administrativo;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace CierreDeCajas.Logica
             CargarNovedades();
         }
 
-        public decimal ActualizarVentas(string IdUsuario)
+        public decimal ActualizarVentas2(string IdUsuario)
         {
             decimal ventasNuevas = 0;
             try
@@ -88,6 +89,44 @@ namespace CierreDeCajas.Logica
             return valorVentas;
         }
 
+        public decimal ActualizarVentas(string IdUsuario)
+        {
+            decimal ventasNuevas = 0;
+            try
+            {
+                using (OdbcConnection cn = new OdbcConnection(conexion.ConexionVisualFoxPro()))
+                {
+                    cn.Open();
+                    string sql = $@"SELECT
+        SUM(IIF(Estado  = 'PAGADA', total, 0)) AS VentasTotales
+        FROM ventae07 WHERE vendedor = '{IdUsuario}'";
+
+                    sql = sql.Trim();
+
+                    using (OdbcCommand cmd = new OdbcCommand(sql, cn))
+                    {
+                       
+                        using (OdbcDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                ventasNuevas = Convert.ToDecimal(dr["VentasTotales"]);
+                                if (ventasNuevas > 0)
+                                {
+                                    valorVentas = ventasNuevas;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return valorVentas;
+        }
+
         public decimal CargarValorVentas()
         {
             try
@@ -117,7 +156,7 @@ namespace CierreDeCajas.Logica
             return valorVentas;
         }
 
-        public decimal ActualizarDevoluciones(string IdUsuario)
+        public decimal ActualizarDevoluciones2(string IdUsuario)
         {
             decimal devoluciones = 0;
             try
@@ -135,6 +174,42 @@ namespace CierreDeCajas.Logica
                         if (result != null && result != DBNull.Value)
                         {
                             devoluciones = Convert.ToDecimal(result);
+                            if (devoluciones > 0)
+                            {
+                                valorDevoluciones = devoluciones;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return valorDevoluciones;
+        }
+
+        public decimal ActualizarDevoluciones(string idUsuario)
+        {
+            decimal devoluciones = 0;
+            try
+            {
+                using (OdbcConnection cn = new OdbcConnection(conexion.ConexionVisualFoxPro()))
+                {
+                    cn.Open();
+                    string consulta = $@"SELECT
+    SUM(IIF(Estado  = 'ANULADA', total, 0)) AS Devoluciones
+FROM ventae07 WHERE terminal = '010903' and vendedor = '{idUsuario}'";
+
+                    using (OdbcCommand cmd = new OdbcCommand(consulta, cn))
+                    {
+                        var resultado = cmd.ExecuteScalar();
+
+                        if (resultado != DBNull.Value)
+                        {
+                            devoluciones = Convert.ToDecimal(resultado);
                             if (devoluciones > 0)
                             {
                                 valorDevoluciones = devoluciones;

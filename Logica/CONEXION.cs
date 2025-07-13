@@ -8,17 +8,7 @@ namespace CierreDeCajas.Logica
 {
     public class CONEXION
     {
-
-       // public string CadenaRibisoft { get; set; }
-       // public string CadenaCierreCajas { get; set; }
-       // public string CadenaBdInterna { get; set; }
-
-        //public CONEXION()
-        //{
-        //    // generar consulta a un archivo plano [.txt] para que se pueda configurar fuera de la compilación.
-
-        //}
-
+               
         public string ConexionRibisoft()
         {
             //string servidor = @"SERVIDOR-PC\SQLEXPRESS";
@@ -28,6 +18,17 @@ namespace CierreDeCajas.Logica
             string contraseña = "abcd.1234";
             string cadena = $"Data Source={servidor};Initial Catalog={NombreBaseDatos};User ID={usuario};Password={contraseña};";
             return cadena;
+        }
+
+        public string ConexionVisualFoxPro()
+        {
+            string ruta = @"Z:\Delfin\DbfRed\";
+
+            string conexion = "Driver={Driver para o Microsoft Visual FoxPro};SourceType=DBF;SourceDB=" + ruta +
+                ";Exclusive=NO";
+
+            return conexion;
+
         }
 
         //public string ConexionCierreCaja()
